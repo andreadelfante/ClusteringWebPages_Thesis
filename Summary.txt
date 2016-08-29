@@ -1,0 +1,24 @@
+- Introduzione
+- Informazioni latenti nel Web
+	- Data Mining
+	- Web Mining
+	- Rappresentazioni vettoriali di pagine Web
+		- Word2Vec
+		- Line (?)
+		- Doc2Vec (?)
+		- Word Space Model (da omonimo paper)
+	- Clustering
+		- Approcci di clustering
+		- Algoritmi usati nella sperimentazione
+- Web Crawling
+- Costruzione del Dataset
+	- Random Walks
+	- Generazione delle sequenze
+	- Esempio di dataset (?)
+- Web page clustering
+- Sperimentazione
+	- Dataset
+	- Metriche
+	- Configurazioni
+	- Analisi dei risultati
+- Conclusione
