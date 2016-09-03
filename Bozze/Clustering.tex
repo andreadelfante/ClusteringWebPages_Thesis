@@ -1,15 +1,3 @@
-\documentclass[10pt]{article}
-\usepackage[usenames]{color} %usato per il colore
-\usepackage{amssymb} %maths
-\usepackage{amsmath} %maths
-%\usepackage[utf8x]{inputenc} %utile per scrivere direttamente in caratteri accentuati
-\usepackage[latin1]{inputenc}
-\usepackage[pdftex]{graphicx} 
-
-\graphicspath{ {./../Immagini/} }
-
-
-\begin{document}
 \section{Clustering}
 Con il termine clustering si intende l'insieme di tecniche che hanno come scopo quello di selezionare e raggruppare, da una collezione di dati, elementi omogenei, avendo come base la somiglianza tra gli stessi. La somiglianza tra gli elementi è concepita in termini di distanza di uno spazio multidimensionale. La bontà della similarità dipende fortemente dalla funzione che si usa per calcolare la distanza tra gli elementi.
 
@@ -120,5 +108,3 @@ HDBScan è un algoritmo di clustering che estende DBScan, rendendolo di tipo gera
 Invece di richiedere come input il parametro $\epsilon$, che viene usato da DBScan per considerare gli elementi del vicinato appartenenti al cluster, viene creato un albero, il quale viene usato per selezionare i cluster più stabili e persistenti.
 Al posto di $\epsilon$, quindi, viene richiesta la dimensione minima dei cluster per determinare quali gruppi non devono essere considerati come cluster, oppure per dividerli e formare nuovi cluster.
 Questo algoritmo è molto efficace ed è il più veloce, sia di DBScan che di K-Means.
-
-\end{document}

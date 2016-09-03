@@ -4,11 +4,12 @@
 	- Web Mining
 	- Rappresentazioni vettoriali di pagine Web
 		- Word2Vec
-		- Line (?)
+		- Line (cos'è e cosa fa)
 		- Doc2Vec (?)
 		- Word Space Model (da omonimo paper)
 	- Clustering
 		- Approcci di clustering
+		- Funzioni (o misure) di distanza
 		- Algoritmi usati nella sperimentazione
 - Web Crawling
 - Costruzione del Dataset
@@ -16,6 +17,8 @@
 	- Generazione delle sequenze
 	- Esempio di dataset (?)
 - Web page clustering
+- Stato dell'arte del clustering di pagine web (?)
+	- Estendere lo stato dell'arte dei due paper, ovvero clustering e sitemap
 - Sperimentazione
 	- Dataset
 	- Metriche
