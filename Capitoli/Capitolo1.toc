@@ -1,0 +1,27 @@
+\select@language {italian}
+\select@language {italian}
+\contentsline {section}{\numberline {0.1}Data Mining}{3}
+\contentsline {paragraph}{Natural Language Processing}{4}
+\contentsline {paragraph}{Text Mining}{4}
+\contentsline {section}{\numberline {0.2}Web Mining}{4}
+\contentsline {paragraph}{Web Usage Mining}{5}
+\contentsline {paragraph}{Web Structure Mining}{6}
+\contentsline {paragraph}{Web Content Mining}{6}
+\contentsline {section}{\numberline {0.3}Rappresentazioni vettoriali di pagine Web}{6}
+\contentsline {subsection}{\numberline {0.3.1}Word2Vec}{6}
+\contentsline {subsection}{\numberline {0.3.2}Line}{6}
+\contentsline {subsection}{\numberline {0.3.3}Doc2Vec}{6}
+\contentsline {subsection}{\numberline {0.3.4}Word space model}{6}
+\contentsline {section}{\numberline {0.4}Clustering}{6}
+\contentsline {subsection}{\numberline {0.4.1}Approcci di clustering}{6}
+\contentsline {paragraph}{Hard clustering e soft clustering}{7}
+\contentsline {paragraph}{Clustering partizionale}{7}
+\contentsline {paragraph}{Clustering gerarchico}{7}
+\contentsline {subsection}{\numberline {0.4.2}Funzioni (o misure) di distanza}{7}
+\contentsline {paragraph}{Single-link proximity}{8}
+\contentsline {paragraph}{Average-link proximity}{8}
+\contentsline {paragraph}{Complete-link proximity}{8}
+\contentsline {paragraph}{Distanza tra centroidi}{8}
+\contentsline {subsection}{\numberline {0.4.3}Algoritmi usati}{10}
+\contentsline {paragraph}{K-Means}{10}
+\contentsline {paragraph}{HDBScan}{10}

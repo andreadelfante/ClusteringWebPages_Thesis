@@ -1,0 +1,35 @@
+\begin{thebibliography}{1}
+
+\bibitem{cinecadatamining}
+Cos'{\`e} il data mining.
+\newblock Cineca.
+
+\bibitem{webminingmalerba}
+G.~Convertino, L.~Di~Pace, P.~Leo, A.~Maffione, D.~Malerba, and G.~Vespucci.
+\newblock Tecniche di web mining per supportare l'attivit{\`a} di navigazione
+  in rete.
+\newblock (2):12.
+
+\bibitem{Kleinberg99}
+Jon~M. Kleinberg.
+\newblock Authoritative sources in a hyperlinked environment.
+\newblock {\em J. ACM}, 46(5):604--632, sep 1999.
+
+\bibitem{pagerankstanford}
+Lawrence Page, Sergey Brin, Rajeev Motwani, and Terry Winograd.
+\newblock The pagerank citation ranking: Bringing order to the web.
+\newblock Technical Report 1999-66, Stanford InfoLab, November 1999.
+
+\bibitem{Nilima}
+N.~V. Pardakhe and R.~R. Prof.~Keole.
+\newblock Analysis of various web page ranking algorithms in web structure
+  mining.
+\newblock 2:6, 2013.
+
+\bibitem{webmining21cap}
+Jaideep Srivastava, Prasanna Desikan, and Vipin Kumar.
+\newblock Chapter 21 - web mining - concepts, applications, and research
+  directions.
+\newblock In {\em Foundations and Advances in Data Mining}, pages 275--307.
+
+\end{thebibliography}
