@@ -82,15 +82,82 @@ Nel campo della ricerca, è stato applicato il Text Mining, che ha permesso di mi
 Per estrarre il sapere da contenuti più complessi, come le immagini, le tecniche di Web Content Mining sono molto limitate\cite{webmining21cap}.
 
 \section{Rappresentazioni vettoriali di pagine Web}
-Il campo del Web Mining, come visto in precedenza, è una intersezione di molte discipline, quali Information Retrieval, Web Mining, Data Mining e Machine Learning. 
+Il campo del Web Mining, come visto in precedenza, è una intersezione di molte discipline, quali Information Retrieval, Web Mining, Data Mining e Machine Learning.\\
+Attualmente, il modello di apprendimento più usato è la trasformazione del contenuto della pagina web in uno spazio vettoriale
+
+\subsection{Word space model}
+Il Word Space Model, come definito in \cite{wordspacemodel}, è una rappresentazione spaziale del significato delle parole. Si basa sul fatto che la similarità semantica viene rappresentata come prossimità, in uno spazio ad $n$ dimensioni, dove $n$ è un intero.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 50mm]{wordspaceexample}
+	\caption{Esempi di spazi di parole, rispettivamente mono-dimensionale (1) e bi-dimensionale (2)}
+	\label{wordspaceexamples}
+\end{figure}
+
+In Figura \ref{wordspaceexamples} sono riportati due esempi di spazi di parole, in cui la prossimità è data dalla posizione delle parole nello spazio.
+In entrambi i casi, si può notare come il termine $sitar$ sia più simile di significato con $oud$, e meno simile con $guitar$.
+\\\\
+Ma come si costruisce uno spazio delle parole? Una modalità di costruzione è la \textbf{matrice di co-occorrenze}.\\
+Tale matrice può essere formata o parola per parola ($w$ x $w$), dove $w$ sono i tipi di parole nel set, oppure parola per documento ($w$ x $d$), dove $d$ sono i documenti nel set. Le celle di questa matrice registrano la frequenza di occorrenza della parola i-esima in un contesto j, oppure in un documento j nel caso di matrice parola per documento.\\
+Con contesto si intende un insieme di parole che si trovano nel vicinato della parola i-esima.
+\\\\
+Prendiamo come esempio la frase:
+\begin{figure}[h]
+	\centering
+	Whereof one cannot speak thereof one must be silent
+	\label{sentencematrix}
+	\caption{Frase di esempio \cite{wordspacemodel}}
+\end{figure}
+
+\begin{table}[]
+	\centering
+	\caption{Matrice di co-occorrenze parola per parola \cite{wordspacemodel}}
+	\label{tablematrix}
+	\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+		\hline
+		& whereof & one & cannot & speak & thereof & must & be & silent  \\ \hline
+		whereof & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\ \hline
+		one & 1 & 0 & 1 & 0 & 1 & 1 & 0 & 0 \\ \hline
+		cannot & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 \\ \hline
+		speak & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 \\ \hline
+		thereof & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 0 \\ \hline
+		must & 0 & 1 & 0 & 0 & 1 & 0 & 1 & 0 \\ \hline
+		be & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 \\ \hline
+		silent & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\ \hline
+	\end{tabular}
+\end{table}
+
+Le celle della matrice di co-occorrenze, visibile nella Tabella \ref{tablematrix}, registrano le occorrenze delle parola i-esima, le quali dipendono dal contesto.\\
+Queste liste di occorrenze sono dei veri e propri vettori. Un vettore, per definizione, è un elemento di uno spazio vettoriale, ed è definito da $n$ componenti o coordinate $\overrightarrow{v} = (x_1, x_2, ..., x_n)$ \cite{wordspacemodel}. Tali coordinate definiscono la posizione nello spazio n-dimensionale.\\
+Quindi, la matrice di co-occorrenze non è altro che una realizzazione del modello dello spazio vettoriale, chiamato Vector Space Model.
+
+\paragraph{Vector Space Model}
+Il Vector Space Model è una modalità algebrica per rappresentare documenti di testo come vettori, inseriti in uno spazio vettoriale.\\
+Generalmente, per definire i vettori viene usato come peso \textit{tf-idf}.\\
+\textit{Tf-idf} è una funzione che viene usata per misurare l'importanza di un termine rispetto ad un documento o ad una collezione di documenti. E' composta da due fattori: \textit{tf} e \textit{idf}.\\
+\textit{Tf}, abbreviazione di term frequency, misura quante volte un termine appare in un documento. Dato che ogni documento ha lunghezza differente, è possibile che un termine possa apparire molte più volte nei documenti più lunghi che in quelli più corti. Questo problema si risolve dividendo la frequenza dei termini per la lunghezza del documento. La formula è:
+\begin{equation}
+	tf_{i, j} = \frac{n_{i, j}}{|d_J|}
+\end{equation}
+dove $n_{i, j}$ è il numero di occorrenze del termine $t_i$ che si trova nel documento $d_j$, mentre il denominatore è la dimensione del documenti $d_j$.
+\\
+\textit{Idf}, invece, misura i termini che appaiono molte volte in un documento ma meno volte in tutta la collezione. Questo perchè potrebbero essere più significativi per quel documento specifico. La formula è:
+\begin{equation}
+	idf_i = \log{\frac{|D|}{|\{d : t_i \in d\}|}}
+\end{equation}
+dove $|D|$ è il numero di documenti presenti nella collezione, mentre il denominatore è il numero di documenti che contengono il termine $t_i$.
+
+\paragraph{Word embedding}
+% https://en.wikipedia.org/wiki/Word_embedding
+% http://colah.github.io/posts/2014-07-NLP-RNNs-Representations/
 
 \subsection{Word2Vec}
+% https://en.wikipedia.org/wiki/Word2vec
 
 \subsection{Line}
 
 \subsection{Doc2Vec}
-
-\subsection{Word space model}
 
 \section{Clustering}
 Con il termine clustering si intende l'insieme di tecniche che hanno come scopo quello di selezionare e raggruppare, da una collezione di dati, elementi omogenei, avendo come base la somiglianza tra gli stessi. La somiglianza tra gli elementi è concepita in termini di distanza di uno spazio multidimensionale. La bontà della similarità dipende fortemente dalla funzione che si usa per calcolare la distanza tra gli elementi.
@@ -122,6 +189,7 @@ Durante l'aggregazione degli elementi è necessario usare una funzione che permet
 
 \subsection{Funzioni (o misure) di distanza}
 A seconda dell'approccio utilizzato, vi sono delle funzioni (o misure) che permettono di calcolare la distanza tra due cluster. Viene molto usato dagli algoritmi di clustering gerarchico per calcolare la similarià tra i cluster e per unire, eventualmente, i cluster simili. Le funzioni di distanza usate da questo tipo di clustering sono: \textbf{single-link proximity}, \textbf{average-link proximity}, \textbf{complete-link proximity} e la \textbf{distanza tra centroidi}.
+
 
 \paragraph{Single-link proximity}
 Questa funzione calcola la distanza tra due cluster come la distanza minima tra elementi appartenenti a cluster differenti.

@@ -3,10 +3,10 @@
 	- Data Mining
 	- Web Mining
 	- Rappresentazioni vettoriali di pagine Web
+		- Word Space Model
 		- Word2Vec
 		- Line (cos'è e cosa fa)
 		- Doc2Vec (?)
-		- Word Space Model (da omonimo paper)
 	- Clustering
 		- Approcci di clustering
 		- Funzioni (o misure) di distanza
