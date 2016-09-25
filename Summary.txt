@@ -1,5 +1,5 @@
 - Introduzione
-- Informazioni latenti nel Web
+- Informazioni latenti nel Web (sviscera argomenti, qualsiasi essi siano)
 	- Data Mining
 	- Web Mining
 	- Rappresentazioni vettoriali di pagine Web
@@ -11,15 +11,17 @@
 		- Approcci di clustering
 		- Funzioni (o misure) di distanza
 		- Algoritmi usati nella sperimentazione
+- Stato dell'arte del clustering di pagine web (?)
+	- Estendere lo stato dell'arte dei due paper, ovvero clustering e sitemap
+	(related work, dove è arrivata la scienza e i lavori che giustificano quello che ho fatto, il perché)
 - Capitolo
 	- Web Crawling
+		- Implementazione in pseudo codice
 	- Costruzione del Dataset
 		- Random Walks
 		- Generazione delle sequenze
 		- Esempio di dataset (?)
 	- Web page clustering
-- Stato dell'arte del clustering di pagine web (?)
-	- Estendere lo stato dell'arte dei due paper, ovvero clustering e sitemap
 - Sperimentazione
 	- Dataset
 	- Metriche

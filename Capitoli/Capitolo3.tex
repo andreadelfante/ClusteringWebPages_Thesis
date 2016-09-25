@@ -1,0 +1,57 @@
+\documentclass[a4paper,12pt,oneside]{book}
+\usepackage[usenames]{color} %usato per il colore
+\usepackage{amssymb} %maths
+\usepackage{amsmath} %maths
+\usepackage[latin1]{inputenc}
+\usepackage[pdftex]{graphicx} 
+\usepackage{filecontents}
+\usepackage[italian]{babel}
+\usepackage{setspace}
+
+\graphicspath{ {./../Immagini/} }
+
+\begin{document}
+
+\addtolength{\oddsidemargin}{+1,0cm} 
+\addtolength{\evensidemargin}{+1,0cm} 
+\onehalfspacing
+
+\section{Web Crawling}
+
+\section{Costruzione del dataset}
+
+\subsection{Random Walks}
+
+\subsection{Generazione delle sequenze}
+
+\subsection{Esempio di dataset}
+In questa sezione si spiega come è stato strutturato il dataset per la sperimentazione. 
+I file sono stati generati dal Web Crawling e dai Random Walks, e che sono usati per effettuare la sperimentazione descritta in questa tesi [...][aggiungi riferimento].\\
+Per spiegare il dataset è stato preso come esempio il sito del dipartimento di informatica di Stanford, CA: \texttt{cs.stanford.edu}.
+
+\paragraph{edges.txt}
+Contiene gli archi tra i nodi del grafo del sito web, i quali non sono altro che gli hyperlinks tra le pagine. Questo file viene usato per la generazione delle sequenze dall'algoritmo dei Random Walks.
+\\\\
+\texttt{
+3	69\\
+3	101\\
+3	88\\
+3	115\\
+3	5\\
+3	120\\
+3	10\\
+3	56\\
+...
+}
+
+\paragrath{embeddings_with_b.txt, embeddings_no_b.txt, embeddings_normal.txt, embeddings_line_first.txt, embeddings_line_second.txt}
+Questi file contengono gli embeddings, i.e. lo spazio dei vettori degli url appresi, 
+
+\section{Web page clustering}
+
+%aggiungi visualizzazione dati
+
+%\bibliographystyle{plain}
+%\bibliography{./../Bibliografia}                % database di biblatex 
+
+\end{document}

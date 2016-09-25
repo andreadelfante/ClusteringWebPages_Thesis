@@ -2,30 +2,40 @@
 \usepackage[usenames]{color} %usato per il colore
 \usepackage{amssymb} %maths
 \usepackage{amsmath} %maths
-%\usepackage[utf8x]{inputenc} %utile per scrivere direttamente in caratteri accentuati
 \usepackage[latin1]{inputenc}
 \usepackage[pdftex]{graphicx} 
 \usepackage{filecontents}
 \usepackage[italian]{babel}
+\usepackage{setspace}
 
 \graphicspath{ {./../Immagini/} }
 
-
 \begin{document}
 
-\section{Web Crawling}
+\addtolength{\oddsidemargin}{+1,0cm} 
+\addtolength{\evensidemargin}{+1,0cm} 
+\onehalfspacing
 
-\section{Costruzione del dataset}
+%\tableofcontents
+%\listoftables
+%\listoffigures
+%\newpage
 
-\subsection{Random Walks}
+% related work, dove è arrivata la scienza e i lavori che giustificano quello che ho fatto, il perché
+L'applicazione delle tecniche di Clustering su pagine di siti Web non è un nuovo campo di ricerca. La maggior parte delle metodologie che si trovano in letteratura sono state usate per raggruppare le pagine Web.
+\\\\
+Tuttavia queste ricerche sono state indirizzate sul processo di Clustering di pagine provenienti da diversi siti Web, trascurando le pagine di uno specifico sito. Gli hyperlink, infatti, hanno significati diversi in base al dominio di destinazione: se la pagina puntata si trova nello stesso sito Web, il collegamento avrà funzione di organizzazione dei contenuti del sito; altrimenti se il collegamento punta ad una pagina esterna sarà indirizzato a pagine che probabilmente avranno contenuti simili.
+\\\\
+Gli algoritmi di Clustering esistenti si classificano in quattro categorie in base alle informazioni che questi usano per raggruppare le pagine Web:
+\begin{itemize}
+	\item \textbf{Algoritmi di Clustering basati sul contenuto testuale}. Questa tipologia di algoritmi considerano le pagine Web come dei documenti testuali indipendenti. Questo è il caso di \cite{Zamir,Chehreghani,Haveliwala,Anami}, dove la distribuzione delle parole è usata per scoprire insiemi appropriati di pagine Web correlate. Il vantaggio di questo approccio è che molti strumenti di clustering, basati sul modello dello spazio vettoriale, possono essere direttamente applicabili. Lo svantaggio è che questa tipologia fallisce quando devono essere appresi modelli accurati, a causa della natura non controllata ed eterogenea dei contenuti delle pagine Web. Infatti, i tradizionali algoritmi di Clustering si basano sull'assunto che i documenti testuali condividono stili di scrittura consistendi, dando abbastanza informazioni contestuali, sono chiari e completamente non strutturati, e sono indipendenti e identicamente distribuiti. Queste limitazioni sono più ovvie per il Clustering di pagine Web di differenti siti o il cui contesto è creato in maniera collaborativa. In questo fatto, infatti, le pagine Web aventi stesso argomento potrebbero essere contestualmente differenti: in altre parole, potrebbero avere un contenuto informativo simile immerso, però, in elementi Web di diverse regole semantiche (i.e. tabelle o menu di navigazione) e di differenti funzionalità (i.e. link, pulsanti, immagini).
+	\item \textbf{Algoritmi di Clustering basati sui Web log}.
+	\item \textbf{Algoritmi di Clustering basati sulla struttura HTML}. Questi tipi di algoritmi di Clustering hanno il vantaggio di considerare sia l'informazione strutturale che visuale inserita nei tag HTML, che viene ignorata dall'approccio testuale. 
+	\item \textbf{Algoritmi di Clustering basati sulla struttura ad hyperlink}.
+\end{itemize}
+Le pagine Web, a differenza dei documenti, sono caratterizzate da proprietà strutturali come tag HTML, proprietà visuali ed hyperlink, che definiscono la loro rappresentazione strutturale. E' stato provato da \cite{crescenzi,bohunsky,lin,zhu}, in cui l'informazione strutturale fornisce una differente e e complementare informazione rispetto alla rappresentazione testuale.
 
-\subsection{Generazione delle sequenze}
-
-\subsection{Esempio di dataset}
-
-\section{Web page clustering}
-
-\bibliographystyle{plain}
-\bibliography{./../Bibliografia}                % database di biblatex 
+%\bibliographystyle{plain}
+%\bibliography{./../Bibliografia}                % database di biblatex 
 
 \end{document}
