@@ -14,14 +14,16 @@
 - Stato dell'arte del clustering di pagine web (?)
 	- Estendere lo stato dell'arte dei due paper, ovvero clustering e sitemap
 	(related work, dove è arrivata la scienza e i lavori che giustificano quello che ho fatto, il perché)
-- Capitolo
+- Pianificazione della sperimentazione
 	- Web Crawling
 		- Implementazione in pseudo codice
 	- Costruzione del Dataset
 		- Random Walks
 		- Generazione delle sequenze
-		- Esempio di dataset (?)
+	- Modifica dell'implementazione di Word2VEc
+		- Scaling degli embeddings
 	- Web page clustering
+	- Esempio di dataset
 - Sperimentazione
 	- Dataset
 	- Metriche

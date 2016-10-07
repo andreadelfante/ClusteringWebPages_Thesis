@@ -203,6 +203,7 @@ Queste liste di occorrenze sono dei veri e propri vettori. Un vettore, per defin
 Quindi, la matrice di co-occorrenze non è altro che una realizzazione del modello dello spazio vettoriale, chiamato Vector Space Model.
 
 \paragraph{Vector Space Model}
+\label{tfidf}
 Il Vector Space Model è una modalità algebrica per rappresentare documenti di testo come vettori, inseriti in uno spazio vettoriale.
 \\
 Generalmente, per definire i vettori viene usato come peso \textit{tf-idf}, una funzione che viene usata per misurare l'importanza di un termine rispetto ad un documento o ad una collezione di documenti. Come suggerisce il nome, è composta da due fattori: \textit{tf} e \textit{idf}.
@@ -307,6 +308,7 @@ Inizialmente, si crea il set di dati formato da coppie (contesto, parola), di cu
 \end{figure}
 
 \subsection{LINE}
+\label{line}
 LINE è un nuovo modello di network embedding, capace di apprendere rappresentazioni mono-dimensionali di vertici in una rete o grafo. Un grafo è una coppia ordinata $G = (V, E)$ di insiemi, con $V$ insieme dei nodi ed $E$ insieme degli archi.
 \\
 Questo modello di apprendimento lavora bene soprattutto con grafi orientati, pesati e non-pesati. In \cite{tang2015line} viene effettuata una sperimentazione in cui sono state valutate le prestazioni di LINE nelle reti di informazioni del mondo reale, come social networks o ancora citation networks. Dato che LINE apprende un grafo, deve anche preservare la prossimità di primo e secondo ordine separatamente.
@@ -328,6 +330,7 @@ Si noti come la prossimità di primo ordine può essere applicata solo a grafi non
 Tali prossimità, tuttavia, sono complementari l'una all'altra.
 
 \subsection{Doc2Vec}
+\label{doc2vec}
 Doc2Vec, chiamato anche Paragraph2Vec, è un'estensione di Word2Vec che apprende correlando etichette e parole, invece che parole con altre parole.
 \\
 Differentemente da Word2Vec, che converte una parola in un vettore, Doc2Vec aggrega tutte le parole di una frase in un vettore.
@@ -451,6 +454,7 @@ Nei casi precedenti, $d(x, y)$ indica una qualsiasi funzione distanza, su uno sp
 \end{itemize}
 
 \subsection{Algoritmi usati}
+\label{clusteringexperimentation}
 In questa sezione vengono descritti gli algoritmi di Clustering usati sui dataset della sperimentazione presente in questa tesi. Il suo scopo è quello di analizzare la bontà dell'operazione di Clustering mediante apposite metriche. Gli elementi sui quali è stato effettuato il Clustering sono stati appresi da algoritmi di Machine Learning differenti.
 
 \paragraph{K-Means}
