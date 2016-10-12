@@ -238,6 +238,7 @@ La modifica di Skip-Gram consiste nel limitare l'apprendimento dell'algoritmo in
 Per la sperimentazione sono stati prodotti, quindi, due tipologie di modelli di Skip-Gram che analizzano solo il contesto sinistro: uno che utilizza il valore b ed un'altro che non lo usa.
 
 \subsection{Scaling degli embeddings}
+\label{scaling}
 Una volta prodotti gli spazi vettoriali delle parole, partendo dalle frasi generate dall'algoritmo di Random Walk, sono state analizzate metodologie di Feature Scaling per capire la migliore da usare in questo caso e per effettuare confronti di similarità tra i vettori. 
 \\
 Il Feature Scaling è un metodo usato per standardizzare un intervallo di variabili indipendenti o features di dati. Viene anche chiamato normalizzazione di dati ed è generalmente effettuato nei passi di preprocessing di dati. Non solo, normalizzare i dati significa anche ridurre l'effetto degli Outlier. Il termine Outlier è usato in statistica per definire, in un insieme di osservazioni, un valore anomalo e aberrante: un valore, quindi, chiaramente distante dalle altre osservazioni disponibili. Un numero consistente di Outlier nel campione in analisi può portare a risultati fuorvianti. Per esempio, se misurassimo la temperatura di 10 oggetti presenti in una stanza, la maggior parte dei quali risultasse avere una temperatura compresa fra i 20 e 25 gradi Celsius, allora il forno acceso, avente una temperatura di 350 gradi, sarebbe un dato aberrante.
