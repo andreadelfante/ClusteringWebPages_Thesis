@@ -7,11 +7,10 @@
 \usepackage[parfill]{parskip}
 \usepackage{amsmath, amssymb}
 \usepackage{moreverb}
-%\usepackage{subfig}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage[usenames,dvipsnames]{color}
-\usepackage[swapnames]{frontespizio}
+\usepackage{frontespizio}
 \usepackage{url}
 \usepackage{setspace}
 \usepackage{eqparbox,array}
@@ -57,12 +56,12 @@
 		\Logo[3.5cm]{logo_uni}
 		\Divisione{Dipartimento di Informatica}
 		\Corso{\\Informatica e Tecnologie per la Produzione del Software}
-		\Annoaccademico{2014-2015}
+		\Annoaccademico{2015-2016}
 		\Titoletto{Tesi di laurea\\in\\Programmazione II}
-		\Titolo{}
+		\Titolo{Deep Learning per il Clustering di pagine in un grafo Web}
 		\Candidato[618951]{Andrea Del Fante}
 		\NCandidato{Laureando}
-		\Relatore{Chiar.mo Prof. Michelangelo Ceci}
+		\Relatore{Prof. Michelangelo Ceci}
 		\Correlatore{Dott.ssa Pasqua Fabiana Lanotte}
 		\Margini{3cm}{2cm}{2cm}{2cm}
 	\end{frontespizio}
@@ -81,7 +80,15 @@
 	\listoffigures
 	\newpage
 
-% capitoli
+%******************************************************************
+% Materiale iniziale
+%******************************************************************
+
+
+
+%******************************************************************
+% Materiale principale
+%******************************************************************
 	% frontespizio
 	
 	\frontmatter	
@@ -93,7 +100,7 @@
 	\fancyhead[LE,RO]{\slshape \leftmark}
 	\fancyfoot[LE,RO]{\thepage}
 	\renewcommand{\headrulewidth}{1pt}
-	\renewcommand{\chaptermark}[1]{%
+	\renewcommand{\chaptermark}[1]{
 	\markboth{\thechapter.\ #1}{}}
 
 \chapter{Informazioni latenti nel Web}
@@ -107,6 +114,14 @@
 \chapter{Pianificazione della sperimentazione}
 \label{cap:capitolo3}
 \input{Capitoli/Capitolo3}
+
+\chapter{Sperimentazione}
+\label{cap:capitolo4}
+\input{Capitoli/Capitolo4}
+
+\chapter{Conclusioni e sviluppi futuri}
+\label{cap:capitolo5}
+\input{Capitoli/Conclusione}
 
 \bibliographystyle{plain}
 \bibliography{./Bibliografia}                % database di biblatex

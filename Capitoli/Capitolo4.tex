@@ -1,28 +1,3 @@
-\documentclass[a4paper,12pt,oneside]{book}
-\usepackage[usenames]{color} %usato per il colore
-\usepackage{amssymb} %maths
-\usepackage{amsmath} %maths
-\usepackage[latin1]{inputenc}
-\usepackage[pdftex]{graphicx} 
-\usepackage{filecontents}
-\usepackage[italian]{babel}
-\usepackage{setspace}
-\usepackage[flushleft]{threeparttable}
-
-
-\graphicspath{ {./../Immagini/} }
-
-\begin{document}
-
-\addtolength{\oddsidemargin}{+1,0cm}
-\addtolength{\evensidemargin}{+1,0cm}
-\onehalfspacing
-
-\tableofcontents
-\listoftables
-\listoffigures
-\newpage
-
 In questo capitolo verranno descritte le modalità di esecuzione della sperimentazione.
 \\\\
 L'obiettivo di questo capitolo è quello di valutare l'efficacia dell'approccio realizzato per poter comprendere se la modifica del modello di Word2Vec Skip-Gram può portare ad un miglioramento effettivo porta ad un effettivo miglioramento del processo di Clustering delle pagine di un sito Web.
@@ -166,16 +141,8 @@ Per tutte le versioni di Word2Vec Skip-Gram, sono stati utilizzati i seguenti pa
 	\item \textbf{iterate}: numero di iterazioni sulle frasi da apprendere. E' stato impostato a 50 per Random Walk di 100.000 frasi; 10 per Random Walk di 500.000 frasi; 3 per Random Walk di 1.000.000 di frasi.
 \end{itemize}
 I valori dei parametri sopra citati sono stati utilizzati per tutti i dataset della sperimentazione.
-
-\subsection{Combinato}
-Sono state combinate le informazioni riguardanti la struttura del sito Web e il contenuto testuale delle pagine. Le combinazioni prodotte per la sperimentazione sono di due tipi:
-\begin{itemize}
-	\item \textbf{Combined List Constraint}. Sono stati combinati i vettori prodotti dalla struttura ad hyperlink del sito, usando il Crawler che sfrutta le Liste Web, e quelli prodotti dal contenuto delle pagine. Sono stati prodotti vettori aventi come dimensione 200.
-	\item \textbf{Combined No Constraint}. Come nella configurazione precedente, sono stati combinati testo e struttura ad hyperlink del sito Web in un singolo spazio vettoriale, avente come dimensione 200. In questo caso, è stato utilizzato il Crawler tradizionale.
-\end{itemize}
-
-\subsection{Archi}
-Si è voluto confrontare il modello Skip-Gram tradizionale con un nuovo algoritmo di apprendimento, chiamato LINE (esaminato in Sezione \ref{line}). A differenza di Skip-Gram, LINE considera solo relazioni dirette (prossimità di primo ordine) o al più relazioni tra nodi fratelli (prossimità di secondo ordine). Richiede, per questo, il file contenente gli archi del sito Web, che viene generato dal Crawler.
+\\\\
+Inoltre, si è voluto confrontare i modelli Skip-Gram tradizionale e quello modificato con un nuovo algoritmo di apprendimento, chiamato LINE (esaminato in Sezione \ref{line}). A differenza di Skip-Gram, LINE considera solo relazioni dirette (prossimità di primo ordine) o al più relazioni tra nodi fratelli (prossimità di secondo ordine). Richiede, per questo, il file contenente gli archi del sito Web, che viene generato dal Crawler.
 \\\\
 I parametri per utilizzare LINE di primo e secondo ordine sono:
 \begin{itemize}
@@ -184,7 +151,14 @@ I parametri per utilizzare LINE di primo e secondo ordine sono:
 	\item \textbf{-order}: tipo di prossimità per produrre gli embeddings, ovvero 1 per primo ordine e 2 per secondo ordine.
 \end{itemize}
 
-\subsection{Algoritmi di Clustering}
+\subsection{Combinato}
+Sono state combinate le informazioni riguardanti la struttura del sito Web e il contenuto testuale delle pagine. Le combinazioni prodotte per la sperimentazione sono di due tipi:
+\begin{itemize}
+	\item \textbf{Combined List Constraint}. Sono stati combinati i vettori prodotti dalla struttura ad hyperlink del sito, usando il Crawler che sfrutta le Liste Web, e quelli prodotti dal contenuto delle pagine. Sono stati prodotti vettori aventi come dimensione 200.
+	\item \textbf{Combined No Constraint}. Come nella configurazione precedente, sono stati combinati testo e struttura ad hyperlink del sito Web in un singolo spazio vettoriale, avente come dimensione 200. In questo caso, è stato utilizzato il Crawler tradizionale.
+\end{itemize}
+
+\subsection{Parametri degli algoritmi di Clustering}
 Una volta prodotti gli embeddings dai rispettivi algoritmi, sono stati normalizzati secondo la norma L2 (esaminata in Sezione \ref{scaling}) ed è stato effettuato il Clustering delle pagine del sito Web. Da questo processo sono stati esclusi tutte le pagine che presentavano nella ground truth etichette pari a -1, poiché tale valore significa che l'esperto che ha creato la tabella di verità non è riuscito ad assegnare a nessun raggruppamento la pagina in questione.
 \\\\
 In K-Means (approfondito in Sezione \ref{clusteringexperimentation}), il parametro utilizzato nella sperimentazione è stato \textbf{n\_clusters}, ovvero il numero di Cluster totale da generare. Per rendere il sistema più dinamico, si è scelto di settare questo parametro al numero delle etichette presente nella ground truth.
@@ -195,10 +169,10 @@ In HDBScan (approfondito in Sezione \ref{clusteringexperimentation}), il paramet
 Di seguito si confrontano i risultati degli algoritmi di Clustering basati sulle configurazioni sopra citate, ovvero: \textit{Random Walk}, \textit{Testo} e \textit{Combinato}. Sono stati riportati solo i risultati di Skip-Gram ottimizzato che considera solo il contesto sinistro (\textit{leftSkipgram}) e Skip-Gram tradizionale (\textit{normalSkipgram}) poiché, nella maggior parte dei casi, leftSkipgram forniva risultati migliori rispetto alla versione modificata non ottimizzata.
 \\\\
 Per motivi di praticità, nella configurazione dei Random Walk è stata utilizzata la dicitura $[db, window, depth]$, dove $db$ rappresenta il numero di frasi da far apprendere all'algoritmo, $window$ la lunghezza della finestra di contesto e $depth$ la lunghezza massima della singola frase.
-\\\\
+\\
 Inoltre, per motivi di spazio, si è scelta la dicitura \textit{LINE-1} e \textit{LINE-2} per riferirsi rispettivamente a LINE con primo ordine di prossimità e LINE con secondo ordine di prossimità.
 
-\subsection{cs.illinois.edu}
+\subsection{cs.illinois.edu} % ---------- ILLINOIS ----------
 
 \subsubsection{Random Walk}
 
@@ -343,7 +317,7 @@ Inoltre, per motivi di spazio, si è scelta la dicitura \textit{LINE-1} e \textit
 \begin{table}[h]
 	\centering
 	\caption{Risultati di HDBScan con normalSkipgram con liste di costrizione nella configurazione Random Walk in Illinois}
-	\label{leftskipgramrwlchdbscanillinois}
+	\label{normalskipgramrwlchdbscanillinois}
 	\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
 		\hline
 		\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
@@ -573,7 +547,7 @@ Inoltre, per motivi di spazio, si è scelta la dicitura \textit{LINE-1} e \textit
 \begin{table}[h]
 \centering
 \caption{Risultati migliori tra leftSkipgram, normalSkipgram e LINE in Illinois}
-\label{bestleftnormalline}
+\label{bestleftnormallineillinois}
 	\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
 		\hline
 		& \textbf{Clustering} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
@@ -603,10 +577,16 @@ Inoltre, per motivi di spazio, si è scelta la dicitura \textit{LINE-1} e \textit
 		\textbf{normalSkipgram-lc} & \textbf{HDBScan} & 500K & 7 & 20 \\ \hline
 		\textbf{leftSkipgram-nc} & \textbf{KMeans} & 1M & 3 & 15 \\ \hline
 		\textbf{leftSkipgram-nc} & \textbf{HDBScan} & 1M & 2 & 20 \\ \hline
-		\textbf{normalSkipgram-nc} & \textbf{KMeans} & 100K & 2 & 20 \\ \hline
+		\textbf{normalSkipgram-nc} & \textbf{KMeans} & \textbf{100K} & \textbf{2} & \textbf{20} \\ \hline
 		\textbf{normalSkipgram-nc} & \textbf{HDBScan} & 100K & 2 & 15 \\ \hline
 	\end{tabular}
 \end{table}
+
+Nelle Tabelle \ref{leftskipgramrwlckmeansillinois}, \ref{leftskipgramrwlchdbscanillinois}, \ref{normalskipgramrwlckmeansillinois}, \ref{normalskipgramrwlchdbscanillinois}, \ref{leftskipgramrwnckmeansillinois}, \ref{leftskipgramrwnchdbscanillinois}, \ref{normalskipgramrwnckmeansillinois}, \ref{normalskipgramrwnchdbscanillinois} sono stati riportati i valori delle metriche di leftSkipgram e normalSkipgram utilizzati con gli algoritmi di Clustering KMeans e HDBScan. Queste misurazioni sono risultate particolarmente utili per capire quale fosse la configurazione migliore per numero di frasi, per dimensione della finestra di apprendimento e per dimensione massima delle frasi per ogni algoritmo di apprendimento e di Clustering, applicati rispettivamente ai dataset con e senza liste di costrizione.
+\\
+In questo caso, le configurazioni sono state selezionate in base al più alto numero di valori più alti delle metriche, e sono state raccolte in Tabella \ref{bestleftnormallineillinois} e confrontate con LINE. Si evince come LINE non riesca ad estrarre informazioni utili al Clustering dalla struttura ad hyperlink del sito: la bontà dei risultati, infatti, risulta piuttosto bassa.
+\\\\
+Considerando solo le informazioni estraibili dalla struttura ad hyperlink del sito Illinois, l'algoritmo che le estrae in maniera efficiente è \textbf{normalSkipgram} avente configurazione \textbf{[100K, 2, 20]} e \textbf{senza liste di costrizione}, abbinato a \textbf{KMeans}. In questa configurazione, le liste di costrizione non hanno migliorato la qualità dei risultati: normalSkipgram è riuscito ad estrarre informazioni utili pur avendo un numero di frasi relativamente piccolo (100.000) avente lunghezza di 20 URL. La finestra di contesto di piccola dimensione (2) ha permesso a normalSkipgram di escludere tutte quelle informazioni che potevano compromettere la bontà dell'operazione di Clustering.
 
 \subsubsection{Testo}
 
@@ -617,48 +597,1547 @@ Inoltre, per motivi di spazio, si è scelta la dicitura \textit{LINE-1} e \textit
 	\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
 		\hline
 		& \textbf{Clustering} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
-		\textbf{Doc2Vec} & \textbf{KMeans} & 0.53 & 0.38 & 0.55 & 0.71 & -0.11 & 0.62 \\ \hline
-		\textbf{Doc2Vec} & \textbf{HDBScan} & \textbf{0.72} & \textbf{0.80} & \textbf{0.75} & 0.73 & -0.02 & \textbf{0.74} \\ \hline
-		\textbf{TF-IDF} & \textbf{KMeans} & 0.60 & 0.38 & 0.62 & \textbf{0.84} & \textbf{0.00} & 0.71\\ \hline
-		\textbf{TF-IDF} & \textbf{HDBScan} & 0.56 & 0.41 & 0.59 & 0.68 & -0.04 & 0.63 \\ \hline
+		\textbf{Doc2Vec-lc} & \textbf{KMeans} & 0.51 & 0.32 & 0.53 & 0.71 & -0.13 & 0.61 \\ \hline
+		\textbf{Doc2Vec-lc} & \textbf{HDBScan} & 0.72 & 0.80 & 0.75 & 0.73 & -0.02 & 0.74 \\ \hline
+		\textbf{TF-IDF-lc} & \textbf{KMeans} & 0.67 & 0.47 & 0.68 & 0.88 & \textbf{0.00} & \textbf{0.77} \\ \hline
+		\textbf{TF-IDF-lc} & \textbf{HDBScan} & 0.55 & 0.40 & 0.57 & 0.69 & -0.04 & 0.62 \\ \hline
+		\textbf{Doc2Vec-nc} & \textbf{KMeans} & 0.52 & 0.33 & 0.54 & 0.71 & -0.09 & 0.61 \\ \hline
+		\textbf{Doc2Vec-nc} & \textbf{HDBScan} & \textbf{0.76} & \textbf{0.83} & \textbf{0.78} & 0.77 & -0.03 & \textbf{0.77} \\ \hline
+		\textbf{TF-IDF-nc} & \textbf{KMeans} & 0.62 & 0.43 & 0.63 & \textbf{0.84} & -0.02 & 0.72 \\ \hline
+		\textbf{TF-IDF-nc} & \textbf{HDBScan} & 0.54 & 0.40 & 0.57 & 0.69 & -0.07 & 0.62 \\ \hline
 	\end{tabular}
 \end{table}
+
+Come nella configurazione precedente, anche trattando le pagine del sito Illinois come semplici documenti si evince come si riescono ad estrapolare dal testo più informazioni significative utilizzando \textbf{Doc2Vec} con il dataset \textbf{senza costrizioni}, che vengono utilizzate in maniera più opportuna da  \textbf{HDBScan} (Tabella \ref{doc2vectfidfillinois}).
 
 \subsubsection{Combinato}
 
 \begin{table}[h]
 \centering
-\caption{Risultati di Combinato in Illinois}
+\caption{Risultati della configurazione Combinato in Illinois}
 \label{combillinois}
 	\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
 		\hline
-		& \textbf{Clustering} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
-		\textbf{left-lc + Doc2Vec} & \textbf{KMeans} & 0.60 & 0.41 & 0.61 & 0.81 & -0.03 & 0.70 \\ \hline
-		\textbf{left-lc + Doc2Vec} & \textbf{HDBScan} & 0.43 & 0.19 & 0.47 & 0.77 & -0.15 & 0.58 \\ \hline
-		\textbf{left-lc + TF-IDF} & \textbf{KMeans} & 0.69 & 0.49 & 0.70 & \textbf{0.92} & -0.03 & 0.80 \\ \hline
-		\textbf{left-lc + TF-IDF} & \textbf{HDBScan} & 0.76 & 0.72 & 0.77 & 0.82 & -0.02 & 0.79 \\ \hline
-		\textbf{normal-lc + Doc2Vec} & \textbf{KMeans} & 0.66 & 0.47 & 0.67 & 0.88 & -0.03 & 0.76 \\ \hline
-		\textbf{normal-lc + Doc2Vec} & \textbf{HDBScan} & 0.43 & 0.19 & 0.47 & 0.73 & -0.08 & 0.57 \\ \hline
-		\textbf{normal-lc + TF-IDF} & \textbf{KMeans} & 0.69 & 0.49 & 0.70 & \textbf{0.92} & -0.02 & 0.79 \\ \hline
-		\textbf{normal-lc + TF-IDF} & \textbf{HDBScan} & 0.55 & 0.36 & 0.58 & 0.77 & -0.04 & 0.66 \\ \hline
-		\textbf{left-nc + Doc2Vec} & \textbf{KMeans} & 0.67 & 0.48 & 0.68 & 0.88 & -0.04 & 0.77 \\ \hline
-		\textbf{left-nc + Doc2Vec} & \textbf{HDBScan} & 0.61 & 0.53 & 0.78 & 0.62 & -0.03 & 0.69 \\ \hline
-		\textbf{left-nc + TF-IDF} & \textbf{KMeans} & 0.67 & 0.54 & 0.68 & 0.87 & -0.03 & 0.76 \\ \hline
-		\textbf{left-nc + TF-IDF} & \textbf{HDBScan} & \textbf{0.78} & \textbf{0.76} & \textbf{0.83} & 0.79 & -0.03 & \textbf{0.81} \\ \hline
-		\textbf{normal-nc + Doc2Vec} & \textbf{KMeans} & 0.65 & 0.47 & 0.66 & 0.88 & -0.04 & 0.76 \\ \hline
-		\textbf{normal-nc + Doc2Vec} & \textbf{HDBScan} & 0.45 & 0.17 & 0.48 & 0.64 & -0.10 & 0.55 \\ \hline
-		\textbf{normal-nc + TF-IDF} & \textbf{KMeans} & 0.68 & 0.47 & 0.69 & \textbf{0.92} & -0.03 & 0.79 \\ \hline
-		\textbf{normal-nc + TF-IDF} & \textbf{HDBScan} & 0.77 & 0.68 & 0.78 & 0.83 & \textbf{-0.01} & 0.80 \\ \hline
+		\textbf{ListConstraint} & \textbf{Clustering} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+		\textbf{left + Doc2Vec} & \textbf{KMeans} & 0.60 & 0.41 & 0.61 & 0.81 & -0.03 & 0.70 \\ \hline
+		\textbf{left + Doc2Vec} & \textbf{HDBScan} & 0.43 & 0.19 & 0.47 & 0.77 & -0.15 & 0.58 \\ \hline
+		\textbf{left + TF-IDF} & \textbf{KMeans} & 0.69 & 0.49 & 0.70 & \textbf{0.92} & -0.03 & 0.80 \\ \hline
+		\textbf{left + TF-IDF} & \textbf{HDBScan} & 0.76 & 0.72 & 0.77 & 0.82 & -0.02 & 0.79 \\ \hline
+		\textbf{normal + Doc2Vec} & \textbf{KMeans} & 0.66 & 0.47 & 0.67 & 0.88 & -0.03 & 0.76 \\ \hline
+		\textbf{normal + Doc2Vec} & \textbf{HDBScan} & 0.43 & 0.19 & 0.47 & 0.73 & -0.08 & 0.57 \\ \hline
+		\textbf{normal + TF-IDF} & \textbf{KMeans} & 0.69 & 0.49 & 0.70 & \textbf{0.92} & -0.02 & 0.79 \\ \hline
+		\textbf{normal + TF-IDF} & \textbf{HDBScan} & 0.55 & 0.36 & 0.58 & 0.77 & -0.04 & 0.66 \\ \hline
+		\hline
+		\textbf{NoConstraint} &  &  &  &  &  &  &  \\ \hline
+		\textbf{left + Doc2Vec} & \textbf{KMeans} & 0.67 & 0.48 & 0.68 & 0.88 & -0.04 & 0.77 \\ \hline
+		\textbf{left + Doc2Vec} & \textbf{HDBScan} & 0.61 & 0.53 & 0.78 & 0.62 & -0.03 & 0.69 \\ \hline
+		\textbf{left + TF-IDF} & \textbf{KMeans} & 0.67 & 0.54 & 0.68 & 0.87 & -0.03 & 0.76 \\ \hline
+		\textbf{left + TF-IDF} & \textbf{HDBScan} & \textbf{0.78} & \textbf{0.76} & \textbf{0.83} & 0.79 & -0.03 & \textbf{0.81} \\ \hline
+		\textbf{normal + Doc2Vec} & \textbf{KMeans} & 0.65 & 0.47 & 0.66 & 0.88 & -0.04 & 0.76 \\ \hline
+		\textbf{normal + Doc2Vec} & \textbf{HDBScan} & 0.45 & 0.17 & 0.48 & 0.64 & -0.10 & 0.55 \\ \hline
+		\textbf{normal + TF-IDF} & \textbf{KMeans} & 0.68 & 0.47 & 0.69 & \textbf{0.92} & -0.03 & 0.79 \\ \hline
+		\textbf{normal + TF-IDF} & \textbf{HDBScan} & 0.77 & 0.68 & 0.78 & 0.83 & \textbf{-0.01} & 0.80 \\ \hline
 	\end{tabular}
 \end{table}
 
-\subsection{cs.ox.ac.uk}
+In Tabella \ref{combillinois} sono stati raccolti i risultati del Clustering utilizzando sia l'informazione codificata nella struttura ad hyperlink sia quella estrapolata dal testo. Ai fini della concatenazione, sono stati considerati per leftSkipgram e normalSkipgram solo le configurazioni migliori, opportunamente analizzate e scelte in precedenza. Si evince come \textbf{HDBScan}, sfruttando l'informazioni estratta da \textbf{leftSkipgram} avente la configurazione ottimale [1M, 2, 20] e combinato con i vettori prodotti da \textbf{Tf-Idf}, riesca ad assegnare allo stesso Cluster pagine appartenenti alla stessa classe. Anche in questo caso, le liste non hanno migliorato la qualità dei Cluster.
 
-\subsection{cs.priceton.edu}
+\subsection{cs.ox.ac.uk}  % ---------- OXFORD ----------
 
-\subsection{cs.stanford.edu}
+\subsubsection{Random Walk}
 
-\bibliographystyle{plain}
-\bibliography{./../Bibliografia}                % database di biblatex 
+\begin{table}[h]
+\centering
+\caption{Risultati di KMeans con leftSkipgram con liste di costrizione nella configurazione Random Walk in Oxford}
+\label{leftskipgramrwlckmeansoxford}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{10} & 0.21 & 0.25 & 0.23 & 0.25 & -0.08 & 0.24 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{10} & 0.35 & 0.28 & 0.37 & 0.39 & -0.04 & 0.38 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{10} & 0.48 & 0.43 & 0.49 & 0.54 & -0.07 & 0.51 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{10} & 0.51 & 0.44 & 0.52 & 0.57 & -0.09 & 0.54 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{15} & 0.24 & 0.29 & 0.26 & 0.29 & -0.09 & 0.27 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{15} & 0.41 & 0.34 & 0.42 & 0.48 & -0.09 & 0.45 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{15} & 0.51 & 0.43 & 0.52 & 0.57 & -0.11 & 0.54 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{15} & 0.48 & 0.34 & 0.50 & 0.50 & -0.09 & 0.50 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{20} & 0.24 & 0.28 & 0.26 & 0.30 & -0.03 & 0.28 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{20} & 0.48 & 0.41 & 0.49 & 0.57 & -0.06 & 0.53 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{20} & 0.51 & 0.43 & 0.52 & 0.60 & -0.06 & 0.56 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{20} & 0.51 & 0.44 & 0.52 & 0.59 & -0.10 & 0.56 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{10} & 0.29 & 0.29 & 0.30 & 0.37 & -0.03 & 0.33 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{10} & 0.43 & 0.32 & 0.44 & 0.54 & \textbf{-0.02} & 0.49 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{10} & 0.46 & 0.32 & 0.47 & 0.57 & -0.03 & 0.52 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{10} & 0.47 & 0.34 & 0.48 & 0.55 & -0.05 & 0.51 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{15} & 0.30 & 0.31 & 0.31 & 0.38 & -0.03 & 0.34 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{15} & 0.48 & 0.39 & 0.49 & 0.60 & -0.03 & 0.54 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{15} & 0.48 & 0.36 & 0.49 & 0.58 & \textbf{-0.02} & 0.53 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{15} & 0.43 & 0.30 & 0.44 & 0.51 & \textbf{-0.02} & 0.48 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{20} & 0.29 & 0.27 & 0.31 & 0.38 & \textbf{-0.02} & 0.34 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{20} & 0.47 & 0.37 & 0.48 & 0.59 & -0.03 & 0.53 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{20} & 0.45 & 0.31 & 0.46 & 0.54 & -0.03 & 0.50 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{20} & 0.44 & 0.30 & 0.45 & 0.52 & -0.03 & 0.48 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{10} & 0.31 & 0.27 & 0.32 & 0.41 & \textbf{-0.02} & 0.36 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{10} & 0.51 & 0.40 & 0.52 & 0.62 & -0.06 & 0.56 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{10} & 0.51 & 0.40 & 0.52 & 0.61 & -0.04 & 0.56 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{10} & 0.50 & 0.38 & 0.51 & 0.62 & -0.04 & 0.56 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{15} & 0.31 & 0.26 & 0.32 & 0.40 & -0.03 & 0.36 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{15} & 0.50 & 0.37 & 0.51 & 0.60 & -0.05 & 0.55 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{15} & 0.50 & 0.36 & 0.51 & 0.62 & -0.03 & 0.56 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{15} & 0.51 & \textbf{0.46} & 0.52 & 0.62 & -0.03 & 0.57 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{20} & 0.30 & 0.27 & 0.32 & 0.39 & \textbf{-0.02} & 0.35 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{20} & \textbf{0.52} & 0.40 & \textbf{0.53} & \textbf{0.64} & -0.04 & \textbf{0.58} \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{20} & 0.50 & 0.39 & 0.51 & 0.63 & \textbf{-0.02} & 0.56 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{20} & 0.51 & \textbf{0.46} & 0.52 & 0.62 & -0.04 & 0.57 \\ \hline
+\end{tabular}
+\end{table}
 
-\end{document}
+\begin{table}[h]
+\centering
+\caption{Risultati di HDBScan con leftSkipgram con liste di costrizione nella configurazione Random Walk in Oxford}
+\label{leftskipgramrwlchdbscanoxford}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{10} & 0.09 & 0.04 & 0.31 & 0.10 & -0.05 & 0.15 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{10} & 0.14 & 0.07 & 0.39 & 0.15 & -0.11 & 0.22 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{10} & 0.16 & 0.02 & 0.42 & 0.18 & -0.16 & 0.25 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{10} & 0.05 & 0.04 & 0.16 & 0.05 & -0.10 & 0.08 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{15} & 0.15 & 0.11 & 0.48 & 0.16 & -0.15 & 0.24 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{15} & 0.20 & 0.09 & 0.50 & 0.22 & -0.09 & 0.30 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{15} & 0.22 & 0.08 & 0.47 & 0.24 & -0.18 & 0.32 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{15} & 0.26 & 0.12 & 0.51 & 0.28 & -0.25 & 0.37 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{20} & 0.16 & 0.09 & 0.50 & 0.16 & -0.11 & 0.25 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{20} & 0.26 & 0.13 & 0.56 & 0.28 & -0.12 & 0.37 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{20} & 0.29 & 0.14 & 0.51 & 0.31 & -0.24 & 0.39 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{20} & 0.30 & 0.14 & 0.53 & 0.33 & -0.30 & 0.41 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{10} & 0.19 & 0.12 & 0.59 & 0.20 & -0.08 & 0.30 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{10} & 0.19 & 0.06 & 0.48 & 0.21 & -0.12 & 0.29 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{10} & 0.18 & 0.05 & 0.48 & 0.19 & -0.12 & 0.28 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{10} & 0.13 & 0.03 & 0.45 & 0.15 & -0.12 & 0.22 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{15} & 0.18 & 0.11 & 0.57 & 0.19 & -0.06 & 0.29 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{15} & 0.24 & 0.07 & 0.49 & 0.27 & -0.15 & 0.35 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{15} & 0.18 & 0.05 & 0.47 & 0.20 & -0.14 & 0.28 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{15} & 0.13 & 0.04 & 0.48 & 0.15 & -0.13 & 0.23 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{20} & 0.19 & 0.11 & \textbf{0.60} & 0.20 & -0.05 & 0.30 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{20} & 0.26 & 0.08 & 0.47 & 0.29 & -0.14 & 0.36 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{20} & 0.21 & 0.06 & 0.48 & 0.24 & -0.17 & 0.32 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{20} & 0.14 & 0.04 & 0.44 & 0.16 & -0.13 & 0.24 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{10} & 0.24 & 0.15 & 0.53 & 0.26 & -0.12 & 0.35 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{10} & 0.28 & 0.10 & 0.45 & 0.32 & -0.16 & 0.37 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{10} & 0.29 & 0.11 & 0.46 & 0.32 & -0.16 & 0.38 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{10} & 0.30 & 0.11 & 0.50 & 0.32 & -0.19 & 0.39 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{15} & 0.23 & 0.10 & 0.56 & 0.24 & -0.05 & 0.33 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{15} & 0.34 & 0.11 & 0.45 & 0.38 & -0.15 & 0.41 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{15} & 0.35 & 0.12 & 0.47 & 0.38 & -0.19 & 0.42 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{15} & 0.32 & 0.13 & 0.48 & 0.35 & -0.20 & 0.41 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{20} & 0.08 & 0.09 & 0.27 & 0.08 & \textbf{-0.03} & 0.13 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{20} & 0.37 & 0.13 & 0.44 & \textbf{0.42} & -0.17 & 0.43 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{20} & \textbf{0.38} & 0.13 & 0.47 & \textbf{0.42} & -0.14 & \textbf{0.44} \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{20} & 0.37 & \textbf{0.22} & 0.49 & 0.40 & -0.14 & \textbf{0.44} \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di KMeans con normalSkipgram con liste di costrizione nella configurazione Random Walk in Oxford}
+\label{normalskipgramrwlckmeansoxford}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{10} & \textbf{0.53} & 0.33 & \textbf{0.54} & 0.65 & -0.02 & 0.59 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{10} & 0.49 & 0.31 & 0.50 & 0.63 & -0.03 & 0.56 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{10} & 0.50 & 0.30 & 0.51 & 0.60 & -0.05 & 0.55 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{10} & 0.48 & 0.30 & 0.49 & 0.58 & -0.05 & 0.53 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{15} & \textbf{0.53} & 0.32 & \textbf{0.54} & 0.65 & -0.03 & 0.59 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{15} & 0.50 & 0.35 & 0.51 & 0.63 & -0.03 & 0.56 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{15} & 0.49 & 0.32 & 0.50 & 0.60 & -0.02 & 0.55 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{15} & 0.44 & 0.24 & 0.45 & 0.53 & -0.03 & 0.49 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{20} & 0.51 & 0.35 & 0.52 & 0.64 & -0.03 & 0.57 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{20} & 0.49 & 0.35 & 0.50 & 0.60 & -0.03 & 0.55 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{20} & 0.46 & 0.29 & 0.47 & 0.56 & -0.03 & 0.51 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{20} & 0.47 & 0.28 & 0.48 & 0.58 & -0.04 & 0.52 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{10} & 0.52 & 0.42 & 0.53 & 0.66 & -0.02 & 0.59 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{10} & 0.51 & 0.39 & 0.52 & 0.64 & \textbf{-0.01} & 0.57 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{10} & 0.48 & 0.36 & 0.49 & 0.60 & -0.02 & 0.54 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{10} & 0.50 & 0.37 & 0.51 & 0.62 & \textbf{-0.01} & 0.56 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{15} & \textbf{0.53} & 0.41 & \textbf{0.54} & 0.66 & -0.02 & 0.59 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{15} & 0.52 & 0.48 & 0.52 & 0.63 & -0.02 & 0.57 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{15} & 0.49 & 0.40 & 0.50 & 0.62 & \textbf{-0.01} & 0.55 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{15} & 0.50 & 0.46 & 0.51 & 0.60 & -0.02 & 0.55 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{20} & \textbf{0.53} & 0.41 & 0.53 & 0.66 & -0.02 & 0.59 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{20} & 0.51 & 0.44 & 0.52 & 0.63 & -0.02 & 0.57 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{20} & 0.49 & 0.38 & 0.50 & 0.62 & -0.02 & 0.55 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{20} & 0.47 & 0.34 & 0.47 & 0.59 & \textbf{-0.01} & 0.53 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{10} & 0.52 & 0.44 & 0.53 & 0.65 & -0.02 & 0.58 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{10} & \textbf{0.53} & \textbf{0.50} & \textbf{0.54} & 0.65 & -0.02 & 0.59 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{10} & \textbf{0.53} & 0.48 & \textbf{0.54} & 0.65 & -0.02 & 0.59 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{10} & 0.52 & 0.43 & 0.53 & 0.65 & -0.02 & 0.58 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{15} & \textbf{0.53} & 0.41 & \textbf{0.54} & \textbf{0.67} & -0.02 & \textbf{0.60} \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{15} & 0.51 & 0.39 & 0.52 & 0.65 & -0.02 & 0.58 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{15} & 0.51 & 0.45 & 0.51 & 0.63 & -0.02 & 0.57 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{15} & 0.52 & 0.48 & 0.53 & 0.65 & -0.02 & 0.58 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{20} & 0.51 & 0.41 & 0.52 & 0.65 & -0.02 & 0.58 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{20} & 0.51 & 0.42 & 0.52 & 0.64 & -0.02 & 0.58 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{20} & 0.50 & 0.44 & 0.51 & 0.63 & -0.02 & 0.56 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{20} & 0.51 & 0.48 & 0.52 & 0.63 & -0.02 & 0.57 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di HDBScan con normalSkipgram con liste di costrizione nella configurazione Random Walk in Oxford}
+\label{normalskipgramrwlchdbscanoxford}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{10} & 0.31 & 0.08 & 0.45 & 0.35 & -0.14 & 0.40 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{10} & 0.27 & 0.06 & 0.45 & 0.30 & -0.16 & 0.36 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{10} & 0.22 & 0.06 & 0.46 & 0.25 & -0.18 & 0.32 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{10} & 0.21 & 0.05 & 0.46 & 0.24 & -0.19 & 0.32 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{15} & 0.28 & 0.06 & 0.40 & 0.33 & -0.16 & 0.36 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{15} & 0.27 & 0.06 & 0.42 & 0.30 & -0.17 & 0.35 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{15} & 0.23 & 0.05 & 0.41 & 0.27 & -0.19 & 0.33 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{15} & 0.22 & 0.05 & 0.43 & 0.26 & -0.19 & 0.32 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{20} & 0.30 & 0.07 & 0.40 & 0.35 & -0.17 & 0.37 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{20} & 0.28 & 0.06 & 0.42 & 0.32 & -0.17 & 0.36 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{20} & 0.23 & 0.05 & 0.42 & 0.26 & -0.19 & 0.32 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{20} & 0.22 & 0.05 & 0.43 & 0.25 & -0.19 & 0.32 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{10} & 0.30 & 0.09 & 0.49 & 0.33 & -0.09 & 0.40 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{10} & 0.25 & 0.07 & \textbf{0.51} & 0.27 & -0.08 & 0.36 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{10} & 0.14 & 0.04 & 0.46 & 0.17 & -0.06 & 0.25 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{10} & 0.10 & 0.02 & 0.41 & 0.13 & -0.08 & 0.19 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{15} & 0.33 & 0.09 & 0.46 & 0.36 & -0.09 & 0.41 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{15} & 0.29 & 0.09 & 0.50 & 0.32 & -0.09 & 0.39 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{15} & 0.16 & 0.04 & 0.44 & 0.19 & -0.08 & 0.27 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{15} & 0.14 & 0.03 & 0.45 & 0.16 & -0.08 & 0.24 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{20} & 0.31 & 0.09 & 0.45 & 0.35 & -0.13 & 0.40 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{20} & 0.30 & 0.09 & 0.50 & 0.33 & -0.09 & 0.40 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{20} & 0.25 & 0.08 & 0.50 & 0.28 & -0.09 & 0.36 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{20} & 0.00 & 0.00 & 0.31 & 0.01 & \textbf{-0.03} & 0.01 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{10} & 0.39 & 0.17 & 0.43 & 0.55 & -0.16 & 0.49 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{10} & 0.42 & 0.18 & 0.46 & 0.57 & -0.15 & \textbf{0.51} \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{10} & 0.41 & 0.16 & 0.45 & 0.52 & -0.15 & 0.48 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{10} & 0.41 & 0.15 & 0.45 & 0.51 & -0.13 & 0.48 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{15} & 0.37 & 0.14 & 0.41 & 0.52 & -0.15 & 0.46 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{15} & 0.41 & 0.18 & 0.45 & 0.55 & -0.14 & 0.50 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{15} & 0.42 & 0.20 & 0.46 & 0.56 & -0.14 & 0.50 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{15} & \textbf{0.43} & 0.20 & 0.47 & 0.56 & -0.11 & \textbf{0.51} \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{20} & 0.40 & \textbf{0.23} & 0.45 & \textbf{0.58} & -0.14 & \textbf{0.51} \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{20} & 0.41 & 0.22 & 0.45 & \textbf{0.58} & -0.14 & \textbf{0.51} \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{20} & 0.40 & 0.17 & 0.44 & 0.55 & -0.12 & 0.49 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{20} & 0.42 & 0.19 & 0.45 & 0.56 & -0.12 & 0.50 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di KMeans con leftSkipgram senza costrizioni nella configurazione Random Walk in Oxford}
+\label{leftskipgramrwnckmeansoxford}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{10} & 0.24 & 0.29 & 0.26 & 0.27 & -0.04 & 0.26 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{10} & 0.42 & 0.43 & 0.43 & 0.47 & -0.04 & 0.45 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{10} & 0.53 & 0.51 & 0.54 & 0.59 & -0.07 & 0.56 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{10} & 0.54 & 0.47 & 0.55 & 0.56 & -0.12 & 0.55 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{15} & 0.26 & 0.29 & 0.28 & 0.31 & -0.03 & 0.29 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{15} & 0.46 & 0.45 & 0.48 & 0.56 & -0.04 & 0.51 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{15} & 0.50 & 0.45 & 0.51 & 0.58 & -0.06 & 0.54 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{15} & 0.52 & 0.42 & 0.53 & 0.56 & -0.10 & 0.55 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{20} & 0.26 & 0.29 & 0.28 & 0.32 & -0.03 & 0.30 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{20} & 0.46 & 0.36 & 0.47 & 0.52 & -0.04 & 0.50 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{20} & 0.52 & 0.44 & 0.53 & 0.59 & -0.05 & 0.56 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{20} & 0.53 & 0.44 & 0.54 & 0.59 & -0.16 & 0.56 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{10} & 0.31 & 0.29 & 0.32 & 0.38 & -0.03 & 0.35 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{10} & 0.44 & 0.31 & 0.45 & 0.56 & \textbf{-0.02} & 0.50 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{10} & 0.48 & 0.35 & 0.49 & 0.59 & -0.03 & 0.54 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{10} & 0.46 & 0.29 & 0.47 & 0.56 & -0.05 & 0.51 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{15} & 0.29 & 0.24 & 0.31 & 0.38 & \textbf{-0.02} & 0.34 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{15} & 0.46 & 0.30 & 0.47 & 0.57 & \textbf{-0.02} & 0.51 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{15} & 0.45 & 0.31 & 0.46 & 0.55 & \textbf{-0.02} & 0.50 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{15} & 0.46 & 0.33 & 0.47 & 0.55 & -0.04 & 0.51 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{20} & 0.32 & 0.29 & 0.33 & 0.40 & \textbf{-0.02} & 0.36 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{20} & 0.49 & 0.34 & 0.49 & 0.61 & \textbf{-0.02} & 0.54 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{20} & 0.50 & 0.33 & 0.51 & 0.61 & \textbf{-0.02} & 0.55 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{20} & 0.47 & 0.33 & 0.48 & 0.56 & -0.23 & 0.52 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{10} & 0.34 & 0.31 & 0.35 & 0.42 & -0.03 & 0.38 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{10} & 0.51 & 0.48 & 0.52 & 0.62 & -0.04 & 0.57 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{10} & 0.56 & 0.40 & 0.57 & 0.67 & -0.05 & 0.62 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{10} & 0.55 & 0.43 & 0.56 & 0.66 & -0.05 & 0.61 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{15} & 0.33 & 0.32 & 0.34 & 0.42 & \textbf{-0.02} & 0.38 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{15} & 0.52 & 0.36 & 0.52 & 0.64 & -0.03 & 0.58 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{15} & 0.56 & 0.43 & 0.57 & \textbf{0.69} & -0.03 & 0.62 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{15} & 0.56 & 0.45 & 0.57 & 0.67 & -0.03 & 0.62 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{20} & 0.32 & 0.29 & 0.33 & 0.40 & -0.03 & 0.36 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{20} & 0.54 & 0.39 & 0.55 & 0.67 & -0.04 & 0.61 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{20} & \textbf{0.58} & \textbf{0.52} & \textbf{0.59} & 0.68 & -0.04 & \textbf{0.63} \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{20} & 0.53 & 0.41 & 0.53 & 0.66 & -0.04 & 0.59 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di HDBScan con leftSkipgram senza costrizioni nella configurazione Random Walk in Oxford}
+\label{leftskipgramrwnchdbscanoxford}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{10} & 0.14 & 0.09 & 0.41 & 0.15 & -0.21 & 0.22 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{10} & 0.16 & 0.09 & 0.44 & 0.16 & -0.05 & 0.24 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{10} & 0.03 & 0.03 & 0.18 & 0.03 & -0.03 & 0.06 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{10} & 0.06 & 0.07 & 0.20 & 0.06 & -0.21 & 0.09 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{15} & 0.14 & 0.08 & 0.45 & 0.15 & -0.16 & 0.22 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{15} & 0.19 & 0.08 & 0.51 & 0.20 & -0.18 & 0.29 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{15} & 0.02 & 0.01 & 0.16 & 0.02 & -0.02 & 0.04 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{15} & 0.02 & 0.01 & 0.21 & 0.03 & -0.03 & 0.05 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{20} & 0.17 & 0.11 & 0.49 & 0.17 & -0.16 & 0.26 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{20} & 0.21 & 0.11 & 0.53 & 0.23 & -0.07 & 0.32 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{20} & 0.24 & 0.12 & 0.50 & 0.26 & -0.16 & 0.35 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{20} & 0.28 & 0.13 & 0.52 & 0.30 & -0.27 & 0.38 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{10} & 0.11 & 0.12 & 0.35 & 0.11 & -0.02 & 0.17 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{10} & 0.12 & 0.03 & 0.44 & 0.14 & -0.17 & 0.22 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{10} & 0.16 & 0.04 & 0.49 & 0.17 & -0.09 & 0.26 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{10} & 0.02 & -0.00 & 0.24 & 0.02 & -0.06 & 0.04 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{15} & 0.18 & 0.09 & 0.52 & 0.20 & -0.11 & 0.29 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{15} & 0.17 & 0.04 & 0.44 & 0.19 & -0.10 & 0.27 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{15} & 0.14 & 0.04 & 0.47 & 0.16 & -0.13 & 0.24 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{15} & 0.08 & 0.05 & 0.24 & 0.08 & -0.05 & 0.12 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{20} & 0.22 & 0.12 & \textbf{0.58} & 0.22 & -0.07 & 0.32 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{20} & 0.21 & 0.06 & 0.46 & 0.24 & -0.16 & 0.31 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{20} & 0.09 & 0.06 & 0.27 & 0.09 & -0.08 & 0.14 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{20} & 0.05 & 0.02 & 0.22 & 0.05 & \textbf{-0.01} & 0.09 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{10} & 0.28 & 0.16 & 0.55 & 0.29 & -0.06 & 0.38 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{10} & 0.05 & 0.01 & 0.27 & 0.05 & -0.02 & 0.09 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{10} & 0.32 & 0.13 & 0.49 & 0.35 & -0.22 & 0.40 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{10} & 0.11 & 0.03 & 0.28 & 0.13 & -0.14 & 0.18 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{15} & 0.12 & 0.13 & 0.38 & 0.12 & -0.03 & 0.18 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{15} & 0.33 & 0.11 & 0.46 & 0.36 & -0.14 & 0.40 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{15} & 0.35 & 0.12 & 0.48 & \textbf{0.38} & -0.17 & 0.42 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{15} & 0.31 & 0.10 & 0.49 & 0.34 & -0.18 & 0.40 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{20} & 0.11 & 0.13 & 0.36 & 0.12 & -0.02 & 0.17 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{20} & \textbf{0.38} & 0.12 & 0.47 & 0.41 & -0.16 & \textbf{0.44} \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{20} & 0.33 & 0.13 & 0.47 & 0.36 & -0.17 & 0.41 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{20} & 0.32 & \textbf{0.18} & 0.46 & 0.34 & -0.14 & 0.40 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di KMeans con normalSkipgram senza costrizioni nella configurazione Random Walk in Oxford}
+\label{normalskipgramrwnckmeansoxford}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{10} & 0.51 & 0.36 & 0.52 & 0.64 & -0.02 & 0.58 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{10} & 0.49 & 0.27 & 0.50 & 0.59 & -0.03 & 0.54 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{10} & 0.47 & 0.26 & 0.48 & 0.58 & -0.03 & 0.53 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{10} & 0.48 & 0.29 & 0.49 & 0.60 & -0.05 & 0.54 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{15} & 0.54 & 0.34 & 0.55 & 0.67 & -0.02 & 0.60 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{15} & 0.51 & 0.32 & 0.52 & 0.63 & -0.03 & 0.57 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{15} & 0.48 & 0.31 & 0.49 & 0.58 & -0.07 & 0.53 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{15} & 0.45 & 0.29 & 0.46 & 0.53 & -0.05 & 0.50 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{20} & 0.54 & 0.35 & 0.55 & 0.68 & -0.03 & 0.61 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{20} & 0.51 & 0.35 & 0.52 & 0.62 & -0.03 & 0.56 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{20} & 0.47 & 0.31 & 0.48 & 0.58 & -0.06 & 0.53 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{20} & 0.47 & 0.34 & 0.48 & 0.56 & -0.03 & 0.51 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{10} & 0.55 & 0.44 & 0.56 & 0.68 & -0.02 & \textbf{0.62} \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{10} & 0.54 & 0.49 & 0.55 & 0.66 & -0.02 & 0.60 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{10} & 0.52 & 0.47 & 0.53 & 0.63 & -0.02 & 0.57 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{10} & 0.52 & 0.41 & 0.53 & 0.64 & -0.02 & 0.58 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{15} & 0.53 & 0.39 & 0.54 & 0.67 & -0.02 & 0.60 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{15} & 0.52 & 0.39 & 0.53 & 0.65 & \textbf{-0.01} & 0.59 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{15} & 0.50 & 0.46 & 0.51 & 0.60 & -0.02 & 0.55 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{15} & 0.50 & 0.46 & 0.51 & 0.60 & \textbf{-0.01} & 0.55 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{20} & 0.51 & 0.36 & 0.52 & 0.66 & -0.02 & 0.58 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{20} & 0.52 & 0.49 & 0.53 & 0.63 & -0.02 & 0.57 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{20} & 0.49 & 0.38 & 0.50 & 0.62 & -0.02 & 0.56 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{20} & 0.48 & 0.43 & 0.49 & 0.57 & -0.05 & 0.53 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{10} & 0.54 & 0.44 & 0.55 & 0.67 & -0.02 & 0.60 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{10} & \textbf{0.56} & 0.50 & \textbf{0.57} & \textbf{0.69} & -0.02 & \textbf{0.62} \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{10} & 0.54 & \textbf{0.51} & 0.55 & 0.66 & -0.03 & 0.60 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{10} & 0.54 & 0.50 & 0.55 & 0.66 & -0.02 & 0.60 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{15} & 0.55 & 0.43 & 0.56 & \textbf{0.69} & -0.02 & \textbf{0.62} \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{15} & 0.54 & 0.48 & 0.55 & 0.67 & -0.02 & 0.60 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{15} & 0.51 & 0.47 & 0.52 & 0.64 & -0.02 & 0.57 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{15} & 0.53 & 0.48 & 0.54 & 0.66 & -0.02 & 0.59 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{20} & 0.54 & 0.50 & 0.55 & 0.67 & -0.02 & 0.61 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{20} & 0.55 & 0.50 & 0.56 & 0.68 & -0.02 & 0.61 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{20} & 0.53 & 0.47 & 0.53 & 0.65 & -0.02 & 0.59 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{20} & 0.51 & 0.43 & 0.52 & 0.62 & -0.02 & 0.57 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di HDBScan con normalSkipgram senza costrizioni nella configurazione Random Walk in Oxford}
+\label{normalskipgramrwnchdbscanoxford}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{10} & 0.27 & 0.06 & 0.45 & 0.30 & -0.12 & 0.36 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{10} & 0.26 & 0.07 & 0.45 & 0.29 & -0.15 & 0.35 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{10} & 0.06 & 0.04 & 0.19 & 0.06 & -0.07 & 0.09 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{10} & 0.06 & 0.04 & 0.20 & 0.06 & -0.04 & 0.10 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{15} & 0.29 & 0.07 & 0.43 & 0.32 & -0.14 & 0.37 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{15} & 0.25 & 0.05 & 0.43 & 0.28 & -0.22 & 0.34 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{15} & 0.07 & 0.03 & 0.22 & 0.07 & -0.21 & 0.11 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{15} & 0.06 & 0.04 & 0.20 & 0.07 & -0.13 & 0.10 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{20} & 0.31 & 0.06 & 0.42 & 0.35 & -0.14 & 0.38 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{20} & 0.26 & 0.05 & 0.44 & 0.29 & -0.15 & 0.35 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{20} & 0.23 & 0.05 & 0.44 & 0.26 & -0.17 & 0.33 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{20} & 0.20 & 0.04 & 0.44 & 0.23 & -0.16 & 0.30 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{10} & 0.21 & 0.05 & 0.47 & 0.24 & -0.10 & 0.32 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{10} & 0.18 & 0.04 & 0.48 & 0.20 & -0.10 & 0.28 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{10} & 0.12 & 0.03 & 0.46 & 0.14 & -0.08 & 0.22 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{10} & 0.09 & 0.02 & 0.44 & 0.11 & -0.08 & 0.18 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{15} & 0.26 & 0.07 & 0.50 & 0.29 & -0.11 & 0.37 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{15} & 0.25 & 0.08 & \textbf{0.54} & 0.28 & -0.11 & 0.37 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{15} & 0.16 & 0.04 & 0.48 & 0.18 & -0.10 & 0.27 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{15} & 0.13 & 0.03 & 0.39 & 0.15 & -0.10 & 0.21 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{20} & 0.30 & 0.08 & 0.46 & 0.33 & -0.10 & 0.39 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{20} & 0.22 & 0.06 & 0.47 & 0.25 & -0.09 & 0.33 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{20} & 0.20 & 0.06 & 0.50 & 0.22 & -0.08 & 0.31 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{20} & 0.05 & 0.00 & 0.38 & 0.06 & \textbf{-0.00} & 0.10 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{10} & 0.39 & 0.15 & 0.43 & 0.54 & -0.14 & 0.48 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{10} & 0.40 & 0.13 & 0.44 & 0.51 & -0.14 & 0.47 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{10} & \textbf{0.41} & \textbf{0.16} & 0.45 & 0.51 & -0.13 & 0.48 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{10} & \textbf{0.41} & 0.12 & 0.45 & 0.48 & -0.12 & 0.46 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{15} & 0.39 & \textbf{0.16} & 0.43 & \textbf{0.55} & -0.14 & \textbf{0.49} \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{15} & 0.40 & \textbf{0.16} & 0.44 & 0.53 & -0.14 & 0.48 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{15} & 0.40 & 0.12 & 0.43 & 0.45 & -0.12 & 0.44 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{15} & 0.40 & 0.14 & 0.44 & 0.50 & -0.12 & 0.47 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{20} & 0.39 & 0.15 & 0.43 & \textbf{0.55} & -0.16 & 0.48 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{20} & \textbf{0.41} & 0.15 & 0.45 & \textbf{0.55} & -0.15 & \textbf{0.49} \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{20} & 0.40 & 0.13 & 0.44 & 0.48 & -0.14 & 0.46 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{20} & 0.40 & 0.14 & 0.44 & 0.51 & -0.11 & 0.47 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati migliori tra leftSkipgram, normalSkipgram e LINE in Oxford}
+\label{bestleftnormallineoxford}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+& \textbf{Clustering} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{leftSkipgram-lc} & \textbf{KMeans} & 0.52 & 0.40 & 0.53 & 0.64 & -0.04 & 0.58 \\ \hline
+\textbf{leftSkipgram-lc} & \textbf{HDBScan} & 0.38 & 0.13 & 0.47 & 0.42 & -0.14 & 0.44 \\ \hline
+\textbf{normalSkipgram-lc} & \textbf{KMeans} & 0.53 & 0.41 & 0.54 & 0.67 & \textbf{-0.02} & 0.60 \\ \hline
+\textbf{normalSkipgram-lc} & \textbf{HDBScan} & 0.40 & 0.23 & 0.45 & 0.58 & -0.14 & 0.51 \\ \hline
+\textbf{LINE-1-lc} & \textbf{KMeans} & 0.30 & 0.14 & 0.31 & 0.39 & -0.05 & 0.35 \\ \hline
+\textbf{LINE-1-lc} & \textbf{HDBScan} & 0.33 & 0.03 & 0.37 & 0.39 & -0.13 & 0.38 \\ \hline
+\textbf{LINE-2-lc} & \textbf{KMeans} & 0.24 & 0.16 & 0.26 & 0.33 & -0.06 & 0.29 \\ \hline
+\textbf{LINE-2-lc} & \textbf{HDBScan} & 0.20 & -0.00 & 0.34 & 0.24 & -0.17 & 0.28 \\ \hline
+\textbf{leftSkipgram-nc} & \textbf{KMeans} & \textbf{0.58} & \textbf{0.52} & \textbf{0.59} & \textbf{0.68} & -0.04 & \textbf{0.63} \\ \hline
+\textbf{leftSkipgram-nc} & \textbf{HDBScan} & 0.38 & 0.12 & 0.47 & 0.41 & -0.16 & 0.44 \\ \hline
+\textbf{normalSkipgram-nc} & \textbf{KMeans} & 0.56 & 0.50 & 0.57 & 0.69 & \textbf{-0.02} & 0.62 \\ \hline
+\textbf{normalSkipgram-nc} & \textbf{HDBScan} & 0.41 & 0.15 & 0.45 & 0.55 & -0.15 & 0.49 \\ \hline
+\textbf{LINE-1-nc} & \textbf{KMeans} & 0.30 & 0.14 & 0.31 & 0.38 & -0.06 & 0.34 \\ \hline
+\textbf{LINE-1-nc} & \textbf{HDBScan} & 0.15 & 0.03 & 0.34 & 0.17 & -0.16 & 0.23 \\ \hline
+\textbf{LINE-2-nc} & \textbf{KMeans} & 0.26 & 0.24 & 0.27 & 0.32 & -0.10 & 0.29 \\ \hline
+\textbf{LINE-2-nc} & \textbf{HDBScan} & 0.19 & 0.16 & 0.41 & 0.21 & -0.17 & 0.27 \\ \hline
+\end{tabular}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+& \textbf{Clustering} & \textbf{DB size} & \textbf{Window} & \textbf{RW len.} \\ \hline
+\textbf{leftSkipgram-lc} & \textbf{KMeans} & 1M & 3 & 20 \\ \hline
+\textbf{leftSkipgram-lc} & \textbf{HDBScan} & 1M & 5 & 20 \\ \hline
+\textbf{normalSkipgram-lc} & \textbf{KMeans} & 1M & 2 & 15 \\ \hline
+\textbf{normalSkipgram-lc} & \textbf{HDBScan} & 1M & 2 & 20 \\ \hline
+\textbf{leftSkipgram-nc} & \textbf{KMeans} & \textbf{1M} & \textbf{5} & \textbf{20} \\ \hline
+\textbf{leftSkipgram-nc} & \textbf{HDBScan} & 1M & 3 & 20 \\ \hline
+\textbf{normalSkipgram-nc} & \textbf{KMeans} & 1M & 3 & 10 \\ \hline
+\textbf{normalSkipgram-nc} & \textbf{HDBScan} & 1M & 3 & 20 \\ \hline
+\end{tabular}
+\end{table}
+
+Nelle Tabelle \ref{leftskipgramrwlckmeansoxford}, \ref{leftskipgramrwlchdbscanoxford}, \ref{normalskipgramrwlckmeansoxford}, \ref{normalskipgramrwlchdbscanoxford}, \ref{leftskipgramrwnckmeansoxford}, \ref{leftskipgramrwnchdbscanoxford}, \ref{normalskipgramrwnckmeansoxford}, \ref{normalskipgramrwnchdbscanoxford}, come nel caso precedente, sono stati riportati i risultati di leftSkipgram e normalSkipgram per tutte le combinazioni, sia per KMeans che per HDBScan. La Tabella \ref{normalskipgramrwnchdbscanoxford} mostra che, in realtà, i risultati migliori sono concentrati nelle configurazioni [1M, 2, 15] e [1M, 3, 20]. Confrontandole, si nota come la seconda, a parità di valori, mostra un punteggio più alto nella metrica Completezza (0.02), riuscendo ad assegnare, in maniera più opportuna, elementi della stessa classe allo stesso raggruppamento rispetto alla prima configurazione.
+\\
+Come in precedenza, sono state scelte le migliori configurazioni di numero di URL, dimensione della finestra e lunghezza delle frasi, e sono state confrontate con LINE. In Tabella \ref{bestleftnormallineoxford} si nota come i punteggi delle metriche sono concentrate su \textbf{leftSkipgram senza costrizioni}, con una configurazione di \textbf{[1M, 5, 20]}. In questo sito, quindi, analizzare solo il contesto sinistro con una dimensione standard della finestra di contesto (5) ha permesso di estrarre informazioni più pertinenti dalla struttura di Oxford, che sono state sfruttate a pieno da \textbf{KMeans}. Anche in questo caso, le Liste Web non hanno contribuito a migliorare la qualità dei Cluster.
+\\
+KMeans e HDBScan, utilizzando le informazioni estrapolate da LINE, hanno raggiunto performance più basse, sia con che senza liste di costrizione.
+
+\subsubsection{Testo}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di Doc2Vec e TF-IDF in Oxford}
+\label{doc2vectfidfoxford}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+& \textbf{Clustering} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{Doc2Vec-lc} & \textbf{KMeans} & 0.45 & 0.36 & 0.46 & 0.54 & -0.14 & 0.50 \\ \hline
+\textbf{Doc2Vec-lc} & \textbf{HDBScan} & 0.35 & 0.06 & 0.43 & 0.39 & -0.30 & 0.40 \\ \hline
+\textbf{TF-IDF-lc} & \textbf{KMeans} & \textbf{0.60} & \textbf{0.53} & \textbf{0.61} & \textbf{0.73} & \textbf{-0.00} & \textbf{0.67} \\ \hline
+\textbf{TF-IDF-lc} & \textbf{HDBScan} & 0.45 & 0.20 & 0.49 & 0.48 & -0.20 & 0.48 \\ \hline
+\textbf{Doc2Vec-nc} & \textbf{KMeans} & 0.44 & 0.38 & 0.45 & 0.53 & -0.15 & 0.48 \\ \hline
+\textbf{Doc2Vec-nc} & \textbf{HDBScan} & 0.37 & 0.07 & 0.45 & 0.40 & -0.30 & 0.42 \\ \hline
+\textbf{TF-IDF-nc} & \textbf{KMeans} & \textbf{0.60} & 0.52 & \textbf{0.61} & \textbf{0.73} & -0.01 & 0.66 \\ \hline
+\textbf{TF-IDF-nc} & \textbf{HDBScan} & 0.46 & 0.22 & 0.50 & 0.49 & -0.19 & 0.49 \\ \hline
+\end{tabular}
+\end{table}
+
+In Tabella \ref{doc2vectfidfoxford} vengono raccolti i valori degli algoritmi di Clustering basati solo sul contenuto testuale. Senza ombra di dubbio, la matrice di termini-documenti prodotta da \textbf{Tf-idf} ha estratto informazioni utili per il raggruppamento effettuato da \textbf{KMeans}. La qualità dei Cluster è molto alta: le pagine di Oxford si sono rivelate consistenti con gli argomenti trattati, permettendo a KMeans di generare Cluster contenenti tutte quelle che appartengono alla stessa sezione del sito Web. Pagine che, per esempio, appartengono alla sezione "supporto di ricerca" sono state inserite, nella stragrande maggioranza, nello stesso raggruppamento.
+\\
+Le Liste Web hanno permesso di filtrare, in maniera consistente, le informazioni che potevano compromettere la qualità dei Cluster: KMeans, utilizzando la matrice prodotta da Tf-idf nel dataset senza costrizioni, ha raggiunto performance leggermente più basse rispetto a quella prodotta dal set di dati con liste di costrizione. Nello specifico, l'Adjusted Random Index, Silhouette e V-Measure hanno un valore più basso dello 0.01 rispetto a quelli delle liste di costrizione.
+
+\subsubsection{Combinato}
+
+\begin{table}[h]
+\centering
+\caption{Risultati della configurazione Combinato in Oxford}
+\label{comboxford}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{ListConstraint} & \textbf{Clustering} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{left + Doc2Vec} & \textbf{KMeans} & 0.55 & 0.42 & 0.56 & 0.68 & -0.06 & 0.61 \\ \hline
+\textbf{left + Doc2Vec} & \textbf{HDBScan} & 0.39 & 0.11 & 0.49 & 0.42 & -0.14 & 0.45 \\ \hline
+\textbf{left + TF-IDF} & \textbf{KMeans} & 0.63 & 0.57 & 0.64 & 0.75 & -0.04 & 0.69 \\ \hline
+\textbf{left + TF-IDF} & \textbf{HDBScan} & 0.54 & 0.21 & 0.58 & 0.56 & -0.09 & 0.57 \\ \hline
+\textbf{normal + Doc2Vec} & \textbf{KMeans} & 0.53 & 0.38 & 0.54 & 0.65 & -0.05 & 0.59 \\ \hline
+\textbf{normal + Doc2Vec} & \textbf{HDBScan} & 0.43 & 0.22 & 0.46 & 0.58 & -0.13 & 0.51 \\ \hline
+\textbf{normal + TF-IDF} & \textbf{KMeans} & 0.63 & 0.54 & 0.64 & 0.77 & \textbf{-0.03} & 0.70 \\ \hline
+\textbf{normal + TF-IDF} & \textbf{HDBScan} & 0.51 & 0.17 & 0.53 & 0.59 & -0.10 & 0.56 \\ \hline
+\hline
+\textbf{NoConstraint} &  &  &  &  &  &  &  \\ \hline
+\textbf{left + Doc2Vec} & \textbf{KMeans} & 0.56 & 0.49 & 0.57 & 0.68 & -0.08 & 0.62 \\ \hline
+\textbf{left + Doc2Vec} & \textbf{HDBScan} & 0.46 & 0.17 & 0.52 & 0.49 & -0.13 & 0.50 \\ \hline
+\textbf{left + TF-IDF} & \textbf{KMeans} & \textbf{0.68} & \textbf{0.60} & \textbf{0.68} & \textbf{0.80} & -0.04 & \textbf{0.74} \\ \hline
+\textbf{left + TF-IDF} & \textbf{HDBScan} & 0.51 & 0.19 & 0.55 & 0.53 & -0.11 & 0.54 \\ \hline
+\textbf{normal + Doc2Vec} & \textbf{KMeans} & 0.57 & 0.49 & 0.58 & 0.70 & -0.05 & 0.63 \\ \hline
+\textbf{normal + Doc2Vec} & \textbf{HDBScan} & 0.42 & 0.16 & 0.46 & 0.55 & -0.13 & 0.50 \\ \hline
+\textbf{normal + TF-IDF} & \textbf{KMeans} & 0.63 & 0.55 & 0.64 & 0.76 & -0.04 & 0.69 \\ \hline
+\textbf{normal + TF-IDF} & \textbf{HDBScan} & 0.49 & 0.13 & 0.52 & 0.55 & -0.11 & 0.53 \\ \hline
+\end{tabular}
+\end{table}
+
+Confrontando in Tabella \ref{comboxford} i risultati della combinazione delle migliori configurazioni di leftSkipgram e NormalSkipgram, concatenati con Doc2Vec e Tf-Idf, si evince come \textbf{KMeans} ottenga maggiori performance dalla concatenazione dei vettori di \textbf{leftSkipgram} con configurazione [1M, 5, 20] e \textbf{Tf-Idf}, arrivando a punteggi molto alti. Come nel caso di combinato di Oxford, non vi è un miglioramento della bontà del processo di Clustering utilizzando delle Liste Web.
+
+\subsection{cs.priceton.edu}  % ---------- PRICETON ----------
+
+\subsubsection{Random Walk}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di KMeans con leftSkipgram con liste di costrizione nella configurazione Random Walk in Priceton}
+\label{leftskipgramrwlckmeanspriceton}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{10} & 0.27 & 0.31 & 0.29 & 0.41 & -0.04 & 0.34 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{10} & 0.26 & 0.31 & 0.28 & 0.37 & -0.05 & 0.32 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{10} & 0.35 & 0.38 & 0.36 & 0.48 & -0.07 & 0.41 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{10} & 0.38 & 0.41 & 0.39 & 0.50 & -0.10 & 0.44 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{15} & 0.32 & 0.46 & 0.34 & 0.47 & -0.04 & 0.39 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{15} & 0.31 & 0.42 & 0.33 & 0.43 & -0.07 & 0.37 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{15} & 0.38 & 0.46 & 0.39 & 0.51 & -0.10 & 0.44 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{15} & 0.39 & 0.48 & 0.40 & 0.51 & -0.09 & 0.45 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{20} & 0.34 & 0.50 & 0.35 & 0.49 & -0.05 & 0.41 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{20} & 0.35 & 0.49 & 0.36 & 0.48 & -0.06 & 0.41 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{20} & 0.40 & 0.51 & 0.41 & 0.52 & -0.08 & 0.46 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{20} & \textbf{0.41} & 0.51 & \textbf{0.42} & 0.52 & -0.07 & \textbf{0.47} \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{10} & 0.31 & 0.36 & 0.32 & 0.47 & -0.03 & 0.38 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{10} & 0.33 & 0.44 & 0.34 & 0.47 & -0.04 & 0.40 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{10} & 0.40 & 0.51 & 0.41 & 0.54 & -0.05 & 0.46 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{10} & 0.36 & 0.35 & 0.37 & 0.52 & -0.03 & 0.43 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{15} & 0.35 & 0.54 & 0.36 & 0.49 & -0.05 & 0.41 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{15} & 0.37 & 0.38 & 0.38 & 0.53 & -0.04 & 0.44 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{15} & 0.36 & 0.38 & 0.37 & 0.52 & -0.04 & 0.44 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{15} & 0.36 & 0.35 & 0.37 & 0.51 & -0.04 & 0.43 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{20} & 0.35 & 0.56 & 0.36 & 0.49 & \textbf{-0.02} & 0.41 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{20} & 0.38 & 0.39 & 0.39 & 0.54 & -0.04 & 0.46 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{20} & 0.38 & 0.40 & 0.39 & 0.54 & -0.04 & 0.45 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{20} & 0.35 & 0.32 & 0.36 & 0.51 & -0.05 & 0.42 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{10} & 0.34 & 0.49 & 0.35 & 0.48 & -0.03 & 0.40 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{10} & 0.40 & 0.50 & 0.41 & 0.53 & -0.04 & 0.46 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{10} & 0.35 & 0.26 & 0.36 & 0.53 & -0.06 & 0.43 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{10} & 0.36 & 0.31 & 0.37 & 0.52 & -0.03 & 0.43 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{15} & 0.36 & \textbf{0.57} & 0.37 & 0.50 & -0.03 & 0.43 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{15} & 0.38 & 0.39 & 0.39 & 0.55 & -0.05 & 0.46 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{15} & 0.37 & 0.34 & 0.39 & 0.54 & -0.03 & 0.45 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{15} & 0.36 & 0.31 & 0.37 & 0.53 & \textbf{-0.02} & 0.44 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{20} & 0.36 & 0.56 & 0.38 & 0.50 & -0.05 & 0.43 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{20} & 0.38 & 0.36 & 0.39 & \textbf{0.56} & -0.04 & 0.46 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{20} & 0.37 & 0.30 & 0.38 & 0.55 & -0.04 & 0.45 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{20} & 0.34 & 0.26 & 0.35 & 0.50 & -0.04 & 0.42 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di HDBScan con leftSkipgram con liste di costrizione nella configurazione Random Walk in Priceton}
+\label{leftskipgramrwlchdbscanpriceton}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{10} & 0.09 & 0.10 & 0.22 & 0.09 & -0.08 & 0.13 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{10} & 0.06 & 0.06 & 0.15 & 0.06 & -0.07 & 0.09 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{10} & 0.07 & 0.09 & 0.23 & 0.07 & -0.11 & 0.11 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{10} & 0.07 & 0.08 & 0.37 & 0.08 & -0.14 & 0.13 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{15} & 0.08 & 0.02 & 0.22 & 0.09 & -0.14 & 0.13 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{15} & 0.17 & 0.11 & 0.30 & 0.19 & -0.21 & 0.23 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{15} & 0.05 & 0.05 & 0.35 & 0.05 & -0.03 & 0.09 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{15} & 0.06 & 0.06 & 0.37 & 0.06 & -0.03 & 0.10 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{20} & 0.17 & 0.17 & 0.37 & 0.18 & -0.11 & 0.24 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{20} & 0.06 & 0.09 & 0.23 & 0.07 & -0.15 & 0.10 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{20} & 0.24 & 0.08 & 0.32 & 0.27 & -0.29 & 0.29 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{20} & 0.29 & 0.16 & 0.35 & 0.32 & -0.32 & 0.33 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{10} & 0.08 & -0.02 & 0.24 & 0.10 & -0.09 & 0.14 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{10} & 0.08 & 0.10 & 0.20 & 0.08 & \textbf{-0.01} & 0.12 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{10} & 0.14 & -0.00 & 0.24 & 0.17 & -0.14 & 0.20 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{10} & 0.08 & 0.10 & 0.28 & 0.08 & -0.08 & 0.13 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{15} & 0.19 & 0.10 & 0.40 & 0.20 & -0.12 & 0.27 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{15} & 0.17 & 0.00 & 0.26 & 0.20 & -0.13 & 0.22 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{15} & 0.21 & 0.03 & 0.27 & 0.24 & -0.29 & 0.25 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{15} & 0.20 & 0.02 & 0.27 & 0.23 & -0.22 & 0.25 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{20} & 0.17 & 0.06 & 0.36 & 0.18 & -0.13 & 0.24 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{20} & 0.23 & 0.05 & 0.28 & 0.26 & -0.16 & 0.27 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{20} & 0.24 & 0.05 & 0.28 & 0.28 & -0.19 & 0.28 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{20} & 0.23 & 0.05 & 0.29 & 0.26 & -0.19 & 0.28 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{10} & 0.26 & 0.26 & 0.46 & 0.28 & -0.09 & 0.34 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{10} & 0.19 & 0.17 & 0.29 & 0.21 & -0.16 & 0.24 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{10} & 0.26 & 0.06 & 0.29 & 0.31 & -0.21 & 0.30 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{10} & 0.25 & 0.07 & 0.29 & 0.31 & -0.18 & 0.30 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{15} & 0.32 & 0.33 & 0.52 & 0.34 & -0.16 & 0.41 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{15} & 0.25 & 0.07 & 0.30 & 0.33 & -0.18 & 0.31 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{15} & 0.27 & 0.10 & 0.31 & 0.36 & -0.19 & 0.33 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{15} & 0.24 & 0.10 & 0.28 & 0.36 & -0.15 & 0.32 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{20} & \textbf{0.35} & \textbf{0.38} & \textbf{0.56} & \textbf{0.37} & -0.17 & \textbf{0.44} \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{20} & 0.27 & 0.07 & 0.31 & 0.34 & -0.21 & 0.32 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{20} & 0.28 & 0.15 & 0.32 & \textbf{0.37} & -0.18 & 0.34 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{20} & 0.26 & 0.15 & 0.30 & 0.36 & -0.17 & 0.33 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di KMeans con normalSkipgram con liste di costrizione nella configurazione Random Walk in Priceton}
+\label{normalskipgramrwlckmeanspriceton}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{10} & 0.31 & 0.21 & 0.33 & 0.45 & -0.04 & 0.38 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{10} & 0.28 & 0.16 & 0.30 & 0.45 & -0.03 & 0.36 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{10} & 0.29 & 0.19 & 0.31 & 0.44 & -0.03 & 0.36 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{10} & 0.29 & 0.18 & 0.31 & 0.44 & -0.03 & 0.36 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{15} & 0.31 & 0.20 & 0.32 & 0.49 & -0.03 & 0.39 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{15} & 0.32 & 0.25 & 0.33 & 0.47 & -0.03 & 0.39 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{15} & 0.29 & 0.20 & 0.31 & 0.44 & -0.07 & 0.36 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{15} & 0.28 & 0.18 & 0.29 & 0.42 & -0.03 & 0.34 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{20} & 0.30 & 0.20 & 0.31 & 0.47 & -0.03 & 0.38 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{20} & 0.31 & 0.24 & 0.32 & 0.46 & -0.02 & 0.38 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{20} & 0.30 & 0.19 & 0.32 & 0.48 & -0.03 & 0.38 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{20} & 0.30 & 0.22 & 0.31 & 0.43 & -0.03 & 0.36 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{10} & 0.36 & 0.26 & 0.37 & 0.55 & -0.02 & 0.44 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{10} & 0.37 & 0.26 & 0.38 & 0.58 & -0.02 & 0.46 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{10} & 0.37 & 0.27 & 0.38 & 0.58 & -0.02 & 0.46 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{10} & 0.38 & 0.33 & 0.39 & 0.59 & -0.02 & 0.47 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{15} & 0.37 & 0.32 & 0.38 & 0.58 & -0.02 & 0.46 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{15} & 0.35 & 0.24 & 0.36 & 0.56 & -0.02 & 0.44 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{15} & 0.35 & 0.30 & 0.36 & 0.51 & -0.02 & 0.42 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{15} & 0.37 & 0.43 & 0.38 & 0.54 & -0.02 & 0.44 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{20} & 0.40 & 0.37 & 0.41 & 0.60 & -0.02 & 0.49 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{20} & 0.39 & 0.35 & 0.40 & 0.59 & -0.02 & 0.48 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{20} & 0.36 & 0.24 & 0.37 & 0.55 & \textbf{-0.01} & 0.44 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{20} & 0.34 & 0.26 & 0.35 & 0.53 & \textbf{-0.01} & 0.42 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{10} & 0.46 & 0.42 & 0.47 & \textbf{0.69} & -0.03 & 0.56 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{10} & 0.43 & 0.39 & 0.44 & 0.64 & -0.02 & 0.52 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{10} & \textbf{0.49} & \textbf{0.65} & \textbf{0.49} & 0.67 & -0.02 & \textbf{0.57} \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{10} & 0.47 & 0.60 & 0.48 & 0.67 & -0.02 & 0.56 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{15} & 0.46 & 0.41 & 0.47 & \textbf{0.69} & -0.02 & 0.56 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{15} & 0.43 & 0.35 & 0.44 & 0.65 & -0.02 & 0.52 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{15} & 0.44 & 0.46 & 0.45 & 0.65 & -0.02 & 0.53 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{15} & 0.43 & 0.49 & 0.44 & 0.62 & -0.02 & 0.51 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{20} & 0.45 & 0.40 & 0.46 & 0.67 & -0.02 & 0.54 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{20} & 0.41 & 0.35 & 0.42 & 0.63 & -0.02 & 0.50 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{20} & 0.46 & 0.46 & 0.47 & 0.65 & -0.02 & 0.54 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{20} & 0.46 & 0.49 & 0.47 & 0.66 & -0.02 & 0.55 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di HDBScan con normalSkipgram con liste di costrizione nella configurazione Random Walk in Priceton}
+\label{normalskipgramrwlchdbscanpriceton}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{10} & 0.21 & 0.02 & 0.26 & 0.30 & -0.12 & 0.28 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{10} & 0.24 & 0.02 & 0.29 & 0.32 & -0.12 & 0.30 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{10} & 0.25 & 0.03 & 0.30 & 0.32 & -0.13 & 0.31 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{10} & 0.25 & 0.03 & 0.30 & 0.31 & -0.14 & 0.30 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{15} & 0.23 & 0.03 & 0.27 & 0.32 & -0.13 & 0.29 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{15} & 0.24 & 0.03 & 0.28 & 0.30 & -0.15 & 0.29 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{15} & 0.27 & 0.04 & 0.31 & 0.31 & -0.11 & 0.31 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{15} & 0.26 & 0.04 & 0.30 & 0.29 & -0.10 & 0.30 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{20} & 0.23 & 0.04 & 0.27 & 0.32 & -0.15 & 0.29 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{20} & 0.24 & 0.04 & 0.28 & 0.32 & -0.15 & 0.30 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{20} & 0.27 & 0.05 & 0.31 & 0.31 & -0.15 & 0.31 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{20} & 0.24 & 0.05 & 0.30 & 0.28 & -0.15 & 0.29 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{10} & 0.30 & 0.24 & 0.34 & 0.42 & -0.10 & 0.38 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{10} & 0.29 & 0.23 & 0.34 & 0.40 & -0.10 & 0.37 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{10} & 0.29 & 0.22 & 0.33 & 0.39 & -0.09 & 0.35 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{10} & 0.26 & 0.16 & 0.30 & 0.35 & -0.09 & 0.32 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{15} & 0.30 & 0.26 & 0.34 & 0.43 & -0.10 & 0.38 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{15} & 0.31 & 0.25 & 0.35 & 0.43 & -0.09 & 0.39 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{15} & 0.29 & 0.22 & 0.34 & 0.39 & -0.09 & 0.36 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{15} & 0.29 & 0.22 & 0.33 & 0.37 & -0.11 & 0.35 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{20} & 0.32 & 0.26 & 0.36 & 0.45 & -0.09 & 0.40 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{20} & 0.30 & 0.26 & 0.34 & 0.44 & -0.09 & 0.38 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{20} & 0.28 & 0.20 & 0.33 & 0.38 & -0.09 & 0.35 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{20} & 0.28 & 0.19 & 0.33 & 0.36 & \textbf{-0.08} & 0.34 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{10} & 0.31 & 0.28 & 0.35 & 0.51 & -0.12 & 0.41 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{10} & 0.30 & 0.25 & 0.34 & 0.51 & -0.11 & 0.41 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{10} & \textbf{0.34} & \textbf{0.34} & \textbf{0.37} & \textbf{0.61} & -0.11 & \textbf{0.46} \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{10} & 0.31 & 0.21 & 0.35 & 0.58 & -0.10 & 0.43 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{15} & 0.30 & 0.24 & 0.34 & 0.49 & -0.12 & 0.40 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{15} & 0.30 & 0.25 & 0.34 & 0.48 & -0.11 & 0.40 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{15} & 0.30 & 0.25 & 0.34 & 0.48 & -0.11 & 0.40 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{15} & 0.29 & 0.20 & 0.33 & 0.48 & -0.11 & 0.39 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{20} & 0.29 & 0.22 & 0.33 & 0.49 & -0.11 & 0.40 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{20} & 0.29 & 0.23 & 0.33 & 0.49 & -0.12 & 0.39 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{20} & 0.31 & 0.27 & 0.35 & 0.50 & -0.09 & 0.41 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{20} & 0.31 & 0.27 & 0.35 & 0.51 & -0.11 & 0.41 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di KMeans con leftSkipgram senza costrizioni nella configurazione Random Walk in Priceton}
+\label{leftskipgramrwnckmeanspriceton}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{10} & 0.28 & 0.34 & 0.30 & 0.41 & -0.03 & 0.34 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{10} & 0.31 & 0.33 & 0.32 & 0.41 & -0.05 & 0.36 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{10} & 0.34 & 0.36 & 0.36 & 0.48 & -0.09 & 0.41 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{10} & 0.37 & 0.40 & 0.38 & 0.50 & -0.06 & 0.43 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{15} & 0.31 & 0.43 & 0.32 & 0.44 & -0.03 & 0.37 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{15} & 0.32 & 0.41 & 0.33 & 0.43 & -0.05 & 0.37 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{15} & 0.37 & 0.44 & 0.38 & 0.48 & -0.09 & 0.43 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{15} & 0.38 & 0.46 & \textbf{0.40} & 0.50 & -0.25 & 0.44 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{20} & 0.33 & 0.47 & 0.34 & 0.47 & -0.03 & 0.40 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{20} & 0.34 & 0.47 & 0.36 & 0.47 & -0.10 & 0.41 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{20} & 0.38 & 0.48 & 0.39 & 0.50 & -0.11 & 0.44 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{20} & \textbf{0.39} & 0.47 & \textbf{0.40} & 0.51 & -0.07 & 0.45 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{10} & 0.30 & 0.39 & 0.31 & 0.46 & -0.03 & 0.37 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{10} & 0.34 & 0.44 & 0.36 & 0.49 & -0.03 & 0.41 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{10} & 0.33 & 0.32 & 0.34 & 0.49 & -0.03 & 0.40 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{10} & 0.35 & 0.33 & 0.36 & 0.50 & -0.05 & 0.42 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{15} & 0.33 & 0.43 & 0.34 & 0.48 & -0.03 & 0.40 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{15} & \textbf{0.39} & 0.52 & \textbf{0.40} & 0.52 & -0.04 & 0.45 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{15} & 0.35 & 0.40 & 0.36 & 0.49 & -0.04 & 0.42 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{15} & 0.32 & 0.29 & 0.33 & 0.47 & -0.03 & 0.39 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{20} & 0.35 & 0.52 & 0.36 & 0.49 & -0.03 & 0.42 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{20} & 0.37 & 0.39 & 0.38 & 0.53 & \textbf{-0.02} & 0.45 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{20} & 0.35 & 0.37 & 0.36 & 0.50 & -0.04 & 0.42 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{20} & 0.28 & 0.21 & 0.29 & 0.39 & -0.03 & 0.33 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{10} & 0.33 & 0.48 & 0.34 & 0.47 & -0.04 & 0.40 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{10} & 0.36 & 0.34 & 0.37 & 0.52 & -0.10 & 0.43 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{10} & 0.33 & 0.25 & 0.34 & 0.50 & -0.04 & 0.40 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{10} & 0.33 & 0.28 & 0.34 & 0.50 & -0.03 & 0.41 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{15} & 0.33 & 0.36 & 0.34 & 0.49 & -0.05 & 0.40 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{15} & 0.38 & 0.36 & 0.39 & 0.54 & -0.04 & \textbf{0.46} \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{15} & 0.35 & 0.30 & 0.36 & 0.51 & -0.06 & 0.42 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{15} & 0.33 & 0.27 & 0.34 & 0.49 & -0.06 & 0.40 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{20} & 0.35 & \textbf{0.55} & 0.36 & 0.50 & -0.03 & 0.42 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{20} & 0.38 & 0.36 & 0.39 & \textbf{0.56} & \textbf{-0.02} & \textbf{0.46} \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{20} & 0.36 & 0.31 & 0.37 & 0.52 & -0.06 & 0.43 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{20} & 0.34 & 0.28 & 0.35 & 0.50 & -0.03 & 0.41 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di HDBScan con leftSkipgram senza costrizioni nella configurazione Random Walk in Priceton}
+\label{leftskipgramrwnchdbscanpriceton}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{10} & 0.03 & 0.00 & 0.09 & 0.04 & -0.06 & 0.05 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{10} & 0.06 & 0.07 & 0.16 & 0.07 & -0.04 & 0.09 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{10} & 0.06 & 0.08 & 0.18 & 0.07 & \textbf{-0.00} & 0.10 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{10} & 0.08 & 0.09 & 0.22 & 0.09 & -0.09 & 0.13 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{15} & 0.09 & 0.02 & 0.25 & 0.10 & -0.09 & 0.14 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{15} & 0.14 & 0.06 & 0.28 & 0.16 & -0.19 & 0.21 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{15} & 0.21 & 0.10 & 0.33 & 0.24 & -0.27 & 0.28 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{15} & 0.23 & 0.10 & 0.31 & 0.26 & -0.22 & 0.28 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{20} & 0.14 & 0.09 & 0.32 & 0.15 & -0.13 & 0.20 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{20} & 0.19 & 0.05 & 0.31 & 0.22 & -0.19 & 0.26 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{20} & 0.28 & 0.16 & 0.35 & 0.31 & -0.28 & 0.33 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{20} & 0.29 & 0.18 & 0.35 & 0.32 & -0.31 & 0.33 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{10} & 0.07 & -0.02 & 0.24 & 0.08 & -0.09 & 0.12 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{10} & 0.10 & 0.11 & 0.24 & 0.10 & -0.05 & 0.14 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{10} & 0.15 & 0.00 & 0.25 & 0.17 & -0.15 & 0.21 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{10} & 0.15 & 0.00 & 0.27 & 0.18 & -0.18 & 0.21 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{15} & 0.15 & 0.21 & 0.39 & 0.15 & -0.06 & 0.22 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{15} & 0.17 & 0.01 & 0.25 & 0.20 & -0.15 & 0.22 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{15} & 0.21 & 0.03 & 0.27 & 0.25 & -0.14 & 0.26 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{15} & 0.20 & 0.03 & 0.28 & 0.23 & -0.13 & 0.26 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{20} & 0.17 & 0.05 & 0.37 & 0.18 & -0.25 & 0.25 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{20} & 0.23 & 0.05 & 0.29 & 0.26 & -0.15 & 0.27 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{20} & 0.24 & 0.05 & 0.29 & 0.27 & -0.16 & 0.28 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{20} & 0.22 & 0.04 & 0.28 & 0.25 & -0.20 & 0.26 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{10} & 0.27 & 0.22 & 0.45 & 0.28 & -0.09 & 0.35 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{10} & 0.25 & 0.04 & 0.29 & 0.28 & -0.24 & 0.29 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{10} & 0.26 & 0.06 & 0.30 & 0.33 & -0.21 & 0.31 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{10} & 0.25 & 0.07 & 0.28 & 0.33 & -0.21 & 0.31 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{15} & \textbf{0.33} & \textbf{0.33} & \textbf{0.50} & 0.34 & -0.11 & \textbf{0.40} \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{15} & 0.26 & 0.06 & 0.30 & 0.33 & -0.23 & 0.31 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{15} & 0.26 & 0.10 & 0.30 & 0.34 & -0.22 & 0.32 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{15} & 0.26 & 0.11 & 0.30 & 0.35 & -0.19 & 0.32 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{20} & 0.29 & 0.27 & 0.47 & 0.31 & -0.12 & 0.37 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{20} & 0.27 & 0.07 & 0.31 & 0.34 & -0.21 & 0.33 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{20} & 0.27 & 0.11 & 0.30 & 0.37 & -0.23 & 0.33 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{20} & 0.28 & 0.14 & 0.31 & \textbf{0.39} & -0.16 & 0.34 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di KMeans con normalSkipgram senza costrizioni nella configurazione Random Walk in Priceton}
+\label{normalskipgramrwnckmeanspriceton}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{10} & 0.30 & 0.18 & 0.31 & 0.46 & -0.03 & 0.37 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{10} & 0.28 & 0.18 & 0.30 & 0.44 & -0.03 & 0.36 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{10} & 0.28 & 0.19 & 0.30 & 0.44 & -0.03 & 0.36 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{10} & 0.30 & 0.21 & 0.31 & 0.44 & -0.04 & 0.37 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{15} & 0.31 & 0.22 & 0.32 & 0.47 & -0.03 & 0.38 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{15} & 0.30 & 0.20 & 0.31 & 0.45 & -0.03 & 0.37 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{15} & 0.30 & 0.21 & 0.31 & 0.46 & -0.03 & 0.37 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{15} & 0.31 & 0.22 & 0.32 & 0.46 & -0.05 & 0.38 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{20} & 0.32 & 0.21 & 0.33 & 0.50 & \textbf{-0.02} & 0.40 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{20} & 0.30 & 0.21 & 0.31 & 0.46 & -0.03 & 0.37 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{20} & 0.31 & 0.24 & 0.32 & 0.45 & -0.03 & 0.37 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{20} & 0.28 & 0.19 & 0.29 & 0.44 & \textbf{-0.02} & 0.35 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{10} & 0.36 & 0.27 & 0.37 & 0.57 & \textbf{-0.02} & 0.45 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{10} & 0.36 & 0.30 & 0.37 & 0.54 & -0.04 & 0.44 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{10} & 0.36 & 0.23 & 0.37 & 0.55 & -0.04 & 0.44 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{10} & 0.34 & 0.28 & 0.35 & 0.50 & \textbf{-0.02} & 0.41 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{15} & 0.37 & 0.29 & 0.38 & 0.58 & \textbf{-0.02} & 0.46 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{15} & 0.35 & 0.25 & 0.36 & 0.54 & \textbf{-0.02} & 0.43 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{15} & 0.36 & 0.30 & 0.37 & 0.55 & \textbf{-0.02} & 0.44 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{15} & 0.36 & 0.43 & 0.37 & 0.52 & \textbf{-0.02} & 0.44 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{20} & 0.37 & 0.27 & 0.38 & 0.58 & \textbf{-0.02} & 0.46 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{20} & 0.36 & 0.29 & 0.37 & 0.55 & \textbf{-0.02} & 0.44 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{20} & 0.33 & 0.30 & 0.34 & 0.48 & \textbf{-0.02} & 0.40 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{20} & 0.34 & 0.30 & 0.35 & 0.50 & \textbf{-0.02} & 0.41 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{10} & 0.41 & 0.36 & 0.42 & 0.64 & \textbf{-0.02} & 0.51 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{10} & 0.43 & 0.39 & 0.44 & \textbf{0.66} & \textbf{-0.02} & 0.53 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{10} & 0.41 & 0.37 & 0.42 & 0.63 & \textbf{-0.02} & 0.51 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{10} & \textbf{0.46} & \textbf{0.53} & \textbf{0.47} & \textbf{0.66} & \textbf{-0.02} & \textbf{0.55} \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{15} & 0.44 & 0.44 & 0.45 & 0.64 & -0.03 & 0.53 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{15} & 0.41 & 0.35 & 0.42 & 0.63 & -0.03 & 0.50 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{15} & 0.41 & 0.40 & 0.42 & 0.61 & -0.03 & 0.50 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{15} & 0.44 & 0.43 & 0.45 & 0.64 & \textbf{-0.02} & 0.53 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{20} & 0.43 & 0.50 & 0.44 & 0.62 & \textbf{-0.02} & 0.51 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{20} & 0.41 & 0.42 & 0.42 & 0.62 & \textbf{-0.02} & 0.50 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{20} & 0.41 & 0.44 & 0.42 & 0.59 & \textbf{-0.02} & 0.49 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{20} & 0.41 & 0.37 & 0.42 & 0.60 & \textbf{-0.02} & 0.49 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di HDBScan con normalSkipgram senza costrizioni nella configurazione Random Walk in Priceton}
+\label{normalskipgramrwnchdbscanpriceton}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{10} & 0.22 & 0.02 & 0.27 & 0.32 & -0.16 & 0.29 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{10} & 0.21 & 0.02 & 0.26 & 0.29 & -0.15 & 0.28 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{10} & 0.25 & 0.04 & 0.30 & 0.32 & -0.14 & 0.31 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{10} & 0.25 & 0.04 & 0.30 & 0.31 & -0.13 & 0.30 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{15} & 0.24 & 0.03 & 0.28 & 0.30 & -0.12 & 0.29 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{15} & 0.25 & 0.04 & 0.29 & 0.31 & -0.13 & 0.30 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{15} & 0.27 & 0.05 & 0.31 & 0.32 & -0.12 & 0.31 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{15} & 0.26 & 0.04 & 0.31 & 0.30 & -0.11 & 0.30 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{20} & 0.23 & 0.03 & 0.27 & 0.31 & -0.14 & 0.29 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{20} & 0.23 & 0.03 & 0.27 & 0.30 & -0.13 & 0.28 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{20} & 0.27 & 0.05 & 0.31 & 0.31 & -0.14 & 0.31 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{20} & 0.25 & 0.05 & 0.31 & 0.29 & -0.13 & 0.30 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{10} & 0.28 & 0.18 & 0.32 & 0.35 & -0.10 & 0.33 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{10} & 0.29 & 0.18 & 0.33 & 0.35 & -0.13 & 0.34 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{10} & 0.27 & 0.16 & 0.31 & 0.31 & -0.09 & 0.31 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{10} & 0.26 & 0.15 & 0.32 & 0.30 & -0.14 & 0.31 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{15} & 0.29 & 0.21 & 0.33 & 0.38 & -0.09 & 0.35 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{15} & 0.31 & 0.22 & 0.35 & 0.41 & -0.09 & 0.38 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{15} & 0.30 & 0.19 & 0.34 & 0.36 & -0.08 & 0.35 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{15} & 0.30 & 0.18 & 0.34 & 0.34 & \textbf{-0.07} & 0.34 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{20} & 0.31 & 0.23 & 0.35 & 0.42 & -0.09 & 0.38 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{20} & \textbf{0.32} & 0.24 & 0.35 & 0.43 & -0.09 & 0.39 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{20} & 0.30 & 0.19 & 0.33 & 0.35 & \textbf{-0.07} & 0.34 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{20} & 0.30 & 0.19 & 0.34 & 0.35 & \textbf{-0.07} & 0.34 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{10} & 0.29 & 0.23 & 0.33 & 0.50 & -0.13 & 0.40 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{10} & 0.31 & 0.28 & 0.35 & 0.51 & -0.12 & 0.41 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{10} & 0.30 & 0.22 & 0.34 & 0.53 & -0.11 & 0.41 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{10} & \textbf{0.32} & \textbf{0.30} & \textbf{0.36} & \textbf{0.52} & -0.11 & \textbf{0.42} \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{15} & 0.30 & 0.24 & 0.34 & 0.49 & -0.12 & 0.40 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{15} & 0.31 & 0.26 & 0.35 & 0.49 & -0.12 & 0.41 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{15} & 0.30 & 0.28 & 0.34 & 0.48 & -0.10 & 0.40 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{15} & 0.30 & 0.28 & 0.34 & 0.48 & -0.10 & 0.40 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{20} & 0.31 & 0.23 & 0.34 & 0.50 & -0.12 & 0.41 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{20} & 0.31 & 0.27 & 0.35 & 0.49 & -0.11 & 0.41 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{20} & 0.31 & 0.27 & 0.35 & 0.48 & -0.10 & 0.40 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{20} & 0.31 & 0.27 & 0.34 & 0.48 & -0.09 & 0.40 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati migliori tra leftSkipgram, normalSkipgram e LINE in Priceton}
+\label{bestleftnormallinepriceton}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+& \textbf{Clustering} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{leftSkipgram-lc} & \textbf{KMeans} & 0.41 & 0.51 & 0.42 & 0.52 & -0.07 & 0.47 \\ \hline
+\textbf{leftSkipgram-lc} & \textbf{HDBScan} & 0.35 & 0.38 & 0.56 & 0.37 & -0.17 & 0.44 \\ \hline
+\textbf{normalSkipgram-lc} & \textbf{KMeans} & \textbf{0.49} & \textbf{0.65} & 0.49 & \textbf{0.67} & -0.02 & \textbf{0.57} \\ \hline
+\textbf{normalSkipgram-lc} & \textbf{HDBScan} & 0.34 & 0.34 & 0.37 & 0.61 & -0.11 & 0.46 \\ \hline
+\textbf{LINE-1-lc} & \textbf{KMeans} & 0.15 & 0.07 & 0.17 & 0.24 & -0.10 & 0.20 \\ \hline
+\textbf{LINE-1-lc} & \textbf{HDBScan} & 0.09 & 0.01 & 0.20 & 0.10 & -0.30 & 0.13 \\ \hline
+\textbf{LINE-2-lc} & \textbf{KMeans} & 0.28 & 0.29 & 0.30 & 0.36 & -0.17 & 0.33 \\ \hline
+\textbf{LINE-2-lc} & \textbf{HDBScan} & 0.07 & 0.11 & 0.28 & 0.08 & \textbf{0.21} & 0.12 \\ \hline
+\textbf{leftSkipgram-nc} & \textbf{KMeans} & 0.38 & 0.36 & 0.39 & 0.56 & -0.02 & 0.46 \\ \hline
+\textbf{leftSkipgram-nc} & \textbf{HDBScan} & 0.33 & 0.33 & 0.50 & 0.34 & -0.11 & 0.40 \\ \hline
+\textbf{normalSkipgram-nc} & \textbf{KMeans} & 0.46 & 0.53 & 0.47 & 0.66 & -0.02 & 0.55 \\ \hline
+\textbf{normalSkipgram-nc} & \textbf{HDBScan} & 0.32 & 0.30 & 0.36 & 0.52 & -0.11 & 0.42 \\ \hline
+\textbf{LINE-1-nc} & \textbf{KMeans} & 0.23 & 0.10 & 0.25 & 0.36 & -0.02 & 0.29 \\ \hline
+\textbf{LINE-1-nc} & \textbf{HDBScan} & 0.33 & 0.43 & \textbf{0.62} & 0.33 & -0.02 & 0.44 \\ \hline
+\textbf{LINE-2-nc} & \textbf{KMeans} & 0.23 & 0.13 & 0.25 & 0.38 & -0.07 & 0.30 \\ \hline
+\textbf{LINE-2-nc} & \textbf{HDBScan} & 0.34 & 0.48 & 0.55 & 0.34 & 0.07 & 0.42 \\ \hline
+\end{tabular}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+& \textbf{Clustering} & \textbf{DB size} & \textbf{Window} & \textbf{RW len.} \\ \hline
+\textbf{leftSkipgram-lc} & \textbf{KMeans} & 100K & 7 & 20 \\ \hline
+\textbf{leftSkipgram-lc} & \textbf{HDBScan} & 1M & 2 & 20 \\ \hline
+\textbf{normalSkipgram-lc} & \textbf{KMeans} & \textbf{1M} & \textbf{5} & \textbf{10} \\ \hline
+\textbf{normalSkipgram-lc} & \textbf{HDBScan} & 1M & 5 & 10 \\ \hline
+\textbf{leftSkipgram-nc} & \textbf{KMeans} & 1M & 3 & 20 \\ \hline
+\textbf{leftSkipgram-nc} & \textbf{HDBScan} & 1M & 2 & 15 \\ \hline
+\textbf{normalSkipgram-nc} & \textbf{KMeans} & 1M & 7 & 10 \\ \hline
+\textbf{normalSkipgram-nc} & \textbf{HDBScan} & 1M & 7 & 10 \\ \hline
+\end{tabular}
+\end{table}
+
+Nelle Tabelle \ref{leftskipgramrwlckmeanspriceton}, \ref{leftskipgramrwlchdbscanpriceton}, \ref{normalskipgramrwlckmeanspriceton}, \ref{normalskipgramrwlchdbscanpriceton}, \ref{leftskipgramrwnckmeanspriceton}, \ref{leftskipgramrwnchdbscanpriceton}, \ref{normalskipgramrwnckmeanspriceton}, \ref{normalskipgramrwnchdbscanpriceton} sono stati raccolti i valori delle metriche, sia per leftSkipgram che per normalSkipgram, come nei casi precedenti. Come in precedenza, anche in questo caso sono state scelte le configurazioni aventi maggior numero di valori delle metriche più alti. Nel caso della Tabella
+\ref{leftskipgramrwlckmeanspriceton} è stata scelta come configurazione migliore per KMeans con leftSkipgram con liste di costrizione [100K, 7, 20] poiché, pur non avendo i più alti valori in Completezza ed Omogeneità, ha il maggior punteggio in V-Measure: di conseguenza, presenta un certo equilibrio tra le metriche precedentemente citate.
+\\
+Le migliori configurazioni sono state scelte e raccolte nella Tabella \ref{bestleftnormallinepriceton} dove, confrontandole con LINE di primo e secondo ordine di prossimità, \textbf{normalSkipgram con liste di costrizione}, con una configurazione di \textbf{[1M, 5, 10]} affiancato a \textbf{KMeans}, ottiene punteggi più alti. Considerando sia contesto destro che quello sinistro, con una dimensione della finestra pari a 5 (quindi standard), normalSkipgram ha estratto informazioni utili pur considerando un numero discreto relazioni indirette tra le pagine di Priceton. In questo caso, le Liste Web hanno migliorato la qualità dei Cluster creati.
+\\
+E' interessante notare come LINE con secondo ordine di prossimità, applicato sul dataset di Priceton con liste di costrizione, permette di estrarre informazioni utili per aumentare la forma dei raggruppamenti: infatti questo algoritmo permette di ottenere, abbinato ad HDBScan, un punteggio di Silhouette pari a 0.21, un valore che si distacca in maniera decisiva da quelli degli altri algoritmi messi a confronto. Non solo, sempre utilizzando HDBScan e considerando il dataset senza liste di costrizione, LINE con primo ordine di prossimità permette di estrarre informazioni per aumentare il valore di Completezza, riuscendo a raggiungere lo 0.62, permettendo dunque di raggruppare tutti gli elementi di una classe in uno stesso Cluster.
+
+\subsubsection{Testo}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di Doc2Vec e TF-IDF in Priceton}
+\label{doc2vectfidfpriceton}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+& \textbf{Clustering} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{Doc2Vec-lc} & \textbf{KMeans} & 0.50 & 0.54 & 0.51 & 0.68 & -0.02 & 0.58 \\ \hline
+\textbf{Doc2Vec-lc} & \textbf{HDBScan} & 0.43 & 0.28 & 0.45 & 0.51 & -0.39 & 0.48 \\ \hline
+\textbf{TF-IDF-lc} & \textbf{KMeans} & 0.55 & 0.62 & 0.56 & \textbf{0.73} & 0.04 & 0.63 \\ \hline
+\textbf{TF-IDF-lc} & \textbf{HDBScan} & 0.30 & 0.13 & 0.33 & 0.36 & -0.35 & 0.34 \\ \hline
+\textbf{Doc2Vec-nc} & \textbf{KMeans} & 0.47 & 0.43 & 0.47 & 0.57 & -0.04 & 0.52 \\ \hline
+\textbf{Doc2Vec-nc} & \textbf{HDBScan} & 0.41 & 0.26 & 0.44 & 0.50 & -0.38 & 0.47 \\ \hline
+\textbf{TF-IDF-nc} & \textbf{KMeans} & \textbf{0.57} & \textbf{0.68} & \textbf{0.58} & 0.71 & \textbf{0.05} & \textbf{0.64} \\ \hline
+\textbf{TF-IDF-nc} & \textbf{HDBScan} & 0.30 & 0.16 & 0.33 & 0.38 & -0.32 & 0.36 \\ \hline
+\end{tabular}
+\end{table}
+
+Considerando le pagine di Priceton come semplici documenti testuali, da questo caso della sperimentazione, i cui risultati sono stati inseriti nella Tabella \ref{doc2vectfidfpriceton}, si è scoperto che la matrice di \textbf{Tf-idf} ha permesso di aumentare le performance di \textbf{KMeans}. Le Liste Web non sono servite per aumentare la qualità dei Cluster generati, probabilmente perché venivano escluse, dal Crawler che sfrutta le Liste Web, pagine aventi un contenuto testuale utile per migliorare il processo di raggruppamento delle stesse.
+
+\subsubsection{Combinato}
+
+\begin{table}[h]
+\centering
+\caption{Risultati della configurazione Combinato in Priceton}
+\label{combpriceton}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{ListConstraint} & \textbf{Clustering} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{left + Doc2Vec} & \textbf{KMeans} & 0.48 & 0.55 & 0.49 & 0.62 & -0.13 & 0.55 \\ \hline
+\textbf{left + Doc2Vec} & \textbf{HDBScan} & 0.36 & 0.39 & \textbf{0.57} & 0.37 & -0.26 & 0.45 \\ \hline
+\textbf{left + TF-IDF} & \textbf{KMeans} & 0.49 & 0.55 & 0.50 & 0.64 & -0.04 & 0.56 \\ \hline
+\textbf{left + TF-IDF} & \textbf{HDBScan} & 0.38 & 0.38 & 0.50 & 0.39 & -0.23 & 0.44 \\ \hline
+\textbf{normal + Doc2Vec} & \textbf{KMeans} & 0.42 & 0.38 & 0.43 & 0.63 & -0.03 & 0.51 \\ \hline
+\textbf{normal + Doc2Vec} & \textbf{HDBScan} & 0.36 & 0.22 & 0.39 & 0.57 & -0.12 & 0.46 \\ \hline
+\textbf{normal + TF-IDF} & \textbf{KMeans} & 0.48 & 0.41 & 0.49 & 0.71 & -0.03 & 0.58 \\ \hline
+\textbf{normal + TF-IDF} & \textbf{HDBScan} & 0.39 & 0.17 & 0.41 & 0.50 & -0.16 & 0.45 \\ \hline
+\hline
+\textbf{NoConstraint} &  &  &  &  &  &  &  \\ \hline
+\textbf{left + Doc2Vec} & \textbf{KMeans} & 0.43 & 0.37 & 0.44 & 0.64 & \textbf{-0.02} & 0.52 \\ \hline
+\textbf{left + Doc2Vec} & \textbf{HDBScan} & 0.35 & 0.36 & 0.51 & 0.36 & -0.12 & 0.42 \\ \hline
+\textbf{left + TF-IDF} & \textbf{KMeans} & 0.52 & 0.64 & 0.53 & \textbf{0.73} & \textbf{-0.02} & 0.61 \\ \hline
+\textbf{left + TF-IDF} & \textbf{HDBScan} & 0.38 & 0.37 & 0.47 & 0.40 & -0.17 & 0.43 \\ \hline
+\textbf{normal + Doc2Vec} & \textbf{KMeans} & 0.50 & 0.47 & 0.50 & 0.71 & \textbf{-0.02} & 0.59 \\ \hline
+\textbf{normal + Doc2Vec} & \textbf{HDBScan} & 0.35 & 0.17 & 0.38 & 0.53 & -0.12 & 0.44 \\ \hline
+\textbf{normal + TF-IDF} & \textbf{KMeans} & \textbf{0.53} & \textbf{0.65} & 0.54 & \textbf{0.73} & -0.03 & \textbf{0.62} \\ \hline
+\textbf{normal + TF-IDF} & \textbf{HDBScan} & 0.38 & 0.18 & 0.41 & 0.47 & -0.16 & 0.44 \\ \hline
+\end{tabular}
+\end{table}
+
+I risultati prodotti dalla combinazione dei vettori prodotti dai diversi algoritmi, raggruppati nella Tabella \ref{combpriceton}, hanno messo in evidenza che, considerando le pagine indicizzate dal Crawler tradizionale, \textbf{KMeans}, usando le informazioni estratte dalla combinazione \textbf{normalSkipgram}, con combinazione [1M, 7, 10] e \textbf{Tf-Idf}, ha prodotto dei Cluster con un certo livello di bontà. Le Liste Web non hanno migliorato la qualità del processo di Clustering.
+
+\subsection{cs.stanford.edu}  % ---------- STANFORD ----------
+
+\subsubsection{Random Walk}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di KMeans con leftSkipgram con liste di costrizione nella configurazione Random Walk in Stanford}
+\label{leftskipgramrwlckmeansstanford}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{10} & 0.24 & 0.14 & 0.36 & 0.34 & -0.11 & 0.35 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{10} & 0.25 & 0.10 & 0.42 & 0.33 & -0.07 & 0.37 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{10} & 0.33 & 0.17 & 0.53 & 0.40 & -0.06 & 0.45 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{10} & 0.27 & 0.14 & 0.40 & 0.35 & -0.07 & 0.37 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{15} & 0.24 & 0.09 & 0.35 & 0.34 & -0.08 & 0.35 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{15} & 0.28 & 0.14 & 0.43 & 0.37 & -0.20 & 0.40 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{15} & 0.22 & 0.08 & 0.38 & 0.31 & -0.06 & 0.34 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{15} & 0.21 & 0.12 & 0.30 & 0.32 & -0.08 & 0.31 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{20} & 0.28 & 0.15 & 0.43 & 0.37 & -0.11 & 0.39 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{20} & 0.27 & 0.13 & 0.37 & 0.37 & \textbf{-0.03} & 0.37 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{20} & 0.28 & 0.14 & 0.40 & 0.36 & -0.05 & 0.38 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{20} & 0.21 & 0.07 & 0.51 & 0.29 & -0.06 & 0.37 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{10} & 0.22 & 0.15 & 0.32 & 0.32 & -0.07 & 0.32 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{10} & 0.32 & \textbf{0.23} & 0.41 & 0.40 & -0.05 & 0.41 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{10} & 0.29 & 0.11 & 0.40 & 0.38 & -0.09 & 0.39 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{10} & 0.39 & \textbf{0.23} & 0.47 & 0.47 & -0.05 & 0.47 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{15} & 0.32 & 0.17 & 0.41 & 0.42 & -0.04 & 0.42 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{15} & 0.32 & 0.17 & 0.51 & 0.39 & -0.08 & 0.44 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{15} & 0.38 & 0.18 & 0.46 & 0.45 & -0.05 & 0.46 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{15} & 0.29 & 0.11 & 0.55 & 0.37 & -0.07 & 0.44 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{20} & 0.29 & 0.20 & 0.38 & 0.40 & -0.05 & 0.39 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{20} & 0.30 & 0.21 & 0.40 & 0.39 & -0.07 & 0.39 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{20} & 0.29 & 0.13 & 0.40 & 0.39 & -0.06 & 0.39 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{20} & 0.27 & 0.12 & 0.37 & 0.37 & -0.05 & 0.37 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{10} & 0.23 & 0.16 & 0.33 & 0.34 & -0.11 & 0.33 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{10} & 0.35 & 0.14 & \textbf{0.57} & 0.42 & -0.07 & 0.48 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{10} & 0.29 & 0.11 & 0.46 & 0.37 & -0.08 & 0.41 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{10} & \textbf{0.41} & 0.22 & 0.49 & \textbf{0.48} & -0.07 & \textbf{0.49} \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{15} & 0.25 & 0.16 & 0.35 & 0.38 & -0.04 & 0.36 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{15} & 0.27 & 0.11 & 0.52 & 0.34 & -0.05 & 0.41 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{15} & 0.34 & 0.15 & 0.44 & 0.41 & -0.04 & 0.43 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{15} & 0.34 & 0.17 & 0.44 & 0.41 & -0.04 & 0.43 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{20} & 0.25 & 0.11 & 0.35 & 0.36 & -0.04 & 0.35 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{20} & 0.31 & 0.11 & 0.53 & 0.40 & -0.05 & 0.45 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{20} & 0.35 & 0.16 & 0.46 & 0.43 & -0.07 & 0.45 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{20} & 0.36 & 0.15 & 0.53 & 0.44 & -0.06 & 0.48 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di HDBScan con leftSkipgram con liste di costrizione nella configurazione Random Walk in Stanford}
+\label{leftskipgramrwlchdbscanstanford}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{10} & 0.10 & 0.03 & 0.55 & 0.13 & -0.02 & 0.21 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{10} & 0.19 & 0.09 & 0.59 & 0.24 & -0.09 & 0.34 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{10} & 0.21 & 0.10 & 0.61 & 0.25 & -0.08 & 0.36 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{10} & 0.20 & 0.10 & 0.60 & 0.25 & -0.08 & 0.35 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{15} & 0.13 & 0.05 & 0.56 & 0.16 & \textbf{0.04} & 0.25 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{15} & 0.22 & 0.11 & 0.64 & 0.27 & -0.03 & 0.38 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{15} & 0.20 & 0.10 & 0.61 & 0.25 & -0.02 & 0.35 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{15} & 0.20 & 0.10 & 0.61 & 0.25 & -0.02 & 0.35 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{20} & 0.10 & 0.03 & 0.43 & 0.14 & -0.01 & 0.21 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{20} & 0.21 & 0.11 & 0.63 & 0.26 & -0.03 & 0.36 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{20} & 0.21 & 0.11 & 0.63 & 0.26 & -0.02 & 0.37 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{20} & 0.22 & 0.07 & 0.56 & 0.27 & -0.02 & 0.37 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{10} & 0.24 & \textbf{0.14} & 0.47 & 0.29 & -0.02 & 0.36 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{10} & 0.18 & 0.08 & 0.65 & 0.22 & -0.01 & 0.33 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{10} & 0.21 & 0.11 & \textbf{0.68} & 0.24 & -0.01 & 0.36 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{10} & 0.23 & 0.08 & 0.60 & 0.27 & -0.01 & 0.38 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{15} & 0.15 & 0.05 & 0.42 & 0.20 & -0.01 & 0.27 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{15} & 0.20 & 0.10 & 0.61 & 0.25 & -0.05 & 0.36 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{15} & 0.21 & 0.07 & 0.57 & 0.26 & -0.01 & 0.36 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{15} & 0.19 & 0.06 & 0.54 & 0.24 & -0.01 & 0.34 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{20} & 0.23 & 0.13 & 0.45 & 0.28 & -0.02 & 0.34 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{20} & 0.22 & 0.09 & 0.57 & 0.27 & -0.01 & 0.37 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{20} & 0.20 & 0.06 & 0.53 & 0.25 & -0.02 & 0.34 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{20} & 0.20 & 0.06 & 0.54 & 0.25 & -0.02 & 0.34 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{10} & 0.15 & 0.08 & 0.35 & 0.19 & -0.01 & 0.25 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{10} & 0.19 & 0.06 & 0.53 & 0.25 & -0.04 & 0.34 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{10} & 0.19 & 0.08 & 0.44 & 0.25 & -0.09 & 0.32 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{10} & 0.21 & 0.08 & 0.45 & 0.27 & -0.06 & 0.34 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{15} & 0.14 & 0.04 & 0.43 & 0.19 & -0.03 & 0.26 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{15} & 0.20 & 0.05 & 0.55 & 0.24 & -0.03 & 0.34 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{15} & 0.24 & 0.08 & 0.51 & 0.29 & -0.03 & 0.37 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{15} & 0.22 & 0.04 & 0.48 & 0.29 & -0.04 & 0.36 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{20} & 0.16 & 0.01 & 0.42 & 0.22 & -0.04 & 0.29 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{20} & 0.22 & 0.07 & 0.47 & 0.28 & -0.03 & 0.35 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{20} & \textbf{0.28} & 0.12 & 0.57 & \textbf{0.33} & -0.05 & \textbf{0.42} \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{20} & 0.25 & 0.09 & 0.53 & 0.31 & -0.04 & 0.39 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di KMeans con normalSkipgram con liste di costrizione nella configurazione Random Walk in Stanford}
+\label{normalskipgramrwlckmeansstanford}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{10} & 0.35 & 0.16 & 0.45 & 0.43 & -0.04 & 0.44 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{10} & 0.38 & 0.21 & 0.46 & 0.46 & -0.06 & 0.46 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{10} & 0.24 & 0.08 & 0.37 & 0.34 & -0.06 & 0.35 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{10} & 0.28 & 0.09 & 0.47 & 0.37 & -0.07 & 0.41 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{15} & 0.31 & 0.06 & 0.48 & 0.39 & -0.05 & 0.43 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{15} & 0.36 & 0.14 & 0.44 & 0.44 & -0.05 & 0.44 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{15} & 0.28 & 0.15 & 0.37 & 0.38 & -0.05 & 0.37 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{15} & 0.24 & 0.09 & 0.46 & 0.33 & -0.07 & 0.39 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{20} & 0.46 & \textbf{0.28} & 0.53 & 0.55 & -0.05 & 0.54 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{20} & 0.35 & 0.17 & 0.49 & 0.43 & -0.08 & 0.46 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{20} & 0.25 & 0.12 & 0.36 & 0.34 & \textbf{-0.03} & 0.35 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{20} & 0.22 & 0.09 & 0.35 & 0.31 & -0.04 & 0.33 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{10} & \textbf{0.47} & 0.27 & 0.54 & \textbf{0.57} & -0.04 & \textbf{0.55} \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{10} & 0.35 & 0.19 & 0.48 & 0.42 & \textbf{-0.03} & 0.45 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{10} & 0.30 & 0.12 & 0.43 & 0.38 & -0.05 & 0.40 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{10} & 0.35 & 0.15 & 0.52 & 0.43 & -0.05 & 0.47 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{15} & 0.42 & 0.20 & 0.49 & 0.49 & -0.04 & 0.49 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{15} & 0.38 & 0.24 & 0.52 & 0.45 & -0.05 & 0.48 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{15} & 0.26 & 0.09 & 0.42 & 0.35 & -0.06 & 0.38 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{15} & 0.26 & 0.12 & 0.36 & 0.35 & -0.04 & 0.35 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{20} & 0.40 & 0.26 & 0.49 & 0.47 & -0.06 & 0.48 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{20} & 0.33 & 0.15 & 0.42 & 0.41 & -0.04 & 0.42 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{20} & 0.27 & 0.10 & 0.52 & 0.35 & -0.07 & 0.42 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{20} & 0.24 & 0.10 & 0.41 & 0.32 & -0.05 & 0.36 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{10} & 0.43 & 0.17 & 0.51 & 0.51 & -0.06 & 0.51 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{10} & 0.45 & 0.22 & 0.52 & 0.54 & -0.05 & 0.53 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{10} & 0.40 & 0.25 & 0.51 & 0.47 & \textbf{-0.03} & 0.49 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{10} & 0.33 & 0.14 & 0.50 & 0.41 & \textbf{-0.03} & 0.45 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{15} & 0.42 & 0.21 & 0.52 & 0.49 & -0.04 & 0.51 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{15} & 0.43 & 0.22 & 0.53 & 0.50 & -0.04 & 0.51 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{15} & 0.36 & 0.16 & \textbf{0.57} & 0.43 & -0.04 & 0.49 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{15} & 0.28 & 0.14 & 0.39 & 0.37 & \textbf{-0.03} & 0.38 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{20} & \textbf{0.47} & 0.26 & \textbf{0.57} & 0.53 & \textbf{-0.03} & \textbf{0.55} \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{20} & 0.38 & 0.18 & 0.47 & 0.46 & -0.04 & 0.46 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{20} & 0.25 & 0.08 & 0.42 & 0.34 & -0.05 & 0.37 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{20} & 0.27 & 0.09 & 0.52 & 0.35 & -0.05 & 0.42 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di HDBScan con normalSkipgram con liste di costrizione nella configurazione Random Walk in Stanford}
+\label{normalskipgramrwlchdbscanstanford}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{10} & 0.06 & 0.01 & 0.29 & 0.09 & \textbf{-0.01} & 0.13 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{10} & 0.06 & 0.02 & 0.23 & 0.08 & -0.03 & 0.12 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{10} & 0.12 & 0.06 & 0.31 & 0.16 & -0.02 & 0.21 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{10} & 0.05 & 0.02 & 0.22 & 0.08 & -0.02 & 0.12 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{15} & 0.26 & 0.15 & 0.47 & 0.32 & -0.02 & 0.38 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{15} & 0.21 & 0.17 & 0.44 & 0.25 & -0.02 & 0.32 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{15} & 0.19 & 0.12 & 0.39 & 0.23 & -0.04 & 0.29 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{15} & 0.20 & 0.13 & 0.41 & 0.25 & -0.04 & 0.31 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{20} & 0.04 & -0.00 & 0.27 & 0.07 & -0.02 & 0.11 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{20} & 0.04 & -0.01 & 0.22 & 0.06 & \textbf{-0.01} & 0.10 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{20} & 0.14 & 0.11 & 0.36 & 0.18 & -0.04 & 0.24 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{20} & 0.12 & 0.11 & 0.32 & 0.16 & -0.05 & 0.21 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{10} & 0.23 & 0.10 & 0.41 & 0.29 & -0.02 & 0.34 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{10} & 0.29 & 0.13 & 0.46 & 0.35 & -0.02 & 0.40 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{10} & 0.28 & 0.15 & 0.47 & 0.34 & -0.07 & 0.39 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{10} & 0.27 & 0.13 & 0.46 & 0.33 & -0.07 & 0.38 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{15} & 0.28 & 0.13 & 0.46 & 0.34 & -0.02 & 0.39 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{15} & 0.25 & 0.13 & 0.44 & 0.29 & -0.02 & 0.35 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{15} & 0.24 & 0.12 & 0.44 & 0.30 & -0.04 & 0.35 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{15} & 0.22 & 0.10 & 0.41 & 0.28 & -0.04 & 0.33 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{20} & 0.24 & 0.14 & 0.44 & 0.29 & -0.02 & 0.35 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{20} & 0.25 & 0.12 & 0.46 & 0.30 & -0.04 & 0.37 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{20} & 0.28 & 0.13 & 0.50 & 0.34 & -0.04 & 0.40 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{20} & 0.27 & 0.13 & 0.49 & 0.32 & -0.03 & 0.39 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{10} & 0.34 & \textbf{0.18} & 0.49 & 0.41 & -0.03 & 0.45 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{10} & 0.22 & 0.08 & 0.40 & 0.28 & -0.02 & 0.33 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{10} & 0.26 & 0.14 & 0.44 & 0.33 & -0.04 & 0.37 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{10} & 0.23 & 0.11 & 0.41 & 0.29 & -0.02 & 0.34 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{15} & 0.35 & 0.16 & 0.48 & 0.42 & -0.04 & 0.45 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{15} & 0.25 & 0.11 & 0.43 & 0.30 & -0.02 & 0.36 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{15} & 0.28 & 0.14 & 0.48 & 0.35 & -0.04 & 0.40 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{15} & 0.25 & 0.11 & 0.43 & 0.31 & -0.03 & 0.36 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{20} & \textbf{0.37} & \textbf{0.18} & \textbf{0.52} & \textbf{0.44} & -0.08 & \textbf{0.48} \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{20} & 0.07 & 0.01 & 0.48 & 0.09 & -0.04 & 0.15 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{20} & 0.07 & 0.02 & \textbf{0.52} & 0.09 & -0.02 & 0.15 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{20} & 0.07 & 0.02 & \textbf{0.52} & 0.09 & -0.04 & 0.15 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di KMeans con leftSkipgram senza costrizioni nella configurazione Random Walk in Stanford}
+\label{leftskipgramrwnckmeansstanford}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{10} & 0.11 & 0.04 & 0.27 & 0.22 & -0.12 & 0.24 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{10} & 0.10 & 0.03 & 0.27 & 0.21 & -0.07 & 0.24 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{10} & 0.12 & 0.07 & 0.25 & 0.27 & -0.08 & 0.26 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{10} & 0.17 & 0.07 & 0.42 & 0.25 & -0.11 & 0.32 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{15} & 0.11 & 0.03 & 0.25 & 0.23 & -0.05 & 0.24 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{15} & 0.15 & 0.06 & 0.46 & 0.24 & -0.20 & 0.32 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{15} & 0.19 & 0.07 & 0.36 & 0.28 & -0.07 & 0.31 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{15} & 0.20 & 0.10 & 0.38 & 0.29 & -0.12 & 0.33 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{20} & 0.14 & 0.07 & 0.28 & 0.25 & -0.28 & 0.26 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{20} & 0.17 & 0.07 & 0.58 & 0.25 & -0.22 & 0.35 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{20} & 0.24 & 0.10 & 0.37 & 0.33 & -0.06 & 0.35 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{20} & 0.19 & 0.10 & 0.34 & 0.29 & -0.09 & 0.32 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{10} & 0.08 & 0.03 & 0.20 & 0.21 & \textbf{-0.03} & 0.20 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{10} & 0.20 & 0.06 & 0.51 & 0.28 & -0.17 & 0.36 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{10} & 0.18 & 0.05 & 0.49 & 0.27 & -0.08 & 0.34 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{10} & 0.19 & 0.03 & 0.41 & 0.28 & -0.06 & 0.33 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{15} & 0.16 & 0.05 & 0.30 & 0.27 & -0.10 & 0.28 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{15} & 0.26 & 0.08 & 0.47 & 0.35 & -0.10 & 0.40 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{15} & 0.19 & 0.05 & 0.49 & 0.28 & \textbf{-0.03} & 0.36 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{15} & 0.13 & 0.02 & 0.43 & 0.22 & -0.04 & 0.29 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{20} & 0.19 & 0.05 & 0.31 & 0.30 & -0.05 & 0.31 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{20} & 0.29 & 0.10 & \textbf{0.63} & 0.36 & -0.04 & 0.46 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{20} & 0.32 & \textbf{0.12} & 0.53 & \textbf{0.40} & -0.07 & 0.46 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{20} & \textbf{0.33} & \textbf{0.12} & 0.59 & \textbf{0.40} & -0.04 & \textbf{0.48} \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{10} & 0.10 & 0.05 & 0.22 & 0.23 & -0.05 & 0.22 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{10} & 0.22 & \textbf{0.12} & 0.33 & 0.36 & -0.04 & 0.34 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{10} & 0.27 & 0.08 & 0.45 & 0.34 & -0.05 & 0.39 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{10} & 0.26 & 0.09 & 0.52 & 0.34 & -0.04 & 0.41 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{15} & 0.07 & 0.04 & 0.20 & 0.21 & \textbf{-0.03} & 0.20 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{15} & 0.25 & 0.08 & 0.55 & 0.33 & \textbf{-0.03} & 0.41 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{15} & 0.24 & 0.06 & 0.56 & 0.32 & -0.05 & 0.41 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{15} & 0.18 & 0.05 & 0.37 & 0.26 & \textbf{-0.03} & 0.31 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{20} & 0.16 & 0.07 & 0.27 & 0.27 & \textbf{-0.03} & 0.27 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{20} & 0.25 & 0.07 & 0.57 & 0.33 & \textbf{-0.03} & 0.42 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{20} & 0.27 & 0.10 & 0.44 & 0.36 & \textbf{-0.03} & 0.40 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{20} & 0.27 & 0.08 & 0.44 & 0.35 & -0.05 & 0.39 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di HDBScan con leftSkipgram senza costrizioni nella configurazione Random Walk in Stanford}
+\label{leftskipgramrwnchdbscanstanford}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{10} & 0.06 & 0.01 & 0.40 & 0.09 & \textbf{0.01} & 0.15 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{10} & 0.08 & 0.02 & 0.43 & 0.11 & -0.01 & 0.17 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{10} & 0.08 & 0.03 & 0.45 & 0.11 & -0.02 & 0.18 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{10} & 0.09 & 0.04 & 0.46 & 0.12 & -0.03 & 0.19 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{15} & 0.08 & 0.05 & 0.44 & 0.11 & \textbf{0.01} & 0.18 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{15} & 0.09 & 0.05 & 0.29 & 0.12 & -0.05 & 0.17 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{15} & 0.07 & 0.02 & 0.37 & 0.10 & -0.05 & 0.16 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{15} & 0.07 & 0.03 & 0.57 & 0.10 & -0.04 & 0.16 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{20} & 0.09 & 0.03 & 0.48 & 0.12 & -0.03 & 0.19 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{20} & 0.13 & 0.04 & 0.47 & 0.16 & -0.02 & 0.24 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{20} & 0.06 & 0.02 & 0.44 & 0.09 & -0.06 & 0.16 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{20} & 0.05 & 0.02 & 0.55 & 0.07 & -0.15 & 0.13 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{10} & 0.11 & 0.07 & 0.33 & 0.14 & -0.01 & 0.20 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{10} & 0.16 & 0.05 & 0.56 & 0.20 & -0.03 & 0.29 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{10} & 0.19 & 0.06 & 0.60 & 0.24 & -0.04 & 0.34 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{10} & 0.19 & 0.04 & 0.55 & 0.25 & -0.06 & 0.35 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{15} & 0.12 & 0.02 & 0.47 & 0.16 & -0.00 & 0.24 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{15} & 0.21 & 0.06 & 0.58 & 0.27 & -0.04 & 0.37 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{15} & 0.11 & 0.02 & 0.51 & 0.15 & -0.01 & 0.24 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{15} & 0.12 & 0.02 & 0.53 & 0.16 & -0.01 & 0.25 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{20} & 0.13 & 0.01 & 0.49 & 0.17 & -0.02 & 0.26 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{20} & 0.19 & 0.06 & 0.58 & 0.23 & -0.03 & 0.33 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{20} & 0.29 & 0.10 & 0.64 & \textbf{0.36} & -0.05 & \textbf{0.46} \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{20} & 0.27 & 0.10 & 0.61 & 0.32 & -0.03 & 0.42 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{10} & 0.06 & -0.00 & 0.45 & 0.09 & 0.00 & 0.15 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{10} & 0.15 & 0.04 & 0.55 & 0.20 & -0.03 & 0.30 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{10} & 0.28 & \textbf{0.12} & \textbf{0.68} & 0.32 & -0.04 & 0.43 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{10} & 0.23 & 0.10 & 0.57 & 0.28 & -0.02 & 0.38 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{15} & 0.07 & -0.00 & 0.40 & 0.10 & -0.01 & 0.17 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{15} & 0.21 & 0.06 & 0.59 & 0.27 & -0.03 & 0.37 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{15} & 0.19 & 0.05 & 0.55 & 0.24 & -0.02 & 0.33 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{15} & 0.22 & 0.08 & 0.47 & 0.27 & -0.02 & 0.34 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{20} & 0.12 & 0.01 & 0.44 & 0.16 & -0.02 & 0.24 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{20} & 0.28 & 0.11 & \textbf{0.68} & 0.33 & -0.02 & 0.44 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{20} & 0.25 & 0.07 & 0.58 & 0.32 & -0.03 & 0.41 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{20} & \textbf{0.31} & \textbf{0.12} & \textbf{0.68} & 0.35 & -0.02 & \textbf{0.46} \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di KMeans con normalSkipgram senza costrizioni nella configurazione Random Walk in Stanford}
+\label{normalskipgramrwnckmeansstanford}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{10} & 0.18 & 0.08 & 0.30 & 0.30 & -0.06 & 0.30 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{10} & 0.12 & 0.07 & 0.24 & 0.26 & -0.05 & 0.25 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{10} & 0.15 & 0.06 & 0.27 & 0.28 & -0.05 & 0.27 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{10} & 0.15 & 0.10 & 0.27 & 0.29 & -0.03 & 0.28 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{15} & 0.20 & 0.09 & 0.31 & 0.33 & -0.05 & 0.32 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{15} & 0.27 & 0.12 & 0.37 & 0.39 & -0.06 & 0.38 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{15} & 0.31 & \textbf{0.16} & 0.41 & 0.43 & -0.04 & 0.42 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{15} & 0.20 & 0.07 & 0.31 & 0.33 & -0.03 & 0.32 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{20} & 0.30 & 0.13 & 0.41 & 0.39 & -0.09 & 0.40 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{20} & 0.31 & 0.13 & 0.41 & 0.42 & -0.07 & 0.42 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{20} & 0.30 & 0.09 & 0.46 & 0.39 & -0.06 & 0.42 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{20} & 0.24 & 0.10 & 0.35 & 0.37 & -0.05 & 0.36 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{10} & 0.28 & 0.13 & 0.56 & 0.36 & -0.08 & 0.44 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{10} & 0.33 & 0.12 & 0.43 & 0.42 & -0.07 & 0.42 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{10} & \textbf{0.35} & 0.15 & 0.45 & \textbf{0.44} & -0.05 & 0.45 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{10} & 0.30 & 0.13 & 0.40 & 0.42 & -0.04 & 0.41 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{15} & 0.33 & 0.12 & 0.50 & 0.41 & -0.06 & 0.45 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{15} & 0.33 & 0.12 & 0.43 & 0.42 & -0.04 & 0.42 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{15} & 0.23 & 0.08 & 0.37 & 0.33 & -0.03 & 0.35 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{15} & 0.16 & 0.08 & 0.28 & 0.30 & -0.03 & 0.29 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{20} & 0.32 & 0.15 & 0.41 & \textbf{0.44} & -0.05 & 0.42 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{20} & 0.34 & 0.14 & 0.44 & 0.43 & -0.06 & 0.43 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{20} & 0.34 & 0.14 & 0.46 & 0.43 & -0.04 & 0.44 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{20} & 0.33 & 0.13 & 0.44 & 0.42 & -0.03 & 0.43 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{10} & 0.32 & 0.12 & 0.42 & 0.41 & -0.06 & 0.41 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{10} & 0.33 & 0.15 & 0.47 & 0.41 & -0.05 & 0.44 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{10} & 0.32 & 0.13 & 0.42 & 0.41 & -0.04 & 0.41 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{10} & 0.32 & 0.12 & 0.64 & 0.39 & -0.05 & \textbf{0.49} \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{15} & 0.34 & 0.11 & 0.47 & 0.42 & -0.05 & 0.45 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{15} & 0.34 & 0.13 & 0.49 & 0.42 & -0.03 & 0.45 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{15} & 0.33 & 0.13 & 0.45 & 0.42 & -0.03 & 0.44 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{15} & 0.32 & 0.13 & \textbf{0.67} & 0.39 & \textbf{-0.02} & \textbf{0.49} \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{20} & 0.33 & 0.12 & 0.65 & 0.40 & -0.04 & \textbf{0.49} \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{20} & 0.33 & 0.13 & 0.47 & 0.41 & -0.04 & 0.44 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{20} & 0.30 & 0.11 & 0.42 & 0.40 & -0.04 & 0.41 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{20} & 0.33 & 0.11 & 0.61 & 0.41 & -0.05 & \textbf{0.49} \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di HDBScan con normalSkipgram senza costrizioni nella configurazione Random Walk in Stanford}
+\label{normalskipgramrwnchdbscanstanford}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{DB size} & \textbf{Window} & \textbf{RW len.} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{10} & 0.22 & 0.11 & 0.59 & 0.25 & -0.01 & 0.35 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{10} & 0.18 & 0.10 & 0.45 & 0.21 & -0.01 & 0.28 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{10} & 0.25 & 0.13 & 0.64 & 0.27 & -0.01 & 0.38 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{10} & 0.23 & 0.13 & 0.58 & 0.26 & -0.01 & 0.35 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{15} & 0.11 & 0.07 & 0.43 & 0.14 & -0.01 & 0.21 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{15} & 0.17 & 0.07 & 0.62 & 0.21 & -0.03 & 0.31 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{15} & 0.09 & 0.05 & 0.70 & 0.12 & -0.02 & 0.20 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{15} & 0.09 & 0.04 & 0.66 & 0.12 & -0.01 & 0.20 \\ \hline
+\textbf{100K} & \textbf{2} & \textbf{20} & 0.31 & 0.11 & 0.52 & 0.38 & -0.09 & 0.44 \\ \hline
+\textbf{100K} & \textbf{3} & \textbf{20} & 0.23 & 0.10 & 0.45 & 0.29 & -0.06 & 0.35 \\ \hline
+\textbf{100K} & \textbf{5} & \textbf{20} & 0.33 & \textbf{0.14} & \textbf{0.71} & 0.38 & -0.05 & 0.50 \\ \hline
+\textbf{100K} & \textbf{7} & \textbf{20} & 0.31 & 0.13 & \textbf{0.71} & 0.37 & -0.05 & 0.48 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{10} & 0.19 & 0.13 & 0.45 & 0.22 & \textbf{-0.00} & 0.29 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{10} & 0.32 & 0.13 & 0.53 & 0.39 & -0.05 & 0.45 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{10} & 0.32 & 0.13 & 0.70 & 0.37 & -0.05 & 0.48 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{10} & 0.34 & \textbf{0.14} & \textbf{0.71} & 0.39 & -0.04 & 0.50 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{15} & 0.35 & 0.12 & 0.60 & 0.42 & -0.04 & 0.49 \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{15} & 0.31 & 0.10 & 0.64 & 0.38 & -0.03 & 0.47 \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{15} & 0.14 & 0.06 & 0.52 & 0.17 & -0.01 & 0.26 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{15} & 0.15 & 0.02 & 0.49 & 0.20 & -0.02 & 0.29 \\ \hline
+\textbf{500K} & \textbf{2} & \textbf{20} & \textbf{0.36} & 0.12 & 0.62 & \textbf{0.43} & -0.04 & \textbf{0.51} \\ \hline
+\textbf{500K} & \textbf{3} & \textbf{20} & \textbf{0.36} & 0.12 & 0.62 & \textbf{0.43} & -0.03 & \textbf{0.51} \\ \hline
+\textbf{500K} & \textbf{5} & \textbf{20} & 0.33 & 0.13 & 0.56 & 0.40 & -0.03 & 0.47 \\ \hline
+\textbf{500K} & \textbf{7} & \textbf{20} & 0.33 & 0.12 & 0.64 & 0.39 & -0.03 & 0.48 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{10} & 0.33 & 0.09 & 0.53 & 0.40 & -0.05 & 0.46 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{10} & 0.31 & 0.12 & 0.47 & 0.37 & -0.03 & 0.42 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{10} & 0.32 & 0.13 & 0.56 & 0.40 & -0.04 & 0.46 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{10} & 0.21 & 0.05 & 0.57 & 0.27 & -0.03 & 0.36 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{15} & 0.30 & 0.10 & 0.63 & 0.37 & -0.04 & 0.47 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{15} & 0.30 & 0.11 & 0.63 & 0.36 & -0.03 & 0.46 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{15} & 0.30 & 0.10 & 0.63 & 0.37 & -0.03 & 0.47 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{15} & 0.30 & 0.10 & 0.63 & 0.37 & -0.02 & 0.46 \\ \hline
+\textbf{1M} & \textbf{2} & \textbf{20} & 0.27 & 0.07 & 0.51 & 0.35 & -0.04 & 0.41 \\ \hline
+\textbf{1M} & \textbf{3} & \textbf{20} & 0.28 & 0.08 & 0.54 & 0.35 & -0.04 & 0.43 \\ \hline
+\textbf{1M} & \textbf{5} & \textbf{20} & 0.28 & 0.09 & 0.60 & 0.35 & -0.03 & 0.44 \\ \hline
+\textbf{1M} & \textbf{7} & \textbf{20} & 0.28 & 0.08 & 0.61 & 0.35 & -0.03 & 0.44 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati migliori tra leftSkipgram, normalSkipgram e LINE in Stanford}
+\label{bestleftnormallinestanford}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+& \textbf{Clustering} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{leftSkipgram-lc} & \textbf{KMeans} & 0.41 & 0.22 & 0.49 & 0.48 & -0.07 & 0.49 \\ \hline
+\textbf{leftSkipgram-lc} & \textbf{HDBScan} & 0.28 & 0.12 & 0.57 & 0.33 & -0.05 & 0.42 \\ \hline
+\textbf{normalSkipgram-lc} & \textbf{KMeans} & \textbf{0.47} & \textbf{0.26} & 0.57 & \textbf{0.53} & -0.03 & \textbf{0.55} \\ \hline
+\textbf{normalSkipgram-lc} & \textbf{HDBScan} & 0.37 & 0.18 & 0.52 & 0.44 & -0.08 & 0.48 \\ \hline
+\textbf{LINE-1-lc} & \textbf{KMeans} & 0.17 & 0.09 & 0.28 & 0.30 & -0.08 & 0.29 \\ \hline
+\textbf{LINE-1-lc} & \textbf{HDBScan} & 0.15 & 0.06 & 0.57 & 0.19 & 0.00 & 0.28 \\ \hline
+\textbf{LINE-2-lc} & \textbf{KMeans} & 0.19 & 0.12 & 0.29 & 0.33 & -0.09 & 0.31 \\ \hline
+\textbf{LINE-2-lc} & \textbf{HDBScan} & 0.18 & 0.06 & 0.52 & 0.21 & \textbf{0.01} & 0.30 \\ \hline
+\textbf{leftSkipgram-nc} & \textbf{KMeans} & 0.33 & 0.12 & 0.59 & 0.40 & -0.04 & 0.48 \\ \hline
+\textbf{leftSkipgram-nc} & \textbf{HDBScan} & 0.31 & 0.12 & \textbf{0.68} & 0.35 & -0.02 & 0.46 \\ \hline
+\textbf{normalSkipgram-nc} & \textbf{KMeans} & 0.32 & 0.13 & 0.67 & 0.39 & -0.02 & 0.49 \\ \hline
+\textbf{normalSkipgram-nc} & \textbf{HDBScan} & 0.36 & 0.12 & 0.62 & 0.43 & -0.03 & 0.51 \\ \hline
+\textbf{LINE-1-nc} & \textbf{KMeans} & 0.10 & 0.08 & 0.22 & 0.23 & -0.22 & 0.22 \\ \hline
+\textbf{LINE-1-nc} & \textbf{HDBScan} & 0.08 & 0.08 & 0.21 & 0.15 & -0.16 & 0.17 \\ \hline
+\textbf{LINE-2-nc} & \textbf{KMeans} & 0.20 & 0.12 & 0.31 & 0.34 & -0.11 & 0.32 \\ \hline
+\textbf{LINE-2-nc} & \textbf{HDBScan} & 0.14 & 0.04 & 0.28 & 0.21 & -0.10 & 0.24 \\ \hline
+\end{tabular}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+& \textbf{Clustering} & \textbf{DB size} & \textbf{Window} & \textbf{RW len.} \\ \hline
+\textbf{leftSkipgram-lc} & \textbf{KMeans} & 1M & 7 & 10 \\ \hline
+\textbf{leftSkipgram-lc} & \textbf{HDBScan} & 1M & 5 & 20 \\ \hline
+\textbf{normalSkipgram-lc} & \textbf{KMeans} & \textbf{1M} & \textbf{2} & \textbf{20} \\ \hline
+\textbf{normalSkipgram-lc} & \textbf{HDBScan} & 1M & 2 & 20 \\ \hline
+\textbf{leftSkipgram-nc} & \textbf{KMeans} & 500K & 7 & 20 \\ \hline
+\textbf{leftSkipgram-nc} & \textbf{HDBScan} & 1M & 7 & 20 \\ \hline
+\textbf{normalSkipgram-nc} & \textbf{KMeans} & 1M & 7 & 15 \\ \hline
+\textbf{normalSkipgram-nc} & \textbf{HDBScan} & 500K & 3 & 20 \\ \hline
+\end{tabular}
+\end{table}
+
+Nelle Tabelle \ref{leftskipgramrwlckmeansstanford}, \ref{leftskipgramrwlchdbscanstanford}, \ref{normalskipgramrwlckmeansstanford}, \ref{normalskipgramrwlchdbscanstanford}, \ref{leftskipgramrwnckmeansstanford}, \ref{leftskipgramrwnchdbscanstanford}, \ref{normalskipgramrwnckmeansstanford}, \ref{normalskipgramrwnchdbscanstanford} sono stati raccolti i valori delle metriche, sia per leftSkipgram che per normalSkipgram. Come effettuato in precedenza, sono state scelte le configurazioni aventi il maggior numero di valori delle metriche più alti. Si può notare come le configurazioni che risultano migliori, in realtà, non hanno permesso agli algoritmi di Clustering di raggiungere elevate performance come nei precedenti casi. Evidentemente, la struttura ad hyperlink del sito Web non ha permesso di effettuare un processo di Clustering avente una buona qualità. Si può dedurre che Stanford è un sito Web non altamente strutturato.
+\\
+Inoltre, in Tabella \ref{normalskipgramrwnchdbscanstanford}, sono due le configurazioni aventi il maggior numero di valori più alti delle metriche: [500K, 2, 20] e [500K, 3, 20]. Si è scelta come configurazione ottimale [500K, 3, 20], poiché, pur avendo gli stessi valori delle stesse metriche, differisce in Silhouette, con un punteggio più alto dello 0.01. A confronto, la configurazione scelta ha permesso di avere dei raggruppamenti aventi una forma leggermente migliore, pur avendo entrambe prodotto Cluster sovrapposti: entrambi i valori, infatti, sono vicini allo 0.
+\\
+In Tabella \ref{bestleftnormallinestanford} sono state raccolte tutte le migliori configurazioni di leftSkipgram e normalSkipgram, e confrontate con entrambi gli ordini di prossimità di LINE. L'unico aspetto interessante è il valore della Silhouette prodotto da LINE di secondo ordine su un dataset con liste di costrizione, affiancato ad HDBScan pari a 0.01, un valore decisamente più alto ottenuti tra gli algoritmi di apprendimento utilizzati su questo sito. I Cluster prodotti da HDBScan, utilizzando solo l'informazione strutturale ottenuta dalle relazioni indirette tra pagine considerate fratelli (quindi che condividono pagine immediatamente vicine), sono più definiti. I risultati più alti sono ottenuti da \textbf{normalSkipgram con liste di costrizione}, affiancato a \textbf{KMeans}, avente configurazione \textbf{[1M, 2, 20]}. Analizzare, quindi, pagine collegate tra loro da molti elementi, non permette di aumentare le performance del Clustering. Le Liste Web hanno permesso di filtrare in maniera consistente le pagine esplorate in quanto il sito includeva la maggior parte degli hyperlink in sezioni nascoste, prevalentemente in menu dropdown (a scomparsa).
+
+\subsubsection{Testo}
+
+\begin{table}[h]
+\centering
+\caption{Risultati di Doc2Vec e TF-IDF in Stanford}
+\label{doc2vectfidfstanford}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+& \textbf{Clustering} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{Doc2Vec-lc} & \textbf{KMeans} & 0.25 & 0.10 & 0.37 & 0.34 & -0.31 & 0.35 \\ \hline
+\textbf{Doc2Vec-lc} & \textbf{HDBScan} & 0.10 & 0.08 & 0.31 & 0.13 & -0.08 & 0.18 \\ \hline
+\textbf{TF-IDF-lc} & \textbf{KMeans} & 0.26 & 0.07 & 0.43 & 0.36 & -0.22 & 0.39 \\ \hline
+\textbf{TF-IDF-lc} & \textbf{HDBScan} & 0.15 & 0.06 & 0.37 & 0.20 & -0.32 & 0.26 \\ \hline
+\textbf{Doc2Vec-nc} & \textbf{KMeans} & 0.24 & 0.08 & 0.36 & 0.33 & -0.32 & 0.34 \\ \hline
+\textbf{Doc2Vec-nc} & \textbf{HDBScan} & 0.13 & 0.07 & 0.34 & 0.18 & -0.14 & 0.23 \\ \hline
+\textbf{TF-IDF-nc} & \textbf{KMeans} & \textbf{0.35} & \textbf{0.13} & \textbf{0.47} & \textbf{0.44} & -0.30 & \textbf{0.45} \\ \hline
+\textbf{TF-IDF-nc} & \textbf{HDBScan} & 0.15 & 0.06 & 0.37 & 0.19 & \textbf{-0.07} & 0.25 \\ \hline
+\end{tabular}
+\end{table}
+
+Analizzando solo il contenuto testuale delle pagine Web di Stanford, si evince dalla Tabella \ref{doc2vectfidfstanford} che \textbf{Tf-idf} con \textbf{KMeans} ha ottenuto le migliori performance, anche se i Cluster risultano non propriamente definiti (-0.30). Le Liste Web, in questo caso, hanno filtrato pagine che contengono informazioni essenziali per migliorare la bontà dei raggruppamenti prodotti.
+
+\subsubsection{Combinato}
+
+\begin{table}[h]
+\centering
+\caption{Risultati della configurazione Combinato in Stanford}
+\label{combstanford}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{ListConstraint} & \textbf{Clustering} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{left + Doc2Vec} & \textbf{KMeans} & 0.36 & 0.18 & 0.44 & 0.45 & -0.05 & 0.44 \\ \hline
+\textbf{left + Doc2Vec} & \textbf{HDBScan} & 0.28 & 0.10 & 0.57 & 0.33 & -0.03 & 0.42 \\ \hline
+\textbf{left + TF-IDF} & \textbf{KMeans} & 0.33 & 0.11 & 0.47 & 0.42 & -0.05 & 0.44 \\ \hline
+\textbf{left + TF-IDF} & \textbf{HDBScan} & 0.16 & 0.07 & 0.56 & 0.20 & -0.04 & 0.29 \\ \hline
+\textbf{normal + Doc2Vec} & \textbf{KMeans} & \textbf{0.46} & \textbf{0.27} & 0.54 & \textbf{0.53} & -0.03 & \textbf{0.53} \\ \hline
+\textbf{normal + Doc2Vec} & \textbf{HDBScan} & 0.08 & 0.03 & 0.43 & 0.11 & -0.03 & 0.18 \\ \hline
+\textbf{normal + TF-IDF} & \textbf{KMeans} & 0.26 & 0.07 & 0.42 & 0.35 & -0.12 & 0.38 \\ \hline
+\textbf{normal + TF-IDF} & \textbf{HDBScan} & 0.16 & 0.07 & 0.56 & 0.20 & -0.03 & 0.29 \\ \hline
+\hline
+\textbf{NoConstraint} &  &  &  &  &  &  &  \\ \hline
+\textbf{left + Doc2Vec} & \textbf{KMeans} & 0.34 & 0.13 & 0.61 & 0.42 & -0.04 & 0.50 \\ \hline
+\textbf{left + Doc2Vec} & \textbf{HDBScan} & 0.32 & 0.13 & \textbf{0.69} & 0.36 & -0.02 & 0.47 \\ \hline
+\textbf{left + TF-IDF} & \textbf{KMeans} & 0.40 & 0.19 & 0.51 & 0.47 & -0.04 & 0.49 \\ \hline
+\textbf{left + TF-IDF} & \textbf{HDBScan} & 0.14 & 0.08 & 0.49 & 0.17 & \textbf{-0.00} & 0.25 \\ \hline
+\textbf{normal + Doc2Vec} & \textbf{KMeans} & 0.30 & 0.10 & 0.45 & 0.40 & -0.04 & 0.42 \\ \hline
+\textbf{normal + Doc2Vec} & \textbf{HDBScan} & 0.36 & 0.12 & 0.59 & 0.43 & -0.04 & 0.50 \\ \hline
+\textbf{normal + TF-IDF} & \textbf{KMeans} & 0.40 & 0.15 & 0.55 & 0.48 & -0.08 & 0.52 \\ \hline
+\textbf{normal + TF-IDF} & \textbf{HDBScan} & 0.16 & 0.09 & 0.62 & 0.19 & -0.02 & 0.29 \\ \hline
+\end{tabular}
+\end{table}
+
+I risultati prodotti dalla combinazione dei vettori prodotti dai diversi algoritmi, raggruppati nella tabella \ref{combstanford}, hanno evidenziato che la combinazione dei vettori di \textbf{normalSkipgram} e di \textbf{Doc2Vec}, con combinazione [1M, 2, 20], utilizzati con \textbf{KMeans} hanno prodotto dei Cluster con un certo livello di bontà. Come nel caso dell'analisi della struttura del sito, le Liste Web hanno permesso di filtrare gli hyperlink inseriti nelle sezioni nascoste.
+
+\section{Considerazioni finali sui risultati}
+Analizzate le singole configurazioni dei siti, i risultati migliori sono stati raggruppati nelle Tabelle \ref{finalresultillinois}, \ref{finalresultoxford}, \ref{finalresultpriceton}, \ref{finalresultstanford} e confrontate, per capire quali tra queste forniscono le migliori performance.
+\\
+Le Tabelle in questione sono strutturate in due parti: la prima parte raccoglie la migliore configurazione analizzando la struttura ad hyperlink del sito (prima riga), la migliore configurazione analizzando il testo delle pagine (seconda riga) e quella migliore combinando le informazioni estratte dalla struttura e quelle dai termini; la seconda parte raccoglie la tripla \textit{[db, window, depth]} della migliore configurazione che analizza la struttura e quella della combinazione di informazioni.
+
+\begin{table}[h]
+\centering
+\caption{Risultati finali di Illinois}
+\label{finalresultillinois}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+& \textbf{Clustering} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{normal-nc} & \textbf{KMeans} & 0.69 & 0.61 & 0.70 & \textbf{0.87} & -0.04 & 0.78 \\ \hline
+\textbf{Doc2Vec-nc} & \textbf{HDBScan} & 0.76 & \textbf{0.83} & 0.78 & 0.77 & \textbf{-0.03} & 0.77 \\ \hline
+\textbf{left + TF-IDF nc} & \textbf{HDBScan} & \textbf{0.78} & 0.76 & \textbf{0.83} & 0.79 & \textbf{-0.03} & \textbf{0.81} \\ \hline
+\end{tabular}
+\begin{tabular}{|l|l|l|l|}
+\hline
+& \textbf{DB size} & \textbf{Window} & \textbf{RW len.} \\ \hline
+\textbf{normal-nc} & 100K & 2 & 20 \\ \hline
+\textbf{left + TF-IDF nc} & \textbf{1M} & \textbf{2} & \textbf{20} \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati finali di Oxford}
+\label{finalresultoxford}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+& \textbf{Clustering} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{left-nc} & \textbf{KMeans} & 0.58 & 0.52 & 0.59 & 0.68 & -0.04 & 0.63 \\ \hline
+\textbf{TF-IDF-lc} & \textbf{KMeans} & 0.60 & 0.53 & 0.61 & 0.73 & \textbf{-0.00} & 0.67 \\ \hline
+\textbf{left + TF-IDF nc} & \textbf{KMeans} & \textbf{0.68} & \textbf{0.60} & \textbf{0.68} & \textbf{0.80} & -0.04 & \textbf{0.74} \\ \hline
+\end{tabular}
+\begin{tabular}{|l|l|l|l|}
+\hline
+& \textbf{DB size} & \textbf{Window} & \textbf{RW len.} \\ \hline
+\textbf{left-nc} & 1M & 5 & 20 \\ \hline
+\textbf{left + TF-IDF nc} & \textbf{1M} & \textbf{5} & \textbf{20} \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati finali di Priceton}
+\label{finalresultpriceton}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+& \textbf{Clustering} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{normal-lc} & \textbf{KMeans} & 0.49 & 0.65 & 0.49 & 0.67 & -0.02 & 0.57 \\ \hline
+\textbf{TF-IDF-nc} & \textbf{KMeans} & \textbf{0.57} & \textbf{0.68} & \textbf{0.58} & 0.71 & \textbf{0.05} & \textbf{0.64} \\ \hline
+\textbf{normal + TF-IDF nc} & \textbf{KMeans} & 0.53 & 0.65 & 0.54 & \textbf{0.73} & -0.03 & 0.62 \\ \hline
+\end{tabular}
+\begin{tabular}{|l|l|l|l|}
+\hline
+& \textbf{DB size} & \textbf{Window} & \textbf{RW len.} \\ \hline
+\textbf{normal-lc} & 1M & 5 & 10 \\ \hline
+\textbf{normal + Doc2Vec lc} & 1M & 7 & 10 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Risultati finali di Stanford}
+\label{finalresultstanford}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+& \textbf{Clustering} & \textbf{AMI} & \textbf{ARI} & \textbf{Com} & \textbf{Hom} & \textbf{Silh} & \textbf{V-M} \\ \hline
+\textbf{normal-lc} & \textbf{KMeans} & \textbf{0.47} & 0.26 & \textbf{0.57} & \textbf{0.53} & \textbf{-0.03} & \textbf{0.55} \\ \hline
+\textbf{TF-IDF-nc} & \textbf{KMeans} & 0.35 & 0.13 & 0.47 & 0.44 & -0.30 & 0.45 \\ \hline
+\textbf{normal + Doc2Vec lc} & \textbf{KMeans} & 0.46 & \textbf{0.27} & 0.54 & \textbf{0.53} & \textbf{-0.03} & 0.53 \\ \hline
+\end{tabular}
+\begin{tabular}{|l|l|l|l|}
+\hline
+& \textbf{DB size} & \textbf{Window} & \textbf{RW len.} \\ \hline
+\textbf{normal-lc} & \textbf{1M} & \textbf{2} & \textbf{20} \\ \hline
+\textbf{normal + Doc2Vec lc} & 1M & 2 & 20 \\ \hline
+\end{tabular}
+\end{table}
+
+In generale, si nota immediatamente che, utilizzando questi siti Web, il miglior algoritmo di Clustering che riesce a sfruttare in modo migliore le informazioni estratte è KMeans. Una analisi più approfondita ci dice che la versione tradizionale di Skip-Gram estrae informazioni più utili rispetto a quella modificata: l'esclusione dall'analisi della struttura del sito la parte destra del contesto filtra informazioni che potrebbero migliorare il processo di Clustering delle pagine del sito Web. Inoltre più è alto il numero di frasi generate e di lunghezza massima di esplorazione del Crawler, maggiore è la quantità di informazioni, estratte dalla struttura ad hyperlink del sito, utili per migliorare la bontà dei Cluster generati. Non solo, anche considerare il minor numero di relazioni indirette tra due pagine migliora il Clustering.
+\\\\
+L'uso delle liste non aumenta in maniera significativa le performance degli algoritmi di Clustering. Questo può essere l'effetto di due cause: o il Crawler che sfrutta le Liste Web non funziona, oppure che i siti Web in analisi sono altamente strutturati. Effettivamente i siti sono altamente strutturati, poiché se così non fosse l'esperto che ha creato la ground truth non avrebbe potuto effettuare l'etichettatura delle singole pagine, ovvero non avrebbe potuto raggruppare manualmente le pagine.
+\\\\
+In conclusione, la sperimentazione mostra come i migliori risultati sono ottenuti combinando l'informazione testuale con quella estratta dalla struttura ad hyperlink del sito. Questo è più evidente per Illinois (Tabella \ref{finalresultillinois}) ed Oxford (Tabella \ref{finalresultoxford}), dove la struttura del sito e il testo delle pagine codificano informazioni complementari utili per il Clustering. Per Priceton (Tabella \ref{finalresultpriceton}) l'informazione testuale è soddisfacente per realizzare Cluster di buona qualità; mentre per Stanford (Tabella \ref{finalresultstanford}) l'informazione codificata nella struttura del sito è sufficiente: si può supporre che il sito contenga pochi termini significativi oppure poco testo contenente informazioni utili.

@@ -1,27 +1,3 @@
-\documentclass[a4paper,12pt,oneside]{book}
-\usepackage[usenames]{color} %usato per il colore
-\usepackage{amssymb} %maths
-\usepackage{amsmath} %maths
-\usepackage[latin1]{inputenc}
-\usepackage[pdftex]{graphicx} 
-\usepackage{filecontents}
-\usepackage[italian]{babel}
-\usepackage{setspace}
-
-\graphicspath{ {./../Immagini/} }
-
-\begin{document}
-
-\addtolength{\oddsidemargin}{+1,0cm} 
-\addtolength{\evensidemargin}{+1,0cm} 
-\onehalfspacing
-
-%\tableofcontents
-%\listoftables
-%\listoffigures
-%\newpage
-
-% related work, dove è arrivata la scienza e i lavori che giustificano quello che ho fatto, il perché
 L'applicazione delle tecniche di Clustering su pagine Web non è un nuovo campo di ricerca. La maggior parte delle metodologie che si trovano in letteratura sono state usate per raggrupparle.
 \\\\
 Tuttavia queste ricerche sono state indirizzate sul Clustering di pagine provenienti da diversi siti Web, trascurando quelle di uno specifico sito. Gli hyperlink, infatti, hanno significati diversi in base al dominio di destinazione: se la pagina puntata si trova nello stesso sito Web, allora il collegamento avrà funzione di organizzazione dei contenuti; altrimenti, se la pagina di destinazione è esterna, avrà la funzionalità di riferirsi a pagine che probabilmente avranno contenuti simili.
@@ -67,8 +43,3 @@ In questo contesto, gli autori di \cite{garden} hanno esplorato varie tipologie 
 	\item \textbf{Word2Vec}. E' un algoritmo di Word Embedding che trasforma parole in Feature Vectors. Per approfondimenti, vedere la Sezione \label{word2vec}.
 \end{itemize}
 I risultati riportati da \cite{garden} mostrano come la combinazione dei vettori di DVRS e di Word2Vec porta ad un incremento della bontà dei risultati.
-
-\bibliographystyle{plain}
-\bibliography{./../Bibliografia}                % database di biblatex 
-
-\end{document}
