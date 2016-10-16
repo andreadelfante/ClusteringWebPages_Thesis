@@ -1,6 +1,6 @@
 In questo capitolo verranno descritte le modalità di esecuzione della sperimentazione.
 \\\\
-L'obiettivo di questo capitolo è quello di valutare l'efficacia dell'approccio realizzato per poter comprendere se la modifica del modello di Word2Vec Skip-Gram può portare ad un miglioramento effettivo porta ad un effettivo miglioramento del processo di Clustering delle pagine di un sito Web.
+L'obiettivo è quello di valutare l'efficacia dell'approccio realizzato per poter comprendere se la modifica del modello di Word2Vec Skip-Gram può portare ad un miglioramento effettivo del processo di Clustering delle pagine di un sito Web.
 \\
 Si è cercato di capire, inoltre, se e come i dati strutturati, di cui un sito Web si compone, possano essere combinati con dati non strutturati, come quelli testuali, al fine di migliorare il processo di Clustering e valutare in dettaglio le cause di un eventuale successo o insuccesso delle tecniche utilizzate. A tal fine si confronteranno le performance degli algoritmi di Clustering basati su rappresentazione vettoriale contenente informazioni sulla struttura del grafo stesso.
 \\\\
@@ -8,9 +8,9 @@ Si descrivono in seguito i dataset e le configurazioni degli algoritmi di Cluste
 
 \section{Dataset}
 \label{dataset}
-La sperimentazione è stata effettuata sfruttando i dati provenienti da siti Web appartenenti ad importanti dipartimenti di Computer Science: \textbf{Illinois} (\texttt{cs.illinois.edu}), \textbf{Oxford} (\texttt{cs.ox.ac.uk}), \textbf{Priceton} (\texttt{cs.priceton.edu}) e \textbf{Stanford} (\texttt{cs.stanford.edu}). La motivazione di questa scelta è legata al fatto che le nostre competenze, per assegnare ad ogni pagina del sito una etichetta, appartengono a questo dominio applicativo. E' stato necessario per creare una ground truth per la valutazione dei risultati del Clustering.
+La sperimentazione è stata effettuata sfruttando i dati provenienti da siti Web appartenenti ad importanti dipartimenti di Computer Science: \textbf{Illinois} (\texttt{cs.illinois.edu}), \textbf{Oxford} (\texttt{cs.ox.ac.uk}), \textbf{Priceton} (\texttt{cs.priceton.edu}) e \textbf{Stanford} (\texttt{cs.stanford.edu}). La motivazione di questa scelta è legata al fatto che le nostre competenze, per assegnare ad ogni pagina del sito una etichetta, appartengono a questo dominio applicativo. Questa decisione è necessaria per creare una ground truth per la valutazione dei risultati del Clustering.
 \\\\
-Per ogni sito è stato lanciato il Crawling per generare sequenze di 100.000, 500.000 e 1.000.000 con profondità di 10, 15, 20. Una volta prodotte sono state successivamente apprese da Skip-Gram ottimizzato che considera solo il contesto sinistro, Skip-Gram non ottimizzato che considera solo il contesto sinistro e Skip-Gram che considera contesto destro e sinistro con dimensione della finestra di apprendimento di 2, 3, 5, 7.
+Per ogni sito è stato lanciato il Crawling per generare sequenze di URL di 100.000, 500.000 e 1.000.000 con profondità di 10, 15, 20. Una volta prodotte sono state successivamente apprese da Skip-Gram ottimizzato che considera solo il contesto sinistro, Skip-Gram non ottimizzato che considera solo il contesto sinistro e Skip-Gram che considera contesto destro e sinistro con dimensione della finestra di apprendimento di 2, 3, 5, 7.
 
 \begin{table}[h]
 	\centering
@@ -18,29 +18,29 @@ Per ogni sito è stato lanciato il Crawling per generare sequenze di 100.000, 500
 	\label{websitedescr}
 	\begin{tabular}{|l|l|l|l|l|}
 		\hline
-		Sito & Num. pagine & Num. archi & Num. archi con Liste Web & Num. Cluster \\ \hline
-		Illinois & 563 & 9415 & 5330 & 10 \\ \hline
-		Oxford & 3480 & 44526 & 35148 & 19 \\ \hline
-		Priceton & 3132 & 122493 & 104585 & 16 \\ \hline
-		Stanford & 167 & 12372 & 30087 & 10 \\ \hline
+		\textbf{Sito} & \textbf{\# pagine} & \textbf{\# archi} & \textbf{\# archi con Liste Web} & \textbf{\# Cluster} \\ \hline
+		\textbf{Illinois} & 563 & 9415 & 5330 & 10 \\ \hline
+		\textbf{Oxford} & 3480 & 44526 & 35148 & 19 \\ \hline
+		\textbf{Priceton} & 3132 & 122493 & 104585 & 16 \\ \hline
+		\textbf{Stanford} & 167 & 12372 & 30087 & 10 \\ \hline
 	\end{tabular}
 \end{table}
 
-In Tabella \ref{websitedescr} vengono riportate le dimensioni di ogni sito, una volta lanciato il Crawler. In particolare, per analizzare correttamente il contributo fornito dall'applicazione delle Liste Web nel processo di Clustering, sono state confrontate le pagine estratte sia dal Crawler che usa le Liste Web, sia da quello tradizionale (prima colonna). Inoltre, è stata riportata la dimensione della collezione degli archi ottenuta dal Crawler tradizionale (seconda colonna) e da quello che usa le Liste Web (terza colonna). Nell'ultima colonna sono stati inseriti il numero dei Cluster identificati manualmente dagli esperti, durante la generazione della ground truth.
+In Tabella \ref{websitedescr} vengono riportate le dimensioni di ogni sito al termine del Crawling. In particolare, per analizzare correttamente il contributo fornito dall'applicazione delle Liste Web nel processo di Clustering, sono state confrontate le pagine estratte sia dal Crawler che usa le Liste Web, sia da quello tradizionale (prima colonna). Inoltre, è stata riportata la dimensione della collezione degli archi ottenuta dal Crawler tradizionale (seconda colonna) e da quello che usa le Liste Web (terza colonna). Nell'ultima colonna sono stati inseriti il numero dei Cluster identificati manualmente dagli esperti durante la generazione della ground truth.
 \\\\
 Per ogni sito Web, in più, sono stati estratti due differenti grafi:
 \begin{itemize}
-	\item \textbf{NoConstraint}. Il grafo Web $G_{nc} = (V, E)$ rappresenta fedelmente il sito. In particolare $V$ rappresenta l'insieme delle pagine appartenenti al sito ed $E$ è l'insieme di tutte le coppie $(i, j)$ per i quali la pagina con URL $i$ contiene un hyperlink alla pagina con URL $j$.
-	\item \textbf{ListConstraint}. Il grafo Web $G_{lc} = (V, E)$ è filtrato, eliminando tutti gli archi $(i, j) \in E$ per i quali l'URL $j$ non è contenuto in nessuna lista Web nella pagina con URL $i$.
+	\item \textbf{NoConstraint} - Il grafo Web $G_{nc} = (V, E)$ rappresenta fedelmente il sito. In particolare $V$ rappresenta l'insieme delle pagine appartenenti al sito ed $E$ è l'insieme di tutte le coppie $(i, j)$ per i quali la pagina con URL $i$ contiene un hyperlink alla pagina con URL $j$.
+	\item \textbf{ListConstraint} - Il grafo Web $G_{lc} = (V, E)$ è filtrato, eliminando tutti gli archi $(i, j) \in E$ per i quali l'URL $j$ non è contenuto in nessuna lista Web nella pagina con URL $i$.
 \end{itemize}
 
 \section{Metriche}
-Valutare le prestazioni di un algoritmo di Clustering non è semplice. Queste non dovrebbero considerare gli specifici valori delle etichette assegnate dall'algoritmo, piuttosto dovrebbero verificare se il raggruppamento generato dall'algoritmo definisce una separazione dei dati simile a quello fornito nella ground truth, ovvero il vero valore delle etichette. Oppure si potrebbe pensare di usare una qualche assunzione, come per esempio che elementi dello stesso raggruppamento siano più simili rispetto a quelli di Cluster differenti, usando una determinata funzione di similarità.
+Valutare le prestazioni di un algoritmo di Clustering non è semplice. Queste non dovrebbero considerare gli specifici valori delle etichette assegnate dall'algoritmo, piuttosto dovrebbero verificare se il raggruppamento generato dall'algoritmo definisce una separazione dei dati simile a quello fornito nella ground truth, ovvero il vero valore delle etichette. Un'altra modalità di valutazione consiste nel basarsi su funzioni di similarità, come per esempio che elementi dello stesso raggruppamento siano più simili rispetto a quelli di Cluster differenti.
 \\
 Per la sperimentazione si è scelto di utilizzare le metriche elencate in seguito per valutare l'efficacia dell'approccio proposto.
 
 \begin{itemize}
-	\item \textbf{Omogeneità} \cite{vmeasure}. Ogni Cluster dovrebbe contenere elementi che sono membri di una stessa classe. Questa metrica viene calcolata dall'entropia condizionata della distribuzione di classe, dato il Cluster. Formalmente, l'omogeneità viene definita come:
+	\item \textbf{Omogeneità} \cite{vmeasure}. Ogni Cluster dovrebbe contenere elementi appartenenti alla stessa classe. Questa metrica viene calcolata dall'entropia condizionata della distribuzione di classe, dato il Cluster. Formalmente, l'omogeneità viene definita come:
 	\begin{equation}
 		h = 1 - \frac{H(C|K)}{H(C)}
 	\end{equation}
@@ -56,11 +56,11 @@ Per la sperimentazione si è scelto di utilizzare le metriche elencate in seguito
 	\\
 	Il valore di questa metrica ha come intervallo $[0, 1]$. In una situazione ideale, l'Omogeneità assume valore 1.
 	
-	\item \textbf{Completezza} \cite{vmeasure}. Tutti gli elementi che sono membri di una data classe dovrebbero appartenere ad uno stesso Cluster. Questa metrica è simmetrica all'omogeneità ed è calcolata dall'entropia condizionata della distribuzione degli assegnamenti di ogni classe ad un dato Cluster. Formalmente, la Completezza è definita come segue:
+	\item \textbf{Completezza} \cite{vmeasure}. Tutti gli elementi di una stessa classe dovrebbero appartenere ad uno stesso Cluster. Questa metrica è simmetrica all'omogeneità ed è calcolata dall'entropia condizionata della distribuzione degli assegnamenti di ogni classe ad un dato Cluster. Formalmente, la Completezza è definita come segue:
 	\begin{equation}
 	c = 1 - \frac{H(C|K)}{H(K)}
 	\end{equation}
-	dove $H(C|K)$ è l'entropia condizionata delle classi date le assegnazioni dei Cluster, ed è stata definita nell'equazione \ref{hck}; $H(K)$ è l'entropia dei cluster ed è così formulata:
+	dove $H(C|K)$ è l'entropia condizionata delle classi date le assegnazioni dei Cluster. Questa è stata definita nell'equazione \ref{hck}. $H(K)$ è l'entropia dei cluster ed è così formulata:
 	\begin{equation}
 		H(K) = - \sum_{k=1}^{|K|} \frac{n_k}{N} \log \frac{n_k}{N}
 	\end{equation}
@@ -78,20 +78,20 @@ Per la sperimentazione si è scelto di utilizzare le metriche elencate in seguito
 	\begin{equation}
 		MI = \sum_{i \in K} \sum_{j \in C} \log \frac{P(i, j)}{P(i) P(j)}
 	\end{equation}
-	dove $C$ è l'insieme delle classi reali, $K$ è l'insieme dei Cluster appresi, $P(i, j)$ è la probabilità che un elemento appartenente sia alla classe reale $i$ che a quella appresa $j$, $P(i)$ è la probabilitò a priori che un elemento appartenga alla classe $i$.
+	dove $C$ è l'insieme delle classi reali, $K$ è l'insieme dei Cluster appresi, $P(i, j)$ indica la probabilità di un elemento appartenente sia alla classe reale $i$ che a quella appresa $j$, $P(i)$ è la probabilità a priori che un elemento appartenga alla classe $i$.
 	\\
 	La MI è generalmente più alta per due Clustering aventi un più grande numero di Cluster, non considerando il fatto che in realtà ci sono più informazioni condivise. La AMI rappresenta un adeguamento della MI per superare questa limitazione.
 	\\
 	Il valore di questa metrica ha come intervallo $[0, 1]$. In una situazione ideale, l'AMI assume valore 1.
 	
-	\item \textbf{Adjusted Random Index (ARI)} \cite{partitions}. Nota la ground truth e gli assegnamenti restituiti da un algoritmo di Clustering, questa metrica calcola la similarità considerando tutte le coppie dei campioni e contando quelle che sono state assegnate nello stesso o in differenti Cluster, sia dalla tabella di verità che dal processo di Clustering reale. In parole povere, l'ARI misura l'accuratezza del processo di Clustering, ossia la percentuale di coppie di oggetti per i quali la ground truth e l'algoritmo concordano sull'assegnazione. Come la AMI, anche qui si ignorano le permutazioni tra i due insiemi.
+	\item \textbf{Adjusted Random Index (ARI)} \cite{partitions}. Utilizzando la ground truth e gli assegnamenti restituiti da un algoritmo di Clustering, questa metrica calcola la similarità considerando tutte le coppie dei campioni e contando quelle che sono state assegnate nello stesso o in differenti Cluster, sia dalla tabella di verità che dal processo di Clustering reale. In parole povere, l'ARI misura l'accuratezza del processo di Clustering, ossia la percentuale di coppie di oggetti per i quali la ground truth e l'algoritmo concordano sull'assegnazione. Come la AMI, anche qui si ignorano le permutazioni tra i due insiemi.
 	\\
 	Questa metrica dipende fortemente dal \textit{Random Index} (RI), che misura anch'essa la similarità tra due processi di Clustering. Formalmente viene definita come:
 	\begin{equation}
 		RI = \frac{a + b}{\binom{n}{2}}
 	\end{equation}
 	dove $a$ è il numero di coppie di elementi che si trovano nella stessa classe e nell'insieme delle etichette predette, $b$ è il numero di coppie di elementi che appartengono a differenti classi e nell'insieme delle etichette predette, $\binom{n}{2}$ è il numero totale di tutte le possibili coppie nel dataset.
-	Si è preferito utilizzare l'ARI poiché il RI, nel caso di Cluster computati in maniera casuale, non assume valori costanti (per esempio 0). Si garantisce, così, che Cluster generati in modo casuale abbiano come valore di ARI prossimi allo 0.
+	Si è preferito utilizzare l'ARI poiché il RI, nel caso di Cluster computati in maniera casuale, non assume valori costanti (per esempio 0). In questo modo si garantisce che i Cluster generati in modo casuale abbiano un valore di ARI prossimo allo 0.
 	\\
 	Il valore di questa metrica ha come intervallo $[0, 1]$. In una situazione ideale, l'AMI assume valore 1, ovvero quando le etichette che si trovano nella ground truth e quelle predette sono identiche.
 	
@@ -101,20 +101,20 @@ Per la sperimentazione si è scelto di utilizzare le metriche elencate in seguito
 	\end{equation}
 	dove $a$ è la distanza media tra un elemento e tutti gli altri della stessa classe, $b$ è la distanza media tra un elemento e tutti gli altri nella classe più vicina.
 	\\
-	Il valore di questa metrica, a differenza delle precedenti, ha come intervallo $[-1, 1]$. Un valore intorno allo 0 indica Cluster sovrapposti; -1 per cluster non definiti; 1 per elementi che sono altamente coesi con gli altri dello stesso raggruppamento ma bassamente coesi per quelli appartenenti a Cluster vicini.
+	Il valore di questa metrica, a differenza delle precedenti, ha come intervallo $[-1, 1]$. Un valore intorno allo 0 indica Cluster sovrapposti; -1 cluster non definiti; 1 elementi che sono altamente coesi con gli altri dello stesso raggruppamento ma bassamente coesi per quelli appartenenti a Cluster vicini.
 \end{itemize}
 
 \section{Configurazioni}
 Si descrivono di seguito le configurazioni utilizzate per la sperimentazione in questa tesi.
 
 \subsection{Testo}
-Sono state applicate tecniche di Text Mining per il Clustering basato sul contenuto testuale. Con questa metodologia viene considerato solo l'informazione estratta dal testo, assumendo che i termini all'interno del sito Web siano indipendenti l'uno dall'altro, così come i documenti. Vengono ignorate, quindi, le relazioni interdipendenti tra questi. Il Web si discosta dall'analisi classica di testi per l'esistenza di relazioni tra le pagine. Tuttavia l'analisi testuale rimane una tecnica importante.
+Sono state applicate tecniche di Text Mining per il Clustering basato sul contenuto testuale. Con questa metodologia viene considerata solo l'informazione estratta dal testo, assumendo che i termini all'interno del sito Web siano indipendenti l'uno dall'altro, così come i documenti. Vengono ignorate le relazioni interdipendenti tra questi. Il Web si discosta dall'analisi classica di testi per l'esistenza di relazioni tra le pagine. Tuttavia l'analisi testuale rimane una tecnica importante.
 \\\\
 Nella fase di sperimentazione sono stati utilizzati due algoritmi per estrarre informazioni dal testo: \textit{Doc2Vec} (esaminato in Sezione \ref{doc2vec}) e \textit{tf-idf} (esaminato in Sezione \ref{tfidf}).
 \\\\
 I parametri utilizzati in Doc2Vec sono stati:
 \begin{itemize}
-	\item \textbf{minWordFrequency}: questo valore rappresenta il numero di volte minime per considerare un determinato termine. E' stato impostato ad 1.
+	\item \textbf{minWordFrequency}: questo valore rappresenta il numero minimo di occorrenze per considerare una determinata parola. E' stato impostato ad 1.
 	\item \textbf{layerSize}: indica la dimensione dei vettori in output. E' stato impostato a 100.
 	\item \textbf{windowSize}: E' la dimensione della finestra di contesto, utile per svolgere il training sulle parole del testo. E' stata impostata a 5.
 \end{itemize}
@@ -124,9 +124,7 @@ I parametri, invece, per creare la matrice con tf-idf sono stati:
 	\item \textbf{min-df}: indica il numero minimo di documenti in cui un termine dovrà apparire per essere considerato. E' stato impostato a 0.05.
 	\item \textbf{ngram-range}: vengono presi in considerazioni gli n-grammi di lunghezza compresa nell'intervallo specificato in questo parametro. Nello specifico, questo parametro è una tupla (min\_n, max\_n) che definisce il confine minimo e massimo dell'intervallo di valori n-esimi per differenti n-gram per essere estratti. Tutti i valori di n che si trovano nell'intervallo $min\_n <= n <= max\_n$ vengono considerati. Un n-gramma è una sottosequenza di n elementi di un'altra. E' stato impostato a (1, 2).
 \end{itemize}
-Successivamente, la dimensione dei vettori della matrice tf-idf è stata ridotta troncandoli. La dimensione dei vettori è stata ridotta a 100.
-\\\\
-I valori dei parametri sopra citati sono stati utilizzati per tutti i dataset della sperimentazione.
+Successivamente, la dimensione dei vettori della matrice tf-idf è stata ridotta a 100.
 
 \subsection{Random Walk}
 Considerando i Random Walk come frasi, è possibile applicare gli algoritmi di Word Embedding per raggruppare pagine di un sito Web sulla base del contesto in cui appaiono, ovvero le pagine che più verosimilmente appariranno insieme nelle sequenze.
@@ -135,7 +133,7 @@ Queste frasi sono state generate da grafi di siti Web a liste di costrizione e s
 \\\\
 Per tutte le versioni di Word2Vec Skip-Gram, sono stati utilizzati i seguenti paragrafi:
 \begin{itemize}
-	\item \textbf{minWordFrequency}: questo valore rappresenta il numero di volte minime per considerare un determinato termine. E' stato impostato ad 1.
+	\item \textbf{minWordFrequency}: questo valore rappresenta il numero minimo di occorrenze per considerare una determinata parola. E' stato impostato ad 1.
 	\item \textbf{layerSize}: indica la dimensione dei vettori in output. E' stato impostato a 100.
 	\item \textbf{windowSize}: E' la dimensione della finestra di contesto, utile per svolgere il training sulle parole del testo. E' stata impostata a 2, 3, 5, 7.
 	\item \textbf{iterate}: numero di iterazioni sulle frasi da apprendere. E' stato impostato a 50 per Random Walk di 100.000 frasi; 10 per Random Walk di 500.000 frasi; 3 per Random Walk di 1.000.000 di frasi.
@@ -155,22 +153,22 @@ I parametri per utilizzare LINE di primo e secondo ordine sono:
 Sono state combinate le informazioni riguardanti la struttura del sito Web e il contenuto testuale delle pagine. Le combinazioni prodotte per la sperimentazione sono di due tipi:
 \begin{itemize}
 	\item \textbf{Combined List Constraint}. Sono stati combinati i vettori prodotti dalla struttura ad hyperlink del sito, usando il Crawler che sfrutta le Liste Web, e quelli prodotti dal contenuto delle pagine. Sono stati prodotti vettori aventi come dimensione 200.
-	\item \textbf{Combined No Constraint}. Come nella configurazione precedente, sono stati combinati testo e struttura ad hyperlink del sito Web in un singolo spazio vettoriale, avente come dimensione 200. In questo caso, è stato utilizzato il Crawler tradizionale.
+	\item \textbf{Combined No Constraint}. Come nella configurazione precedente, sono stati combinati testo e struttura ad hyperlink del sito Web in un singolo spazio vettoriale, avente dimensione 200. In questo caso, è stato utilizzato il Crawler tradizionale.
 \end{itemize}
 
 \subsection{Parametri degli algoritmi di Clustering}
-Una volta prodotti gli embeddings dai rispettivi algoritmi, sono stati normalizzati secondo la norma L2 (esaminata in Sezione \ref{scaling}) ed è stato effettuato il Clustering delle pagine del sito Web. Da questo processo sono stati esclusi tutte le pagine che presentavano nella ground truth etichette pari a -1, poiché tale valore significa che l'esperto che ha creato la tabella di verità non è riuscito ad assegnare a nessun raggruppamento la pagina in questione.
+Una volta prodotti gli embeddings dai rispettivi algoritmi, sono stati normalizzati secondo la norma L2 (esaminata in Sezione \ref{scaling}) ed è stato effettuato il Clustering delle pagine del sito Web. Da questo processo sono state escluse tutte le pagine che presentavano nella ground truth etichette pari a -1, poiché tale valore significa che l'esperto che ha creato la tabella di verità non è riuscito ad assegnare a nessun raggruppamento la pagina in questione.
 \\\\
-In K-Means (approfondito in Sezione \ref{clusteringexperimentation}), il parametro utilizzato nella sperimentazione è stato \textbf{n\_clusters}, ovvero il numero di Cluster totale da generare. Per rendere il sistema più dinamico, si è scelto di settare questo parametro al numero delle etichette presente nella ground truth.
+In K-Means (approfondito in Sezione \ref{clusteringexperimentation}), il parametro utilizzato nella sperimentazione è stato \textbf{n\_clusters}, ovvero il numero di Cluster totale da generare. Per rendere il sistema dinamico, si è scelto di settare questo parametro con il numero delle etichette distinte presente nella ground truth.
 \\\\
-In HDBScan (approfondito in Sezione \ref{clusteringexperimentation}), il parametro utilizzato nella sperimentazione è stato \textbf{min\_cluster\_size}, ovvero il numero minimo di elementi che un raggruppamento deve contenere per essere considerato come Cluster. E' stato impostato a 5.
+In HDBScan (approfondito in Sezione \ref{clusteringexperimentation}), il parametro utilizzato nella sperimentazione è stato \textbf{min\_cluster\_size}, ovvero la dimensione minima di un raggruppamento per essere considerato Cluster. Questo valore è stato impostato a 5.
 
 \section{Analisi dei risultati}
-Di seguito si confrontano i risultati degli algoritmi di Clustering basati sulle configurazioni sopra citate, ovvero: \textit{Random Walk}, \textit{Testo} e \textit{Combinato}. Sono stati riportati solo i risultati di Skip-Gram ottimizzato che considera solo il contesto sinistro (\textit{leftSkipgram}) e Skip-Gram tradizionale (\textit{normalSkipgram}) poiché, nella maggior parte dei casi, leftSkipgram forniva risultati migliori rispetto alla versione modificata non ottimizzata.
+Di seguito si confrontano i risultati degli algoritmi di Clustering basati sulle configurazioni sopra citate. Sono stati riportati solo i risultati di Skip-Gram ottimizzato che considera solo il contesto sinistro (\textit{leftSkipgram}) e Skip-Gram tradizionale (\textit{normalSkipgram}) poiché, nella maggior parte dei casi, leftSkipgram ha fornito risultati migliori rispetto alla versione modificata non ottimizzata.
 \\\\
 Per motivi di praticità, nella configurazione dei Random Walk è stata utilizzata la dicitura $[db, window, depth]$, dove $db$ rappresenta il numero di frasi da far apprendere all'algoritmo, $window$ la lunghezza della finestra di contesto e $depth$ la lunghezza massima della singola frase.
 \\
-Inoltre, per motivi di spazio, si è scelta la dicitura \textit{LINE-1} e \textit{LINE-2} per riferirsi rispettivamente a LINE con primo ordine di prossimità e LINE con secondo ordine di prossimità.
+Inoltre, per motivi di spazio, si è scelta la dicitura \textit{LINE-1} e \textit{LINE-2} per riferirsi rispettivamente a LINE con primo e secondo ordine di prossimità.
 
 \subsection{cs.illinois.edu} % ---------- ILLINOIS ----------
 
@@ -584,9 +582,9 @@ Inoltre, per motivi di spazio, si è scelta la dicitura \textit{LINE-1} e \textit
 
 Nelle Tabelle \ref{leftskipgramrwlckmeansillinois}, \ref{leftskipgramrwlchdbscanillinois}, \ref{normalskipgramrwlckmeansillinois}, \ref{normalskipgramrwlchdbscanillinois}, \ref{leftskipgramrwnckmeansillinois}, \ref{leftskipgramrwnchdbscanillinois}, \ref{normalskipgramrwnckmeansillinois}, \ref{normalskipgramrwnchdbscanillinois} sono stati riportati i valori delle metriche di leftSkipgram e normalSkipgram utilizzati con gli algoritmi di Clustering KMeans e HDBScan. Queste misurazioni sono risultate particolarmente utili per capire quale fosse la configurazione migliore per numero di frasi, per dimensione della finestra di apprendimento e per dimensione massima delle frasi per ogni algoritmo di apprendimento e di Clustering, applicati rispettivamente ai dataset con e senza liste di costrizione.
 \\
-In questo caso, le configurazioni sono state selezionate in base al più alto numero di valori più alti delle metriche, e sono state raccolte in Tabella \ref{bestleftnormallineillinois} e confrontate con LINE. Si evince come LINE non riesca ad estrarre informazioni utili al Clustering dalla struttura ad hyperlink del sito: la bontà dei risultati, infatti, risulta piuttosto bassa.
+In questo caso, le configurazioni migliori sono state selezionate in base alla combinazione di metriche con valori più alti, e sono state raccolte in Tabella \ref{bestleftnormallineillinois} e confrontate con LINE. Si evince come LINE non riesca ad estrarre informazioni utili al Clustering dalla struttura ad hyperlink del sito: la bontà dei risultati, infatti, risulta piuttosto bassa.
 \\\\
-Considerando solo le informazioni estraibili dalla struttura ad hyperlink del sito Illinois, l'algoritmo che le estrae in maniera efficiente è \textbf{normalSkipgram} avente configurazione \textbf{[100K, 2, 20]} e \textbf{senza liste di costrizione}, abbinato a \textbf{KMeans}. In questa configurazione, le liste di costrizione non hanno migliorato la qualità dei risultati: normalSkipgram è riuscito ad estrarre informazioni utili pur avendo un numero di frasi relativamente piccolo (100.000) avente lunghezza di 20 URL. La finestra di contesto di piccola dimensione (2) ha permesso a normalSkipgram di escludere tutte quelle informazioni che potevano compromettere la bontà dell'operazione di Clustering.
+Considerando solo le informazioni estraibili dalla struttura ad hyperlink del sito Illinois, l'algoritmo più efficiente è \textbf{normalSkipgram} con configurazione \textbf{[100K, 2, 20]} e \textbf{senza liste di costrizione}, abbinato a \textbf{KMeans}. In questo caso, le liste di costrizione non hanno migliorato la qualità dei risultati: normalSkipgram è riuscito ad estrarre informazioni utili pur avendo un numero di frasi relativamente piccolo (100.000) avente lunghezza di 20 URL. Una finestra di contesto piccola (2) ha permesso a normalSkipgram di escludere tutte quelle informazioni che potevano compromettere la bontà dell'operazione di Clustering.
 
 \subsubsection{Testo}
 
@@ -608,7 +606,7 @@ Considerando solo le informazioni estraibili dalla struttura ad hyperlink del si
 	\end{tabular}
 \end{table}
 
-Come nella configurazione precedente, anche trattando le pagine del sito Illinois come semplici documenti si evince come si riescono ad estrapolare dal testo più informazioni significative utilizzando \textbf{Doc2Vec} con il dataset \textbf{senza costrizioni}, che vengono utilizzate in maniera più opportuna da  \textbf{HDBScan} (Tabella \ref{doc2vectfidfillinois}).
+Come nella configurazione precedente, pur trattando le pagine del sito Illinois come semplici documenti, si riescono ad estrapolare dal testo informazioni più significative utilizzando \textbf{Doc2Vec} con il dataset \textbf{senza costrizioni}, utilizzate in maniera più efficace da  \textbf{HDBScan} (Tabella \ref{doc2vectfidfillinois}).
 
 \subsubsection{Combinato}
 
@@ -640,7 +638,7 @@ Come nella configurazione precedente, anche trattando le pagine del sito Illinoi
 	\end{tabular}
 \end{table}
 
-In Tabella \ref{combillinois} sono stati raccolti i risultati del Clustering utilizzando sia l'informazione codificata nella struttura ad hyperlink sia quella estrapolata dal testo. Ai fini della concatenazione, sono stati considerati per leftSkipgram e normalSkipgram solo le configurazioni migliori, opportunamente analizzate e scelte in precedenza. Si evince come \textbf{HDBScan}, sfruttando l'informazioni estratta da \textbf{leftSkipgram} avente la configurazione ottimale [1M, 2, 20] e combinato con i vettori prodotti da \textbf{Tf-Idf}, riesca ad assegnare allo stesso Cluster pagine appartenenti alla stessa classe. Anche in questo caso, le liste non hanno migliorato la qualità dei Cluster.
+In Tabella \ref{combillinois} sono stati raccolti i risultati del Clustering utilizzando sia l'informazione codificata nella struttura sia quella estrapolata dal testo. Ai fini per la concatenazione, sono stati considerati per leftSkipgram e normalSkipgram solo le configurazioni migliori, opportunamente analizzate e scelte in precedenza. Si evince come \textbf{HDBScan}, sfruttando l'informazioni estratta da \textbf{leftSkipgram} con configurazione ottimale [1M, 2, 20] e combinato con i vettori prodotti da \textbf{Tf-Idf}, riesca ad assegnare allo stesso Cluster pagine appartenenti alla stessa classe. Anche in questo caso, le liste non hanno migliorato la qualità dei Cluster.
 
 \subsection{cs.ox.ac.uk}  % ---------- OXFORD ----------
 
@@ -1052,9 +1050,9 @@ In Tabella \ref{combillinois} sono stati raccolti i risultati del Clustering uti
 \end{tabular}
 \end{table}
 
-Nelle Tabelle \ref{leftskipgramrwlckmeansoxford}, \ref{leftskipgramrwlchdbscanoxford}, \ref{normalskipgramrwlckmeansoxford}, \ref{normalskipgramrwlchdbscanoxford}, \ref{leftskipgramrwnckmeansoxford}, \ref{leftskipgramrwnchdbscanoxford}, \ref{normalskipgramrwnckmeansoxford}, \ref{normalskipgramrwnchdbscanoxford}, come nel caso precedente, sono stati riportati i risultati di leftSkipgram e normalSkipgram per tutte le combinazioni, sia per KMeans che per HDBScan. La Tabella \ref{normalskipgramrwnchdbscanoxford} mostra che, in realtà, i risultati migliori sono concentrati nelle configurazioni [1M, 2, 15] e [1M, 3, 20]. Confrontandole, si nota come la seconda, a parità di valori, mostra un punteggio più alto nella metrica Completezza (0.02), riuscendo ad assegnare, in maniera più opportuna, elementi della stessa classe allo stesso raggruppamento rispetto alla prima configurazione.
+Nelle Tabelle \ref{leftskipgramrwlckmeansoxford}, \ref{leftskipgramrwlchdbscanoxford}, \ref{normalskipgramrwlckmeansoxford}, \ref{normalskipgramrwlchdbscanoxford}, \ref{leftskipgramrwnckmeansoxford}, \ref{leftskipgramrwnchdbscanoxford}, \ref{normalskipgramrwnckmeansoxford}, \ref{normalskipgramrwnchdbscanoxford}, così come nel caso precedente, sono stati riportati i risultati di leftSkipgram e normalSkipgram per tutte le combinazioni. La Tabella \ref{normalskipgramrwnchdbscanoxford} evidenza che i risultati migliori si concentrano fra le configurazioni [1M, 2, 15] e [1M, 3, 20]. Confrontandole, si nota come l'ultima, a parità di valori, mostra un punteggio più alto nella metrica Completezza (0.02), riuscendo ad assegnare in maniera più opportuna elementi della stessa classe allo stesso raggruppamento rispetto alla prima configurazione.
 \\
-Come in precedenza, sono state scelte le migliori configurazioni di numero di URL, dimensione della finestra e lunghezza delle frasi, e sono state confrontate con LINE. In Tabella \ref{bestleftnormallineoxford} si nota come i punteggi delle metriche sono concentrate su \textbf{leftSkipgram senza costrizioni}, con una configurazione di \textbf{[1M, 5, 20]}. In questo sito, quindi, analizzare solo il contesto sinistro con una dimensione standard della finestra di contesto (5) ha permesso di estrarre informazioni più pertinenti dalla struttura di Oxford, che sono state sfruttate a pieno da \textbf{KMeans}. Anche in questo caso, le Liste Web non hanno contribuito a migliorare la qualità dei Cluster.
+Come in precedenza, sono state scelte le migliori configurazioni di numero di URL, dimensione della finestra e lunghezza delle frasi, e sono state confrontate con LINE. In Tabella \ref{bestleftnormallineoxford} si nota come i punteggi delle metriche sono concentrate su \textbf{leftSkipgram senza costrizioni}, con una configurazione di \textbf{[1M, 5, 20]}. In questo sito, l'analisi del solo contesto sinistro con una dimensione standard della finestra di contesto (5) ha permesso di estrarre informazioni più pertinenti dalla struttura di Oxford, che sono state sfruttate a pieno da \textbf{KMeans}. Anche in questo caso, le Liste Web non hanno contribuito a migliorare la qualità dei Cluster.
 \\
 KMeans e HDBScan, utilizzando le informazioni estrapolate da LINE, hanno raggiunto performance più basse, sia con che senza liste di costrizione.
 
@@ -1078,9 +1076,9 @@ KMeans e HDBScan, utilizzando le informazioni estrapolate da LINE, hanno raggiun
 \end{tabular}
 \end{table}
 
-In Tabella \ref{doc2vectfidfoxford} vengono raccolti i valori degli algoritmi di Clustering basati solo sul contenuto testuale. Senza ombra di dubbio, la matrice di termini-documenti prodotta da \textbf{Tf-idf} ha estratto informazioni utili per il raggruppamento effettuato da \textbf{KMeans}. La qualità dei Cluster è molto alta: le pagine di Oxford si sono rivelate consistenti con gli argomenti trattati, permettendo a KMeans di generare Cluster contenenti tutte quelle che appartengono alla stessa sezione del sito Web. Pagine che, per esempio, appartengono alla sezione "supporto di ricerca" sono state inserite, nella stragrande maggioranza, nello stesso raggruppamento.
+In Tabella \ref{doc2vectfidfoxford} vengono raccolti i valori degli algoritmi di Clustering basati solo sul contenuto testuale. Senza ombra di dubbio, la matrice di termini-documenti prodotta da \textbf{Tf-idf} ha estratto informazioni utili per il raggruppamento effettuato da \textbf{KMeans}. La qualità dei Cluster è molto alta: le pagine di Oxford si sono rivelate consistenti con gli argomenti trattati, permettendo a KMeans di generare Cluster contenenti tutte quelle pagine che appartengono alla stessa sezione del sito Web. Ad esempio, quelle che appartengono alla sezione "supporto di ricerca" sono state inserite, nella stragrande maggioranza, nello stesso raggruppamento.
 \\
-Le Liste Web hanno permesso di filtrare, in maniera consistente, le informazioni che potevano compromettere la qualità dei Cluster: KMeans, utilizzando la matrice prodotta da Tf-idf nel dataset senza costrizioni, ha raggiunto performance leggermente più basse rispetto a quella prodotta dal set di dati con liste di costrizione. Nello specifico, l'Adjusted Random Index, Silhouette e V-Measure hanno un valore più basso dello 0.01 rispetto a quelli delle liste di costrizione.
+Le Liste Web hanno permesso di filtrare, in maniera consistente, le informazioni che potevano compromettere la qualità dei Cluster: KMeans, utilizzando la matrice prodotta da Tf-idf nel dataset senza costrizioni, ha raggiunto performance leggermente più basse rispetto a quella prodotta dal set di dati con liste di costrizione. Nello specifico, ARI, Silhouette e V-Measure hanno un valore più basso di 0.01 rispetto a quelli delle liste di costrizione.
 
 \subsubsection{Combinato}
 
@@ -1524,12 +1522,11 @@ Confrontando in Tabella \ref{comboxford} i risultati della combinazione delle mi
 \end{tabular}
 \end{table}
 
-Nelle Tabelle \ref{leftskipgramrwlckmeanspriceton}, \ref{leftskipgramrwlchdbscanpriceton}, \ref{normalskipgramrwlckmeanspriceton}, \ref{normalskipgramrwlchdbscanpriceton}, \ref{leftskipgramrwnckmeanspriceton}, \ref{leftskipgramrwnchdbscanpriceton}, \ref{normalskipgramrwnckmeanspriceton}, \ref{normalskipgramrwnchdbscanpriceton} sono stati raccolti i valori delle metriche, sia per leftSkipgram che per normalSkipgram, come nei casi precedenti. Come in precedenza, anche in questo caso sono state scelte le configurazioni aventi maggior numero di valori delle metriche più alti. Nel caso della Tabella
-\ref{leftskipgramrwlckmeanspriceton} è stata scelta come configurazione migliore per KMeans con leftSkipgram con liste di costrizione [100K, 7, 20] poiché, pur non avendo i più alti valori in Completezza ed Omogeneità, ha il maggior punteggio in V-Measure: di conseguenza, presenta un certo equilibrio tra le metriche precedentemente citate.
+Nelle Tabelle \ref{leftskipgramrwlckmeanspriceton}, \ref{leftskipgramrwlchdbscanpriceton}, \ref{normalskipgramrwlckmeanspriceton}, \ref{normalskipgramrwlchdbscanpriceton}, \ref{leftskipgramrwnckmeanspriceton}, \ref{leftskipgramrwnchdbscanpriceton}, \ref{normalskipgramrwnckmeanspriceton}, \ref{normalskipgramrwnchdbscanpriceton} sono stati raccolti i valori delle metriche, sia per leftSkipgram che per normalSkipgram, come nei casi precedenti. Anche in questo caso sono state scelte le configurazioni aventi metriche con valori più alti. Nel caso della Tabella \ref{leftskipgramrwlckmeanspriceton} è stata scelta come configurazione migliore per KMeans con leftSkipgram con liste di costrizione [100K, 7, 20] poiché, pur non avendo i più alti valori in Completezza ed Omogeneità, ha il maggior punteggio in V-Measure: di conseguenza, presenta un certo equilibrio tra le metriche precedentemente citate.
 \\
-Le migliori configurazioni sono state scelte e raccolte nella Tabella \ref{bestleftnormallinepriceton} dove, confrontandole con LINE di primo e secondo ordine di prossimità, \textbf{normalSkipgram con liste di costrizione}, con una configurazione di \textbf{[1M, 5, 10]} affiancato a \textbf{KMeans}, ottiene punteggi più alti. Considerando sia contesto destro che quello sinistro, con una dimensione della finestra pari a 5 (quindi standard), normalSkipgram ha estratto informazioni utili pur considerando un numero discreto relazioni indirette tra le pagine di Priceton. In questo caso, le Liste Web hanno migliorato la qualità dei Cluster creati.
+Le migliori configurazioni sono state scelte e raccolte nella Tabella \ref{bestleftnormallinepriceton} dove, confrontandole con LINE di primo e secondo ordine di prossimità, \textbf{normalSkipgram con liste di costrizione}, con una configurazione di \textbf{[1M, 5, 10]} affiancato a \textbf{KMeans}, ottiene punteggi più alti. Considerando sia contesto destro che quello sinistro, con una dimensione della finestra pari a 5 (quindi standard), normalSkipgram ha estratto informazioni utili pur considerando un numero discreto di relazioni indirette tra le pagine di Priceton. In questo caso, le Liste Web hanno migliorato la qualità dei Cluster creati.
 \\
-E' interessante notare come LINE con secondo ordine di prossimità, applicato sul dataset di Priceton con liste di costrizione, permette di estrarre informazioni utili per aumentare la forma dei raggruppamenti: infatti questo algoritmo permette di ottenere, abbinato ad HDBScan, un punteggio di Silhouette pari a 0.21, un valore che si distacca in maniera decisiva da quelli degli altri algoritmi messi a confronto. Non solo, sempre utilizzando HDBScan e considerando il dataset senza liste di costrizione, LINE con primo ordine di prossimità permette di estrarre informazioni per aumentare il valore di Completezza, riuscendo a raggiungere lo 0.62, permettendo dunque di raggruppare tutti gli elementi di una classe in uno stesso Cluster.
+E' interessante notare come LINE con secondo ordine di prossimità, applicato sul dataset di Priceton con liste di costrizione, permette di estrarre informazioni utili per dare più forma ai raggruppamenti: questo algoritmo, infatti, permette di ottenere, abbinato ad HDBScan, un punteggio di Silhouette pari a 0.21, un valore che si distacca in maniera rilevante da quelli degli altri algoritmi messi a confronto. Non solo, sempre utilizzando HDBScan e considerando il dataset senza liste di costrizione, LINE con primo ordine di prossimità permette di estrarre informazioni per aumentare il valore di Completezza, riuscendo a raggiungere lo 0.62 e di raggruppare tutti gli elementi di una classe in uno stesso Cluster.
 
 \subsubsection{Testo}
 
@@ -1551,7 +1548,7 @@ E' interessante notare come LINE con secondo ordine di prossimità, applicato sul
 \end{tabular}
 \end{table}
 
-Considerando le pagine di Priceton come semplici documenti testuali, da questo caso della sperimentazione, i cui risultati sono stati inseriti nella Tabella \ref{doc2vectfidfpriceton}, si è scoperto che la matrice di \textbf{Tf-idf} ha permesso di aumentare le performance di \textbf{KMeans}. Le Liste Web non sono servite per aumentare la qualità dei Cluster generati, probabilmente perché venivano escluse, dal Crawler che sfrutta le Liste Web, pagine aventi un contenuto testuale utile per migliorare il processo di raggruppamento delle stesse.
+Considerando le pagine di Priceton come semplici documenti testuali, da questo caso della sperimentazione, i cui risultati sono stati inseriti nella Tabella \ref{doc2vectfidfpriceton}, è evidente che la matrice di \textbf{Tf-idf} ha permesso di aumentare le performance di \textbf{KMeans}. Le Liste Web non sono servite per aumentare la qualità dei Cluster generati: probabilmente perché escluse dal Crawler che sfrutta le Liste Web pagine aventi un contenuto testuale utile a migliorare il processo di raggruppamento delle stesse.
 
 \subsubsection{Combinato}
 
@@ -1583,7 +1580,7 @@ Considerando le pagine di Priceton come semplici documenti testuali, da questo c
 \end{tabular}
 \end{table}
 
-I risultati prodotti dalla combinazione dei vettori prodotti dai diversi algoritmi, raggruppati nella Tabella \ref{combpriceton}, hanno messo in evidenza che, considerando le pagine indicizzate dal Crawler tradizionale, \textbf{KMeans}, usando le informazioni estratte dalla combinazione \textbf{normalSkipgram}, con combinazione [1M, 7, 10] e \textbf{Tf-Idf}, ha prodotto dei Cluster con un certo livello di bontà. Le Liste Web non hanno migliorato la qualità del processo di Clustering.
+La Tabella \ref{combpriceton} mostra i risultati ottenuti dalla combinazione dei vettori prodotti dai diversi algoritmi. Considerando le pagine indicizzate dal Crawler tradizionale e usando le informazioni estratte da \textbf{normalSkipgram} con combinazione [1M, 7, 10] e \textbf{Tf-Idf}, \textbf{KMeans} ha prodotto dei Cluster con un certo livello di bontà. Le Liste Web non hanno migliorato la qualità del processo di Clustering.
 
 \subsection{cs.stanford.edu}  % ---------- STANFORD ----------
 
@@ -1995,11 +1992,11 @@ I risultati prodotti dalla combinazione dei vettori prodotti dai diversi algorit
 \end{tabular}
 \end{table}
 
-Nelle Tabelle \ref{leftskipgramrwlckmeansstanford}, \ref{leftskipgramrwlchdbscanstanford}, \ref{normalskipgramrwlckmeansstanford}, \ref{normalskipgramrwlchdbscanstanford}, \ref{leftskipgramrwnckmeansstanford}, \ref{leftskipgramrwnchdbscanstanford}, \ref{normalskipgramrwnckmeansstanford}, \ref{normalskipgramrwnchdbscanstanford} sono stati raccolti i valori delle metriche, sia per leftSkipgram che per normalSkipgram. Come effettuato in precedenza, sono state scelte le configurazioni aventi il maggior numero di valori delle metriche più alti. Si può notare come le configurazioni che risultano migliori, in realtà, non hanno permesso agli algoritmi di Clustering di raggiungere elevate performance come nei precedenti casi. Evidentemente, la struttura ad hyperlink del sito Web non ha permesso di effettuare un processo di Clustering avente una buona qualità. Si può dedurre che Stanford è un sito Web non altamente strutturato.
+Nelle Tabelle \ref{leftskipgramrwlckmeansstanford}, \ref{leftskipgramrwlchdbscanstanford}, \ref{normalskipgramrwlckmeansstanford}, \ref{normalskipgramrwlchdbscanstanford}, \ref{leftskipgramrwnckmeansstanford}, \ref{leftskipgramrwnchdbscanstanford}, \ref{normalskipgramrwnckmeansstanford}, \ref{normalskipgramrwnchdbscanstanford} sono stati raccolti i valori delle metriche, sia per leftSkipgram che per normalSkipgram. Sono state scelte le configurazioni in base alla combinazione di metriche con valori più alti. Si può notare come le configurazioni migliori non hanno permesso di raggiungere elevate performance agli algoritmi di Clustering. La struttura del sito Web non ha permesso di effettuare un processo di Clustering avente una buona qualità, poiché Stanford potrebbe essere un sito Web non altamente strutturato.
 \\
-Inoltre, in Tabella \ref{normalskipgramrwnchdbscanstanford}, sono due le configurazioni aventi il maggior numero di valori più alti delle metriche: [500K, 2, 20] e [500K, 3, 20]. Si è scelta come configurazione ottimale [500K, 3, 20], poiché, pur avendo gli stessi valori delle stesse metriche, differisce in Silhouette, con un punteggio più alto dello 0.01. A confronto, la configurazione scelta ha permesso di avere dei raggruppamenti aventi una forma leggermente migliore, pur avendo entrambe prodotto Cluster sovrapposti: entrambi i valori, infatti, sono vicini allo 0.
+Inoltre, in Tabella \ref{normalskipgramrwnchdbscanstanford}, sono due le configurazioni aventi il maggior numero di valori più alti delle metriche: [500K, 2, 20] e [500K, 3, 20]. La configurazione ottimale è la seconda, poiché, pur avendo gli stessi valori per le stesse metriche, differisce in Silhouette di 0.01. Questa configurazione ha permesso di avere dei raggruppamenti aventi una forma leggermente migliore, pur avendo entrambe prodotto Cluster sovrapposti: entrambi i valori, infatti, sono vicini allo 0.
 \\
-In Tabella \ref{bestleftnormallinestanford} sono state raccolte tutte le migliori configurazioni di leftSkipgram e normalSkipgram, e confrontate con entrambi gli ordini di prossimità di LINE. L'unico aspetto interessante è il valore della Silhouette prodotto da LINE di secondo ordine su un dataset con liste di costrizione, affiancato ad HDBScan pari a 0.01, un valore decisamente più alto ottenuti tra gli algoritmi di apprendimento utilizzati su questo sito. I Cluster prodotti da HDBScan, utilizzando solo l'informazione strutturale ottenuta dalle relazioni indirette tra pagine considerate fratelli (quindi che condividono pagine immediatamente vicine), sono più definiti. I risultati più alti sono ottenuti da \textbf{normalSkipgram con liste di costrizione}, affiancato a \textbf{KMeans}, avente configurazione \textbf{[1M, 2, 20]}. Analizzare, quindi, pagine collegate tra loro da molti elementi, non permette di aumentare le performance del Clustering. Le Liste Web hanno permesso di filtrare in maniera consistente le pagine esplorate in quanto il sito includeva la maggior parte degli hyperlink in sezioni nascoste, prevalentemente in menu dropdown (a scomparsa).
+In Tabella \ref{bestleftnormallinestanford} sono state raccolte tutte le migliori configurazioni di leftSkipgram e normalSkipgram, e confrontate con entrambi gli ordini di prossimità di LINE. L'unico aspetto interessante è il valore della Silhouette prodotto da LINE-2 su un dataset con liste di costrizione, affiancato ad HDBScan pari a 0.01, un valore decisamente più alto rispetto agli altri algoritmi di apprendimento utilizzati su questo sito. Utilizzando solo l'informazione strutturale ottenuta dalle relazioni indirette, i Cluster prodotti da HDBScan sono più definiti. I risultati più alti sono stati ottenuti da \textbf{normalSkipgram con liste di costrizione}, affiancato a \textbf{KMeans}, con configurazione \textbf{[1M, 2, 20]}. Analizzare, quindi, pagine collegate tra loro da molti elementi, non permette di aumentare le performance del Clustering. Le Liste Web hanno permesso di filtrare in maniera consistente le pagine esplorate in quanto il sito include la maggior parte degli hyperlink in sezioni nascoste, prevalentemente in menu dropdown (a scomparsa).
 
 \subsubsection{Testo}
 
@@ -2021,7 +2018,7 @@ In Tabella \ref{bestleftnormallinestanford} sono state raccolte tutte le miglior
 \end{tabular}
 \end{table}
 
-Analizzando solo il contenuto testuale delle pagine Web di Stanford, si evince dalla Tabella \ref{doc2vectfidfstanford} che \textbf{Tf-idf} con \textbf{KMeans} ha ottenuto le migliori performance, anche se i Cluster risultano non propriamente definiti (-0.30). Le Liste Web, in questo caso, hanno filtrato pagine che contengono informazioni essenziali per migliorare la bontà dei raggruppamenti prodotti.
+Analizzando solo il contenuto testuale delle pagine Web di Stanford, si evince dalla Tabella \ref{doc2vectfidfstanford} che \textbf{Tf-idf} con \textbf{KMeans} ha ottenuto le migliori performance, anche se i Cluster risultano non propriamente definiti (-0.30). Le Liste Web, in questo caso, hanno filtrato pagine contenenti informazioni essenziali per migliorare la bontà dei raggruppamenti prodotti.
 
 \subsubsection{Combinato}
 
@@ -2053,7 +2050,7 @@ Analizzando solo il contenuto testuale delle pagine Web di Stanford, si evince d
 \end{tabular}
 \end{table}
 
-I risultati prodotti dalla combinazione dei vettori prodotti dai diversi algoritmi, raggruppati nella tabella \ref{combstanford}, hanno evidenziato che la combinazione dei vettori di \textbf{normalSkipgram} e di \textbf{Doc2Vec}, con combinazione [1M, 2, 20], utilizzati con \textbf{KMeans} hanno prodotto dei Cluster con un certo livello di bontà. Come nel caso dell'analisi della struttura del sito, le Liste Web hanno permesso di filtrare gli hyperlink inseriti nelle sezioni nascoste.
+I risultati prodotti dalla combinazione dei vettori prodotti dai diversi algoritmi, raggruppati nella tabella \ref{combstanford}, hanno evidenziato che la combinazione dei vettori di \textbf{normalSkipgram} e di \textbf{Doc2Vec}, con configurazione [1M, 2, 20], utilizzati con \textbf{KMeans} hanno prodotto dei Cluster con un certo livello di bontà. Come nel caso dell'analisi della struttura del sito, le Liste Web hanno permesso di filtrare gli hyperlink inseriti nelle sezioni nascoste.
 
 \section{Considerazioni finali sui risultati}
 Analizzate le singole configurazioni dei siti, i risultati migliori sono stati raggruppati nelle Tabelle \ref{finalresultillinois}, \ref{finalresultoxford}, \ref{finalresultpriceton}, \ref{finalresultstanford} e confrontate, per capire quali tra queste forniscono le migliori performance.
@@ -2136,8 +2133,8 @@ Le Tabelle in questione sono strutturate in due parti: la prima parte raccoglie 
 \end{tabular}
 \end{table}
 
-In generale, si nota immediatamente che, utilizzando questi siti Web, il miglior algoritmo di Clustering che riesce a sfruttare in modo migliore le informazioni estratte è KMeans. Una analisi più approfondita ci dice che la versione tradizionale di Skip-Gram estrae informazioni più utili rispetto a quella modificata: l'esclusione dall'analisi della struttura del sito la parte destra del contesto filtra informazioni che potrebbero migliorare il processo di Clustering delle pagine del sito Web. Inoltre più è alto il numero di frasi generate e di lunghezza massima di esplorazione del Crawler, maggiore è la quantità di informazioni, estratte dalla struttura ad hyperlink del sito, utili per migliorare la bontà dei Cluster generati. Non solo, anche considerare il minor numero di relazioni indirette tra due pagine migliora il Clustering.
+In generale, si nota immediatamente che, utilizzando questi siti Web, il miglior algoritmo di Clustering che riesce a sfruttare al meglio le informazioni estratte è KMeans. Un'analisi più approfondita ci indica che la versione tradizionale di Skip-Gram estrae informazioni più utili rispetto a quella modificata: l'esclusione del contesto destro causa un filtraggio di informazioni che potrebbero migliorare il processo di Clustering delle pagine del sito. Difatti più è alto il numero di frasi generate e di lunghezza massima di esplorazione del Crawler, maggiore è la quantità di informazioni estratte dalla struttura del sito, utili a migliorare la bontà dei Cluster generati. Inoltre un minor numero di relazioni indirette tra due pagine migliora il Clustering.
 \\\\
-L'uso delle liste non aumenta in maniera significativa le performance degli algoritmi di Clustering. Questo può essere l'effetto di due cause: o il Crawler che sfrutta le Liste Web non funziona, oppure che i siti Web in analisi sono altamente strutturati. Effettivamente i siti sono altamente strutturati, poiché se così non fosse l'esperto che ha creato la ground truth non avrebbe potuto effettuare l'etichettatura delle singole pagine, ovvero non avrebbe potuto raggruppare manualmente le pagine.
+L'uso delle liste non aumenta in maniera significativa le performance degli algoritmi di Clustering. Questo può essere l'effetto di due cause: o il Crawler che sfrutta le Liste Web non funziona, oppure che i siti Web in analisi sono altamente strutturati. Effettivamente, i siti sono altamente strutturati poiché, se così non fosse, l'esperto che ha creato la ground truth non avrebbe potuto assegnare manualmente le pagine ai vari Cluster.
 \\\\
-In conclusione, la sperimentazione mostra come i migliori risultati sono ottenuti combinando l'informazione testuale con quella estratta dalla struttura ad hyperlink del sito. Questo è più evidente per Illinois (Tabella \ref{finalresultillinois}) ed Oxford (Tabella \ref{finalresultoxford}), dove la struttura del sito e il testo delle pagine codificano informazioni complementari utili per il Clustering. Per Priceton (Tabella \ref{finalresultpriceton}) l'informazione testuale è soddisfacente per realizzare Cluster di buona qualità; mentre per Stanford (Tabella \ref{finalresultstanford}) l'informazione codificata nella struttura del sito è sufficiente: si può supporre che il sito contenga pochi termini significativi oppure poco testo contenente informazioni utili.
+In conclusione, la sperimentazione mostra come i migliori risultati sono stati ottenuti combinando l'informazione testuale con quella estratta dalla struttura del sito. Questo è più evidente per Illinois (Tabella \ref{finalresultillinois}) ed Oxford (Tabella \ref{finalresultoxford}), dove la struttura del sito e il testo delle pagine codificano informazioni complementari utili per il Clustering. Per Priceton (Tabella \ref{finalresultpriceton}) l'informazione testuale è soddisfacente per realizzare Cluster di buona qualità; mentre per Stanford (Tabella \ref{finalresultstanford}) l'informazione codificata nella struttura del sito è sufficiente: si può supporre che il sito contenga pochi termini significativi oppure poco testo contenente informazioni utili.

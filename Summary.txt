@@ -6,12 +6,12 @@
 		- Word Space Model
 		- Word2Vec
 		- Line (cos'è e cosa fa)
-		- Doc2Vec (?)
+		- Doc2Vec
 	- Clustering
 		- Approcci di clustering
 		- Funzioni (o misure) di distanza
 		- Algoritmi usati nella sperimentazione
-- Stato dell'arte del clustering di pagine web (?)
+- Stato dell'arte del clustering di pagine web
 	- Estendere lo stato dell'arte dei due paper, ovvero clustering e sitemap
 	(related work, dove è arrivata la scienza e i lavori che giustificano quello che ho fatto, il perché)
 - Pianificazione della sperimentazione
