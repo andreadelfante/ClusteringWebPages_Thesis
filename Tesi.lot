@@ -1,0 +1,57 @@
+\select@language {italian}
+\select@language {italian}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {1.1}{\ignorespaces Matrice di co-occorrenze parola per parola \cite {wordspacemodel}\relax }}{10}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Descrizione dei siti Web\relax }}{55}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Risultati di KMeans con leftSkipgram con liste di costrizione nella configurazione Random Walk in Illinois\relax }}{72}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Risultati di HDBScan con leftSkipgram con liste di costrizione nella configurazione Random Walk in Illinois\relax }}{73}
+\contentsline {table}{\numberline {4.4}{\ignorespaces Risultati di KMeans con normalSkipgram con liste di costrizione nella configurazione Random Walk in Illinois\relax }}{74}
+\contentsline {table}{\numberline {4.5}{\ignorespaces Risultati di HDBScan con normalSkipgram con liste di costrizione nella configurazione Random Walk in Illinois\relax }}{75}
+\contentsline {table}{\numberline {4.6}{\ignorespaces Risultati di KMeans con leftSkipgram senza costrizioni nella configurazione Random Walk in Illinois\relax }}{76}
+\contentsline {table}{\numberline {4.7}{\ignorespaces Risultati di HDBScan con leftSkipgram senza costrizioni nella configurazione Random Walk in Illinois\relax }}{77}
+\contentsline {table}{\numberline {4.8}{\ignorespaces Risultati di KMeans con normalSkipgram senza costrizioni nella configurazione Random Walk in Illinois\relax }}{78}
+\contentsline {table}{\numberline {4.9}{\ignorespaces Risultati di HDBScan con normalSkipgram senza costrizioni nella configurazione Random Walk in Illinois\relax }}{79}
+\contentsline {table}{\numberline {4.10}{\ignorespaces Risultati migliori tra leftSkipgram, normalSkipgram e LINE in Illinois\relax }}{80}
+\contentsline {table}{\numberline {4.11}{\ignorespaces Risultati di Doc2Vec e TF-IDF in Illinois\relax }}{80}
+\contentsline {table}{\numberline {4.12}{\ignorespaces Risultati della configurazione Combinato in Illinois\relax }}{81}
+\contentsline {table}{\numberline {4.13}{\ignorespaces Risultati di KMeans con leftSkipgram con liste di costrizione nella configurazione Random Walk in Oxford\relax }}{82}
+\contentsline {table}{\numberline {4.14}{\ignorespaces Risultati di HDBScan con leftSkipgram con liste di costrizione nella configurazione Random Walk in Oxford\relax }}{83}
+\contentsline {table}{\numberline {4.15}{\ignorespaces Risultati di KMeans con normalSkipgram con liste di costrizione nella configurazione Random Walk in Oxford\relax }}{84}
+\contentsline {table}{\numberline {4.16}{\ignorespaces Risultati di HDBScan con normalSkipgram con liste di costrizione nella configurazione Random Walk in Oxford\relax }}{85}
+\contentsline {table}{\numberline {4.17}{\ignorespaces Risultati di KMeans con leftSkipgram senza costrizioni nella configurazione Random Walk in Oxford\relax }}{86}
+\contentsline {table}{\numberline {4.18}{\ignorespaces Risultati di HDBScan con leftSkipgram senza costrizioni nella configurazione Random Walk in Oxford\relax }}{87}
+\contentsline {table}{\numberline {4.19}{\ignorespaces Risultati di KMeans con normalSkipgram senza costrizioni nella configurazione Random Walk in Oxford\relax }}{88}
+\contentsline {table}{\numberline {4.20}{\ignorespaces Risultati di HDBScan con normalSkipgram senza costrizioni nella configurazione Random Walk in Oxford\relax }}{89}
+\contentsline {table}{\numberline {4.21}{\ignorespaces Risultati migliori tra leftSkipgram, normalSkipgram e LINE in Oxford\relax }}{90}
+\contentsline {table}{\numberline {4.22}{\ignorespaces Risultati di Doc2Vec e TF-IDF in Oxford\relax }}{90}
+\contentsline {table}{\numberline {4.23}{\ignorespaces Risultati della configurazione Combinato in Oxford\relax }}{91}
+\contentsline {table}{\numberline {4.24}{\ignorespaces Risultati di KMeans con leftSkipgram con liste di costrizione nella configurazione Random Walk in Priceton\relax }}{92}
+\contentsline {table}{\numberline {4.25}{\ignorespaces Risultati di HDBScan con leftSkipgram con liste di costrizione nella configurazione Random Walk in Priceton\relax }}{93}
+\contentsline {table}{\numberline {4.26}{\ignorespaces Risultati di KMeans con normalSkipgram con liste di costrizione nella configurazione Random Walk in Priceton\relax }}{94}
+\contentsline {table}{\numberline {4.27}{\ignorespaces Risultati di HDBScan con normalSkipgram con liste di costrizione nella configurazione Random Walk in Priceton\relax }}{95}
+\contentsline {table}{\numberline {4.28}{\ignorespaces Risultati di KMeans con leftSkipgram senza costrizioni nella configurazione Random Walk in Priceton\relax }}{96}
+\contentsline {table}{\numberline {4.29}{\ignorespaces Risultati di HDBScan con leftSkipgram senza costrizioni nella configurazione Random Walk in Priceton\relax }}{97}
+\contentsline {table}{\numberline {4.30}{\ignorespaces Risultati di KMeans con normalSkipgram senza costrizioni nella configurazione Random Walk in Priceton\relax }}{98}
+\contentsline {table}{\numberline {4.31}{\ignorespaces Risultati di HDBScan con normalSkipgram senza costrizioni nella configurazione Random Walk in Priceton\relax }}{99}
+\contentsline {table}{\numberline {4.32}{\ignorespaces Risultati migliori tra leftSkipgram, normalSkipgram e LINE in Priceton\relax }}{100}
+\contentsline {table}{\numberline {4.33}{\ignorespaces Risultati di Doc2Vec e TF-IDF in Priceton\relax }}{100}
+\contentsline {table}{\numberline {4.34}{\ignorespaces Risultati della configurazione Combinato in Priceton\relax }}{101}
+\contentsline {table}{\numberline {4.35}{\ignorespaces Risultati di KMeans con leftSkipgram con liste di costrizione nella configurazione Random Walk in Stanford\relax }}{102}
+\contentsline {table}{\numberline {4.36}{\ignorespaces Risultati di HDBScan con leftSkipgram con liste di costrizione nella configurazione Random Walk in Stanford\relax }}{103}
+\contentsline {table}{\numberline {4.37}{\ignorespaces Risultati di KMeans con normalSkipgram con liste di costrizione nella configurazione Random Walk in Stanford\relax }}{104}
+\contentsline {table}{\numberline {4.38}{\ignorespaces Risultati di HDBScan con normalSkipgram con liste di costrizione nella configurazione Random Walk in Stanford\relax }}{105}
+\contentsline {table}{\numberline {4.39}{\ignorespaces Risultati di KMeans con leftSkipgram senza costrizioni nella configurazione Random Walk in Stanford\relax }}{106}
+\contentsline {table}{\numberline {4.40}{\ignorespaces Risultati di HDBScan con leftSkipgram senza costrizioni nella configurazione Random Walk in Stanford\relax }}{107}
+\contentsline {table}{\numberline {4.41}{\ignorespaces Risultati di KMeans con normalSkipgram senza costrizioni nella configurazione Random Walk in Stanford\relax }}{108}
+\contentsline {table}{\numberline {4.42}{\ignorespaces Risultati di HDBScan con normalSkipgram senza costrizioni nella configurazione Random Walk in Stanford\relax }}{109}
+\contentsline {table}{\numberline {4.43}{\ignorespaces Risultati migliori tra leftSkipgram, normalSkipgram e LINE in Stanford\relax }}{110}
+\contentsline {table}{\numberline {4.44}{\ignorespaces Risultati di Doc2Vec e TF-IDF in Stanford\relax }}{110}
+\contentsline {table}{\numberline {4.45}{\ignorespaces Risultati della configurazione Combinato in Stanford\relax }}{111}
+\contentsline {table}{\numberline {4.46}{\ignorespaces Risultati finali di Illinois\relax }}{111}
+\contentsline {table}{\numberline {4.47}{\ignorespaces Risultati finali di Oxford\relax }}{111}
+\contentsline {table}{\numberline {4.48}{\ignorespaces Risultati finali di Priceton\relax }}{112}
+\contentsline {table}{\numberline {4.49}{\ignorespaces Risultati finali di Stanford\relax }}{112}
+\addvspace {10\p@ }

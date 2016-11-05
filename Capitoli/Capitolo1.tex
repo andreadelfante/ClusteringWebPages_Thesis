@@ -1,10 +1,10 @@
 Siamo sommersi dai dati.
 \\\\
-Ogni giorno viene generata una quantità enorme di dati da azioni della vita quotidiana: dalle applicazioni per smartphone alle carte di credito usate per gli acquisti, dai programmi eseguiti sui computer ai sensori utilizzati nelle infrastrutture intelligenti della città.
+Ogni giorno viene generata una quantità enorme di dati dalle applicazioni per smartphone, dalle carte di credito usate per gli acquisti, dai programmi eseguiti sui computer, dai sensori utilizzati nelle infrastrutture intelligenti della città.
 \\
 Le grandi quantità di dati sopra citate vengono chiamate Big Data.
 \\
-In generale, con il termine Big Data si intende una collezione di dati talmente estesa in termini di volume, velocità e varietà da richiedere metodologie e tecnologie non convenzionali (i.e. nuove) per la loro memorizzazione, gestione, interrogazione ed analisi. Queste grandi raccolte di dati vengono generati sia manualmente che automaticamente: i due rispettivi casi tipici sono i click che gli utenti effettuano durante la navigazione tra le pagine web e gli smartphone che dialogano con specifiche applicazioni, inviando, per esempio, dati riguardanti la nostra posizione.
+In generale, con il termine Big Data si intende una collezione di dati talmente estesa in termini di volume, velocità e varietà da richiedere metodologie e tecnologie non convenzionali (i.e. nuove) per la loro memorizzazione, gestione, interrogazione ed analisi. Queste grandi raccolte di dati vengono generati sia manualmente che automaticamente. I due rispettivi casi tipici sono i click che gli utenti effettuano durante la navigazione tra le pagine web e gli smartphone che dialogano con specifiche applicazioni, inviando, per esempio, dati riguardanti la nostra posizione.
 \\
 I Big Data sono caratterizzati da tre aspetti importanti, chiamati anche \textbf{3V}:
 \begin{itemize}
@@ -30,36 +30,27 @@ Il termine significa letteralmente "estrazione di dati" e si divide in:
 \end{itemize}
 L'informazione viene considerata significativa in base al dominio applicativo in cui si utilizzano le metodologie di Data Mining. L'estrazione di nuovo sapere varia molto a seconda del campo applicativo. Le differenze sono tali da dover suddividere tali procedimenti in diverse aree, in base al tipo di dato da cui estrarre informazioni utili.
 \\
-Dai testi è possibile estrarre conoscenza utile. Il ramo del Data Mining che si occupa di realizzare questo processo è il Text Mining.
+Dai testi è possibile estrarre conoscenza utile. La branca dell'Informatica che si occupa di realizzare questo processo è il Text Mining.% Il ramo del Data Mining che si occupa di realizzare questo processo è il Text Mining.
 \\\\
-Per definizione, il Text Mining, chiamato anche Text Data Mining o Text Analysis, è l'applicazione delle tecniche e metodologie del Data Mining ai testi. L'obiettivo è lo stesso del Data Mining: estrarre informazioni latenti utili per ampliare conoscenze pregresse e facilitare i processi di decisione partendo da documenti e testi, trasformandoli in sapere che può essere usato per successive analisi. Il Text Mining effettua tali indagini attraverso l'applicazione di metodologie: il Natural Language Processing ne è un esempio.
-\\\\
-Il Natural Language Processing è il processo di trattamento automatico mediante un calcolatore delle informazioni scritte o parlate in una lingua naturale, aiutando una macchina a "leggere" dei testi. 
-\\
-La sua difficoltà è l'elevato numero di ambiguità che caratterizza il linguaggio umano. Per questo motivo è stato diviso in quattro fasi, o sottoprocessi:
-\begin{itemize}
-	\item \textbf{analisi lessicale}: in questa fase avviene la scomposizione della sequenza di caratteri, chiamata espressione linguistica, in token (o parole);
-	\item \textbf{analisi grammaticale}: in questa fase avviene l'associazione di ciascuna parola ad una parte del discorso;
-	\item \textbf{analisi sintattica}: in questa fase avviene il parsing dei token e viene generato un albero di parser (parse tree);
-	\item \textbf{analisi semantica}: in questa fase viene assegnato un significato al parse tree, che provvede alla disambiguazione dell'espressione linguistica, ovvero ad assegnare un significato tra quelli disponibili.
-\end{itemize}
-Il testo non è la sola fonte da cui estrarre conoscenza: anche sulle pagine Web è possibile applicare, con dovute modifiche e rivisitazioni, le tecniche di Data Mining per rilevare informazioni utili, anche applicando il Natural Language Processing \cite{ijcatr04031008}.
+Per definizione, il Text Mining, chiamato anche Text Data Mining o Text Analysis, è l'applicazione delle tecniche e metodologie del Data Mining ai testi. L'obiettivo è lo stesso del Data Mining: estrarre informazioni latenti utili per ampliare conoscenze pregresse e facilitare i processi di decisione partendo da documenti e testi, trasformandoli in sapere che può essere usato per successive analisi.% Il Text Mining effettua tali indagini attraverso l'applicazione di metodologie: il Natural Language Processing ne è un esempio.
+%\\\\
+%Il Natural Language Processing è il processo di trattamento automatico mediante un calcolatore delle informazioni scritte o parlate in una lingua naturale, aiutando una macchina a "leggere" dei testi. 
+%\\
+%La sua difficoltà è l'elevato numero di ambiguità che caratterizza il linguaggio umano. Per questo motivo è stato diviso in quattro fasi, o sottoprocessi:
+%\begin{itemize}
+%	\item \textbf{analisi lessicale}: in questa fase avviene la scomposizione della sequenza di caratteri, chiamata espressione linguistica, in token (o parole);
+%	\item \textbf{analisi grammaticale}: in questa fase avviene l'associazione di ciascuna parola ad una parte del discorso;
+%	\item \textbf{analisi sintattica}: in questa fase avviene il parsing dei token e viene generato un albero di parser (parse tree);
+%	\item \textbf{analisi semantica}: in questa fase viene assegnato un significato al parse tree, che provvede alla disambiguazione dell'espressione linguistica, ovvero ad assegnare un significato tra quelli disponibili.
+%\end{itemize}
+%Il testo non è la sola fonte da cui estrarre conoscenza: anche sulle pagine Web è possibile applicare, con dovute modifiche e rivisitazioni, le tecniche di Data Mining per rilevare informazioni utili, anche applicando il Natural Language Processing \cite{ijcatr04031008}.
 
 \section{Web Mining}
-Con l'espressione Web Mining ci si riferisce all'applicazione di procedure analoghe a quelle del Data Mining per estrarre automaticamente informazioni dalle risorse presenti nel Web, siano essi documenti o servizi \cite{webminingmalerba}. 
+Con l'espressione Web Mining ci si riferisce all'applicazione delle tecniche di Data Mining per estrarre automaticamente informazioni dalle risorse, siano essi documenti o servizi \cite{webminingmalerba}, presenti nel Web.
 \\
-Secondo \cite{webminingmalerba}, per estrarre informazioni utili da pagine Web, è necessario seguire specifici passi:
+Per comprendere meglio l'estrazione di conoscenza dal Web, è necessario definire le caratteristiche che lo differenziano da altre sorgenti dati:
 \begin{itemize}
-	\item \textbf{Scoprire le risorse}: gli strumenti per la scoperta di risorse, che vengono chiamati Spider, ovvero Web Robot, scandiscono milioni di documenti Web e costruiscono indici di ricerca in base alle parole che si trovano negli stessi.
-	\item \textbf{Estrarre le informazioni}: i testi, che sono scritti in linguaggio naturale, vengono trasformati in rappresentazioni strutturate predefinite, dette template, che rappresentano un estratto dell'informazione presente nel testo.
-	\item \textbf{Generalizzare}: i processi di navigazione nel Web devono essere generalizzati, ovvero applicabili in altri contesti.
-\end{itemize}
-
-In altri termini, il Web Mining è l'applicazione delle procedure di Data Mining per scoprire pattern dal World Wide Web ed estrarre informazioni utili. 
-\\\\
-Il Web è caratterizzato da proprietà che lo differenziano da altre sorgenti dati, e sono:
-\begin{itemize}
-	\item \textbf{Dimensione}. Il Web è il primo mezzo in cui il numero di produttori di informazioni è uguale al numero di consumatori. La quantità di dati e di informazioni sul Web è enorme ed è in continua crescita.
+	\item \textbf{Dimensione}. Il Web è il primo mezzo in cui il numero di produttori di informazioni è uguale al numero di consumatori. La quantità di dati e di informazioni sul Web è enorme ed in continua crescita.
 	\item \textbf{Dinamicità}. Ogni secondo vengono create, distrutte e modificate migliaia di pagine. Queste azioni rendono il Web una rete informativa dinamica, in cui il contenuto e la struttura cambiano con frequenza. Tenere traccia, quindi, di questi cambiamenti e monitorarli rimane una sfida impegnativa per molte applicazioni.
 	\item \textbf{Eterogeneità}. Il Web è eterogeneo, e tale caratteristica dipende fortemente sia dal formato delle pagine sia dal contenuto testuale.
 	\\
@@ -76,8 +67,15 @@ Il Web è caratterizzato da proprietà che lo differenziano da altre sorgenti dati
 	\item \textbf{Rumore}. Il Web, a differenza da altri mezzi di informazione, ha la caratteristica di permettere a chiunque di pubblicare contenuti senza alcun tipo di approvazione. Questo permette al Web di espandersi enormemente e di arricchire e diversificare le informazioni, ma contribuisce anche alla creazione e diffusione di contenuti di bassa qualità, rindondanti ed erronei.
 	\item \textbf{Società virtuale}. Il Web può essere considerato come un grande Social Network, dove le persone possono diffondere la loro conoscenza ed influenzarsi reciprocamente. Infatti non riguarda solo i dati, le informazioni o i servizi, ma anche le interazioni fra persone, organizzazioni o sistemi automatizzati.
 \end{itemize}
+Secondo \cite{webminingmalerba}, per estrarre informazioni utili da pagine Web, è necessario seguire specifici passi:
+\begin{itemize}
+	\item \textbf{Scoprire le risorse}: gli strumenti per la scoperta di documenti e servizi nella rete, che vengono chiamati Spider, ovvero Web Robot, scandiscono milioni di documenti Web e costruiscono indici di ricerca in base alle parole che si trovano negli stessi.
+	\item \textbf{Estrarre le informazioni}: i testi, che sono scritti in linguaggio naturale, vengono trasformati in rappresentazioni strutturate predefinite, dette template, che rappresentano un estratto dell'informazione presente nel testo.
+	\item \textbf{Generalizzare}: i processi di navigazione nel Web devono essere generalizzati, ovvero applicabili in altri contesti.
+\end{itemize}
 
-Sulla base di queste caratteristiche, per raggiungere l'obiettivo del Web Mining si possono usare metodologie diverse che permettono di individuare informazioni utili di tipo differente. Queste vengono estratte partendo dalla struttura degli hyperlink, dal contenuto e dall'uso della pagina Web. Quindi, il Web Mining può essere suddiviso in tre distinte categorie: Web Structure Mining, Web Content Mining e Web Usage Mining.
+%In altri termini, il Web Mining è l'applicazione delle procedure di Data Mining per scoprire pattern dal World Wide Web ed estrarre informazioni utili. 
+Nel contesto del Web, la conoscenza non è solo estraibile dai testi, infatti, il Web Mining utilizza metodologie diverse che permettono di individuare informazioni utili di tipo differente. Queste vengono estratte partendo dalla struttura ad hyperlink, dal contenuto e dall'uso della pagina Web. Quindi, il Web Mining può essere suddiviso in tre distinte categorie: Web Structure Mining, Web Content Mining e Web Usage Mining.
 
 \begin{figure}[h]
 	\centering
@@ -112,19 +110,19 @@ Questo tipo di Data Mining viene usato in campi disparati, che vanno dalle azien
 Alcuni, però, criticano questa tecnologia: il problema etico di cui più si parla è la violazione della privacy, con il rischio di vedere diffusi i propri dati, anche sensibili, senza alcuna consapevolezza da parte dell'utente \cite{612259}.
 
 \section{Rappresentazioni vettoriali di pagine Web}
-L'estrazione di informazione utile, a partire da pagine Web di tipo non strutturato o semi-strutturato è un processo impegnativo, a causa del ridotto numero di pattern che possono essere usati per ricavare conoscenza.
+L'estrazione di informazione utile, a partire da pagine Web di tipo non strutturato o semi-strutturato è un processo impegnativo.% a causa del ridotto numero di pattern che possono essere usati per ricavare conoscenza.
 \\
 Un modo per affrontare questa sfida è l'applicazione di algoritmi di Machine Learning che possano individuare schemi per estrapolare informazioni utili a partire dai contenuti e dalla struttura delle pagine Web.
 \\
-Per definizione, il Machine Learning è un campo di ricerca, appartenente all'Informatica, che si occupa dello studio della scoperta di pattern. I suoi task sono tipicamente classificati in due categorie, che dipendono dalla natura dei dati che devono essere appresi dal sistema:
-\begin{itemize}
-	\item \textbf{Supervised learning}. E' chiamato anche apprendimento supervisionato, in cui un computer deve dedurre una funzione partendo da dati di apprendimento etichettati. Tali dati sono una collezione di esempi. In questo tipo di apprendimento, ogni esempio viene trattato come una coppia di input/output, in cui il primo è l'etichetta del dato che si vuole predire e il secondo è il valore che l'algoritmo predice.
-	\\
-	Il computer analizza i dati di apprendimento e produce una funzione dedotta, che può essere usata su nuovi dati.
-	\item \textbf{Unsupervised learning}. E' chiamato anche apprendimento non supervisionato, il cui il computer deve dedurre una funzione che descriva la struttura nascosta di dati non etichettati. 
-	\\
-	Dato un campione in input, non vi sono errori o segnali per valutare una risposta da parte del sistema. In questa categoria rientrano le reti neurali (si vedrà un esempio nella Sezione \ref{word2vec}) e gli algoritmi di clustering (in Sezione \ref{clustering}).
-\end{itemize}
+Per definizione, il Machine Learning è un campo di ricerca, appartenente all'Informatica, che si occupa dello studio della scoperta di pattern. % I suoi task sono tipicamente classificati in due categorie, che dipendono dalla natura dei dati che devono essere appresi dal sistema:
+%\begin{itemize}
+%	\item \textbf{Supervised learning}. E' chiamato anche apprendimento supervisionato, in cui un computer deve dedurre una funzione partendo da dati di apprendimento etichettati. Tali dati sono una collezione di esempi. In questo tipo di apprendimento, ogni esempio viene trattato come una coppia di input/output, in cui il primo è l'etichetta del dato che si vuole predire e il secondo è il valore che l'algoritmo predice.
+%	\\
+%	Il computer analizza i dati di apprendimento e produce una funzione dedotta, che può essere usata su nuovi dati.
+%	\item \textbf{Unsupervised learning}. E' chiamato anche apprendimento non supervisionato, il cui il computer deve dedurre una funzione che descriva la struttura nascosta di dati non etichettati. 
+%	\\
+%	Dato un campione in input, non vi sono errori o segnali per valutare una risposta da parte del sistema. In questa categoria rientrano le reti neurali (si vedrà un esempio nella Sezione \ref{word2vec}) e gli algoritmi di clustering (in Sezione \ref{clustering}).
+%\end{itemize}
 La maggior parte degli algoritmi di Machine Learning trasformano il contenuto di un testo in uno spazio vettoriale \cite{live-2934-4846-jair}, permettendo di estrapolare l'informazione nascosta da testi scritti in linguaggio umano.
 \\
 In questa tesi viene proposto l'utilizzo del modello di spazi vettoriali per rappresentare i vertici del grafo della pagina Web. Per spiegare che cos'è e perché è importante il modello di spazio vettoriale, occorre specificare e descrivere l'argomento di quello dello spazio delle parole (Word space model), che sono strettamente collegati l'uno all'altro.
@@ -268,10 +266,18 @@ Word2Vec è composto da due modelli di apprendimento:
 	\label{word2vecmodels}
 \end{figure}
 
-\textbf{CBOW} consiste nel predire una determinata parola a partire dal suo contesto, che è composto dal numero di parole che vengono prese in considerazione durante l'apprendimento. Questo modello di apprendimento tratta l'intero contesto come una sola osservazione. Generalmente, CBOW restituisce risultati più accurati con piccole collezioni di dati.
+\textbf{CBOW} consiste nel predire una determinata parola a partire dal suo contesto, che è composto dal numero di parole che vengono prese in considerazione durante l'apprendimento. Questo modello di apprendimento tratta l'intero contesto come una sola osservazione. Generalmente, CBOW restituisce risultati più accurati con piccole collezioni di dati \cite{mikolov}.
 \\\\
 \textbf{Skip-Gram}, invece, è l'inverso di CBOW: predice il contesto a partire da una parola.\\
-Questo modello di apprendimento tratta ogni coppia contesto-obiettivo come una nuova osservazione, rendendo i risultati più accurati quando si hanno grandi collezioni di dati.\\
+Questo modello di apprendimento tratta ogni coppia contesto-obiettivo come una nuova osservazione, rendendo i risultati più accurati quando si hanno grandi collezioni di dati \cite{mikolov}.
+\\
+L'obiettivo dell'apprendimento di questo modello è quello di trovare le rappresentazioni vettoriali delle parole utili per predire quelle circostanti in una frase o in un documento. Formalmente, data una sequenza di parole $w_1, w_2, ..., w_T$ viene costruito un vocabolario, i cui termini hanno un vettore con N dimensione generato casualmente. Skip-Gram deve massimizzare la probabilità media logaritmica:
+\begin{equation}
+\label{skipgrameq}
+	\frac{1}{T} \sum_{t=1}^{T} \sum_{-c \le j \le c, j \neq 0} \log p(w_{t+j}|w_t)
+\end{equation}
+dove $c$ è la dimensione della finestra di contesto, $w_t$ è la parola in input e $w_{t+j}$ è la parola in analisi del contesto.
+\\
 Per capire meglio questo tipo di modello di apprendimento, analizziamo questa frase:
 \begin{figure}[h]
 	\centering
@@ -283,12 +289,32 @@ Inizialmente, si crea il set di dati formato da coppie (contesto, parola), di cu
 	\centering
 	([the, brown], quick), ([quick, fox], brown), ([brown, jumped], fox) $\to$ (quick, the), (quick, brown), (brown, quick), (brown, fox)
 \end{figure}
+\\
+Supponiamo di trovarci al passo $t$, dove si trova il primo caso di apprendimento (quick, the). L'obiettivo è quello di predire \textit{the} da \textit{quick}, applicando la formula \ref{skipgrameq} e massimizzando la probabilità media logaritmica per apprendere il vettore ottimale di \textit{the}. Così facendo le parole simili avranno vettori simili. Ad ogni passo vengono aggiornati i vettori delle parole precedentemente apprese.
+\\
+Questo processo di apprendimento viene ripetuto sull'intera collezione di dati. %[...] vedi se riesci a trovare altro.
+
+\subsection{Doc2Vec}
+\label{doc2vec}
+Doc2Vec, chiamato anche Paragraph2Vec, è un'estensione di Word2Vec che apprende correlando etichette e parole, invece che parole con altre parole.
+\\
+Differentemente da Word2Vec, che converte una parola in un vettore, Doc2Vec aggrega tutte le parole di un paragrafo in un vettore.
+\\
+Quindi, data una collezione di testi che possa essere divisa in $n$ documenti, o paragrafi, ad ogni paragrafo è assegnato un vettore. Il processo di apprendimento è caratterizzato dallo spostamento della finestra delle parole di contesto attraverso ogni parola di ogni paragrafo, per ogni paragrafo \cite{HongSeokho}.
+\\
+L'idea di base è quella di apprendere vettori di paragrafi in maniera simile all'apprendimento dei vettori delle parole. Vengono create due matrici: una formata dai vettori dei paragrafi appresi e l'altra da quelli delle parole. Il vettore del paragrafo è condiviso per tutte le parole che si trovano  nello stesso, ma non per gli altri paragrafi. Gli embedding dei vettori e dei paragrafi sono combinati durante l'apprendimento ed aggiornati mediante la concatenazione o la media. I vettori vengono appresi utilizzando coppie, composte dalla parola da predire e dal contesto del campione, contrassegnato da un identificativo del paragrafo \cite{mirela}.
+%\\
+%Come Word2Vec, Paragraph2Vec ha due modelli di apprendimento:
+%\begin{itemize}
+%	\item \textbf{Distributed Memory}. Simile al modello CBOW di Word2Vec. Dati in input $N$ paragrafi e $M$ parole, viene casualmente inizializzata una matrice di embedding $D$ per i paragrafi ed una $W$ per le parole. Per ogni paragrafo si predice la successiva parola effettuando la media o il concatenamento dei vettori di paragrafo e dei termini nella finestra di contesto, che scorre per tutta la lunghezza del paragrafo stesso, non modificando il suo vettore. Una volta che viene completato il paragrafo, vengono aggiornate le matrici $D$ e $W$.
+%	\item \textbf{Distributed Bag of Words}. Simile al modello Skip-Gram di Word2Vec. Vengono predette le parole che si trovano in un paragrafo dando solo il suo vettore. Questo modello è concettualmente più semplice e più efficiente in termini di memoria.
+%\end{itemize}
 
 \subsection{LINE}
 \label{line}
-LINE è un nuovo modello di network embedding, capace di apprendere rappresentazioni mono-dimensionali di vertici in una rete o grafo. Un grafo è una coppia ordinata $G = (V, E)$ di insiemi, con $V$ insieme dei nodi ed $E$ insieme degli archi.
+LINE è un nuovo modello di network embedding, capace di apprendere rappresentazioni vettoriali di vertici in una rete o grafo. Un grafo è una coppia ordinata $G = (V, E)$ di insiemi, con $V$ insieme dei nodi ed $E$ insieme degli archi.
 \\
-Questo modello di apprendimento lavora bene soprattutto con grafi orientati, pesati e non-pesati. In \cite{tang2015line} viene effettuata una sperimentazione in cui sono state valutate le prestazioni di LINE nelle reti di informazioni del mondo reale, come social networks o ancora citation networks. Dato che LINE apprende un grafo, deve anche preservare la prossimità di primo e secondo ordine separatamente.
+Questo modello di apprendimento lavora bene soprattutto con grafi orientati, pesati e non-pesati. Viene richiesto come input un file contenente gli archi che costituiscono il grafo da apprendere. L'obiettivo è quello di rappresentare ogni vertice $v \in V$ in un vettore $R^d$ applicando, quindi, una funzione $f_G : V \to R^d$, dove $d << |V|$ \cite{tang2015line}. Viene prodotto, infine, uno spazio vettoriale formato da rappresentazioni vettoriali dei singoli nodi del grafo appreso. Ogni vettore $R^d$ preserva la prossimità di primo e secondo ordine tra i vertici.
 
 \begin{figure}[h]
 	\centering
@@ -301,18 +327,14 @@ Per spiegare la prossimità di primo e secondo ordine, analizziamo la Figura \ref
 \\
 I vertici 5 e 6, invece, condividono molti vertici vicini: hanno un'alta prossimità di secondo ordine.
 \\
-Se due vertici hanno un'alta prossimità dovrebbero essere rappresentati nello spazio degli embeddings vicini tra loro.
-Si noti come la prossimità di primo ordine può essere applicata solo a grafi non orientati; la prossimità di secondo ordine, invece, è applicabile sia a grafi orientati che non. Ancora, in \cite{tang2015line} si è osservato come la prossimità di primo ordine, nel mondo reale, non è sufficiente per preservare le strutture del network globali. Per questo motivo, nella sperimentazione effettuata in \cite{tang2015line}, è stata esplorata la prossimità di secondo ordine.
+In altre parole, la prossimità di primo ordine implica la somiglianza di due nodi. Per esempio, persone che sono amici gli uni con gli altri in un social network tendono a condividere simili interessi; pagine che sono collegate le une alle altre nel World Wide Web tendono a riferirsi a simili argomenti. La tipologia di secondo ordine, invece, sono persone, in un social network, che condividono simili amici che tendono ad avere simili interessi; parole che co-occorrono sempre con lo stesso insieme di termini tendono ad avere significati simili.
 \\
-Tali prossimità, tuttavia, sono complementari l'una all'altra.
-
-\subsection{Doc2Vec}
-\label{doc2vec}
-Doc2Vec, chiamato anche Paragraph2Vec, è un'estensione di Word2Vec che apprende correlando etichette e parole, invece che parole con altre parole.
+Può capitare che una coppia di nodi di un grafo possa non avere un arco, avendo come prossimità di primo ordine 0, anche essendo simili. Per questo la prossimità di primo ordine non è sufficiente per preservare le strutture del network, ed è importante considerare una nozione alternativa di prossimità che permetta di considerare i vertici come simili se condividono simili nodi vicini (prossimità di secondo ordine). LINE, quindi, permette di apprendere sia le strutture locali (i.e. i diretti vicini) sia quelli globali (i.e. i vicini dei vicini) del network.
 \\
-Differentemente da Word2Vec, che converte una parola in un vettore, Doc2Vec aggrega tutte le parole di una frase in un vettore.
-\\
-Quindi, data una collezione di testi che possa essere divisa in $n$ documenti, o paragrafi, ad ogni paragrafo è assegnato un vettore. Il processo di apprendimento è caratterizzato dallo spostamento della finestra delle parole di contesto attraverso ogni parola di ogni paragrafo, per ogni paragrafo \cite{HongSeokho}.
+La situazione sopra descritta è riscontrabile anche Word2Vec. Analizzare solo le parole immediatamente vicine al termine target non permette di considerare quelle simili che non si trovano vicine le une alle altre. Per questo è possibile modificare la dimensione della finestra di contesto per apprendere parole che non si trovano nell'immediato vicinato del termine target.
+%Se due vertici hanno un'alta prossimità dovrebbero essere rappresentati nello spazio degli embeddings vicini tra loro. Ancora, in \cite{tang2015line} si è osservato come la prossimità di primo ordine, nel mondo reale, non è sufficiente per preservare le strutture del network globali. Per questo motivo, nella sperimentazione effettuata in \cite{tang2015line}, è stata esplorata la prossimità di secondo ordine.
+%\\
+%Tali prossimità, tuttavia, sono complementari l'una all'altra.
 
 \section{Clustering}
 \label{clustering}
@@ -358,76 +380,72 @@ Durante l'aggregazione degli elementi è necessario usare una funzione che permet
 
 \subsection{Funzioni (o misure) di distanza}
 \label{distancefunctions}
-A seconda dell'approccio utilizzato, vi sono delle funzioni (o misure) che permettono di calcolare la distanza tra due cluster. Viene molto usato dagli algoritmi di clustering gerarchico per calcolare la similarià tra i cluster e per unire, eventualmente, i cluster simili.\\
-Le funzioni di distanza usate da questo tipo di clustering sono: \textbf{single-link proximity}, \textbf{average-link proximity}, \textbf{complete-link proximity} e la \textbf{distanza tra centroidi}.
+A seconda dell'approccio utilizzato, vi sono delle funzioni (o misure) che permettono di calcolare la distanza tra due cluster. Viene molto usato dagli algoritmi di clustering gerarchico per calcolare la similarità tra i cluster e per unire, eventualmente, i cluster simili.\\
+Le funzioni di distanza usate da questo tipo di clustering sono:
+\begin{itemize}
+	\item \textbf{Single-link proximity}. Questa funzione calcola la distanza tra due cluster come la distanza minima tra elementi appartenenti a cluster differenti.
+	\begin{equation}
+    	D(C_i, C_j) = min_{x \in C_i, y \in C_j} d(x, y)
+	\end{equation}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width = 50mm]{clustering_single}
+		\caption{Prossimità di tipo Single-link}
+		\label{single}
+	\end{figure}
+	
+	\item \textbf{Average-link proximity}. Questa funzione calcola la distanza tra due cluster come la media delle distanze tra i singoli elementi.
+	\begin{equation}
+    	D(C_i, C_j) = \frac{1}{(|C_i||C_j|)} \sum_{x \in C_i, y \in C_j} d(x, y)
+	\end{equation}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width = 50mm]{clustering_average}
+		\caption{Prossimità di tipo Average-link}
+		\label{average}
+	\end{figure}
+	
+	\item \textbf{Complete-link proximity}. Questa funzione calcola la distanza tra i due cluster, considerando la distanza massima tra gli elementi appartenenti ai due cluster.
+	\begin{equation}
+		D(C_i, C_j) = max_{x \in C_i, y \in C_j} d(x, y)
+	\end{equation}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width = 50mm]{clustering_complete}
+		\caption{Prossimità di tipo Complete-link}
+		\label{complete}
+	\end{figure}
+	
+	\item \textbf{Distanza tra centroidi}. Questa, invece, è la distanza tra i due cluster prendendo in considerazione i centroidi degli stessi.
+	\begin{equation}
+    	D(C_i, C_j) = d\left ( \hat{c_i}, \hat{c_j} \right )
+	\end{equation}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width = 50mm]{clustering_centroid}
+		\caption{Distanza tra centroidi}
+		\label{centroid}
+	\end{figure}
+\end{itemize}
 
-\paragraph{Single-link proximity}
-Questa funzione calcola la distanza tra due cluster come la distanza minima tra elementi appartenenti a cluster differenti.
-\begin{equation}
-    D(C_i, C_j) = min_{x \in C_i, y \in C_j} d(x, y)
-\end{equation}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width = 60mm]{clustering_single}
-	\caption{Prossimità di tipo Simgle-link}
-	\label{single}
-\end{figure}
-
-\paragraph{Average-link proximity}
-Questa funzione calcola la distanza tra due cluster come la media delle distanze tra i singoli elementi.
-\begin{equation}
-    D(C_i, C_j) = \frac{1}{(|C_i||C_j|)} \sum_{x \in C_i, y \in C_j} d(x, y)
-\end{equation}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width = 60mm]{clustering_average}
-	\caption{Prossimità di tipo Average-link}
-	\label{average}
-\end{figure}
-
-\paragraph{Complete-link proximity}
-Questa funzione calcola la distanza tra i due cluster, considerando la distanza massima tra gli elementi appartenenti ai due cluster.
-\begin{equation}
-    D(C_i, C_j) = max_{x \in C_i, y \in C_j} d(x, y)
-\end{equation}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width = 60mm]{clustering_complete}
-	\caption{Prossimità di tipo Complete-link}
-	\label{complete}
-\end{figure}
-
-\paragraph{Distanza tra centroidi}
-Questa, invece, è la distanza tra i due cluster prendendo in considerazione i centroidi degli stessi.
-\begin{equation}
-    D(C_i, C_j) = d\left ( \hat{c_i}, \hat{c_j} \right )
-\end{equation}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width = 60mm]{clustering_centroid}
-	\caption{Distanza tra centroidi}
-	\label{centroid}
-\end{figure}
-
-
-Nei casi precedenti, $d(x, y)$ indica una qualsiasi funzione distanza, su uno spazio metrico, che può essere:
+Nei casi precedenti, $d(x, y)$ indica una qualsiasi funzione distanza, su uno spazio metrico. Le più importanti sono:
 \begin{itemize}
 	\item \textbf{Distanza euclidea}: chiamata anche norma 2, è la distanza calcolata tra due punti, che può essere misurata su uno spazio multidimensionale. Siano $P = (p_1, p_2, ..., p_n)$ e $Q = (q_1, q_2, ..., q_n)$ due punti, la distanza sarà:
     \begin{equation}
         \sqrt{(p_1 - q_1)^2 + (p_2 - q_2)^2 + ... + (p_n - q_n)^2} = \sqrt{\sum_{k=1}^{k} (p_k - q_k)^2}
     \end{equation}
 
-	\item \textbf{Distanza di Manhattan}: chiamata anche geometria del taxi o norma 1, è la distanza tra due punti calcolata come la somma del valore assoluto delle differenze delle loro coordinate. Siano $P_1 = (x_1, y_1)$, $P_2 = (x_2, y_2)$ due punti, la distanza sarà:
-    \begin{equation}
-        L_1(P_1, P_2) = |x_1 - x_2| + |y_1 - y_2|
-    \end{equation}
+	%\item \textbf{Distanza di Manhattan}: chiamata anche geometria del taxi o norma 1, è la distanza tra due punti calcolata come la somma del valore assoluto delle differenze delle loro coordinate. Siano $P_1 = (x_1, y_1)$, $P_2 = (x_2, y_2)$ due punti, la distanza sarà:
+    %\begin{equation}
+    %    L_1(P_1, P_2) = |x_1 - x_2| + |y_1 - y_2|
+    %\end{equation}
 
 	\item \textbf{Coseno di similarità}: tecnica euristica usata per misurare la distanza tra due vettori, che viene effettuata calcolando il coseno dell'angolo ivi compreso, che hanno l'origine coincidente con quello del sistema di assi e passano per i rispettivi elementi. Il valore risultante più sarà vicino ad 1, più i due elementi saranno simili tra loro. Siano A e B due vettori di attributi numerici, allora il coseno di similarità sarà calcolato mediante la formula:
     \begin{equation}
         \cos(\theta) = \frac{AB}{||A|| ||B||}
     \end{equation}
 
-	\item \textbf{Distanza di Hamming}: misura il numero di sostituzioni necessarie per convertire una stringa nell'altra, oppure può essere vista come un reporting del numero degli errori che hanno trasformato una stringa nell'altra. La distanza di Hamming tra 10{\color{red}1}1{\color{red}1}01 e 10{\color{red}0}1{\color{red}0}01 è 2; oppure tra 2{\color{red}14}3{\color{red}8}96 e 2{\color{red}23}3{\color{red}7}96 è 3.
+	%\item \textbf{Distanza di Hamming}: misura il numero di sostituzioni necessarie per convertire una stringa nell'altra, oppure può essere vista come un reporting del numero degli errori che hanno trasformato una stringa nell'altra. La distanza di Hamming tra 10{\color{red}1}1{\color{red}1}01 e 10{\color{red}0}1{\color{red}0}01 è 2; oppure tra 2{\color{red}14}3{\color{red}8}96 e 2{\color{red}23}3{\color{red}7}96 è 3.
 \end{itemize}
 
 \subsection{Algoritmi usati}
@@ -449,14 +467,17 @@ K-means, però, può essere molto lento nel caso peggiore e non garantisce il ragg
 \end{figure}
 
 \paragraph{HDBScan}
-HDBScan è un algoritmo di clustering che estende DBScan, rendendolo di tipo gerarchico. Si parte in maniera simile a DBScan: lo spazio viene trasformato a seconda della densità e viene effettuato su di esso una prossimità a single-link.\\
-Invece di richiedere come input il parametro $\epsilon$, che viene usato da DBScan per considerare gli elementi del vicinato appartenenti al cluster, viene creato un albero, il quale viene usato per selezionare i cluster più stabili e persistenti.
-Al posto di $\epsilon$, quindi, viene richiesta la dimensione minima dei cluster per determinare quali gruppi non devono essere considerati come cluster, oppure per dividerli e formare nuovi cluster.\\
-Questo algoritmo è molto efficace ed è il più veloce, sia di DBScan che di K-Means.
+HDBScan è un algoritmo di clustering che estende DBScan, rendendolo di tipo gerarchico.
+\\
+DBScan necessita di due parametri: $\epsilon$ e del numero minimo di elementi richiesti per formare un Cluster (minPts). Si comincia con un punto casuale che non è stato ancora visitato. Viene calcolato il suo $\epsilon$-vicinato, e se contiene un numero sufficiente di punti viene creato un nuovo raggruppamento. Se ciò non avviene, il punto viene etichettato come rumore, ovvero non viene associato ad alcun Cluster. È possibile che tale elemento rumore venga ritrovato in un $\epsilon$-vicinato sufficientemente grande e, quindi, inserito in un altro Cluster. Se un punto è associato ad un raggruppamento, allora anche tutti quelli nel suo $\epsilon$-vicinato sono parte del Cluster. Di conseguenza, tutti i punti trovati all'interno del suo $\epsilon$-vicinato sono aggiunti al Cluster, così come i loro $\epsilon$-vicini. Questo processo continua fino a quando il Cluster viene completato. Allora, un nuovo punto non visitato viene estratto e processato.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width = 140mm]{hdbscan}
-	\caption{Albero generato da HDBScan per la creazione dei cluster}
-	\label{hdbscan}
+	\includegraphics[width = 100mm]{dbscan}
+	\caption{Principio su cui si basa DBScan}
+	\label{dbscan}
 \end{figure}
+
+In HDBScan, invece, si parte in maniera simile a DBScan: lo spazio viene trasformato a seconda della densità e viene effettuato su di esso una prossimità a single-link. Invece di richiedere come input il parametro $\epsilon$, che viene usato da DBScan per considerare gli elementi del vicinato appartenenti al Cluster, viene creato un albero, il quale viene usato per selezionare i cluster più stabili e persistenti. Viene solo richiesta la dimensione minima dei Cluster per determinare quali gruppi non devono essere considerati come cluster, oppure per dividerli e formare nuovi cluster.
+\\
+Questo algoritmo è molto efficace ed è il più veloce, sia di DBScan che di K-Means.

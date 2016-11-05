@@ -1,0 +1,61 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Tesi.aux
+The style file: plain.bst
+Database file #1: ./Bibliografia.bib
+Warning--to sort, need author or key in cinecadatamining
+Warning--empty journal in webminingmalerba
+Warning--there's a number but no volume in webminingmalerba
+Warning--empty year in webminingmalerba
+Warning--can't use both author and editor fields in Cristo2003
+Warning--can't use both author and editor fields in Drost2006
+Warning--there's a number but no series in Haveliwala
+Warning--empty journal in HongSeokho
+Warning--empty year in HongSeokho
+Warning--empty year in mikolov
+Warning--empty journal in Nilima
+Warning--there's a number but no series in vmeasure
+Warning--empty publisher in webmining21cap
+Warning--empty year in webmining21cap
+You've used 42 entries,
+            2118 wiz_defined-function locations,
+            763 strings with 12006 characters,
+and the built_in function-call counts, 16219 in all, are:
+= -- 1612
+> -- 698
+< -- 31
++ -- 278
+- -- 232
+* -- 1113
+:= -- 2516
+add.period$ -- 135
+call.type$ -- 42
+change.case$ -- 238
+chr.to.int$ -- 0
+cite$ -- 56
+duplicate$ -- 690
+empty$ -- 1294
+format.name$ -- 232
+if$ -- 3601
+int.to.chr$ -- 0
+int.to.str$ -- 42
+missing$ -- 42
+newline$ -- 209
+num.names$ -- 82
+pop$ -- 279
+preamble$ -- 1
+purify$ -- 200
+quote$ -- 0
+skip$ -- 528
+stack$ -- 0
+substring$ -- 963
+swap$ -- 235
+text.length$ -- 31
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 160
+warning$ -- 14
+while$ -- 138
+width$ -- 44
+write$ -- 483
+(There were 14 warnings)
