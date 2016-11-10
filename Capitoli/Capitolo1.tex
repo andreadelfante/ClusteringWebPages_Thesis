@@ -4,57 +4,44 @@ Ogni giorno viene generata una quantità enorme di dati dalle applicazioni per sm
 \\
 Le grandi quantità di dati sopra citate vengono chiamate Big Data.
 \\
-In generale, con il termine Big Data si intende una collezione di dati talmente estesa in termini di volume, velocità e varietà da richiedere metodologie e tecnologie non convenzionali (i.e. nuove) per la loro memorizzazione, gestione, interrogazione ed analisi. Queste grandi raccolte di dati vengono generati sia manualmente che automaticamente. I due rispettivi casi tipici sono i click che gli utenti effettuano durante la navigazione tra le pagine web e gli smartphone che dialogano con specifiche applicazioni, inviando, per esempio, dati riguardanti la nostra posizione.
-\\
-I Big Data sono caratterizzati da tre aspetti importanti, chiamati anche \textbf{3V}:
+In generale, con il termine Big Data si intende una collezione di dati talmente estesa in termini di volume, velocità e varietà da richiedere metodologie e tecnologie non convenzionali (i.e. nuove) per la loro memorizzazione, gestione, interrogazione ed analisi. % Queste grandi raccolte di dati vengono generati sia manualmente che automaticamente. I due rispettivi casi tipici sono i click che gli utenti effettuano durante la navigazione tra le pagine web e gli smartphone che dialogano con specifiche applicazioni, inviando, per esempio, dati riguardanti la nostra posizione.
+%\\ I Big Data sono caratterizzati da tre aspetti importanti, chiamati anche \textbf{3V}:
+Queste grandi raccolte di dati sono caratterizzate da tre aspetti importanti, chiamati anche \textbf{3V}:
 \begin{itemize}
 	\item \textit{Volume}. Rappresenta la quantità dei Big Data. Ogni giorno vengono prodotti dati nell'ordine dei Terabytes e dei Petabytes, che devono essere salvati oppure processati e consumati in tempo reale. Entrambi sono casi problematici: se i Big Data devono essere salvati in qualche base di dati il problema è nel salvataggio; se, invece, devono essere consumati immediatamente, il problema risiede nella loro analisi massiva.
 	\item \textit{Velocità}. Rappresenta il tempo per la generazione dei dati. Significa sia quanto velocemente questi dati sono stati prodotti, sia quanto velocemente i dati devono essere processati per soddisfare un qualche obiettivo o domanda. Per gestire questa caratteristica bisogna capire se i dati catturati devono essere salvati in una base di dati o direttamente processati: nel primo caso bisogna utilizzare un database che permetta di effettuare le operazioni di fetching e di inserimento ad alte velocità; nel secondo caso, invece, bisogna utilizzare un'infrastruttura che sia capace di gestire le massive operazioni che devono essere effettuate sui Big Data.
 	\item \textit{Varietà}. Rappresenta la tipologia dei dati, che provengono da fonti diverse: strutturate e non strutturate. Con dati strutturati si intendono dati che sono organizzati secondo schemi rigidi, che vengono generalmente salvati in basi di dati; con dati non strutturati, invece, sono dati non schematizzati, che vengono generalmente salvati in file. La varietà dei Big Data è data dalla loro non strutturazione: blog post e commenti sui social network ne sono qualche esempio.
 \end{itemize}
-L'obiettivo di aziende ed organizzazioni è quello di estrarre nuova conoscenza da questa enorme mole di dati, che viene usata per estendere quella preesistente e per facilitare i processi decisionali. A causa delle caratteristiche dei Big Data, il processo di estrazione è impegnativo, non solo per la grandezza e per il tempo di generazione dei dati, ma soprattutto perché la maggior parte dei Big Data sono di tipo non strutturati.
-\\\\
-Questo problema è particolarmente sentito nel World Wide Web. Il Web è il più grande, eterogeneo e dinamico contenitore di risorse liberamente fruibile da chiunque, composto da pagine Web ricche di contenuti informativi memorizzati in vario formato: testi, immagini, audio, video e link, che consentono di esplorare pagine già preesistenti nel web o pagine dello stesso sito. 
-\\
-Anche nel Web, i dati da cui estrarre informazioni utili, per la maggior parte di essi, sono di tipo non strutturato. Per questo, il processo di estrazione di nuova conoscenza dai siti Web è una sfida impegnativa: data l'eterogeneità dei dati che caratterizzano il sito Web e la loro struttura hyperlinks si sono dovute sviluppare nuove metodologie di estrazione del sapere.
-\\\\
-In questo campo sono state effettuate ricerche e sperimentazioni che hanno evoluto il Data Mining.
-
-\section{Data Mining}
-Il Data Mining è l'insieme di tecniche che hanno come obiettivo l'estrazione del sapere o della conoscenza, partendo da grandi quantità di dati.
-\\
-Il termine significa letteralmente "estrazione di dati" e si divide in:
-\begin{itemize}
-	\item \textbf{estrazione}: l'informazione implicita, nascosta o formata da dati strutturati viene estratta per renderla immediatamente utilizzabile;
-	\item \textbf{esplorazione ed analisi}: vengono scoperti pattern significativi, per mezzo dei quali si estrae l'informazione significativa. Con il termine pattern, si intende uno schema, una regolarità, o, in generale, una rappresentazione sintetica dei dati \cite{cinecadatamining}.
-\end{itemize}
-L'informazione viene considerata significativa in base al dominio applicativo in cui si utilizzano le metodologie di Data Mining. L'estrazione di nuovo sapere varia molto a seconda del campo applicativo. Le differenze sono tali da dover suddividere tali procedimenti in diverse aree, in base al tipo di dato da cui estrarre informazioni utili.
-\\
-Dai testi è possibile estrarre conoscenza utile. La branca dell'Informatica che si occupa di realizzare questo processo è il Text Mining.% Il ramo del Data Mining che si occupa di realizzare questo processo è il Text Mining.
-\\\\
-Per definizione, il Text Mining, chiamato anche Text Data Mining o Text Analysis, è l'applicazione delle tecniche e metodologie del Data Mining ai testi. L'obiettivo è lo stesso del Data Mining: estrarre informazioni latenti utili per ampliare conoscenze pregresse e facilitare i processi di decisione partendo da documenti e testi, trasformandoli in sapere che può essere usato per successive analisi.% Il Text Mining effettua tali indagini attraverso l'applicazione di metodologie: il Natural Language Processing ne è un esempio.
+La diffusione e la produzione dei Big Data è resa possibile grazie al Web. Tutte le persone che hanno un accesso al Web generano una quantità enorme di dati da azioni che essi compiono, come effettuare pagamenti online, commentare o postare uno stato su Facebook o su Twitter, o ancora i click che essi effettuano durante la navigazione tra i siti. L'enorme mole eterogenea di dati viene utilizzata da aziende ed organizzazioni per estrarre nuova conoscenza, che viene usata per estendere quella preesistente e facilitare i processi decisionali.
+%L'obiettivo di aziende ed organizzazioni è quello di estrarre nuova conoscenza da questa enorme mole di dati, che viene usata per estendere quella preesistente e per facilitare i processi decisionali. A causa delle caratteristiche dei Big Data, il processo di estrazione è impegnativo, non solo per la grandezza e per il tempo di generazione dei dati, ma soprattutto perché la maggior parte dei Big Data sono di tipo eterogeneo.
 %\\\\
-%Il Natural Language Processing è il processo di trattamento automatico mediante un calcolatore delle informazioni scritte o parlate in una lingua naturale, aiutando una macchina a "leggere" dei testi. 
+%Questo problema è particolarmente sentito nel World Wide Web. Il Web è il più grande, eterogeneo e dinamico contenitore di risorse liberamente fruibile da chiunque, composto da pagine Web ricche di contenuti informativi memorizzati in vario formato: testi, immagini, audio, video e link, che consentono di esplorare pagine già preesistenti nel web o pagine dello stesso sito. 
 %\\
-%La sua difficoltà è l'elevato numero di ambiguità che caratterizza il linguaggio umano. Per questo motivo è stato diviso in quattro fasi, o sottoprocessi:
+%Anche nel Web, i dati da cui estrarre informazioni utili, per la maggior parte di essi, sono di tipo non strutturato. Per questo, il processo di estrazione di nuova conoscenza dai siti Web è una sfida impegnativa: data l'eterogeneità dei dati che caratterizzano il sito Web e la loro struttura hyperlinks si sono dovute sviluppare nuove metodologie di estrazione del sapere.
+
+%\section{Data Mining}
+%Il Data Mining è l'insieme di tecniche che hanno come obiettivo l'estrazione del sapere o della conoscenza, partendo da grandi quantità di dati.
+%\\
+%Il termine significa letteralmente "estrazione di dati" e si divide in:
 %\begin{itemize}
-%	\item \textbf{analisi lessicale}: in questa fase avviene la scomposizione della sequenza di caratteri, chiamata espressione linguistica, in token (o parole);
-%	\item \textbf{analisi grammaticale}: in questa fase avviene l'associazione di ciascuna parola ad una parte del discorso;
-%	\item \textbf{analisi sintattica}: in questa fase avviene il parsing dei token e viene generato un albero di parser (parse tree);
-%	\item \textbf{analisi semantica}: in questa fase viene assegnato un significato al parse tree, che provvede alla disambiguazione dell'espressione linguistica, ovvero ad assegnare un significato tra quelli disponibili.
+%	\item \textbf{estrazione}: l'informazione implicita, nascosta o formata da dati strutturati viene estratta per renderla immediatamente utilizzabile;
+%	\item \textbf{esplorazione ed analisi}: vengono scoperti pattern significativi, per mezzo dei quali si estrae l'informazione significativa. Con il termine pattern, si intende uno schema, una regolarità, o, in generale, una rappresentazione sintetica dei dati \cite{cinecadatamining}.
 %\end{itemize}
-%Il testo non è la sola fonte da cui estrarre conoscenza: anche sulle pagine Web è possibile applicare, con dovute modifiche e rivisitazioni, le tecniche di Data Mining per rilevare informazioni utili, anche applicando il Natural Language Processing \cite{ijcatr04031008}.
+%L'informazione viene considerata significativa in base al dominio applicativo in cui si utilizzano le metodologie di Data Mining. L'estrazione di nuovo sapere varia molto a seconda del campo applicativo. Le differenze sono tali da dover suddividere tali procedimenti in diverse aree, in base al tipo di dato da cui estrarre informazioni utili.
+%\\
+%Dai testi è possibile estrarre conoscenza utile. La branca dell'Informatica che si occupa di realizzare questo processo è il Text Mining.
+%\\\\
+%Per definizione, il Text Mining, chiamato anche Text Data Mining o Text Analysis, è l'applicazione delle tecniche e metodologie del Data Mining ai testi. L'obiettivo è lo stesso del Data Mining: estrarre informazioni latenti utili per ampliare conoscenze pregresse e facilitare i processi di decisione partendo da documenti e testi, trasformandoli in sapere che può essere usato per successive analisi.
 
 \section{Web Mining}
-Con l'espressione Web Mining ci si riferisce all'applicazione delle tecniche di Data Mining per estrarre automaticamente informazioni dalle risorse, siano essi documenti o servizi \cite{webminingmalerba}, presenti nel Web.
-\\
-Per comprendere meglio l'estrazione di conoscenza dal Web, è necessario definire le caratteristiche che lo differenziano da altre sorgenti dati:
+Il Web possiede numerose caratteristiche che rendono l'estrazione di informazioni utili un problema impegnativo. Queste proprietà sono:
+%Per comprendere meglio l'estrazione di conoscenza dal Web, è necessario definire le caratteristiche che lo differenziano da altre sorgenti dati:
 \begin{itemize}
 	\item \textbf{Dimensione}. Il Web è il primo mezzo in cui il numero di produttori di informazioni è uguale al numero di consumatori. La quantità di dati e di informazioni sul Web è enorme ed in continua crescita.
 	\item \textbf{Dinamicità}. Ogni secondo vengono create, distrutte e modificate migliaia di pagine. Queste azioni rendono il Web una rete informativa dinamica, in cui il contenuto e la struttura cambiano con frequenza. Tenere traccia, quindi, di questi cambiamenti e monitorarli rimane una sfida impegnativa per molte applicazioni.
 	\item \textbf{Eterogeneità}. Il Web è eterogeneo, e tale caratteristica dipende fortemente sia dal formato delle pagine sia dal contenuto testuale.
 	\\
-	Nel primo caso, l'eterogeneità è definita dal fatto che non esiste uno standard di formato, dividendo le pagine web in 3 tipologie: \textit{pagine non strutturate}, \textit{pagine strutturate} e \textit{pagine semi-strutturate}.
+	Nel primo caso, l'eterogeneità è definita dal fatto che non esiste uno standard di formato, dividendo le pagine Web in 3 tipologie: \textit{pagine non strutturate}, \textit{pagine strutturate} e \textit{pagine semi-strutturate}.
 	\\
 	Le pagine \textit{non strutturate} sono scritte in linguaggio naturale, non sono caratterizzate da nessuna struttura e possono essere applicate tecniche di estrazione dell'informazione con un certo grado di affidabilità.
 	\\
@@ -67,15 +54,25 @@ Per comprendere meglio l'estrazione di conoscenza dal Web, è necessario definire
 	\item \textbf{Rumore}. Il Web, a differenza da altri mezzi di informazione, ha la caratteristica di permettere a chiunque di pubblicare contenuti senza alcun tipo di approvazione. Questo permette al Web di espandersi enormemente e di arricchire e diversificare le informazioni, ma contribuisce anche alla creazione e diffusione di contenuti di bassa qualità, rindondanti ed erronei.
 	\item \textbf{Società virtuale}. Il Web può essere considerato come un grande Social Network, dove le persone possono diffondere la loro conoscenza ed influenzarsi reciprocamente. Infatti non riguarda solo i dati, le informazioni o i servizi, ma anche le interazioni fra persone, organizzazioni o sistemi automatizzati.
 \end{itemize}
-Secondo \cite{webminingmalerba}, per estrarre informazioni utili da pagine Web, è necessario seguire specifici passi:
+Le caratteristiche sopra citate evidenziano la necessità di definire un processo per scoprire informazioni utili partendo dai dati del Web. Tale processo viene chiamato Web Mining ed ha l'obiettivo di estrarre nuova conoscenza dalla struttura ad hyperlink del Web, dal contenuto delle pagine e dalla navigazione che gli utenti effettuano nel Web.
+\\
+Il Web Mining non utilizza solo il processo KDD (Knowledge Discovery in Databases) per estrarre nuova conoscenza da basi di dati, ma si avvale anche del Text Mining (ovvero una branca dell'Informatica che ha come scopo quello di estrarre informazioni utili dai testi), Machine Learning, Network Analysis, Information Retrieval. Spesso le metodologie dei campi precedentemente citati vengono combinate per estrarre informazioni utili, date le caratteristiche del Web.
+\\
+%L'espressione Web Mining si riferisce al processo di scoperta di informazioni o conoscenza precedentemente sconosciuta e potenzialmente utile dai dati del Web.
+%\color{red}
+%Con l'espressione Web Mining ci si riferisce all'applicazione delle tecniche di Data Mining per estrarre automaticamente informazioni dalle risorse, siano essi documenti o servizi \cite{webminingmalerba}, presenti nel Web.
+%\\
+%\color{black}
+L'obiettivo del Web Mining è scomponibile nei seguenti sotto-obiettivi \cite{webminingmalerba}:
+
 \begin{itemize}
 	\item \textbf{Scoprire le risorse}: gli strumenti per la scoperta di documenti e servizi nella rete, che vengono chiamati Spider, ovvero Web Robot, scandiscono milioni di documenti Web e costruiscono indici di ricerca in base alle parole che si trovano negli stessi.
 	\item \textbf{Estrarre le informazioni}: i testi, che sono scritti in linguaggio naturale, vengono trasformati in rappresentazioni strutturate predefinite, dette template, che rappresentano un estratto dell'informazione presente nel testo.
 	\item \textbf{Generalizzare}: i processi di navigazione nel Web devono essere generalizzati, ovvero applicabili in altri contesti.
 \end{itemize}
 
-%In altri termini, il Web Mining è l'applicazione delle procedure di Data Mining per scoprire pattern dal World Wide Web ed estrarre informazioni utili. 
-Nel contesto del Web, la conoscenza non è solo estraibile dai testi, infatti, il Web Mining utilizza metodologie diverse che permettono di individuare informazioni utili di tipo differente. Queste vengono estratte partendo dalla struttura ad hyperlink, dal contenuto e dall'uso della pagina Web. Quindi, il Web Mining può essere suddiviso in tre distinte categorie: Web Structure Mining, Web Content Mining e Web Usage Mining.
+%Nel contesto del Web, la conoscenza non è solo estraibile dai testi. Infatti, il Web Mining utilizza metodologie diverse che permettono di individuare informazioni utili di tipo differente. Queste vengono estratte partendo dalla struttura ad hyperlink, dal contenuto e dall'uso della pagina Web. Quindi, il Web Mining può essere suddiviso in tre distinte categorie: Web Structure Mining, Web Content Mining e Web Usage Mining.
+Gli algoritmi di Web Mining possono essere classificati in tre principali categorie, basate sul tipo di dato usato per estrarre nuova conoscenza: Web Structure Mining, Web Content Mining e Web Usage Mining.
 
 \begin{figure}[h]
 	\centering
@@ -94,38 +91,43 @@ Tecniche tradizionali di Data Mining non possono generare conoscenza utile perch
 Tra i più importanti algoritmi che appartengono a questa tipologia si possono trovare Page Rank \cite{pagerankstanford} e HITS \cite{Kleinberg99}, i quali sfruttano la struttura ad hyperlink del Web per assegnare un rank alle pagine, ovvero per restituirle in ordine di importanza relativamente ad una determinata query.
 
 \paragraph{Web Content Mining}
-Il Web Content Mining viene usato per cercare informazioni utili dai contenuti delle pagine Web, che possono essere collezioni di testi, immagini, audio, video o dati strutturati che sono incapsulati in liste e tabelle.
+Il Web Content Mining viene usato per cercare informazioni utili dai contenuti delle pagine Web, che possono essere collezioni di testi, immagini, audio, video o dati strutturati incapsulati in liste e tabelle.
 \\
 Per estrarre il sapere da contenuti più complessi, come le immagini, le tecniche di Web Content Mining sono molto limitate \cite{webmining21cap}.
 \\
 Le tecniche di questa tipologia di Web Mining possono sembrare abbastanza simili alle metodologie tradizionali di Data Mining o di Text Mining, ma le caratteristiche delle pagine Web (e.g. presenza di tag HTML) non permette a queste di essere direttamente applicabili sulle stesse.
 
 \paragraph{Web Usage Mining}
-Il Web Usage Mining è l'applicazione delle tecniche di Data Mining per la scoperta di pattern e informazioni utili attraverso l'analisi dei log, che sono immagazzinati nei Web server o nei  sistemi che tracciano le attività degli utenti.
+Il Web Usage Mining è l'applicazione delle tecniche di Data Mining per la scoperta di pattern e informazioni utili attraverso l'analisi dei log, che sono immagazzinati nei Web server o nei sistemi che tracciano le attività degli utenti.
 \\
 L'obiettivo di questo campo è la profilazione dell'utente, ovvero analizzare i suoi comportamenti sul web, sia per comprendere quali sono i suoi reali bisogni, sia per offrire dei servizi che possano soddisfare tali necessità e personalizzare l'esperienza Web.
 \\
-Questo tipo di Data Mining viene usato in campi disparati, che vanno dalle aziende alle agenzie governative: ad esempio, i siti di e-commerce usano questo tipo di tecnologia per presentare all'utente prodotti per i quali potrebbe essere interessato; le agenzia governative, invece, usano il Web Mining anche per classificare minacce e attentati terroristici.
+Questo tipo di Web Mining viene usato in campi disparati, che vanno dalle aziende alle agenzie governative: ad esempio, i siti di e-commerce usano questo tipo di tecnologia per presentare all'utente prodotti per i quali potrebbe essere interessato; le agenzia governative, invece, usano il Web Mining anche per classificare minacce e attentati terroristici.
 \\
 Alcuni, però, criticano questa tecnologia: il problema etico di cui più si parla è la violazione della privacy, con il rischio di vedere diffusi i propri dati, anche sensibili, senza alcuna consapevolezza da parte dell'utente \cite{612259}.
 
-\section{Rappresentazioni vettoriali di pagine Web}
-L'estrazione di informazione utile, a partire da pagine Web di tipo non strutturato o semi-strutturato è un processo impegnativo.% a causa del ridotto numero di pattern che possono essere usati per ricavare conoscenza.
+\section{Rappresentazioni di pagine Web}
+\label{webpagerapresentation}
+Un sito è formato da pagine Web. Queste sono caratterizzate da numerose rappresentazioni, che sono:
+
+\begin{itemize}
+	\item \textbf{Rappresentazione testuale}. Il testo è una componente fondamentale di una pagina Web, poiché ha come scopo il trasferimento dell'informazione. Durante la navigazione, infatti, l'utente estrapola conoscenza semplicemente leggendo il contenuto testuale delle pagine che visita.
+	\item \textbf{Rappresentazione visuale}. Quando una pagina Web viene renderizzata da un browser, viene applicato uno stile di formattazione visuale, chiamato CSS, che definisce gli elementi della pagina Web come contenitori rettangolari che sono disposti o uno dopo l'altro o annidati tra loro formando un albero chiamato \texttt{Rendered Box Tree}. L'albero in questione è differente dalla struttura della pagina definita dai tag HTML, poiché una pagina può essere ricca di elementi invisibili, come il tag $<$head$>$ o da elementi aventi come stile $display:none$. Inoltre, la generazione del rendered box tree richiede l'esecuzione di codice JavaScript e CSS.
+	\item \textbf{Rappresentazione strutturale}. Questa è composta da elementi Web inscritti in tag HTML ed organizzata ad albero. I tag HTML possono essere applicati a porzioni di testo, hyperlink e dati multimediali per fornire loro un significato ed una renderizzazione differente della pagina da parte del browser.
+\end{itemize}
+
+In particolare, trattando una pagina Web come un documento testuale, è possibile produrre una rappresentazione vettoriale mediante algoritmi di Word space model, Vector space model, Word embedding (tra cui Word2Vec) per effettuare l'apprendimento. Non solo, trattando tale testo come un paragrafo, è possibile applicare un altro algoritmo di Word embedding, ovvero Doc2Vec.
 \\
-Un modo per affrontare questa sfida è l'applicazione di algoritmi di Machine Learning che possano individuare schemi per estrapolare informazioni utili a partire dai contenuti e dalla struttura delle pagine Web.
+Ma una pagina Web può anche essere trattata come un nodo del sito, il quale non è altro che un grafo, in cui i nodi sono le pagine del sito stesso e gli archi sono gli hyperlink tra i nodi. È possibile, quindi, produrre una rappresentazione vettoriale delle pagine basandosi sulla struttura ad hyperlink del sito. Un esempio è LINE.
 \\
-Per definizione, il Machine Learning è un campo di ricerca, appartenente all'Informatica, che si occupa dello studio della scoperta di pattern. % I suoi task sono tipicamente classificati in due categorie, che dipendono dalla natura dei dati che devono essere appresi dal sistema:
-%\begin{itemize}
-%	\item \textbf{Supervised learning}. E' chiamato anche apprendimento supervisionato, in cui un computer deve dedurre una funzione partendo da dati di apprendimento etichettati. Tali dati sono una collezione di esempi. In questo tipo di apprendimento, ogni esempio viene trattato come una coppia di input/output, in cui il primo è l'etichetta del dato che si vuole predire e il secondo è il valore che l'algoritmo predice.
-%	\\
-%	Il computer analizza i dati di apprendimento e produce una funzione dedotta, che può essere usata su nuovi dati.
-%	\item \textbf{Unsupervised learning}. E' chiamato anche apprendimento non supervisionato, il cui il computer deve dedurre una funzione che descriva la struttura nascosta di dati non etichettati. 
-%	\\
-%	Dato un campione in input, non vi sono errori o segnali per valutare una risposta da parte del sistema. In questa categoria rientrano le reti neurali (si vedrà un esempio nella Sezione \ref{word2vec}) e gli algoritmi di clustering (in Sezione \ref{clustering}).
-%\end{itemize}
-La maggior parte degli algoritmi di Machine Learning trasformano il contenuto di un testo in uno spazio vettoriale \cite{live-2934-4846-jair}, permettendo di estrapolare l'informazione nascosta da testi scritti in linguaggio umano.
-\\
-In questa tesi viene proposto l'utilizzo del modello di spazi vettoriali per rappresentare i vertici del grafo della pagina Web. Per spiegare che cos'è e perché è importante il modello di spazio vettoriale, occorre specificare e descrivere l'argomento di quello dello spazio delle parole (Word space model), che sono strettamente collegati l'uno all'altro.
+Tutti gli algoritmi e le metodologie appena citate verranno descritte nelle sezioni successive.
+%L'estrazione di informazione utile, a partire da pagine Web di tipo non strutturato o semi-strutturato è un processo impegnativo.
+%\\
+%Un modo per affrontare questa sfida è l'applicazione di algoritmi di Machine Learning che possano individuare schemi per estrapolare informazioni utili a partire dai contenuti e dalla struttura delle pagine Web.
+%\\
+%Per definizione, il Machine Learning è un campo di ricerca, appartenente all'Informatica, che si occupa dello studio della scoperta di pattern. La maggior parte degli algoritmi di Machine Learning trasformano il contenuto di un testo in uno spazio vettoriale \cite{live-2934-4846-jair}, permettendo di estrapolare l'informazione nascosta da testi scritti in linguaggio umano.
+%\\
+%In questa tesi viene proposto l'utilizzo del modello di spazi vettoriali per rappresentare i vertici del grafo della pagina Web. Per spiegare che cos'è e perché è importante il modello di spazio vettoriale, occorre specificare e descrivere l'argomento di quello dello spazio delle parole (Word space model), che sono strettamente collegati l'uno all'altro.
 
 \subsection{Word space model}
 Il Word Space Model, come definito in \cite{wordspacemodel}, è una rappresentazione spaziale del significato delle parole. Si basa sul fatto che la similarità semantica viene rappresentata come prossimità, in uno spazio ad $n$ dimensioni, dove $n$ è un intero.
@@ -139,12 +141,8 @@ Il Word Space Model, come definito in \cite{wordspacemodel}, è una rappresentazi
 
 In Figura \ref{wordspaceexamples} sono riportati due esempi di spazi di parole, in cui la prossimità è data dalla posizione delle parole nello spazio.
 In entrambi i casi, si può notare come il termine $sitar$ sia più simile di significato a $oud$, e meno simile a $guitar$.
-\\\\
-Ma come si costruisce uno spazio delle parole? Una modalità di costruzione è la \textbf{matrice di co-occorrenze}.
 \\
-Tale matrice può essere formata sia parola per parola ($w$ x $w$), dove $w$ sono i tipi di parole nel set, sia parola per documento ($w$ x $d$), dove $d$ sono i documenti nel set. Le celle di questa matrice registrano la frequenza di occorrenza della parola i-esima in un contesto j-esimo, oppure in un documento j-esimo nel caso di matrice parola per documento.
-\\
-Con il termine \textit{contesto} si intende un insieme di parole che si trovano nelle vicinanze della parola i-esima.
+Ma come si costruisce uno spazio delle parole? Una modalità di costruzione è la \textbf{matrice di co-occorrenze}. Tale matrice può essere formata sia parola per parola ($w$ x $w$), dove $w$ sono i tipi di parole nel set, sia parola per documento ($w$ x $d$), dove $d$ sono i documenti nel set. Le celle di questa matrice registrano la frequenza di occorrenza della parola i-esima in un contesto j-esimo, oppure in un documento j-esimo nel caso di matrice parola per documento.
 \\\\
 Per spiegare la matrice di co-occorrenze prendiamo come esempio la frase:
 \begin{figure}[h]
@@ -172,7 +170,8 @@ Per spiegare la matrice di co-occorrenze prendiamo come esempio la frase:
 	\end{tabular}
 \end{table}
 
-Le celle della matrice di co-occorrenze, visibile nella Tabella \ref{tablematrix}, registrano le occorrenze delle parola i-esima, le quali dipendono dal contesto.\\
+Le celle della matrice di co-occorrenze, visibile nella Tabella \ref{tablematrix}, registrano le occorrenze delle parola i-esima, le quali dipendono dal contesto. Con il termine \textit{contesto} si intende un insieme di parole che si trovano nelle vicinanze della parola i-esima.
+\\
 Queste liste di occorrenze sono dei veri e propri vettori. Un vettore, per definizione, è un elemento di uno spazio vettoriale, ed è definito da $n$ componenti o coordinate $\overrightarrow{v} = (x_1, x_2, ..., x_n)$ \cite{wordspacemodel}. Tali coordinate definiscono la posizione nello spazio n-dimensionale.
 \\
 Quindi, la matrice di co-occorrenze non è altro che una realizzazione del modello dello spazio vettoriale, chiamato Vector Space Model.
@@ -218,7 +217,7 @@ Una tecnica di riduzione della dimensione più utilizzata è \textit{t-SNE}, che è
 La funzione peso \textit{tf-idf} non è la sola usata per costruire uno spazio dei vettori: nelle tecniche di Data Mining, che sfruttano gli algoritmi di Machine Learning, ci si sta orientando sempre più sull'uso delle reti neurali per estrarre conoscenza partendo da una collezione di dati.
 \\
 Questo è il Word Embedding, nome di una serie di tecniche per il language modeling e per il Feature Learning nel campo del Natural Language Processing \cite{bengio03}, in cui ad ogni parola viene associato un vettore chiamato \textit{Feature Vector}.
-\\\\
+\\
 Il Word Embedding è una funzione parametrizzata
 \begin{equation}
 	W : words \to \mathbb{R^n}
@@ -227,7 +226,6 @@ che trasforma le parole di un dato linguaggio in un vettore multidimensionale. P
 \begin{equation}
 	W("mat") = (0.0, 0.6, -0.1, ...)
 \end{equation}
-\\
 Partendo da un documento, è possibile trasformare i termini in vettori, formando un vero e proprio spazio vettoriale, chiamato anche Word Embeddings Space.
 
 \begin{figure}[h]
@@ -245,19 +243,13 @@ Un'altra proprietà interessante della funzione di Word Embedding è l'analogia tr
 \end{equation}
 Da questo si evince che c'è una correlazione tra parole che hanno genere opposto, in quanto appariranno in contesti simili, differenti solo per alcuni dettagli come pronomi o articoli. Lo stesso principio vale per parole singolari e plurali \cite{mikolov13}.
 \\\\
-Apprendere dei termini e trasformarli in Feature Vectors rappresenta una base per effettuare operazioni di Data Mining, come per esempio il raggruppamento dei termini appresi in gruppi attraverso il clustering, usando qualche funzione di similarità. Si approfondiranno tali funzioni nella Sezione \ref{distancefunctions}.
+Apprendere dei termini e trasformarli in Feature Vectors rappresenta una base per effettuare operazioni di Data Mining, come per esempio il raggruppamento dei termini appresi in gruppi attraverso il Clustering, usando qualche funzione di similarità. Si approfondiranno tali funzioni nella Sezione \ref{distancefunctions}.
 
 \subsection{Word2Vec}
 \label{word2vec}
 Word2Vec è un algoritmo di Word Embedding ed è una rete neurale a due livelli che apprende le parole da un testo in input, le quali vengono trasformate in vettori chiamati Feature Vectors. Viene considerato erroneamente come un deep-learning (apprendimento approfondito): in realtà si tratta di un apprendimento di tipo superficiale (shallow-learning).
 \\\\
 L'output di questa rete neurale è un vocabolario in cui ogni termine ha un vettore, che può essere compreso da una rete di deep-learning o semplicemente interrogato per rilevare delle relazioni tra i termini.
-\\\\
-Word2Vec è composto da due modelli di apprendimento:
-\begin{itemize}
-	\item \textbf{CBOW} (continuous bag of words)
-	\item \textbf{Skip-Gram}
-\end{itemize}
 
 \begin{figure}[h]
 	\centering
@@ -266,12 +258,14 @@ Word2Vec è composto da due modelli di apprendimento:
 	\label{word2vecmodels}
 \end{figure}
 
+Word2Vec è composto da due modelli di apprendimento: \textbf{CBOW} (continuous bag of words) e \textbf{Skip-Gram}.
+\\\\
 \textbf{CBOW} consiste nel predire una determinata parola a partire dal suo contesto, che è composto dal numero di parole che vengono prese in considerazione durante l'apprendimento. Questo modello di apprendimento tratta l'intero contesto come una sola osservazione. Generalmente, CBOW restituisce risultati più accurati con piccole collezioni di dati \cite{mikolov}.
 \\\\
 \textbf{Skip-Gram}, invece, è l'inverso di CBOW: predice il contesto a partire da una parola.\\
 Questo modello di apprendimento tratta ogni coppia contesto-obiettivo come una nuova osservazione, rendendo i risultati più accurati quando si hanno grandi collezioni di dati \cite{mikolov}.
 \\
-L'obiettivo dell'apprendimento di questo modello è quello di trovare le rappresentazioni vettoriali delle parole utili per predire quelle circostanti in una frase o in un documento. Formalmente, data una sequenza di parole $w_1, w_2, ..., w_T$ viene costruito un vocabolario, i cui termini hanno un vettore con N dimensione generato casualmente. Skip-Gram deve massimizzare la probabilità media logaritmica:
+L'obiettivo dell'apprendimento di questo modello è quello di trovare le rappresentazioni vettoriali delle parole utili per predire quelle circostanti in una frase o in un documento. Formalmente, data una sequenza di parole $w_1, w_2, ..., w_T$ viene costruito un vocabolario, i cui termini hanno un vettore con $n$ dimensione generato casualmente. Skip-Gram deve massimizzare la probabilità media logaritmica:
 \begin{equation}
 \label{skipgrameq}
 	\frac{1}{T} \sum_{t=1}^{T} \sum_{-c \le j \le c, j \neq 0} \log p(w_{t+j}|w_t)
@@ -285,14 +279,13 @@ Per capire meglio questo tipo di modello di apprendimento, analizziamo questa fr
 \end{figure}
 \\
 Inizialmente, si crea il set di dati formato da coppie (contesto, parola), di cui il primo è una sequenza di parole che dipende dalla dimensione della finestra, mentre la parola è il termine che si sta esaminando. Quindi, se si ha una finestra di contesto di dimensione 1, il set di dati sarà:
+
 \begin{figure}[h]
 	\centering
-	([the, brown], quick), ([quick, fox], brown), ([brown, jumped], fox) $\to$ (quick, the), (quick, brown), (brown, quick), (brown, fox)
+	([quick], the), ([the, brown], quick), ([quick, fox], brown), [...] $\to$ (the, quick), (quick, the), (quick, brown), (brown, quick), [...]
 \end{figure}
-\\
-Supponiamo di trovarci al passo $t$, dove si trova il primo caso di apprendimento (quick, the). L'obiettivo è quello di predire \textit{the} da \textit{quick}, applicando la formula \ref{skipgrameq} e massimizzando la probabilità media logaritmica per apprendere il vettore ottimale di \textit{the}. Così facendo le parole simili avranno vettori simili. Ad ogni passo vengono aggiornati i vettori delle parole precedentemente apprese.
-\\
-Questo processo di apprendimento viene ripetuto sull'intera collezione di dati. %[...] vedi se riesci a trovare altro.
+
+Supponiamo di trovarci al passo $t$, dove si trova il primo caso di apprendimento (the, quick). L'obiettivo è quello di predire \textit{quick} da \textit{the}, applicando la formula \ref{skipgrameq} e massimizzando la probabilità media logaritmica per apprendere il vettore ottimale di \textit{quick}. Così facendo le parole simili avranno vettori simili. Ad ogni passo vengono aggiornati i vettori delle parole precedentemente apprese. Questo processo di apprendimento viene ripetuto sull'intera collezione di dati.
 
 \subsection{Doc2Vec}
 \label{doc2vec}
@@ -302,7 +295,7 @@ Differentemente da Word2Vec, che converte una parola in un vettore, Doc2Vec aggr
 \\
 Quindi, data una collezione di testi che possa essere divisa in $n$ documenti, o paragrafi, ad ogni paragrafo è assegnato un vettore. Il processo di apprendimento è caratterizzato dallo spostamento della finestra delle parole di contesto attraverso ogni parola di ogni paragrafo, per ogni paragrafo \cite{HongSeokho}.
 \\
-L'idea di base è quella di apprendere vettori di paragrafi in maniera simile all'apprendimento dei vettori delle parole. Vengono create due matrici: una formata dai vettori dei paragrafi appresi e l'altra da quelli delle parole. Il vettore del paragrafo è condiviso per tutte le parole che si trovano  nello stesso, ma non per gli altri paragrafi. Gli embedding dei vettori e dei paragrafi sono combinati durante l'apprendimento ed aggiornati mediante la concatenazione o la media. I vettori vengono appresi utilizzando coppie, composte dalla parola da predire e dal contesto del campione, contrassegnato da un identificativo del paragrafo \cite{mirela}.
+L'idea di base è quella di apprendere vettori di paragrafi in maniera simile all'apprendimento dei vettori delle parole. Vengono create due matrici: una formata dai vettori dei paragrafi appresi e l'altra da quelli delle parole. Il vettore del paragrafo è condiviso per tutte le parole che si trovano nello stesso, ma non per gli altri paragrafi. Gli embedding dei vettori e dei paragrafi sono combinati durante l'apprendimento ed aggiornati mediante la concatenazione o la media. I vettori vengono appresi utilizzando coppie, composte dalla parola da predire e dal contesto del campione, contrassegnato da un identificativo del paragrafo \cite{mirela}.
 %\\
 %Come Word2Vec, Paragraph2Vec ha due modelli di apprendimento:
 %\begin{itemize}
@@ -312,9 +305,21 @@ L'idea di base è quella di apprendere vettori di paragrafi in maniera simile all
 
 \subsection{LINE}
 \label{line}
-LINE è un nuovo modello di network embedding, capace di apprendere rappresentazioni vettoriali di vertici in una rete o grafo. Un grafo è una coppia ordinata $G = (V, E)$ di insiemi, con $V$ insieme dei nodi ed $E$ insieme degli archi.
+LINE è un nuovo modello di apprendimento, capace di produrre rappresentazioni vettoriali (embedding) di vertici in una rete o grafo. Un grafo è una coppia ordinata $G = (V, E)$ di insiemi, con $V$ insieme dei nodi ed $E$ insieme degli archi.
 \\
-Questo modello di apprendimento lavora bene soprattutto con grafi orientati, pesati e non-pesati. Viene richiesto come input un file contenente gli archi che costituiscono il grafo da apprendere. L'obiettivo è quello di rappresentare ogni vertice $v \in V$ in un vettore $R^d$ applicando, quindi, una funzione $f_G : V \to R^d$, dove $d << |V|$ \cite{tang2015line}. Viene prodotto, infine, uno spazio vettoriale formato da rappresentazioni vettoriali dei singoli nodi del grafo appreso. Ogni vettore $R^d$ preserva la prossimità di primo e secondo ordine tra i vertici.
+Questo modello di apprendimento lavora bene soprattutto con grafi orientati, pesati e non-pesati. Viene richiesto come input un file contenente gli archi che costituiscono il grafo da apprendere. L'obiettivo è quello di rappresentare ogni vertice $v \in V$ in un vettore $R^d$ applicando una funzione $f_G : V \to R^d$, dove $d << |V|$ \cite{tang2015line}. Viene prodotto, infine, uno spazio vettoriale formato da rappresentazioni vettoriali dei singoli nodi del grafo appreso.% Ogni vettore $R^d$ preserva la prossimità di primo e secondo ordine tra i vertici.
+\\
+LINE preserva sia la prossimità di primo che di secondo ordine. Nel primo caso ottimizza la seguente funzione di perdita:
+\begin{equation}
+\label{firstorderprox}
+	- \sum_{(i,j) \in E} w_{ij} \log p_1(v_i, v_j)
+\end{equation}
+Trovando un insieme $\{\vec{u}_i\}_{i=1...|V|}$ che minimizza la funzione obiettivo \ref{firstorderprox}, è possibile rappresentare ogni vertice in uno spazio $d$-dimensionale. Anche nel secondo caso, si cerca di ottimizzare la seguente funzione di perdita:
+\begin{equation}
+\label{secondorderprox}
+	- \sum_{(i,j) \in E} w_{ij} \log p_2(v_j|v_i)
+\end{equation}
+Trovando due insiemi $\{\vec{u}_i\}_{i=1...|V|}$ e $\{\vec{u}^{'}_i\}_{i=1...|V|}$ che minimizzano la funzione obiettivo \ref{secondorderprox}, è possibile rappresentare ogni vertice $v_i$ con un vettore $d$-dimensionale $\vec{u}_i$.
 
 \begin{figure}[h]
 	\centering
@@ -329,100 +334,104 @@ I vertici 5 e 6, invece, condividono molti vertici vicini: hanno un'alta prossim
 \\
 In altre parole, la prossimità di primo ordine implica la somiglianza di due nodi. Per esempio, persone che sono amici gli uni con gli altri in un social network tendono a condividere simili interessi; pagine che sono collegate le une alle altre nel World Wide Web tendono a riferirsi a simili argomenti. La tipologia di secondo ordine, invece, sono persone, in un social network, che condividono simili amici che tendono ad avere simili interessi; parole che co-occorrono sempre con lo stesso insieme di termini tendono ad avere significati simili.
 \\
-Può capitare che una coppia di nodi di un grafo possa non avere un arco, avendo come prossimità di primo ordine 0, anche essendo simili. Per questo la prossimità di primo ordine non è sufficiente per preservare le strutture del network, ed è importante considerare una nozione alternativa di prossimità che permetta di considerare i vertici come simili se condividono simili nodi vicini (prossimità di secondo ordine). LINE, quindi, permette di apprendere sia le strutture locali (i.e. i diretti vicini) sia quelli globali (i.e. i vicini dei vicini) del network.
+Può capitare che una coppia di nodi di un grafo possa non avere un arco, avendo come prossimità di primo ordine 0, anche essendo simili. Per questo la prossimità di primo ordine non è sufficiente per preservare le strutture del network, ed è importante considerare una nozione alternativa di prossimità che permetta di considerare i vertici come simili, se condividono simili nodi vicini (prossimità di secondo ordine). LINE, quindi, permette di apprendere sia le strutture locali (i.e. i diretti vicini) sia quelli globali (i.e. i vicini dei vicini) del network.
 \\
-La situazione sopra descritta è riscontrabile anche Word2Vec. Analizzare solo le parole immediatamente vicine al termine target non permette di considerare quelle simili che non si trovano vicine le une alle altre. Per questo è possibile modificare la dimensione della finestra di contesto per apprendere parole che non si trovano nell'immediato vicinato del termine target.
+La situazione sopra descritta è riscontrabile anche in Word2Vec. Analizzare solo le parole immediatamente vicine al termine target non permette di considerare quelle simili che non si trovano vicine le une alle altre. Per questo è possibile modificare la dimensione della finestra di contesto per apprendere parole che non si trovano nell'immediato vicinato del termine target.
+\\
+Rispetto a LINE, che permette al più di analizzare i vicini dei vicini di un dato vertice (quindi relazioni avente profondità 2), Word2Vec permette di analizzare relazioni più ampie, aventi profondità maggiori di 2.
 %Se due vertici hanno un'alta prossimità dovrebbero essere rappresentati nello spazio degli embeddings vicini tra loro. Ancora, in \cite{tang2015line} si è osservato come la prossimità di primo ordine, nel mondo reale, non è sufficiente per preservare le strutture del network globali. Per questo motivo, nella sperimentazione effettuata in \cite{tang2015line}, è stata esplorata la prossimità di secondo ordine.
 %\\
 %Tali prossimità, tuttavia, sono complementari l'una all'altra.
 
 \section{Clustering}
-\label{clustering}
+\label{Clustering}
 Le classi, insiemi di oggetti che condividono determinate caratteristiche, hanno un ruolo importante sia nell'analisi effettuata da persone, sia nella descrizione del mondo. Infatti, gli esseri umani hanno l'abilità di dividere gli oggetti in gruppi e di assegnarli a questi insiemi \cite{ch8}. 
 \\
 Questo processo di divisione prende il nome di Clustering ed ha come scopo quello di selezionare e raggruppare, da una collezione di dati, elementi omogenei, avendo come base la somiglianza tra gli stessi.
 \\
 L'attività di raggruppamento può essere applicata in molti campi \cite{ch8}:
 \begin{itemize}
-	\item \textbf{Biologia}. La ricerca scientifica ha investito molto tempo per creare una tassionomia di tutte le specie viventi, basandosi sul regno, classe, ordine, famiglia, geni e specie. Non solo, tecniche di clustering sono state applicate per analizzare una grande quantità di informazioni genetiche: sono stati raggruppati geni che hanno funzioni simili.
-	\item \textbf{Clima}. Per capire il clima della Terra bisogna trovare degli schemi nell'atmosfera e negli oceani. Il Clustering è stato applicato per scoprirli, analizzando la pressione atmosferica delle regioni polari e nelle aree di oceano che hanno un impatto significativo sul clima della terra ferma.
-	\item \textbf{Psicologia e Medicina}. Una malattia ha un incredibile numero di variazioni, e le operazioni di Clustering possono essere usate per identificare queste sottocategorie. Per esempio, è possibile applicare questo processo per scoprire tipologie differenti di depressione.
-	\item \textbf{Business}. Il campo del Business raccoglie una quantità enorme di informazioni di clienti potenziali ed effettivi. Il Clustering può essere usato per dividere i consumatori in gruppi per successive attività di analisi e di marketing.
+	\item \textbf{Biologia}. Tecniche di Clustering sono state applicate per analizzare informazioni genetiche e creare una tassionomia di tutte le specie viventi.%La ricerca scientifica ha investito molto tempo per creare una tassionomia di tutte le specie viventi, basandosi sul regno, classe, ordine, famiglia, geni e specie. Non solo, tecniche di Clustering sono state applicate per analizzare una grande quantità di informazioni genetiche: sono stati raggruppati geni che hanno funzioni simili.
+	\item \textbf{Clima}. Il Clustering è stato utilizzato per trovare degli schemi nel clima della Terra.%Per capire il clima della Terra bisogna trovare degli schemi nell'atmosfera e negli oceani. Il Clustering è stato applicato per scoprirli, analizzando la pressione atmosferica delle regioni polari e nelle aree di oceano che hanno un impatto significativo sul clima della terra ferma.
+	\item \textbf{Psicologia e Medicina}. Le operazioni di Clustering hanno identificato variazioni di malattie e depressioni.%Una malattia ha un incredibile numero di variazioni, e le operazioni di Clustering possono essere usate per identificare queste sottocategorie. Per esempio, è possibile applicare questo processo per scoprire tipologie differenti di depressione.
+	\item \textbf{Business}. Il Clustering viene usato per dividere i consumatori in gruppi per successive attività di analisi e di marketing.%Il campo del Business raccoglie una quantità enorme di informazioni di clienti potenziali ed effettivi. Il Clustering può essere usato per dividere i consumatori in gruppi per successive attività di analisi e di marketing.
 	\item \textbf{Information Retrieval}. Il World Wide Web è un enorme contenitore di pagine Web, ed una semplice ricerca può dare come risultato milioni di pagine. Le tecniche di Clustering vengono usare per dividerle in gruppi, ognuno dei quali cattura un aspetto particolare dell'interrogazione. Quindi, se si cerca, con un motore di ricerca, la parola \textit{film}, verranno restituite pagine Web raggruppate in categorie come recensioni, trailer, celebrità, teatri e cinema. Ogni categoria (cluster) può essere diviso in sottogruppi (sottocluster) e si produrrà una struttura gerarchica che servirà all'utente per effettuare altre ricerche.
 \end{itemize}
 
-\subsection{Approcci di clustering}
-L'operazione di clustering è essenzialmente la creazione di un insieme di cluster (i.e. un insieme di insiemi), che generalmente contengono tutti gli elementi iniziali.
+%\subsection{Approcci di Clustering}
+Quindi, l'operazione di Clustering è essenzialmente la creazione di un insieme di Cluster (i.e. un insieme di insiemi), che generalmente contengono tutti gli elementi iniziali.
 \\
-Si possono usare varie classi di approcci per effettuare clustering su un determinato insieme di dati iniziali. Alcune di queste sono:
+In questa tesi sono stati utilizzati algoritmi di Clustering che si basano sulla rappresentazione vettoriale degli elementi (i.e. pagine di un sito Web) per poter raggrupparli in insiemi.
+\\
+Esistono vari approcci di Clustering per raggruppare elementi in insiemi. Alcuni di questi sono:
 \begin{itemize}
-    \item Hard clustering o soft clustering
+    \item Hard Clustering o Soft Clustering
     \item Partizionali o gerarchici
 \end{itemize}
 
-\paragraph{Hard clustering e soft clustering}
-Questi algoritmi attuano un approccio secondo cui un elemento può essere assegnato ad un solo cluster o a più cluster. Con hard clustering intendiamo che l'algoritmo assegna un elemento ad uno ed un solo cluster; con soft clustering, invece, l'elemento può essere assegnato a più cluster con gradi di appartenenza diversi.
+\paragraph{Hard Clustering e Soft Clustering}
+Questi algoritmi attuano un approccio secondo cui un elemento può essere assegnato ad un solo Cluster o a più Cluster. Con Hard Clustering intendiamo che l'algoritmo assegna un elemento ad uno ed un solo Cluster; con Soft Clustering, invece, l'elemento può essere assegnato a più Cluster con gradi di appartenenza diversi.
 
 \paragraph{Clustering partizionale}
-Gli algoritmi di clustering partizionali creano una divisione delle osservazioni minimizzando una certa funzione di costo:
+Gli algoritmi di Clustering partizionali creano una divisione delle osservazioni minimizzando una certa funzione di costo:
 \begin{equation}
    {\textstyle \sum_{j=1}^{k}} E(C_j)
 \end{equation}
-dove $k$ è il numero desiderato di cluster, $C_j$ è il j-esimo cluster ed $E : C \to \mathbb{R^+}$ è la funzione di costo associata al singolo cluster. L'algoritmo più famoso che fa parte di questa categoria è K-Means.
+dove $k$ è il numero desiderato di Cluster, $C_j$ è il j-esimo Cluster ed $E : C \to \mathbb{R^+}$ è la funzione di costo associata al singolo Cluster. L'algoritmo più famoso che fa parte di questa categoria è K-Means.
 
 \paragraph{Clustering gerarchico}
-Gli algoritmi facente parti di questa categoria non suddividono lo spazio, bensì costruiscono una gerarchia di cluster. In questa strategia rientrano due sottotipi:
+Gli algoritmi che fanno parte di questa categoria non suddividono lo spazio, bensì costruiscono una gerarchia di Cluster. In questa strategia rientrano due sottotipi:
 \begin{itemize}
-\item \textbf{Aggregativo}: tale approccio considera n cluster per n elementi, cioè ogni elemento viene considerato un cluster a sè. Successivamente, l'algoritmo unisce tutti i cluster più vicini. Viene anche chiamato bottom-up.
-\item \textbf{Divisivo}: tale approccio opera in maniera opposta rispetto al precedente, poichè tutti gli elementi vengono considerati come un unico cluster e l'algoritmo deve dividere il cluster in insiemi aventi dimensioni inferiori. Questa metodologia viene anche chiamata top-down.
+\item \textbf{Aggregativo}: tale approccio considera $n$ Cluster per $n$ elementi, cioè ogni elemento viene considerato un Cluster a sè. Successivamente, l'algoritmo unisce tutti i Cluster più vicini. Viene anche chiamato bottom-up.
+\item \textbf{Divisivo}: tale approccio opera in maniera opposta rispetto al precedente, poichè tutti gli elementi vengono considerati come un unico Cluster e l'algoritmo deve dividere il Cluster in insiemi aventi dimensioni inferiori. Questa metodologia viene anche chiamata top-down.
 \end{itemize}
-Durante l'aggregazione degli elementi è necessario usare una funzione che permette di calcolare la similarità (o meglio la distanza) tra due cluster: questo permette all'algoritmo di unire i cluster simili. 
+Durante l'aggregazione degli elementi è necessario usare una funzione che permette di calcolare la similarità (o meglio la distanza) tra due Cluster: questo permette all'algoritmo di unire i Cluster simili. 
 
 \subsection{Funzioni (o misure) di distanza}
 \label{distancefunctions}
-A seconda dell'approccio utilizzato, vi sono delle funzioni (o misure) che permettono di calcolare la distanza tra due cluster. Viene molto usato dagli algoritmi di clustering gerarchico per calcolare la similarità tra i cluster e per unire, eventualmente, i cluster simili.\\
-Le funzioni di distanza usate da questo tipo di clustering sono:
+A seconda dell'approccio utilizzato, vi sono delle funzioni (o misure) che permettono di calcolare la distanza tra due Cluster. Viene molto usato dagli algoritmi di Clustering gerarchico per calcolare la similarità tra i Cluster e per unire, eventualmente, i Cluster simili.\\
+Le funzioni di distanza usate da questo tipo di Clustering sono:
 \begin{itemize}
-	\item \textbf{Single-link proximity}. Questa funzione calcola la distanza tra due cluster come la distanza minima tra elementi appartenenti a cluster differenti.
+	\item \textbf{Single-link proximity}. Questa funzione calcola la distanza tra due Cluster come la distanza minima tra elementi appartenenti a Cluster differenti.
 	\begin{equation}
     	D(C_i, C_j) = min_{x \in C_i, y \in C_j} d(x, y)
 	\end{equation}
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width = 50mm]{clustering_single}
+		\includegraphics[width = 50mm]{Clustering_single}
 		\caption{Prossimità di tipo Single-link}
 		\label{single}
 	\end{figure}
 	
-	\item \textbf{Average-link proximity}. Questa funzione calcola la distanza tra due cluster come la media delle distanze tra i singoli elementi.
+	\item \textbf{Average-link proximity}. Questa funzione calcola la distanza tra due Cluster come la media delle distanze tra i singoli elementi.
 	\begin{equation}
     	D(C_i, C_j) = \frac{1}{(|C_i||C_j|)} \sum_{x \in C_i, y \in C_j} d(x, y)
 	\end{equation}
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width = 50mm]{clustering_average}
+		\includegraphics[width = 50mm]{Clustering_average}
 		\caption{Prossimità di tipo Average-link}
 		\label{average}
 	\end{figure}
 	
-	\item \textbf{Complete-link proximity}. Questa funzione calcola la distanza tra i due cluster, considerando la distanza massima tra gli elementi appartenenti ai due cluster.
+	\item \textbf{Complete-link proximity}. Questa funzione calcola la distanza tra i due Cluster, considerando la distanza massima tra gli elementi appartenenti ai due Cluster.
 	\begin{equation}
 		D(C_i, C_j) = max_{x \in C_i, y \in C_j} d(x, y)
 	\end{equation}
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width = 50mm]{clustering_complete}
+		\includegraphics[width = 50mm]{Clustering_complete}
 		\caption{Prossimità di tipo Complete-link}
 		\label{complete}
 	\end{figure}
 	
-	\item \textbf{Distanza tra centroidi}. Questa, invece, è la distanza tra i due cluster prendendo in considerazione i centroidi degli stessi.
+	\item \textbf{Distanza tra centroidi}. Questa, invece, è la distanza tra i due Cluster prendendo in considerazione i centroidi degli stessi. Un centroide è un punto rappresentativo, prodotto dalla posizione media aritmetica della distanza tra tutti i punti.
 	\begin{equation}
     	D(C_i, C_j) = d\left ( \hat{c_i}, \hat{c_j} \right )
 	\end{equation}
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width = 50mm]{clustering_centroid}
+		\includegraphics[width = 50mm]{Clustering_centroid}
 		\caption{Distanza tra centroidi}
 		\label{centroid}
 	\end{figure}
@@ -449,35 +458,43 @@ Nei casi precedenti, $d(x, y)$ indica una qualsiasi funzione distanza, su uno sp
 \end{itemize}
 
 \subsection{Algoritmi usati}
-\label{clusteringexperimentation}
-In questa sezione vengono descritti gli algoritmi di Clustering usati sui dataset della sperimentazione presente in questa tesi. Il suo scopo è quello di analizzare la bontà dell'operazione di Clustering mediante apposite metriche. Gli elementi sui quali è stato effettuato il Clustering sono stati appresi da algoritmi di Machine Learning differenti.
+\label{Clusteringexperimentation}
+In questa sezione vengono descritti gli algoritmi di Clustering usati in questa tesi, che sono stati applicati per raggruppare pagine di un sito Web. Questi algoritmi si basano sulla rappresentazione vettoriale delle pagine (Sezione \ref{webpagerapresentation}) per assegnare gli elementi ad un Cluster.
 
 \paragraph{K-Means}
-K-Means è un algoritmo di clustering di tipo partizionale, in cui ogni cluster viene identificato mediante un centroide.
+K-Means è un algoritmo di Clustering di tipo partizionale, in cui ogni Cluster viene identificato mediante un centroide.
 \\
-Si basa sull'algoritmo di Lloyd e consiste in 3 step. Il primo step consiste nella scelta dei centroidi iniziali, che saranno K elementi, casuali o usando informazioni euristiche, scelti dal dataset. Successivamente, l'algoritmo assegna per ogni elemento il centroide più vicino e ne crea di nuovi dalla media di tutti i campioni, assegnati ai centroidi precedenti. Si ripete questa fase finché l'algoritmo non converge.\\
-Il pregio principale di questo algoritmo è che converge molto velocemente: si è analizzato, infatti, che il numero di iterazioni che l'algoritmo esegue è minore del numero di elementi del dataset.\\
-K-means, però, può essere molto lento nel caso peggiore e non garantisce il raggiungimento dell'ottimo globale: la bontà della soluzione dipende dal set di cluster iniziale. Inoltre, un altro svantaggio è che l'algoritmo richiede, in input, il numero dei cluster.
+Si basa sull'algoritmo di Lloyd e consiste in 3 step. Il primo step consiste nella scelta dei centroidi iniziali che saranno $K$ elementi, casuali o usando informazioni euristiche, scelti dal dataset. Successivamente, l'algoritmo assegna per ogni elemento il centroide più vicino e ne crea di nuovi dalla media di tutti i campioni, assegnati ai centroidi precedenti. Si ripete questa fase finché l'algoritmo non converge.\\
+Il pregio principale di questo algoritmo è la rapidità di convergenza: si è analizzato, infatti, che il numero di iterazioni che l'algoritmo esegue è minore del numero di elementi del dataset.\\
+K-means, però, può essere molto lento nel caso peggiore e non garantisce il raggiungimento dell'ottimo globale: la bontà della soluzione dipende dal set di Cluster iniziale. Inoltre, un altro svantaggio è che l'algoritmo richiede, in input, il numero dei Cluster.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width = 140mm]{kmeans}
-	\caption{Esempio di clustering utilizzando K-Means}
+	\includegraphics[width = 100mm]{kmeans}
+	\caption{Esempio di Clustering utilizzando K-Means}
 	\label{kmeans}
 \end{figure}
 
 \paragraph{HDBScan}
-HDBScan è un algoritmo di clustering che estende DBScan, rendendolo di tipo gerarchico.
+HDBScan è un algoritmo di Clustering che estende DBScan, rendendolo di tipo gerarchico.
 \\
 DBScan necessita di due parametri: $\epsilon$ e del numero minimo di elementi richiesti per formare un Cluster (minPts). Si comincia con un punto casuale che non è stato ancora visitato. Viene calcolato il suo $\epsilon$-vicinato, e se contiene un numero sufficiente di punti viene creato un nuovo raggruppamento. Se ciò non avviene, il punto viene etichettato come rumore, ovvero non viene associato ad alcun Cluster. È possibile che tale elemento rumore venga ritrovato in un $\epsilon$-vicinato sufficientemente grande e, quindi, inserito in un altro Cluster. Se un punto è associato ad un raggruppamento, allora anche tutti quelli nel suo $\epsilon$-vicinato sono parte del Cluster. Di conseguenza, tutti i punti trovati all'interno del suo $\epsilon$-vicinato sono aggiunti al Cluster, così come i loro $\epsilon$-vicini. Questo processo continua fino a quando il Cluster viene completato. Allora, un nuovo punto non visitato viene estratto e processato.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width = 100mm]{dbscan}
+	\includegraphics[width = 65mm]{dbscan}
 	\caption{Principio su cui si basa DBScan}
 	\label{dbscan}
 \end{figure}
 
-In HDBScan, invece, si parte in maniera simile a DBScan: lo spazio viene trasformato a seconda della densità e viene effettuato su di esso una prossimità a single-link. Invece di richiedere come input il parametro $\epsilon$, che viene usato da DBScan per considerare gli elementi del vicinato appartenenti al Cluster, viene creato un albero, il quale viene usato per selezionare i cluster più stabili e persistenti. Viene solo richiesta la dimensione minima dei Cluster per determinare quali gruppi non devono essere considerati come cluster, oppure per dividerli e formare nuovi cluster.
+In HDBScan, invece, si parte in maniera simile a DBScan: lo spazio viene trasformato a seconda della densità e viene effettuato su di esso una prossimità a single-link. Invece di richiedere come input il parametro $\epsilon$, che viene usato da DBScan per considerare gli elementi del vicinato appartenenti al Cluster, viene creato un albero, il quale viene usato per selezionare i Cluster più stabili e persistenti. Viene solo richiesta la dimensione minima dei Cluster per determinare quali gruppi non devono essere considerati come Cluster, oppure per dividerli e formare nuovi Cluster.
 \\
-Questo algoritmo è molto efficace ed è il più veloce, sia di DBScan che di K-Means.
+Questo algoritmo è molto efficace ed è più veloce sia di DBScan che di K-Means.
+
+\section{Obiettivi della tesi}
+Questa tesi ha due obiettivi:
+\begin{enumerate}
+	\item Capire se, combinando diverse rappresentazioni di cui una pagina Web si compone in uno spazio vettoriale al fine di applicare i tradizionali algoritmi di Clustering, vi è un miglioramento della qualità dei Cluster prodotti.
+	
+	\item Verificare che, se analizzando la topologia del grafo del sito Web e dando più importanza a pagine vicino alla homepage, si ottengono risultati migliori rispetto all'approccio che analizza tutte le pagine come ugualmente importanti. La modifica applicata verrà discussa nella Sezione \ref{modifiedSkipgram}.
+\end{enumerate}

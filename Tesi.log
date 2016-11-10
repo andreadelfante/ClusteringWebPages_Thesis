@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.9.10)  5 NOV 2016 16:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.9.10)  10 NOV 2016 17:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -626,11 +626,7 @@ Package: amsthm 2015/03/04 v2.20.2
 \thm@postskip=\skip80
 \thm@headsep=\skip81
 \dth@everypar=\toks35
-) (./Tesi.aux
-
-LaTeX Warning: Label `word2vec' multiply defined.
-
-)
+) (./Tesi.aux)
 \openout1 = `Tesi.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
@@ -645,7 +641,8 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
 LaTeX Font Info:    ... okay on input line 52.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
 LaTeX Font Info:    ... okay on input line 52.
- (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+
+(/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count169
 \scratchdimen=\dimen171
@@ -838,205 +835,184 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 
 
 Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
-less on input line 12.
+less on input line 13.
 
 [1
 
 
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 15--22
-
+] [2] [3]
+Overfull \hbox (9.16423pt too wide) in paragraph at lines 57--67
+\OT1/cmr/m/n/12 L'obiettivo del Web Mi-ning ^^Re scom-po-ni-bi-le nei se-guen-t
+i sotto-obiettivi [[]]: 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 15--22
-
- []
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 31--47
-
- []
-
-[3] [4] [5] <./Immagini/webminingtax.png, id=80, 530.98375pt x 396.48125pt>
+[4] <./Immagini/webminingtax.png, id=77, 530.98375pt x 396.48125pt>
 File: ./Immagini/webminingtax.png Graphic file (type png)
 
 <use ./Immagini/webminingtax.png>
-Package pdftex.def Info: ./Immagini/webminingtax.png used on input line 82.
+Package pdftex.def Info: ./Immagini/webminingtax.png used on input line 79.
 (pdftex.def)             Requested size: 270.30118pt x 201.83371pt.
- [6 <./Immagini/webminingtax.png>] [7]
-Overfull \hbox (34.07776pt too wide) in paragraph at lines 112--112
-[]\OT1/cmr/bx/n/17.28 Rappresentazioni vet-to-ria-li di pa-gi-ne Web 
- []
-
-[8] <./Immagini/wordspaceexample.png, id=92, 145.9854pt x 149.8398pt>
+ [5 <./Immagini/webminingtax.png>] [6]
+[7] <./Immagini/wordspaceexample.png, id=91, 145.9854pt x 149.8398pt>
 File: ./Immagini/wordspaceexample.png Graphic file (type png)
 
 <use ./Immagini/wordspaceexample.png>
-Package pdftex.def Info: ./Immagini/wordspaceexample.png used on input line 135
+Package pdftex.def Info: ./Immagini/wordspaceexample.png used on input line 137
 .
 (pdftex.def)             Requested size: 142.26378pt x 146.01889pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 140--156
+Underfull \hbox (badness 10000) in paragraph at lines 142--154
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 140--156
-
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[9 <./Immagini/wordspaceexample.png>] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 195--201
+[8 <./Immagini/wordspaceexample.png>] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 194--200
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 203--209
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 202--208
 
  []
 
-[11] <./Immagini/tsne.jpg, id=107, 1533.0pt x 908.85pt>
+<./Immagini/tsne.jpg, id=105, 1533.0pt x 908.85pt>
 File: ./Immagini/tsne.jpg Graphic file (type jpg)
-
-<use ./Immagini/tsne.jpg>
-Package pdftex.def Info: ./Immagini/tsne.jpg used on input line 212.
+ <use ./Immagini/tsne.jpg>
+Package pdftex.def Info: ./Immagini/tsne.jpg used on input line 211.
 (pdftex.def)             Requested size: 455.24408pt x 269.89738pt.
 
-Overfull \hbox (65.24408pt too wide) in paragraph at lines 212--213
+Overfull \hbox (65.24408pt too wide) in paragraph at lines 211--212
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 218--223
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[11] <./Immagini/tsneplot.png, id=109, 1794.705pt x 649.42625pt>
+File: ./Immagini/tsneplot.png Graphic file (type png)
+
+<use ./Immagini/tsneplot.png>
+Package pdftex.def Info: ./Immagini/tsneplot.png used on input line 233.
+(pdftex.def)             Requested size: 426.79134pt x 154.42862pt.
+
+Overfull \hbox (36.79134pt too wide) in paragraph at lines 233--234
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 238--241
 
  []
 
 [12 <./Immagini/tsne.jpg>]
-<./Immagini/tsneplot.png, id=111, 1794.705pt x 649.42625pt>
-File: ./Immagini/tsneplot.png Graphic file (type png)
+Underfull \hbox (badness 10000) in paragraph at lines 243--247
 
-<use ./Immagini/tsneplot.png>
-Package pdftex.def Info: ./Immagini/tsneplot.png used on input line 235.
-(pdftex.def)             Requested size: 426.79134pt x 154.42862pt.
-
-Overfull \hbox (36.79134pt too wide) in paragraph at lines 235--236
- [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 240--243
+Underfull \hbox (badness 10000) in paragraph at lines 250--253
 
  []
 
 [13 <./Immagini/tsneplot.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 245--249
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 252--257
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 252--257
-
- []
-
-[14] <./Immagini/word2vecmodels.png, id=119, 930.47626pt x 547.04375pt>
+<./Immagini/word2vecmodels.png, id=117, 930.47626pt x 547.04375pt>
 File: ./Immagini/word2vecmodels.png Graphic file (type png)
 
 <use ./Immagini/word2vecmodels.png>
-Package pdftex.def Info: ./Immagini/word2vecmodels.png used on input line 264.
+Package pdftex.def Info: ./Immagini/word2vecmodels.png used on input line 256.
 (pdftex.def)             Requested size: 426.79134pt x 250.91696pt.
 
-Overfull \hbox (36.79134pt too wide) in paragraph at lines 264--265
+Overfull \hbox (36.79134pt too wide) in paragraph at lines 256--257
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 269--275
+Underfull \hbox (badness 10000) in paragraph at lines 261--269
 
  []
 
-[15 <./Immagini/word2vecmodels.png>]
-Overfull \hbox (2.49455pt too wide) in paragraph at lines 299--312
+
+Underfull \hbox (badness 10000) in paragraph at lines 261--269
+
+ []
+
+[14 <./Immagini/word2vecmodels.png>] [15]
+Overfull \hbox (2.49455pt too wide) in paragraph at lines 292--305
 \OT1/cmr/m/n/12 Differentemente da Word2Vec, che con-ver-te una pa-ro-la in un 
 vet-to-re, Doc2Vec
  []
 
-[16] <./Immagini/infonet.png, id=130, 855.195pt x 611.28375pt>
+[16] <./Immagini/infonet.png, id=131, 855.195pt x 611.28375pt>
 File: ./Immagini/infonet.png Graphic file (type png)
 
 <use ./Immagini/infonet.png>
-Package pdftex.def Info: ./Immagini/infonet.png used on input line 321.
+Package pdftex.def Info: ./Immagini/infonet.png used on input line 326.
 (pdftex.def)             Requested size: 284.52756pt x 203.37521pt.
- [17] [18 <./Immagini/infonet.png>] [19] [20]
-Overfull \hbox (8.75034pt too wide) in paragraph at lines 367--368
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[17] [18 <./Immagini/infonet.png>] [19]
+Overfull \hbox (8.75034pt too wide) in paragraph at lines 376--377
 \OT1/cmr/m/n/12 una di-vi-sio-ne del-le os-ser-va-zio-ni mi-ni-miz-zan-do una c
 er-ta fun-zio-ne di co-sto: 
  []
 
-[21] <./Immagini/clustering_single.png, id=147, 291.0875pt x 168.63pt>
-File: ./Immagini/clustering_single.png Graphic file (type png)
+[20] <./Immagini/Clustering_single.png, id=146, 291.0875pt x 168.63pt>
+File: ./Immagini/Clustering_single.png Graphic file (type png)
 
-<use ./Immagini/clustering_single.png>
-Package pdftex.def Info: ./Immagini/clustering_single.png used on input line 39
-2.
+<use ./Immagini/Clustering_single.png>
+Package pdftex.def Info: ./Immagini/Clustering_single.png used on input line 40
+1.
 (pdftex.def)             Requested size: 142.26378pt x 82.41585pt.
+ [21 <./Immagini/Clustering_single.png>]
+<./Immagini/Clustering_average.png, id=152, 341.275pt x 172.645pt>
+File: ./Immagini/Clustering_average.png Graphic file (type png)
 
-<./Immagini/clustering_average.png, id=148, 341.275pt x 172.645pt>
-File: ./Immagini/clustering_average.png Graphic file (type png)
-
-<use ./Immagini/clustering_average.png>
-Package pdftex.def Info: ./Immagini/clustering_average.png used on input line 4
-03.
+<use ./Immagini/Clustering_average.png>
+Package pdftex.def Info: ./Immagini/Clustering_average.png used on input line 4
+12.
 (pdftex.def)             Requested size: 142.26378pt x 71.97035pt.
- [22 <./Immagini/clustering_single.png> <./Immagini/clustering_average.png>]
-<./Immagini/clustering_complete.png, id=156, 303.1325pt x 175.65625pt>
-File: ./Immagini/clustering_complete.png Graphic file (type png)
 
-<use ./Immagini/clustering_complete.png>
-Package pdftex.def Info: ./Immagini/clustering_complete.png used on input line 
-414.
+<./Immagini/Clustering_complete.png, id=153, 303.1325pt x 175.65625pt>
+File: ./Immagini/Clustering_complete.png Graphic file (type png)
+
+<use ./Immagini/Clustering_complete.png>
+Package pdftex.def Info: ./Immagini/Clustering_complete.png used on input line 
+423.
 (pdftex.def)             Requested size: 142.26378pt x 82.43782pt.
 
-<./Immagini/clustering_centroid.png, id=157, 341.275pt x 265.99374pt>
-File: ./Immagini/clustering_centroid.png Graphic file (type png)
+<./Immagini/Clustering_centroid.png, id=154, 341.275pt x 265.99374pt>
+File: ./Immagini/Clustering_centroid.png Graphic file (type png)
 
-<use ./Immagini/clustering_centroid.png>
-Package pdftex.def Info: ./Immagini/clustering_centroid.png used on input line 
-425.
+<use ./Immagini/Clustering_centroid.png>
+Package pdftex.def Info: ./Immagini/Clustering_centroid.png used on input line 
+434.
 (pdftex.def)             Requested size: 142.26378pt x 110.88457pt.
- [23 <./Immagini/clustering_complete.png> <./Immagini/clustering_centroid.png>]
- [24]
-<./Immagini/kmeans.png, id=166, 613.29124pt x 473.77pt>
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[22 <./Immagini/Clustering_average.png> <./Immagini/Clustering_complete.png>]
+[23 <./Immagini/Clustering_centroid.png>]
+<./Immagini/kmeans.png, id=165, 613.29124pt x 473.77pt>
 File: ./Immagini/kmeans.png Graphic file (type png)
 
 <use ./Immagini/kmeans.png>
-Package pdftex.def Info: ./Immagini/kmeans.png used on input line 464.
-(pdftex.def)             Requested size: 398.33858pt x 307.71552pt.
-
-Overfull \hbox (8.33858pt too wide) in paragraph at lines 464--465
- [][] 
- []
-
-[25 <./Immagini/kmeans.png>]
-<./Immagini/dbscan.png, id=171, 179.67125pt x 84.315pt>
+Package pdftex.def Info: ./Immagini/kmeans.png used on input line 473.
+(pdftex.def)             Requested size: 284.52756pt x 219.79472pt.
+ [24 <./Immagini/kmeans.png>]
+<./Immagini/dbscan.png, id=170, 179.67125pt x 84.315pt>
 File: ./Immagini/dbscan.png Graphic file (type png)
 
 <use ./Immagini/dbscan.png>
-Package pdftex.def Info: ./Immagini/dbscan.png used on input line 476.
-(pdftex.def)             Requested size: 284.52756pt x 133.5314pt.
-) [26 <./Immagini/dbscan.png>]
+Package pdftex.def Info: ./Immagini/dbscan.png used on input line 485.
+(pdftex.def)             Requested size: 184.9429pt x 86.79521pt.
+ [25 <./Immagini/dbscan.png>]) [26]
 Capitolo 2.
 (./Capitoli/Capitolo2.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--6
@@ -1057,177 +1033,197 @@ less on input line 10.
 ] [28] [29] [30] [31]) [32]
 Capitolo 3.
 (./Capitoli/Capitolo3.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--9
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--9
+
+ []
+
 
 Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
-less on input line 7.
+less on input line 12.
 
 [33
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 9--14
+Underfull \hbox (badness 10000) in paragraph at lines 16--21
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 9--14
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 21--26
-
- []
-
-[34] [35]
-<./Immagini/WebCrawlerArchitecture.png, id=207, 1033.8625pt x 789.95125pt>
+[34]
+<./Immagini/WebCrawlerArchitecture.png, id=205, 1033.8625pt x 789.95125pt>
 File: ./Immagini/WebCrawlerArchitecture.png Graphic file (type png)
 
 <use ./Immagini/WebCrawlerArchitecture.png>
 Package pdftex.def Info: ./Immagini/WebCrawlerArchitecture.png used on input li
-ne 35.
+ne 30.
 (pdftex.def)             Requested size: 284.52756pt x 217.39998pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--46
+Underfull \hbox (badness 10000) in paragraph at lines 36--41
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--46
+Underfull \hbox (badness 10000) in paragraph at lines 36--41
 
  []
 
-[36 <./Immagini/WebCrawlerArchitecture.png>] [37]
-Underfull \hbox (badness 10000) in paragraph at lines 65--66
+[35 <./Immagini/WebCrawlerArchitecture.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
 [] $\OML/cmm/m/it/12 pagesToAnalyze \OMS/cmsy/m/n/12   \OML/cmm/m/it/12 list:fi
 lterNot\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 page \OMS/cmsy/m/n/12 !
  []
 
-[38] <./Immagini/weblistexample.png, id=218, 900.36375pt x 1163.34625pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[36] <./Immagini/weblistexample.png, id=213, 900.36375pt x 1163.34625pt>
 File: ./Immagini/weblistexample.png Graphic file (type png)
 
 <use ./Immagini/weblistexample.png>
-Package pdftex.def Info: ./Immagini/weblistexample.png used on input line 86.
+Package pdftex.def Info: ./Immagini/weblistexample.png used on input line 79.
 (pdftex.def)             Requested size: 284.52756pt x 367.6276pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--113
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--106
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--113
+Underfull \hbox (badness 10000) in paragraph at lines 87--106
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--113
+Underfull \hbox (badness 10000) in paragraph at lines 87--106
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--113
+Underfull \hbox (badness 10000) in paragraph at lines 87--106
 
  []
 
-[39 <./Immagini/weblistexample.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 120--123
+[37] [38 <./Immagini/weblistexample.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 113--116
 
  []
 
-[40] <./Immagini/randomwalkmono.png, id=227, 685.56125pt x 525.965pt>
+<./Immagini/randomwalkmono.png, id=221, 685.56125pt x 525.965pt>
 File: ./Immagini/randomwalkmono.png Graphic file (type png)
 
 <use ./Immagini/randomwalkmono.png>
-Package pdftex.def Info: ./Immagini/randomwalkmono.png used on input line 126.
+Package pdftex.def Info: ./Immagini/randomwalkmono.png used on input line 119.
 (pdftex.def)             Requested size: 341.43306pt x 261.95457pt.
- [41 <./Immagini/randomwalkmono.png>]
-<./Immagini/randomwalkbi.png, id=232, 978.65625pt x 1123.19624pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[39] <./Immagini/randomwalkbi.png, id=225, 978.65625pt x 1123.19624pt>
 File: ./Immagini/randomwalkbi.png Graphic file (type png)
 
 <use ./Immagini/randomwalkbi.png>
-Package pdftex.def Info: ./Immagini/randomwalkbi.png used on input line 135.
+Package pdftex.def Info: ./Immagini/randomwalkbi.png used on input line 128.
 (pdftex.def)             Requested size: 341.43306pt x 391.85632pt.
- [42 <./Immagini/randomwalkbi.png>]
-<./Immagini/randomwalktri.png, id=237, 946.53625pt x 1044.90375pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./Immagini/randomwalktri.png, id=226, 946.53625pt x 1044.90375pt>
 File: ./Immagini/randomwalktri.png Graphic file (type png)
 
 <use ./Immagini/randomwalktri.png>
-Package pdftex.def Info: ./Immagini/randomwalktri.png used on input line 144.
+Package pdftex.def Info: ./Immagini/randomwalktri.png used on input line 137.
 (pdftex.def)             Requested size: 341.43306pt x 376.91443pt.
- [43 <./Immagini/randomwalktri.png>] [44]
-[45]
-Overfull \hbox (52.74973pt too wide) in paragraph at lines 205--205
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[40 <./Immagini/randomwalkmono.png>] [41 <./Immagini/randomwalkbi.png>]
+[42 <./Immagini/randomwalktri.png>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[43]
+Overfull \hbox (52.74973pt too wide) in paragraph at lines 198--198
 []\OT1/cmr/bx/n/17.28 Modifica del-l'im-ple-men-ta-zio-ne di Word2Vec 
  []
 
 
-Overfull \hbox (9.85236pt too wide) in paragraph at lines 206--213
+Overfull \hbox (9.85236pt too wide) in paragraph at lines 200--207
 \OT1/cmr/m/n/12 del-lo di ap-pren-di-men-to di Word2Vec Skip-Gram del-la li-bre
 -ria \OT1/cmtt/m/n/12 deeplearning4j\OT1/cmr/m/n/12 .
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 216--221
-
- []
-
-[46] [47]
-Underfull \hbox (badness 10000) in paragraph at lines 244--249
+[44]
+Underfull \hbox (badness 10000) in paragraph at lines 210--215
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 244--249
-
- []
-
-[48] [49]
-Underfull \hbox (badness 10000) in paragraph at lines 270--280
+[45] [46]
+Underfull \hbox (badness 10000) in paragraph at lines 238--243
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--292
+Underfull \hbox (badness 10000) in paragraph at lines 238--243
+
+ []
+
+[47] [48]
+Underfull \hbox (badness 10000) in paragraph at lines 264--274
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 276--286
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 288--299
+
+ []
+
+[49]
+Underfull \hbox (badness 10000) in paragraph at lines 301--314
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 316--329
 
  []
 
 [50]
-Underfull \hbox (badness 10000) in paragraph at lines 294--305
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 307--320
-
- []
-
-[51]
-Underfull \hbox (badness 10000) in paragraph at lines 322--335
-
- []
-
-
-Overfull \hbox (21.28473pt too wide) in paragraph at lines 337--353
+Overfull \hbox (21.28473pt too wide) in paragraph at lines 331--347
  \OT1/cmr/bx/n/12 em-bed-dings[]with[]b.txt, em-bed-dings[]no[]b.txt, em-bed-di
 ngs[]normal.txt,
  []
 
 
-Overfull \hbox (72.13611pt too wide) in paragraph at lines 337--353
+Overfull \hbox (72.13611pt too wide) in paragraph at lines 331--347
 \OT1/cmr/bx/n/12 em-bed-dings[]line[]first.txt, em-bed-dings[]line[]second.txt,
  em-bed-dings[]doc2vec.txt[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 337--353
+Underfull \hbox (badness 10000) in paragraph at lines 331--347
 
  []
 
-[52])
-Underfull \hbox (badness 10000) in paragraph at lines 355--117
+)
+Underfull \hbox (badness 10000) in paragraph at lines 349--117
 
  []
 
-[53]
+[51] [52]
 Capitolo 4.
 (./Capitoli/Capitolo4.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--8
@@ -1248,7 +1244,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--14
 Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
 less on input line 14.
 
-[54
+[53
 
 ]
 Overfull \hbox (14.30008pt too wide) in paragraph at lines 19--27
@@ -1260,7 +1256,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 29--32
 
  []
 
-[55] [56] [57] [58] [59]
+[54] [55] [56] [57] [58]
 Underfull \hbox (badness 10000) in paragraph at lines 111--116
 
  []
@@ -1270,12 +1266,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 111--116
 
  []
 
-[60]
+[59]
 Underfull \hbox (badness 10000) in paragraph at lines 130--135
 
  []
 
-[61]
+[60]
 Underfull \hbox (badness 10000) in paragraph at lines 141--146
 
  []
@@ -1291,7 +1287,16 @@ Overfull \hbox (11.58568pt too wide) in paragraph at lines 147--148
 chi del gra-fo Web, ov-ve-ro \OT1/cmtt/m/n/12 edges.txt\OT1/cmr/m/n/12 . 
  []
 
-[62]
+[61]
+
+LaTeX Warning: Reference `clusteringexperimentation' on page 62 undefined on in
+put line 162.
+
+
+LaTeX Warning: Reference `clusteringexperimentation' on page 62 undefined on in
+put line 164.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 160--165
 
  []
@@ -1306,7 +1311,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 167--172
 
  []
 
-[63]
+[62]
 Overfull \hbox (30.4849pt too wide) in paragraph at lines 181--221
  [][] 
  []
@@ -1383,7 +1388,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 583--588
 
  []
 
-[64]
+[63]
 Overfull \hbox (2.41795pt too wide) in paragraph at lines 595--607
  [][] 
  []
@@ -1404,7 +1409,7 @@ Overfull \hbox (30.4849pt too wide) in paragraph at lines 651--691
  [][] 
  []
 
-[65]
+[64]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -1480,7 +1485,7 @@ Overfull \hbox (6.11266pt too wide) in paragraph at lines 1065--1077
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[66]
+[65]
 Overfull \hbox (48.93906pt too wide) in paragraph at lines 1089--1111
  [][] 
  []
@@ -1560,7 +1565,7 @@ Overfull \hbox (48.24437pt too wide) in paragraph at lines 1491--1523
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[67]
+[66]
 Overfull \hbox (2.41795pt too wide) in paragraph at lines 1537--1549
  [][] 
  []
@@ -1576,7 +1581,7 @@ Overfull \hbox (48.93906pt too wide) in paragraph at lines 1559--1581
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[68]
+[67]
 Overfull \hbox (30.4849pt too wide) in paragraph at lines 1593--1633
  [][] 
  []
@@ -1648,7 +1653,7 @@ Overfull \hbox (48.24437pt too wide) in paragraph at lines 1961--1993
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[69]
+[68]
 Overfull \hbox (6.11266pt too wide) in paragraph at lines 2007--2019
  [][] 
  []
@@ -1664,7 +1669,7 @@ Overfull \hbox (48.93906pt too wide) in paragraph at lines 2029--2051
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[70]
+[69]
 Overfull \hbox (39.6821pt too wide) in paragraph at lines 2064--2077
  [][] 
  []
@@ -1706,34 +1711,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 2136--121
 
  []
 
-[71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81] [82] [83] [84] [85]
-[86] [87] [88] [89] [90] [91] [92] [93] [94] [95] [96] [97] [98] [99] [100]
-[101] [102] [103] [104] [105] [106] [107] [108] [109] [110] [111] [112]
+[70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81] [82] [83] [84]
+[85] [86] [87] [88] [89] [90] [91] [92] [93] [94] [95] [96] [97] [98] [99]
+[100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110] [111]
 Capitolo 5.
 (./Capitoli/Conclusione.tex) (./Tesi.bbl
 
 Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
 less on input line 1.
 
-[113
+[112
 
 ]
 
 Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
-less on input line 51.
+less on input line 47.
 
-[114
+[113
 
-] [115] [116] [117] [118]) [119] (./Tesi.aux)
+] [114] [115] [116]) [117] (./Tesi.aux)
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 15686 strings out of 493014
- 305765 string characters out of 6133351
- 1037335 words of memory out of 5000000
- 18982 multiletter control sequences out of 15000+600000
+ 15690 strings out of 493014
+ 305848 string characters out of 6133351
+ 1037366 words of memory out of 5000000
+ 18986 multiletter control sequences out of 15000+600000
  12829 words of font info for 48 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  38i,14n,44p,10377b,591s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1750,14 +1755,15 @@ al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local
 exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
 ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texli
 ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
-e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/
-2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2
-016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/20
-16/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Tesi.pdf (128 pages, 6283004 bytes).
+e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/
+2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/20
+16/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/201
+6/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2016
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Tesi.pdf (126 pages, 6244014 bytes).
 PDF statistics:
- 535 PDF objects out of 1000 (max. 8388607)
- 351 compressed objects within 4 object streams
+ 532 PDF objects out of 1000 (max. 8388607)
+ 349 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
  91 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -3,7 +3,6 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Tesi.aux
 The style file: plain.bst
 Database file #1: ./Bibliografia.bib
-Warning--to sort, need author or key in cinecadatamining
 Warning--empty journal in webminingmalerba
 Warning--there's a number but no volume in webminingmalerba
 Warning--empty year in webminingmalerba
@@ -17,45 +16,45 @@ Warning--empty journal in Nilima
 Warning--there's a number but no series in vmeasure
 Warning--empty publisher in webmining21cap
 Warning--empty year in webmining21cap
-You've used 42 entries,
+You've used 41 entries,
             2118 wiz_defined-function locations,
-            763 strings with 12006 characters,
-and the built_in function-call counts, 16219 in all, are:
-= -- 1612
-> -- 698
+            760 strings with 11960 characters,
+and the built_in function-call counts, 16158 in all, are:
+= -- 1604
+> -- 713
 < -- 31
-+ -- 278
-- -- 232
-* -- 1113
-:= -- 2516
-add.period$ -- 135
-call.type$ -- 42
++ -- 283
+- -- 238
+* -- 1121
+:= -- 2517
+add.period$ -- 133
+call.type$ -- 41
 change.case$ -- 238
 chr.to.int$ -- 0
-cite$ -- 56
-duplicate$ -- 690
-empty$ -- 1294
-format.name$ -- 232
-if$ -- 3601
+cite$ -- 54
+duplicate$ -- 683
+empty$ -- 1271
+format.name$ -- 238
+if$ -- 3578
 int.to.chr$ -- 0
-int.to.str$ -- 42
+int.to.str$ -- 41
 missing$ -- 42
-newline$ -- 209
+newline$ -- 205
 num.names$ -- 82
-pop$ -- 279
+pop$ -- 274
 preamble$ -- 1
-purify$ -- 200
+purify$ -- 201
 quote$ -- 0
-skip$ -- 528
+skip$ -- 520
 stack$ -- 0
-substring$ -- 963
-swap$ -- 235
+substring$ -- 958
+swap$ -- 234
 text.length$ -- 31
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 160
-warning$ -- 14
+type$ -- 156
+warning$ -- 13
 while$ -- 138
-width$ -- 44
-write$ -- 483
-(There were 14 warnings)
+width$ -- 43
+write$ -- 476
+(There were 13 warnings)

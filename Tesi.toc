@@ -1,75 +1,74 @@
 \select@language {italian}
 \select@language {italian}
 \contentsline {chapter}{\numberline {1}Informazioni latenti nel Web}{1}
-\contentsline {section}{\numberline {1.1}Data Mining}{3}
-\contentsline {section}{\numberline {1.2}Web Mining}{4}
-\contentsline {paragraph}{Web Structure Mining}{7}
-\contentsline {paragraph}{Web Content Mining}{7}
-\contentsline {paragraph}{Web Usage Mining}{7}
-\contentsline {section}{\numberline {1.3}Rappresentazioni vettoriali di pagine Web}{8}
-\contentsline {subsection}{\numberline {1.3.1}Word space model}{9}
+\contentsline {section}{\numberline {1.1}Web Mining}{2}
+\contentsline {paragraph}{Web Structure Mining}{5}
+\contentsline {paragraph}{Web Content Mining}{6}
+\contentsline {paragraph}{Web Usage Mining}{6}
+\contentsline {section}{\numberline {1.2}Rappresentazioni di pagine Web}{7}
+\contentsline {subsection}{\numberline {1.2.1}Word space model}{8}
 \contentsline {paragraph}{Vector Space Model}{10}
-\contentsline {paragraph}{Word embedding}{13}
-\contentsline {subsection}{\numberline {1.3.2}Word2Vec}{14}
-\contentsline {subsection}{\numberline {1.3.3}Doc2Vec}{17}
-\contentsline {subsection}{\numberline {1.3.4}LINE}{17}
-\contentsline {section}{\numberline {1.4}Clustering}{19}
-\contentsline {subsection}{\numberline {1.4.1}Approcci di clustering}{20}
-\contentsline {paragraph}{Hard clustering e soft clustering}{20}
-\contentsline {paragraph}{Clustering partizionale}{21}
-\contentsline {paragraph}{Clustering gerarchico}{21}
-\contentsline {subsection}{\numberline {1.4.2}Funzioni (o misure) di distanza}{22}
-\contentsline {subsection}{\numberline {1.4.3}Algoritmi usati}{24}
+\contentsline {paragraph}{Word embedding}{11}
+\contentsline {subsection}{\numberline {1.2.2}Word2Vec}{14}
+\contentsline {subsection}{\numberline {1.2.3}Doc2Vec}{16}
+\contentsline {subsection}{\numberline {1.2.4}LINE}{16}
+\contentsline {section}{\numberline {1.3}Clustering}{19}
+\contentsline {paragraph}{Hard Clustering e Soft Clustering}{20}
+\contentsline {paragraph}{Clustering partizionale}{20}
+\contentsline {paragraph}{Clustering gerarchico}{20}
+\contentsline {subsection}{\numberline {1.3.1}Funzioni (o misure) di distanza}{21}
+\contentsline {subsection}{\numberline {1.3.2}Algoritmi usati}{23}
 \contentsline {paragraph}{K-Means}{24}
 \contentsline {paragraph}{HDBScan}{25}
+\contentsline {section}{\numberline {1.4}Obiettivi della tesi}{26}
 \contentsline {chapter}{\numberline {2}Stato dell'Arte}{27}
 \contentsline {section}{\numberline {2.1}Altre metodologie di Clustering}{30}
 \contentsline {subsection}{\numberline {2.1.1}Combinazione di embeddings}{31}
-\contentsline {chapter}{\numberline {3}Pianificazione della sperimentazione}{33}
+\contentsline {chapter}{\numberline {3}Metodologia}{33}
 \contentsline {section}{\numberline {3.1}Web Crawling}{34}
 \contentsline {subsection}{\numberline {3.1.1}Crawling delle pagine di un sito Web}{36}
-\contentsline {subsection}{\numberline {3.1.2}Normalizzazione degli URL}{39}
-\contentsline {section}{\numberline {3.2}Costruzione del dataset}{40}
-\contentsline {subsection}{\numberline {3.2.1}Random Walks}{41}
-\contentsline {subsection}{\numberline {3.2.2}Generazione delle sequenze}{44}
-\contentsline {paragraph}{Random Walk standard}{45}
-\contentsline {paragraph}{Random Walk con partenza da homepage}{46}
-\contentsline {paragraph}{Random Walk attraverso le Liste}{46}
-\contentsline {section}{\numberline {3.3}Modifica dell'implementazione di Word2Vec}{46}
-\contentsline {subsection}{\numberline {3.3.1}Scaling degli embeddings}{47}
-\contentsline {section}{\numberline {3.4}Web page Clustering}{48}
-\contentsline {section}{\numberline {3.5}Esempio di dataset}{50}
-\contentsline {paragraph}{seedsMap.txt}{50}
-\contentsline {paragraph}{vertex.txt}{51}
-\contentsline {paragraph}{edges.txt}{51}
-\contentsline {paragraph}{sequenceIDs.txt}{51}
-\contentsline {paragraph}{sequenceIDsFromHomepage.txt}{52}
-\contentsline {paragraph}{embeddings\_with\_b.txt, embeddings\_no\_b.txt, embeddings\_normal.txt, embeddings\_line\_first.txt, embeddings\_line\_second.txt, embeddings\_doc2vec.txt}{52}
-\contentsline {paragraph}{groundTruth.csv}{53}
-\contentsline {chapter}{\numberline {4}Sperimentazione}{54}
-\contentsline {section}{\numberline {4.1}Dataset}{55}
-\contentsline {section}{\numberline {4.2}Metriche}{56}
-\contentsline {section}{\numberline {4.3}Configurazioni}{60}
-\contentsline {subsection}{\numberline {4.3.1}Testo}{60}
-\contentsline {subsection}{\numberline {4.3.2}Random Walk}{61}
-\contentsline {subsection}{\numberline {4.3.3}Combinato}{63}
-\contentsline {subsection}{\numberline {4.3.4}Parametri degli algoritmi di Clustering}{63}
-\contentsline {section}{\numberline {4.4}Analisi dei risultati}{64}
-\contentsline {subsection}{\numberline {4.4.1}cs.illinois.edu}{64}
-\contentsline {subsubsection}{Random Walk}{64}
+\contentsline {subsection}{\numberline {3.1.2}Normalizzazione degli URL}{37}
+\contentsline {section}{\numberline {3.2}Costruzione del dataset}{39}
+\contentsline {subsection}{\numberline {3.2.1}Random Walks}{39}
+\contentsline {subsection}{\numberline {3.2.2}Generazione delle sequenze}{43}
+\contentsline {paragraph}{Random Walk standard}{43}
+\contentsline {paragraph}{Random Walk con partenza da homepage}{44}
+\contentsline {paragraph}{Random Walk attraverso le Liste}{44}
+\contentsline {section}{\numberline {3.3}Modifica dell'implementazione di Word2Vec}{45}
+\contentsline {subsection}{\numberline {3.3.1}Scaling degli embeddings}{45}
+\contentsline {section}{\numberline {3.4}Web page Clustering}{47}
+\contentsline {section}{\numberline {3.5}Esempio di dataset}{49}
+\contentsline {paragraph}{seedsMap.txt}{49}
+\contentsline {paragraph}{vertex.txt}{49}
+\contentsline {paragraph}{edges.txt}{49}
+\contentsline {paragraph}{sequenceIDs.txt}{50}
+\contentsline {paragraph}{sequenceIDsFromHomepage.txt}{50}
+\contentsline {paragraph}{embeddings\_with\_b.txt, embeddings\_no\_b.txt, embeddings\_normal.txt, embeddings\_line\_first.txt, embeddings\_line\_second.txt, embeddings\_doc2vec.txt}{51}
+\contentsline {paragraph}{groundTruth.csv}{52}
+\contentsline {chapter}{\numberline {4}Sperimentazione}{53}
+\contentsline {section}{\numberline {4.1}Dataset}{54}
+\contentsline {section}{\numberline {4.2}Metriche}{55}
+\contentsline {section}{\numberline {4.3}Configurazioni}{59}
+\contentsline {subsection}{\numberline {4.3.1}Testo}{59}
+\contentsline {subsection}{\numberline {4.3.2}Random Walk}{60}
+\contentsline {subsection}{\numberline {4.3.3}Combinato}{62}
+\contentsline {subsection}{\numberline {4.3.4}Parametri degli algoritmi di Clustering}{62}
+\contentsline {section}{\numberline {4.4}Analisi dei risultati}{63}
+\contentsline {subsection}{\numberline {4.4.1}cs.illinois.edu}{63}
+\contentsline {subsubsection}{Random Walk}{63}
+\contentsline {subsubsection}{Testo}{64}
+\contentsline {subsubsection}{Combinato}{64}
+\contentsline {subsection}{\numberline {4.4.2}cs.ox.ac.uk}{65}
+\contentsline {subsubsection}{Random Walk}{65}
 \contentsline {subsubsection}{Testo}{65}
-\contentsline {subsubsection}{Combinato}{65}
-\contentsline {subsection}{\numberline {4.4.2}cs.ox.ac.uk}{66}
+\contentsline {subsubsection}{Combinato}{66}
+\contentsline {subsection}{\numberline {4.4.3}cs.priceton.edu}{66}
 \contentsline {subsubsection}{Random Walk}{66}
-\contentsline {subsubsection}{Testo}{66}
+\contentsline {subsubsection}{Testo}{67}
 \contentsline {subsubsection}{Combinato}{67}
-\contentsline {subsection}{\numberline {4.4.3}cs.priceton.edu}{67}
-\contentsline {subsubsection}{Random Walk}{67}
-\contentsline {subsubsection}{Testo}{68}
-\contentsline {subsubsection}{Combinato}{68}
-\contentsline {subsection}{\numberline {4.4.4}cs.stanford.edu}{69}
-\contentsline {subsubsection}{Random Walk}{69}
-\contentsline {subsubsection}{Testo}{70}
-\contentsline {subsubsection}{Combinato}{70}
-\contentsline {section}{\numberline {4.5}Considerazioni finali sui risultati}{70}
-\contentsline {chapter}{\numberline {5}Conclusioni e sviluppi futuri}{113}
+\contentsline {subsection}{\numberline {4.4.4}cs.stanford.edu}{68}
+\contentsline {subsubsection}{Random Walk}{68}
+\contentsline {subsubsection}{Testo}{69}
+\contentsline {subsubsection}{Combinato}{69}
+\contentsline {section}{\numberline {4.5}Considerazioni finali sui risultati}{69}
+\contentsline {chapter}{\numberline {5}Conclusioni e sviluppi futuri}{112}

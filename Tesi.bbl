@@ -1,9 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{cinecadatamining}
-Cos'{\`e} il data mining.
-\newblock Cineca.
-
 \bibitem{Anami}
 B.~S. Anami, R.~S. Wadawadagi, and V.~B. Pagi.
 \newblock Machine learning techniques in web content mining: A comparative
@@ -137,6 +133,11 @@ C.~X. Lin, Y.~Yu, J.~Han, and B.~Liu.
 \newblock In {\em Proceedings of the 14th Pacific-Asia Conference on Advances
   in Knowledge Dis- covery and Data Mining}, pages 222--229, 2010.
 
+\bibitem{mikolov}
+Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean.
+\newblock Efficient estimation of word representations in vector space.
+\newblock {\em CoRR}.
+
 \bibitem{mikolov13}
 Tomas Mikolov, Wen tau Yih, and Geoffrey Zweig.
 \newblock Linguistic regularities in continuous space word representations.
@@ -150,11 +151,6 @@ Dharmendra~S. Modha and W.~Scott Spangler.
 \newblock Clustering hypertext with applications to web searching.
 \newblock In {\em Proceedings of the Eleventh ACM on Hypertext and Hypermedia},
   number~10 in HYPERTEXT '00, pages 143--152, New York, NY, USA, 2000. ACM.
-
-\bibitem{mikolov}
-Efficient~Estimation of~Word Representations~in Vector~Space.
-\newblock Mikolov, tomas and chen, kai and corrado, greg and dean, jeffrey.
-\newblock {\em CoRR}.
 
 \bibitem{crawling}
 Christopher Olston and Marc Najork.

@@ -1,11 +1,6 @@
 Il Clustering delle pagine di un sito Web è un processo fondamentale nel Web Mining per valutare l'interazione tra le pagine, organizzare i contenuti del sito e capire come questo sia stato strutturato. 
 \\
-Una pagina Web è composta da varie proprietà che la caratterizza e la diversifica dalle altre. Nello specifico, una pagina di un sito è composta da:
-\begin{itemize}
-	\item \textbf{Rappresentazione testuale}. Il testo è una componente fondamentale di una pagina Web, poiché ha come scopo il trasferimento dell'informazione: durante la navigazione, l'utente estrapola conoscenza semplicemente leggendo il contenuto testuale delle pagine che visita.
-	\item \textbf{Rappresentazione visuale}. Quando una pagina Web viene renderizzata da un browser, viene applicato uno stile di formattazione visuale, chiamato CSS, che definisce gli elementi della pagina Web come contenitori rettangolari che sono disposti o uno dopo l'altro o annidati tra loro formando un albero chiamato \texttt{Rendered Box Tree}. L'albero in questione è differente dalla struttura della pagina definita dai tag HTML poiché una pagina può essere ricca di elementi invisibili, come il tag $<$head$>$ o da elementi aventi come stile $display:none$. Inoltre, la generazione del rendered box tree richiede l'esecuzione di codice JavaScript e CSS.
-	\item \textbf{Rappresentazione strutturale}. Questa è composta da elementi Web inscritti in tag HTML ed organizzata ad albero. I tag HTML possono essere applicati a porzioni di testo, hyperlink e dati multimediali per fornire loro un significato ed una renderizzazione differente della pagina da parte del browser.
-\end{itemize}
+Una pagina Web è composta da varie proprietà che la caratterizza e la diversifica dalle altre e che dipendono dalle diverse rappresentazioni della stessa (Sezione \ref{webpagerapresentation}).
 Attualmente, gli esistenti algoritmi di Clustering sfruttano le proprietà delle pagine Web per assegnare, ad ognuna di esse, un gruppo. Ma l'utilizzo di queste caratteristiche avviene in maniera indipendente, poiché esse sono difficili da combinare.
 \\\\
 In questa tesi si approfondiscono tecniche e metodologie per sfruttare a pieno le proprietà delle pagine di un sito Web per permettere la generazione di cluster di pagine più omogenei. Si è cercato di capire come combinare queste informazioni in un singolo spazio vettoriale.
@@ -22,7 +17,7 @@ Le proprietà che caratterizzano le pagine Web rendono complicato il processo di 
 \\
 La ragione principale dell'uso dei crawler è che il World Wide Web non è un contenitore centralizzato: può essere visto, infatti, come un insieme di siti Web che forniscono differenti servizi.
 \\\\
-L'algoritmo di crawling è relativamente semplice: dato un insieme di URL di pagine Web, vengono scaricate tutte le pagine associate all'indirizzo URL, estratti gli hyperlinks e, iterativamente, scaricate le pagine associate a questi link. Il loro contenuto verrà analizzato e salvato per essere successivamente indicizzato. Nonostante l'apparente semplicità di questo algoritmo, l'attività di Web crawling è caratterizzata da obiettivi inerenti \cite{crawling}:
+L'algoritmo di Crawling è relativamente semplice: dato un insieme di URL di pagine Web, vengono scaricate tutte le pagine associate all'indirizzo URL, estratti gli hyperlinks e, iterativamente, scaricate le pagine associate a questi link. Il loro contenuto verrà analizzato e salvato per essere successivamente indicizzato. Nonostante l'apparente semplicità di questo algoritmo, l'attività di Web crawling è caratterizzata da obiettivi inerenti \cite{crawling}:
 \begin{itemize}
 	\item \textbf{Scalabilità}. Il Web è molto grande e in continua evoluzione. I crawler che cercano una copertura ampia ed aggiornata devono raggiungere throughput (prestazioni) estremamente alti. Per riuscirci, bisogna risolvere problematiche ingegneristiche complesse. I moderni motori di ricerca impiegano migliaia di computer e decide di collegamenti di rete ad alta velocità.
 	\item \textbf{Compromessi di selezione dei contenuti}. Persino i crawler con un alto throughput non sono in grado di scandire l'intero Web o tenere traccia di tutti i cambiamenti. Per questo, il processo di crawling viene effettuato in maniera selettiva con un attento e controllato ordine. Gli obiettivi sono di acquisire velocemente i contenuti aventi un alto valore, di assicurare la copertura di tutti i contenuti scelti, di ignorare quelli a bassa qualità, irrilevanti, ridondanti e dannosi e di mantenerli aggiornati. Il Crawler deve rispettare alcuni vincoli come il numero massimo di visite per sito e le pagine da scartare durante l'analisi.
@@ -43,8 +38,6 @@ Ai fini sperimentali è stato utilizzato un Web Crawler che estrae gli hyperlink 
 Un sito Web può essere formalmente descritto come un grafo orientato $G = (V, E)$, dove $V$ è l'insieme delle pagine appartenenti al sito ed $E$ è l'insieme degli hyperlink. In molti casi, la homepage $h$ di un sito rappresenta il punto di inizio, tecnicamente espresso come un grafo orientato radicato (albero), che consente l'esplorazione da parte degli utenti.
 \\\\
 Il grafo del sito Web può essere ricco di link rumore (e.g. hyperlink scorciatoia) che non sono rilevanti nel processo di Clustering \cite{crescenzi} e vengono esclusi dal Crawling. In più, la struttura del sito Web è codificata in sistemi di navigazione che offrono una visuale della sua organizzazione. Questi sistemi vengono implementati come collezioni di link che hanno lo stesso dominio e condividono il layout e le proprietà visuali.
-
-\newpage
 
 \begin{algorithm}[h]
 	\caption{crawlingWebsite(homepage)}
@@ -203,6 +196,7 @@ Con quest'altra modalità si ha una partenza fissata. Si parte, quindi, da un nod
 Questo è il caso in cui si può eseguire uno delle due tipologie di Random Walks viste in precedenza, ma aventi il vincolo delle liste: l'algoritmo, quindi, opererà solo su un sottoinsieme di quello prodotto dalla metodologia scelta.
 
 \section{Modifica dell'implementazione di Word2Vec}
+\label{modifiedSkipgram}
 Un aspetto particolare preso in considerazione in questa tesi è stato quello di chiedersi se, modificando in maniera opportuna l'algoritmo di Word Embedding Word2Vec, si potesse avere un miglioramento nel processo di Clustering delle pagine del grafo del sito Web in analisi.
 \\
 Per rispondere a questa domanda, si è deciso di analizzare e modificare il modello di apprendimento di Word2Vec Skip-Gram della libreria \texttt{deeplearning4j}. Questo modello consiste nel predire il contesto a partire da una parola. Per una argomentazione più approfondita si veda la Sezione \ref{word2vec}.

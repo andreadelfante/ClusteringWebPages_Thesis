@@ -1,25 +1,25 @@
 \select@language {italian}
 \select@language {italian}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Categorie di Web Mining\relax }}{6}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Esempi di spazi di parole, rispettivamente mono-dimensionale (1) e bi-dimensionale (2)\relax }}{9}
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Frase di esempio per la matrice di co-occorrenze \cite {wordspacemodel}\relax }}{10}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Categorie di Web Mining\relax }}{5}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Esempi di spazi di parole, rispettivamente mono-dimensionale (1) e bi-dimensionale (2)\relax }}{8}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Frase di esempio per la matrice di co-occorrenze \cite {wordspacemodel}\relax }}{9}
 \contentsline {figure}{\numberline {1.4}{\ignorespaces Esempio di grafico di dispersione\relax }}{12}
 \contentsline {figure}{\numberline {1.5}{\ignorespaces Esempio di spazio degli embeddings\relax }}{13}
-\contentsline {figure}{\numberline {1.6}{\ignorespaces I modelli di apprendimento di Word2Vec\relax }}{15}
+\contentsline {figure}{\numberline {1.6}{\ignorespaces I modelli di apprendimento di Word2Vec\relax }}{14}
 \contentsline {figure}{\numberline {1.7}{\ignorespaces Un esempio di grafo/network di informazioni \cite {tang2015line}\relax }}{18}
-\contentsline {figure}{\numberline {1.8}{\ignorespaces Prossimit\`a di tipo Single-link\relax }}{22}
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Prossimit\`a di tipo Single-link\relax }}{21}
 \contentsline {figure}{\numberline {1.9}{\ignorespaces Prossimit\`a di tipo Average-link\relax }}{22}
-\contentsline {figure}{\numberline {1.10}{\ignorespaces Prossimit\`a di tipo Complete-link\relax }}{23}
+\contentsline {figure}{\numberline {1.10}{\ignorespaces Prossimit\`a di tipo Complete-link\relax }}{22}
 \contentsline {figure}{\numberline {1.11}{\ignorespaces Distanza tra centroidi\relax }}{23}
-\contentsline {figure}{\numberline {1.12}{\ignorespaces Esempio di clustering utilizzando K-Means\relax }}{25}
-\contentsline {figure}{\numberline {1.13}{\ignorespaces Principio su cui si basa DBScan\relax }}{26}
+\contentsline {figure}{\numberline {1.12}{\ignorespaces Esempio di Clustering utilizzando K-Means\relax }}{24}
+\contentsline {figure}{\numberline {1.13}{\ignorespaces Principio su cui si basa DBScan\relax }}{25}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Architettura di un web crawler\relax }}{36}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Esempio di liste Web\relax }}{39}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Esempio di otto Random Walks in una dimensione\relax }}{41}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Esempio di Random Walks in due dimensioni\relax }}{42}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Esempio di Random Walks in tre dimensioni\relax }}{43}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Architettura di un web crawler\relax }}{35}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Esempio di liste Web\relax }}{38}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Esempio di otto Random Walks in una dimensione\relax }}{40}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Esempio di Random Walks in due dimensioni\relax }}{41}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Esempio di Random Walks in tre dimensioni\relax }}{42}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
