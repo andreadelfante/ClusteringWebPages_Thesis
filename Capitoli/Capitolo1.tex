@@ -458,7 +458,7 @@ Nei casi precedenti, $d(x, y)$ indica una qualsiasi funzione distanza, su uno sp
 \end{itemize}
 
 \subsection{Algoritmi usati}
-\label{Clusteringexperimentation}
+\label{clusteringexperimentation}
 In questa sezione vengono descritti gli algoritmi di Clustering usati in questa tesi, che sono stati applicati per raggruppare pagine di un sito Web. Questi algoritmi si basano sulla rappresentazione vettoriale delle pagine (Sezione \ref{webpagerapresentation}) per assegnare gli elementi ad un Cluster.
 
 \paragraph{K-Means}
@@ -492,9 +492,10 @@ In HDBScan, invece, si parte in maniera simile a DBScan: lo spazio viene trasfor
 Questo algoritmo è molto efficace ed è più veloce sia di DBScan che di K-Means.
 
 \section{Obiettivi della tesi}
+\label{aimthesis}
 Questa tesi ha due obiettivi:
 \begin{enumerate}
-	\item Capire se, combinando diverse rappresentazioni di cui una pagina Web si compone in uno spazio vettoriale al fine di applicare i tradizionali algoritmi di Clustering, vi è un miglioramento della qualità dei Cluster prodotti.
+	\item Capire se, combinando diverse rappresentazioni di cui una pagina Web si compone in uno spazio vettoriale, al fine di applicare i tradizionali algoritmi di Clustering, vi è un miglioramento della qualità dei Cluster prodotti.
 	
-	\item Verificare che, se analizzando la topologia del grafo del sito Web e dando più importanza a pagine vicino alla homepage, si ottengono risultati migliori rispetto all'approccio che analizza tutte le pagine come ugualmente importanti. La modifica applicata verrà discussa nella Sezione \ref{modifiedSkipgram}.
+	\item Verificare che, analizzando la topologia del grafo del sito Web e dando più importanza a pagine vicino alla homepage, si ottengono risultati migliori rispetto all'approccio che analizza tutte le pagine come ugualmente importanti. La modifica applicata verrà discussa nella Sezione \ref{modifiedSkipgram}.
 \end{enumerate}

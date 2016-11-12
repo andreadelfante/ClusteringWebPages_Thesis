@@ -169,6 +169,13 @@ N.~V. Pardakhe and R.~R. Prof.~Keole.
   mining.
 \newblock 2:6, 2013.
 
+\bibitem{deepwalk}
+B.~Perozzi, R.~Al-Rfou, and S.~Skiena.
+\newblock Deepwalk: Online learning of social representations.
+\newblock In {\em Proceedings of the 20th ACM SIGKDD International Conference
+  on Knowledge Discovery and Data Mining}, pages 701--710, New York, NY, USA,
+  2014. ACM.
+
 \bibitem{vmeasure}
 Andrew Rosenberg and Julia Hirschberg.
 \newblock V-measure: A conditional entropy-based external cluster evaluation
@@ -213,11 +220,6 @@ Pang-Ning Tan, Michael Steinbach, and Vipin Kumar.
 Jian Tang, Meng Qu, Mingzhe Wang, Ming Zhang, Jun Yan, and Qiaozhu Mei.
 \newblock Line: Large-scale information network embedding.
 \newblock In {\em WWW}. ACM, 2015.
-
-\bibitem{live-2934-4846-jair}
-Peter~D. Turney and Patrick Pantel.
-\newblock From frequency to meaning: Vector space models of semantics.
-\newblock {\em Journal of Artificial Intelligence Research}, 37:141--188, 2010.
 
 \bibitem{612259}
 Lita Van~Wel and Lamb\`{e}r Royakkers.

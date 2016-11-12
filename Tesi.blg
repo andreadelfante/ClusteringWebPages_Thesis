@@ -18,43 +18,43 @@ Warning--empty publisher in webmining21cap
 Warning--empty year in webmining21cap
 You've used 41 entries,
             2118 wiz_defined-function locations,
-            760 strings with 11960 characters,
-and the built_in function-call counts, 16158 in all, are:
-= -- 1604
-> -- 713
-< -- 31
-+ -- 283
-- -- 238
-* -- 1121
-:= -- 2517
-add.period$ -- 133
+            759 strings with 12000 characters,
+and the built_in function-call counts, 16325 in all, are:
+= -- 1624
+> -- 718
+< -- 32
++ -- 285
+- -- 240
+* -- 1129
+:= -- 2533
+add.period$ -- 134
 call.type$ -- 41
-change.case$ -- 238
+change.case$ -- 239
 chr.to.int$ -- 0
 cite$ -- 54
-duplicate$ -- 683
-empty$ -- 1271
-format.name$ -- 238
-if$ -- 3578
+duplicate$ -- 695
+empty$ -- 1284
+format.name$ -- 240
+if$ -- 3626
 int.to.chr$ -- 0
 int.to.str$ -- 41
 missing$ -- 42
 newline$ -- 205
 num.names$ -- 82
-pop$ -- 274
+pop$ -- 279
 preamble$ -- 1
-purify$ -- 201
+purify$ -- 202
 quote$ -- 0
-skip$ -- 520
+skip$ -- 530
 stack$ -- 0
-substring$ -- 958
-swap$ -- 234
-text.length$ -- 31
+substring$ -- 965
+swap$ -- 243
+text.length$ -- 32
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 156
 warning$ -- 13
-while$ -- 138
+while$ -- 139
 width$ -- 43
-write$ -- 476
+write$ -- 478
 (There were 13 warnings)

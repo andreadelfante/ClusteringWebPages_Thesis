@@ -1,42 +1,38 @@
-Il Clustering delle pagine di un sito Web è un processo fondamentale nel Web Mining per valutare l'interazione tra le pagine, organizzare i contenuti del sito e capire come questo sia stato strutturato. 
+Il Clustering delle pagine di un sito Web è un processo fondamentale nel Web Mining utile a valutare l'interazione tra le pagine, organizzare i contenuti del sito e capire come questo sia stato strutturato. 
 \\
-Una pagina Web è composta da varie proprietà che la caratterizza e la diversifica dalle altre e che dipendono dalle diverse rappresentazioni della stessa (Sezione \ref{webpagerapresentation}).
-Attualmente, gli esistenti algoritmi di Clustering sfruttano le proprietà delle pagine Web per assegnare, ad ognuna di esse, un gruppo. Ma l'utilizzo di queste caratteristiche avviene in maniera indipendente, poiché esse sono difficili da combinare.
-\\\\
-In questa tesi si approfondiscono tecniche e metodologie per sfruttare a pieno le proprietà delle pagine di un sito Web per permettere la generazione di cluster di pagine più omogenei. Si è cercato di capire come combinare queste informazioni in un singolo spazio vettoriale.
-\\\\
-Nelle sottosezioni che seguono si descrivono i passi che sono stati effettuati per pianificare ed eseguire la metodologia. Nello specifico, sono state applicate tre operazioni principali:
+Una pagina Web è composta da varie rappresentazioni (Sezione \ref{webpagerapresentation}) che la caratterizzano e la diversificano dalle altre. Attualmente, queste proprietà vengono sfruttate dagli algoritmi di Clustering in maniera indipendente.
+\\
+Gli obiettivi di questa tesi, descritti nella Sezione \ref{aimthesis}, sono stati raggiunti mediante l'utilizzo di una metodologia composta da 3 passi:
 \begin{itemize}
-	\item \textit{Crawling delle pagine Web}
+	\item \textit{Crawling del sito Web},
 	\item \textit{Costruzione del Dataset}
 	\item \textit{Clustering delle pagine Web}
 \end{itemize}
+Di seguito, si descrivono in dettaglio le fasi della metodologia.
 
 \section{Web Crawling}
 Le proprietà che caratterizzano le pagine Web rendono complicato il processo di estrazione di informazioni, soprattutto nel caso in cui i contenuti vengono generati dinamicamente. Per analizzare i contenuti della rete e delle pagine Web si utilizza un software automatizzato chiamato Web Crawler. Tipicamente, questo programma viene usato per molti altri scopi, come l'indicizzazione di pagine Web. I motori di ricerca sfruttano tali indici per aumentare l'efficienza delle interrogazioni che gli utenti effettuano durante la navigazione.
 \\
-La ragione principale dell'uso dei crawler è che il World Wide Web non è un contenitore centralizzato: può essere visto, infatti, come un insieme di siti Web che forniscono differenti servizi.
+La ragione principale dell'uso dei Crawler è che il World Wide Web non è un contenitore centralizzato: può essere visto, infatti, come un insieme di siti Web che forniscono differenti servizi.
 \\\\
-L'algoritmo di Crawling è relativamente semplice: dato un insieme di URL di pagine Web, vengono scaricate tutte le pagine associate all'indirizzo URL, estratti gli hyperlinks e, iterativamente, scaricate le pagine associate a questi link. Il loro contenuto verrà analizzato e salvato per essere successivamente indicizzato. Nonostante l'apparente semplicità di questo algoritmo, l'attività di Web crawling è caratterizzata da obiettivi inerenti \cite{crawling}:
+L'algoritmo di Crawling è relativamente semplice: dato un insieme di URL di pagine Web, vengono scaricate tutte le pagine associate all'indirizzo URL, estratti gli hyperlinks e, iterativamente, scaricate le pagine associate a questi link. Il loro contenuto verrà analizzato e salvato per essere successivamente indicizzato. Nonostante l'apparente semplicità di questo algoritmo, l'attività di Web Crawling è caratterizzata da obiettivi inerenti \cite{crawling}:
 \begin{itemize}
-	\item \textbf{Scalabilità}. Il Web è molto grande e in continua evoluzione. I crawler che cercano una copertura ampia ed aggiornata devono raggiungere throughput (prestazioni) estremamente alti. Per riuscirci, bisogna risolvere problematiche ingegneristiche complesse. I moderni motori di ricerca impiegano migliaia di computer e decide di collegamenti di rete ad alta velocità.
-	\item \textbf{Compromessi di selezione dei contenuti}. Persino i crawler con un alto throughput non sono in grado di scandire l'intero Web o tenere traccia di tutti i cambiamenti. Per questo, il processo di crawling viene effettuato in maniera selettiva con un attento e controllato ordine. Gli obiettivi sono di acquisire velocemente i contenuti aventi un alto valore, di assicurare la copertura di tutti i contenuti scelti, di ignorare quelli a bassa qualità, irrilevanti, ridondanti e dannosi e di mantenerli aggiornati. Il Crawler deve rispettare alcuni vincoli come il numero massimo di visite per sito e le pagine da scartare durante l'analisi.
-	\item \textbf{Obblighi sociali}. I crawler dovrebbero essere dei "buoni cittadini" del Web: non devono sovraccaricare i siti che scandiscono. Infatti, senza i giusti meccanismi, un throughput alto può inavvertitamente provocare un attacco Denial of Service (DOS), sovraccaricando il server Web rendendolo inaccessibile.
-	\item \textbf{Avversari}. Alcuni siti Web cercano di iniettare contenuti inutili o fuorvianti nel corpus assemblato dai crawler. Questo comportamento è spesso motivato da incentivi finanziari, per esempio per indirizzare male il traffico verso siti commerciali.
+	\item \textbf{Scalabilità}. Il Web è molto grande e in continua evoluzione. I Crawler che cercano una copertura ampia ed aggiornata devono raggiungere throughput (prestazioni) estremamente alti. Per riuscirci, bisogna risolvere problematiche ingegneristiche complesse. I moderni motori di ricerca impiegano migliaia di computer e decine di collegamenti di rete ad alta velocità.
+	\item \textbf{Compromessi per la selezione dei contenuti}. Persino i Crawler con un alto throughput non sono in grado di scandire l'intero Web o tenere traccia di tutti i cambiamenti. Per questo, il processo di Crawling viene effettuato in maniera selettiva con un attento e controllato ordine. Gli obiettivi sono di acquisire velocemente i contenuti aventi un alto valore, di assicurare la copertura di tutti i contenuti scelti, di ignorare quelli a bassa qualità, irrilevanti, ridondanti e dannosi e di mantenerli aggiornati. Il Crawler deve rispettare alcuni vincoli come il numero massimo di visite per sito e le pagine da scartare durante l'analisi.
+	\item \textbf{Obblighi sociali}. I Crawler dovrebbero essere dei "buoni cittadini" del Web: non devono sovraccaricare i siti che scandiscono. Infatti, senza i giusti meccanismi, un throughput alto può inavvertitamente provocare un attacco Denial of Service (DOS), sovraccaricando il server Web e rendendolo inaccessibile.
+	\item \textbf{Avversari}. Alcuni siti Web cercano di iniettare contenuti inutili o fuorvianti nel corpus assemblato dai Crawler. Questo comportamento è spesso motivato da incentivi finanziari, per esempio per indirizzare male il traffico verso siti commerciali.
 \end{itemize}
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width = 100mm]{WebCrawlerArchitecture}
-	\caption{Architettura di un web crawler}
+	\includegraphics[width = 75mm]{WebCrawlerArchitecture}
+	\caption{Architettura di un web Crawler}
 	\label{crawlerarchitecture}
 \end{figure}
 
 \subsection{Crawling delle pagine di un sito Web}
-Ai fini sperimentali è stato utilizzato un Web Crawler che estrae gli hyperlink di un sito Web per effettuare successivamente l'operazione di Clustering delle pagine associate a tale sito.
-\\\\
-Un sito Web può essere formalmente descritto come un grafo orientato $G = (V, E)$, dove $V$ è l'insieme delle pagine appartenenti al sito ed $E$ è l'insieme degli hyperlink. In molti casi, la homepage $h$ di un sito rappresenta il punto di inizio, tecnicamente espresso come un grafo orientato radicato (albero), che consente l'esplorazione da parte degli utenti.
-\\\\
+Ai fini sperimentali è stato utilizzato un Web Crawler che estrae gli hyperlink di un sito Web per effettuare successivamente l'operazione di Clustering delle pagine associate a tale sito. Un sito Web può essere formalmente descritto come un grafo orientato $G = (V, E)$, dove $V$ è l'insieme delle pagine appartenenti al sito ed $E$ è l'insieme degli hyperlink. In molti casi, la homepage $h$ di un sito rappresenta il punto di inizio, tecnicamente espresso come un grafo orientato radicato (albero), che consente l'esplorazione da parte degli utenti.
+\\
 Il grafo del sito Web può essere ricco di link rumore (e.g. hyperlink scorciatoia) che non sono rilevanti nel processo di Clustering \cite{crescenzi} e vengono esclusi dal Crawling. In più, la struttura del sito Web è codificata in sistemi di navigazione che offrono una visuale della sua organizzazione. Questi sistemi vengono implementati come collezioni di link che hanno lo stesso dominio e condividono il layout e le proprietà visuali.
 
 \begin{algorithm}[h]
@@ -72,11 +68,9 @@ La soluzione utilizzata per indicizzare un sito Web è stata quella di sfruttare 
 \\
 Per definizione, una lista Web è una collezione di due o più elementi web che hanno struttura HTML simile, visualmente adiacenti ed allineati sulla pagina renderizzata. Questo allineamento può essere visto sia lungo l'asse x (i.e. una lista verticale), sia lungo l'asse y (i.e. una lista orizzontale), o ancora in maniera mista (i.e. griglia).
 
-\newpage
-
 \begin{figure}[h]
 	\centering
-	\includegraphics[width = 100mm]{weblistexample}
+	\includegraphics[width = 75mm]{weblistexample}
 	\caption{Esempio di liste Web}
 	\label{weblistfigure}
 \end{figure}
@@ -84,9 +78,7 @@ Per definizione, una lista Web è una collezione di due o più elementi web che ha
 In Figura \ref{weblistfigure} vengono mostrate le liste Web, usate per guidare il processo di Crawling.
 
 \subsection{Normalizzazione degli URL}
-Una volta effettuato il processo di Crawling ed estratti gli URL, si è proceduto alla normalizzazione degli stessi.
-\\
-Questo è un processo in cui gli URL vengono modificati e standardizzati in maniera consistente. Il suo obiettivo è poter determinare se due URL, che sono sintatticamente differenti, possono essere equivalenti.
+Una volta effettuato il processo di Crawling ed estratti gli URL, si è proceduto alla normalizzazione degli stessi. Questo è un processo in cui gli URL vengono modificati e standardizzati in maniera consistente. Il suo obiettivo è poter determinare se due URL, che sono sintatticamente differenti, possono essere equivalenti.
 \\
 I Crawler effettuano un qualche tipo di normalizzazione degli URL in modo da evitare che il processo di Crawling non vada ad analizzarli più volte.
 \\\\
@@ -101,40 +93,41 @@ I Crawler effettuano un qualche tipo di normalizzazione degli URL in modo da evi
 La normalizzazione di URL, come si evince dagli esempi sopra riportati, può comprendere sia la rimozione del protocollo ("http://") e della stringa "www", oppure la sostituzione dell'indirizzo IP con il nome del dominio. E' bene sottolineare come le due coppie in analisi puntino a due siti Web, rispettivamente \textit{Facebook} ed \textit{example}.
 \\
 Ci sono diverse modalità di normalizzazione che possono essere effettuate, fra cui la conversione degli URL in minuscolo e la rimozione del "." e ".." per portare gli URL da assoluti a relativi, aggiungere slash finali al componente di percorso non vuoto.
-\\\\
+\\
 Per la sperimentazione si è scelto di normalizzare gli URL eliminando la dicitura del protocollo ("http://" o "https://"), del "www" e dello slash finale.
 
 \section{Costruzione del dataset}
-Il crawler, a seguito dell'analisi del sito, ha prodotto un grafo delle pagine Web ed il contenuto testuale di ogni pagina esplorata. Il grafo del sito Web servirà per generare le sequenze attraverso i Random Walks.
+Il Crawler, a seguito dell'analisi del sito, produce un grafo delle pagine Web ed il contenuto testuale di ogni pagina esplorata. Il grafo del sito Web servirà per generare le sequenze attraverso i Random Walks.
 \\
-Per ridurre lo spazio in memoria e i tempi di elaborazione, è stato associato ad ogni URL un codice univoco, che permette l'identificazione dello stesso.
+Di seguito verrà spiegato il concetto di Random Walk e come questi sono stati utilizzati ai fini della sperimentazione.
 
 \subsection{Random Walks}
+\label{randomwalkssection}
 Un Random Walk, o passeggiata aleatoria, è la formalizzazione dell'idea di effettuare passi successivi in direzioni casuali. Dal punto di vista matematico è il processo stocastico più semplice, ovvero quello markoviano, nel quale la probabilità che determina il passaggio ad uno stato, dipende solo dallo stato immediatamente precedente, e non dal come si è giunti a tale stato.
 \\\\
 In una passeggiata aleatoria monodimensionale si studia il moto di una particella puntiforme vincolata a muoversi lungo una retta nelle due direzioni consentite. Ad ogni movimento, questa si sposta a caso o a destra, con una probabilità fissata \textbf{p}, oppure a sinistra, con una probabilità \textbf{1 - p}, ed ogni passo è di lunghezza uguale e indipendente dagli altri.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width = 120mm]{randomwalkmono}
+	\includegraphics[width = 65mm]{randomwalkmono}
 	\caption{Esempio di otto Random Walks in una dimensione}
 	\label{randomwalkmono}
 \end{figure}
 
-In una passeggiata aleatoria bidimensionale si studia il moto di una particella vincolata a muoversi sul piano spostandosi casualmente ad ogni passo a destra, a sinistra, in alto o in basso con probabilità \textbf{1/2}. Praticamente, ad ogni passo, la particella può compiere un movimento lungo una delle quattro diagonali con probabilità \textbf{1/4}. Ma qual è la probabilità che la particella torni al punto di partenza? In questo caso, la particella, che è libera di camminare casualmente con uguale probabilità nelle quattro direzioni, tornerà infinite volte al punto di partenza.
+In una passeggiata aleatoria bidimensionale si studia il moto di una particella vincolata a muoversi sul piano spostandosi casualmente ad ogni passo a destra, a sinistra, in alto o in basso con probabilità \textbf{1/2}. In particolare, ad ogni passo, la particella può compiere un movimento lungo una delle quattro diagonali con probabilità \textbf{1/4}. Ma qual è la probabilità che la particella torni al punto di partenza? In questo caso, la particella, che è libera di camminare casualmente con uguale probabilità nelle quattro direzioni, tornerà infinite volte al punto di partenza.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width = 120mm]{randomwalkbi}
+	\includegraphics[width = 65mm]{randomwalkbi}
 	\caption{Esempio di Random Walks in due dimensioni}
 	\label{randomwalkbi}
 \end{figure}
 
-In una passeggiata aleatoria tridimensionale si studia il moto di una particella vincolata a muoversi nello spazio spostandosi casualmente ad ogni passo a destra, a sinistra, in alto, in basso, in su o in giù con probabilità \textbf{1/2}. In pratica ad ogni passo può compiere un movimento lungo una delle otto diagonali con probabilità \textbf{1/8}. Come nel caso precedente, è stata calcolata la probabilità che la particella torni prima o poi al punto di partenza ed è pari a \textbf{0,239}.
+In una passeggiata aleatoria tridimensionale si studia il moto di una particella vincolata a muoversi nello spazio spostandosi casualmente ad ogni passo a destra, a sinistra, in alto, in basso, in su o in giù con probabilità \textbf{1/2}. In pratica, ad ogni passo può compiere un movimento lungo una delle otto diagonali con probabilità \textbf{1/8}. Come nel caso precedente, è stata calcolata la probabilità che la particella torni prima o poi al punto di partenza ed è pari a \textbf{0,239}.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width = 120mm]{randomwalktri}
+	\includegraphics[width = 65mm]{randomwalktri}
 	\caption{Esempio di Random Walks in tre dimensioni}
 	\label{randomwalktri}
 \end{figure}
@@ -149,9 +142,9 @@ Il concetto di Random Walk è stato applicato nei campi più disparati, alcuni dei
 \end{itemize}
 
 \subsection{Generazione delle sequenze}
-Una passeggiata aleatoria sulla struttura ad hyperlink di un sito Web si basa sull'idea che le connessione tra nodi (i.e. le pagine del sito) presentano delle informazioni latenti circa la loro correlazione. Per catturarle si è deciso di utilizzare un Random Walker, una componente incaricata di effettuare le passeggiate aleatorie sul grafo di un sito Web. Questa scelta è motivata dal fatto che le metodologie selettive per esplorare un sito Web, che derivano dalla teoria dei grafi, prevedono l'esplorazione di tutte le possibili opzioni per arrivare alla soluzione. Ma tali tecniche sono difficilmente computabili in quanto ricadono nella classe di complessità NP-completa.
+Una passeggiata aleatoria sulla struttura ad hyperlink di un sito Web si basa sull'idea che le connessioni tra nodi (i.e. le pagine del sito) presentano delle informazioni latenti circa la loro correlazione. Per catturarle si è deciso di utilizzare un Random Walker, una componente incaricata di effettuare le passeggiate aleatorie sul grafo di un sito Web. Questa scelta è motivata dal fatto che le metodologie selettive per esplorare un sito Web, che derivano dalla teoria dei grafi, prevedono l'esplorazione di tutte le possibili opzioni per arrivare alla soluzione. Ma tali tecniche sono difficilmente computabili in quanto ricadono nella classe di complessità NP-completa.
 \\
-Il Random Walker, anche se permette di avere buone approssimazioni nell'esplorazione del grafo del sito, presenta una problematica: potrebbe capitare che la pagina che sta analizzando non presenta link al suo interno. La soluzione più diffusa è quella di effettuare un "salto" verso una qualsiasi altra pagina. Nel nostro caso, invece, dato che le sequenze da generare devono avere una lunghezza massima fissata prima della generazione, se l'attraversatore casuale incontra una pagina priva di hyperlink allora si blocca semplicemente. La sequenza finale quindi, risulterà più piccola. Questa scelta è stata presa poiché l'informazione cercata nasce da percorsi reali di navigazione e non vi è la necessità di una lunghezza obbligatoria da rispettare, in quanto le sequenze possono essere viste come frasi di un testo, dove le parole sono gli URL.
+Il Random Walker, anche se permette di avere buone approssimazioni nell'esplorazione del grafo del sito, presenta una problematica: potrebbe capitare che la pagina che sta analizzando non presenta link al suo interno. La soluzione più diffusa è quella di effettuare un "salto" verso una qualsiasi altra pagina. Nel nostro caso, invece, dato che le sequenze da generare devono avere una lunghezza massima fissata prima della generazione, se l'attraversatore casuale incontra una pagina priva di hyperlink allora si blocca semplicemente. La sequenza finale quindi, risulterà più piccola. Questa scelta è stata presa poiché l'informazione cercata nasce da percorsi reali di navigazione. Inoltre non vi è la necessità di una lunghezza obbligatoria da rispettare, in quanto le sequenze possono essere viste come frasi di un testo, dove le parole sono gli URL.
 
 \begin{algorithm}[h]
 	\caption{rwrGeneration(rwrLength, dbLength, G, $\alpha$)}
@@ -186,16 +179,19 @@ Il Random Walker, anche se permette di avere buone approssimazioni nell'esploraz
 
 Per motivi di sperimentazione sono stati implementati tre tipi diversi di Random Walk, utilizzabili modificando i parametri di esecuzione dell'Algoritmo \ref{rwrGeneration}.
 
-\paragraph{Random Walk standard}
-Il caso standard prevede che si parta da un nodo casuale del grafo e si segua ogni volta un arco a caso fra quelli disponibili, fino al raggiungimento della lunghezza prefissata o all'impossibilità di proseguire.
+\begin{itemize}
+	\item \textbf{Random Walk standard}. Il caso standard prevede che si parta da un nodo casuale del grafo e si segua ogni volta un arco a caso fra quelli disponibili, fino al raggiungimento della lunghezza prefissata o all'impossibilità di proseguire.
+	
+	\item \textbf{Random Walk con partenza da homepage}. Con quest'altra modalità si ha una partenza fissata. Si parte, quindi, da un nodo prefissato del grafo, generalmente la homepage del sito Web in analisi, in modo da esplorare più percorsi possibili.
+	
+	\item \textbf{Random Walk attraverso le Liste}. Questo è il caso in cui si può eseguire uno delle due tipologie di Random Walks viste in precedenza, ma aventi il vincolo delle liste: l'algoritmo, quindi, opererà solo su un sottoinsieme di quello prodotto dalla metodologia scelta.
+\end{itemize}
 
-\paragraph{Random Walk con partenza da homepage}
-Con quest'altra modalità si ha una partenza fissata. Si parte, quindi, da un nodo prefissato del grafo, generalmente la homepage del sito Web in analisi, in modo da esplorare più percorsi possibili.
+I Random Walks prodotti sono stati utilizzati come frasi, le cui parole sono i codici univoci degli URL. L'utilizzo di tali codici ha permesso di ridurre lo spazio in memoria e i tempi di elaborazione.
+\\
+Le frasi generate sono state sfruttate da Word2Vec allo scopo di apprendere la struttura del grafo del sito Web.
 
-\paragraph{Random Walk attraverso le Liste}
-Questo è il caso in cui si può eseguire uno delle due tipologie di Random Walks viste in precedenza, ma aventi il vincolo delle liste: l'algoritmo, quindi, opererà solo su un sottoinsieme di quello prodotto dalla metodologia scelta.
-
-\section{Modifica dell'implementazione di Word2Vec}
+\subsection{Modifica dell'implementazione di Word2Vec}
 \label{modifiedSkipgram}
 Un aspetto particolare preso in considerazione in questa tesi è stato quello di chiedersi se, modificando in maniera opportuna l'algoritmo di Word Embedding Word2Vec, si potesse avere un miglioramento nel processo di Clustering delle pagine del grafo del sito Web in analisi.
 \\
@@ -204,10 +200,12 @@ Per rispondere a questa domanda, si è deciso di analizzare e modificare il model
 La modifica di Skip-Gram consiste nel limitare l'apprendimento dell'algoritmo in maniera tale che venga analizzato solo il contesto sinistro, data una parola. E' importante sottolineare, inoltre, come questo modello sia stato ottimizzato con un valore chiamato \textbf{b}, che permette di aumentare o diminuire la finestra di contesto, dando più importanza alle parole più vicine a quella in analisi.
 \\
 Per la sperimentazione sono stati prodotti, quindi, due tipologie di modelli di Skip-Gram che analizzano solo il contesto sinistro: uno che utilizza il valore b ed un'altro che non lo usa.
+\\
+Le frasi prodotte dal Random Walker sono state utilizzate sia per Skip-Gram tradizionale che per le sue versioni modificate.
 
 \subsection{Scaling degli embeddings}
 \label{scaling}
-Una volta prodotti gli spazi vettoriali delle parole, partendo dalle frasi generate dall'algoritmo di Random Walk, sono state analizzate metodologie di Feature Scaling per capire la migliore da usare in questo caso e per effettuare confronti di similarità tra i vettori. 
+Una volta prodotti gli spazi vettoriali delle parole sono state analizzate metodologie di Feature Scaling per capire la migliore da usare per la sperimentazione. 
 \\
 Il Feature Scaling è un metodo usato per standardizzare un intervallo di variabili indipendenti o features di dati. Viene anche chiamato normalizzazione di dati ed è generalmente effettuato nei passi di preprocessing di dati. Non solo, normalizzare i dati significa anche ridurre l'effetto degli Outlier. Il termine Outlier è usato in statistica per definire, in un insieme di osservazioni, un valore anomalo e aberrante: un valore, quindi, chiaramente distante dalle altre osservazioni disponibili. Un numero consistente di Outlier nel campione in analisi può portare a risultati fuorvianti. Per esempio, se misurassimo la temperatura di 10 oggetti presenti in una stanza, la maggior parte dei quali risultasse avere una temperatura compresa fra i 20 e 25 gradi Celsius, allora il forno acceso, avente una temperatura di 350 gradi, sarebbe un dato aberrante.
 \\\\
@@ -239,7 +237,7 @@ L'operazione di Clustering delle pagine di un sito Web, generalmente, può avveni
 \\\\
 Gli hyperlink tra le pagine vengono usati per organizzare i contenuti, puntando a pagine differenti. Il contenuto testuale, data l'ambiguità del linguaggio naturale, può fornire indizi sbagliati e considerare diverse pagine correlate solo per una differente distribuzione dei termini.
 \\\\
-In questa tesi si è scelto di osservare vari approcci per effettuare il Clustering delle pagine di un sito Web, utilizzando varie tipologie di embedding:
+In questa tesi si è scelto di utilizzare algoritmi di Clustering per raggruppare le pagine di un sito Web in base alla loro rappresentazione vettoriale. I vettori utilizzati per l'operazione di Clustering sono:
 \begin{itemize}
 	\item \textbf{Vettori dei link}. Sono state utilizzate tre tipologie di Word2Vec: Skip-Gram che considera solo il contesto sinistro ottimizzato (utilizzando il valore della b) che apprende da sequenze generate da Random Walk partendo dalla homepage; Skip-Gram che considera solo il contesto sinistro non ottimizzato (ignorando la b) che apprende da sequenze generate da Random Walk partendo dalla homepage; Skip-Gram che considera il contesto sia destro sia sinistro che apprende da sequenze generate da Random Walk standard.
 	\\
@@ -355,6 +353,5 @@ cs.stanford.edu/academics	2\\
 cs.stanford.edu/academics/phd	2\\
 cs.stanford.edu/admissions	3\\
 cs.stanford.edu/computing-guide	4\\
-cs.stanford.edu/computing-guide/access	4\\
 ...
 }

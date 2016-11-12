@@ -1,10 +1,10 @@
 In questo capitolo verranno descritte le modalità di esecuzione della sperimentazione.
 \\\\
-L'obiettivo è quello di valutare l'efficacia dell'approccio realizzato per poter comprendere se la modifica del modello di Word2Vec Skip-Gram può portare ad un miglioramento effettivo del processo di Clustering delle pagine di un sito Web.
+L'obiettivo è quello di valutare l'efficacia della modifica del modello di Word2Vec Skip-Gram al fine di migliorare il processo di Clustering delle pagine di un sito Web.
 \\
-Si è cercato di capire, inoltre, se e come i dati strutturati, di cui un sito Web si compone, possano essere combinati con dati non strutturati, come quelli testuali, al fine di migliorare il processo di Clustering e valutare in dettaglio le cause di un eventuale successo o insuccesso delle tecniche utilizzate. A tal fine si confronteranno le performance degli algoritmi di Clustering basati su rappresentazione vettoriale contenente informazioni sulla struttura del grafo stesso.
+Si è cercato di capire, inoltre, se e come i dati strutturati, di cui una pagina Web si compone, possano essere combinati con dati non strutturati, come quelli testuali, al fine di migliorare il processo di Clustering, valutando in dettaglio le cause di un eventuale successo o insuccesso delle tecniche utilizzate. A tal fine si confronteranno le performance degli algoritmi di Clustering basati su rappresentazione vettoriale contenente informazioni sulla struttura del grafo stesso.
 \\\\
-Si descrivono in seguito i dataset e le configurazioni degli algoritmi di Clustering su cui sono realizzate le sperimentazioni e le metriche utilizzate per valutare la qualità dei cluster estratti.
+Si descrivono in seguito i dataset e le configurazioni degli algoritmi di Clustering su cui sono realizzate le sperimentazioni e le metriche utilizzate per valutare la qualità dei Cluster estratti.
 
 \section{Dataset}
 \label{dataset}
@@ -30,8 +30,8 @@ In Tabella \ref{websitedescr} vengono riportate le dimensioni di ogni sito al te
 \\\\
 Per ogni sito Web, in più, sono stati estratti due differenti grafi:
 \begin{itemize}
-	\item \textbf{NoConstraint} - Il grafo Web $G_{nc} = (V, E)$ rappresenta fedelmente il sito. In particolare $V$ rappresenta l'insieme delle pagine appartenenti al sito ed $E$ è l'insieme di tutte le coppie $(i, j)$ per i quali la pagina con URL $i$ contiene un hyperlink alla pagina con URL $j$.
-	\item \textbf{ListConstraint} - Il grafo Web $G_{lc} = (V, E)$ è filtrato, eliminando tutti gli archi $(i, j) \in E$ per i quali l'URL $j$ non è contenuto in nessuna lista Web nella pagina con URL $i$.
+	\item \textbf{NoConstraint} - Il grafo Web $G_{nc} = (V, E)$ rappresenta fedelmente il sito. In particolare $V$ rappresenta l'insieme delle pagine appartenenti al sito ed $E$ è l'insieme di tutte le coppie $(i, j)$, in cui la pagina con URL $i$ contiene un hyperlink alla pagina con URL $j$.
+	\item \textbf{ListConstraint} - Il grafo Web $G_{lc} = (V, E)$ è filtrato, eliminando tutti gli archi $(i, j) \in E$, in cui l'URL $j$ non è contenuto in nessuna lista Web nella pagina con URL $i$.
 \end{itemize}
 
 \section{Metriche}
@@ -95,7 +95,7 @@ Per la sperimentazione si è scelto di utilizzare le metriche elencate in seguito
 	\\
 	Il valore di questa metrica ha come intervallo $[0, 1]$. In una situazione ideale, l'AMI assume valore 1, ovvero quando le etichette che si trovano nella ground truth e quelle predette sono identiche.
 	
-	\item \textbf{Silhouette}. Misura la forma di ogni cluster. Misura quanto simile è un elemento al Cluster a cui è assegnato (coesione) comparato con gli altri insiemi (separazione). Formalmente, questa metrica viene definita come:
+	\item \textbf{Silhouette}. Misura la forma di ogni Cluster. Misura quanto simile è un elemento al Cluster a cui è assegnato (coesione) comparato con gli altri insiemi (separazione). Formalmente, questa metrica viene definita come:
 	\begin{equation}
 		s = \frac{b - a}{max(a, b)}
 	\end{equation}
