@@ -33,15 +33,15 @@
 \contentsline {subsection}{\numberline {3.2.2}Generazione delle sequenze}{41}
 \contentsline {subsection}{\numberline {3.2.3}Modifica dell'implementazione di Word2Vec}{43}
 \contentsline {subsection}{\numberline {3.2.4}Scaling degli embeddings}{44}
-\contentsline {section}{\numberline {3.3}Web page Clustering}{45}
+\contentsline {section}{\numberline {3.3}Web page Clustering}{46}
 \contentsline {section}{\numberline {3.4}Esempio di dataset}{47}
 \contentsline {paragraph}{seedsMap.txt}{47}
 \contentsline {paragraph}{vertex.txt}{48}
 \contentsline {paragraph}{edges.txt}{48}
 \contentsline {paragraph}{sequenceIDs.txt}{48}
-\contentsline {paragraph}{sequenceIDsFromHomepage.txt}{49}
+\contentsline {paragraph}{sequenceIDsFromHomepage.txt}{48}
 \contentsline {paragraph}{embeddings\_with\_b.txt, embeddings\_no\_b.txt, embeddings\_normal.txt, embeddings\_line\_first.txt, embeddings\_line\_second.txt, embeddings\_doc2vec.txt}{49}
-\contentsline {paragraph}{groundTruth.csv}{50}
+\contentsline {paragraph}{groundTruth.csv}{49}
 \contentsline {chapter}{\numberline {4}Sperimentazione}{51}
 \contentsline {section}{\numberline {4.1}Dataset}{52}
 \contentsline {section}{\numberline {4.2}Metriche}{53}
@@ -49,23 +49,23 @@
 \contentsline {subsection}{\numberline {4.3.1}Testo}{57}
 \contentsline {subsection}{\numberline {4.3.2}Random Walk}{58}
 \contentsline {subsection}{\numberline {4.3.3}Combinato}{60}
-\contentsline {subsection}{\numberline {4.3.4}Parametri degli algoritmi di Clustering}{60}
-\contentsline {section}{\numberline {4.4}Analisi dei risultati}{61}
-\contentsline {subsection}{\numberline {4.4.1}cs.illinois.edu}{61}
+\contentsline {section}{\numberline {4.4}Parametri degli algoritmi di Clustering}{60}
+\contentsline {section}{\numberline {4.5}Analisi dei risultati}{61}
+\contentsline {subsection}{\numberline {4.5.1}cs.illinois.edu}{61}
 \contentsline {subsubsection}{Random Walk}{61}
 \contentsline {subsubsection}{Testo}{62}
 \contentsline {subsubsection}{Combinato}{62}
-\contentsline {subsection}{\numberline {4.4.2}cs.ox.ac.uk}{63}
+\contentsline {subsection}{\numberline {4.5.2}cs.ox.ac.uk}{63}
 \contentsline {subsubsection}{Random Walk}{63}
 \contentsline {subsubsection}{Testo}{63}
 \contentsline {subsubsection}{Combinato}{64}
-\contentsline {subsection}{\numberline {4.4.3}cs.priceton.edu}{64}
+\contentsline {subsection}{\numberline {4.5.3}cs.priceton.edu}{64}
 \contentsline {subsubsection}{Random Walk}{64}
 \contentsline {subsubsection}{Testo}{65}
 \contentsline {subsubsection}{Combinato}{65}
-\contentsline {subsection}{\numberline {4.4.4}cs.stanford.edu}{66}
+\contentsline {subsection}{\numberline {4.5.4}cs.stanford.edu}{66}
 \contentsline {subsubsection}{Random Walk}{66}
 \contentsline {subsubsection}{Testo}{67}
 \contentsline {subsubsection}{Combinato}{67}
-\contentsline {section}{\numberline {4.5}Considerazioni finali sui risultati}{67}
+\contentsline {section}{\numberline {4.6}Considerazioni finali sui risultati}{67}
 \contentsline {chapter}{\numberline {5}Conclusioni e sviluppi futuri}{110}

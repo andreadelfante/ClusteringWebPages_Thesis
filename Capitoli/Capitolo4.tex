@@ -2,7 +2,7 @@ In questo capitolo verranno descritte le modalità di esecuzione della sperimenta
 \\\\
 L'obiettivo è quello di valutare l'efficacia della modifica del modello di Word2Vec Skip-Gram al fine di migliorare il processo di Clustering delle pagine di un sito Web.
 \\
-Si è cercato di capire, inoltre, se e come i dati strutturati, di cui una pagina Web si compone, possano essere combinati con dati non strutturati, come quelli testuali, al fine di migliorare il processo di Clustering, valutando in dettaglio le cause di un eventuale successo o insuccesso delle tecniche utilizzate. A tal fine si confronteranno le performance degli algoritmi di Clustering basati su rappresentazione vettoriale contenente informazioni sulla struttura del grafo stesso.
+Si è cercato di capire, inoltre, se e come i dati strutturati, di cui una pagina Web si compone, possano essere combinati con dati non strutturati, come quelli testuali, al fine di migliorare il processo di Clustering, valutando in dettaglio le cause di un eventuale successo o insuccesso delle tecniche utilizzate. A tal fine, verranno confrontate le performance degli algoritmi di Clustering basati su rappresentazione vettoriale, ovvero K-Means e HDBScan.
 \\\\
 Si descrivono in seguito i dataset e le configurazioni degli algoritmi di Clustering su cui sono realizzate le sperimentazioni e le metriche utilizzate per valutare la qualità dei Cluster estratti.
 
@@ -156,7 +156,7 @@ Sono state combinate le informazioni riguardanti la struttura del sito Web e il 
 	\item \textbf{Combined No Constraint}. Come nella configurazione precedente, sono stati combinati testo e struttura ad hyperlink del sito Web in un singolo spazio vettoriale, avente dimensione 200. In questo caso, è stato utilizzato il Crawler tradizionale.
 \end{itemize}
 
-\subsection{Parametri degli algoritmi di Clustering}
+\section{Parametri degli algoritmi di Clustering}
 Una volta prodotti gli embeddings dai rispettivi algoritmi, sono stati normalizzati secondo la norma L2 (esaminata in Sezione \ref{scaling}) ed è stato effettuato il Clustering delle pagine del sito Web. Da questo processo sono state escluse tutte le pagine che presentavano nella ground truth etichette pari a -1, poiché tale valore significa che l'esperto che ha creato la tabella di verità non è riuscito ad assegnare a nessun raggruppamento la pagina in questione.
 \\\\
 In K-Means (approfondito in Sezione \ref{clusteringexperimentation}), il parametro utilizzato nella sperimentazione è stato \textbf{n\_clusters}, ovvero il numero di Cluster totale da generare. Per rendere il sistema dinamico, si è scelto di settare questo parametro con il numero delle etichette distinte presente nella ground truth.
