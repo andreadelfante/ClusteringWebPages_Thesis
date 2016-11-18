@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.9.10)  14 NOV 2016 12:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.11.14)  18 NOV 2016 15:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1087,23 +1087,22 @@ File: ./Immagini/randomwalkmono.png Graphic file (type png)
 
 <use ./Immagini/randomwalkmono.png>
 Package pdftex.def Info: ./Immagini/randomwalkmono.png used on input line 112.
-(pdftex.def)             Requested size: 213.39566pt x 163.71358pt.
+(pdftex.def)             Requested size: 199.16928pt x 152.7988pt.
 
 <./Immagini/randomwalkbi.png, id=222, 978.65625pt x 1123.19624pt>
 File: ./Immagini/randomwalkbi.png Graphic file (type png)
 
 <use ./Immagini/randomwalkbi.png>
 Package pdftex.def Info: ./Immagini/randomwalkbi.png used on input line 121.
-(pdftex.def)             Requested size: 213.39566pt x 244.9102pt.
-
-<./Immagini/randomwalktri.png, id=223, 946.53625pt x 1044.90375pt>
+(pdftex.def)             Requested size: 199.16928pt x 228.57713pt.
+ [39 <./Immagini/randomwalkmono.png>]
+<./Immagini/randomwalktri.png, id=227, 946.53625pt x 1044.90375pt>
 File: ./Immagini/randomwalktri.png Graphic file (type png)
 
 <use ./Immagini/randomwalktri.png>
 Package pdftex.def Info: ./Immagini/randomwalktri.png used on input line 130.
-(pdftex.def)             Requested size: 213.39566pt x 235.57152pt.
- [39 <./Immagini/randomwalkmono.png>]
-[40 <./Immagini/randomwalkbi.png> <./Immagini/randomwalktri.png>] [41] [42]
+(pdftex.def)             Requested size: 199.16928pt x 219.86674pt.
+ [40 <./Immagini/randomwalkbi.png> <./Immagini/randomwalktri.png>] [41] [42]
 Overfull \hbox (9.85236pt too wide) in paragraph at lines 196--205
 \OT1/cmr/m/n/12 del-lo di ap-pren-di-men-to di Word2Vec Skip-Gram del-la li-bre
 -ria \OT1/cmtt/m/n/12 deeplearning4j\OT1/cmr/m/n/12 .
@@ -1679,35 +1678,38 @@ less on input line 47.
 
 [111
 
-] [112] [113] [114] [115]) [116] (./Tesi.aux) ) 
+] [112] [113] [114] [115]) [116] (./Tesi.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
  15691 strings out of 493014
- 305841 string characters out of 6133351
+ 305841 string characters out of 6133350
  1037354 words of memory out of 5000000
  18987 multiletter control sequences out of 15000+600000
  12829 words of font info for 48 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  38i,14n,44p,10377b,591s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2016/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2016/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2016/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2016/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2016/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmsl12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmti12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmtt12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/ams
-fonts/symbols/msbm10.pfb>
-Output written on Tesi.pdf (125 pages, 6272779 bytes).
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></u
+sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></u
+sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
+r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr
+/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/l
+ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/loc
+al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local
+/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/t
+exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
+ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texli
+ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/
+2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/20
+16/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/201
+6/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2016
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Tesi.pdf (125 pages, 6289771 bytes).
 PDF statistics:
  529 PDF objects out of 1000 (max. 8388607)
  347 compressed objects within 4 object streams
