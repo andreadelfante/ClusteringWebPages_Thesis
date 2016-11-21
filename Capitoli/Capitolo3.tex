@@ -75,10 +75,10 @@ Per definizione, una lista Web è una collezione di due o più elementi web che ha
 	\label{weblistfigure}
 \end{figure}
 
-In Figura \ref{weblistfigure} vengono mostrate le liste Web, usate per guidare il processo di Crawling. I link inseriti nel box $A$ sono stati esclusi perché il loro dominio è differente da quello della homepage. Il risultato del Crawler che sfrutta le liste Web è un sottografo $G' = (V', E')$, dove $V' \subseteq V$ ed $E' \subseteq E$.
+In Figura \ref{weblistfigure} vengono mostrate le liste Web, usate per guidare il processo di Crawling. I link inseriti nel box $A$ sono stati esclusi perché il loro dominio è differente da quello della homepage. Il risultato del Crawler è un sottografo $G' = (V', E')$, dove $V' \subseteq V$ ed $E' \subseteq E$.
 
 \subsection{Normalizzazione degli URL}
-Una volta effettuato il processo di Crawling ed estratti gli URL, si procede con la  normalizzazione degli stessi. Questo è un processo in cui gli URL vengono modificati e standardizzati in maniera consistente. Il suo obiettivo è poter determinare se due URL, che sono sintatticamente differenti, possono essere equivalenti.
+Una volta effettuato il processo di Crawling ed estratti gli URL, si procede con la normalizzazione degli stessi. Questo è un processo in cui gli URL vengono modificati e standardizzati in maniera consistente. Il suo obiettivo è poter determinare se due URL, che sono sintatticamente differenti, possono essere equivalenti.
 \\
 I Crawler effettuano un qualche tipo di normalizzazione degli URL in modo da evitare che il processo di Crawling non vada ad analizzarli più volte.
 \\\\
@@ -189,7 +189,9 @@ Per motivi di sperimentazione sono stati implementati tre tipi diversi di Random
 
 Quindi, i Random Walks prodotti sono stati trattati come frasi, in cui le parole sono i codici univoci degli URL. L'utilizzo di tali codici ha permesso di ridurre lo spazio in memoria e i tempi di elaborazione.
 \\
-Le frasi generate sono state sfruttate da Word2Vec allo scopo di apprendere la struttura del grafo del sito Web.
+Le frasi generate dal Random Walk standard sono state sfruttate da Word2Vec per apprendere la struttura del grafo del sito Web. Inoltre, per raggiungere uno degli obiettivi di questa tesi, è stata modificata l'implementazione di Word2Vec e successivamente applicata sui Random Walk con partenza fissa (dalla homepage). La stessa cosa è stata effettuata utilizzando le Liste Web.
+\\
+Nella sezione successiva viene spiegata, in maniera approfondita, la modifica di Word2Vec.
 
 \subsection{Modifica dell'implementazione di Word2Vec}
 \label{modifiedSkipgram}
@@ -200,12 +202,10 @@ Per rispondere a questa domanda, si è deciso di analizzare e modificare il model
 La modifica di Skip-Gram consiste nel limitare l'apprendimento dell'algoritmo in maniera tale che venga analizzato solo il contesto sinistro, data una parola. E' importante sottolineare, inoltre, come questo modello sia stato ottimizzato con un valore chiamato \textbf{b}, che permette di aumentare o diminuire la finestra di contesto, dando più importanza alle parole più vicine a quella in analisi.
 \\
 Per la sperimentazione sono stati prodotti, quindi, due tipologie di modelli di Skip-Gram che analizzano solo il contesto sinistro: uno che utilizza il valore b ed un'altro che non lo usa.
-\\
-Le frasi prodotte dal Random Walker sono state utilizzate sia per Skip-Gram tradizionale che per le sue versioni modificate.
 
 \subsection{Scaling degli embeddings}
 \label{scaling}
-Una volta prodotti gli spazi vettoriali delle parole sono state analizzate metodologie di Feature Scaling per capire la migliore da usare per la sperimentazione. 
+Una volta prodotti gli spazi vettoriali delle parole, sono state analizzate metodologie di Feature Scaling per capire la migliore da usare per la sperimentazione. 
 \\
 Il Feature Scaling è un metodo usato per standardizzare un intervallo di variabili indipendenti o features di dati. Viene anche chiamato normalizzazione di dati ed è generalmente effettuato nei passi di preprocessing di dati. Non solo, normalizzare i dati significa anche ridurre l'effetto degli Outlier. Il termine Outlier è usato in statistica per definire, in un insieme di osservazioni, un valore anomalo e aberrante (i.e. un valore chiaramente distante dalle altre osservazioni disponibili). Un numero consistente di Outlier nel campione in analisi può portare a risultati fuorvianti. Per esempio, se misurassimo la temperatura di 10 oggetti presenti in una stanza, la maggior parte dei quali risultasse avere una temperatura compresa fra i 20 e 25 gradi Celsius, allora il forno acceso, avente una temperatura di 350 gradi, sarebbe un dato aberrante.
 \\\\

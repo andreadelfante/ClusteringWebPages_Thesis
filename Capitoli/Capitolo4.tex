@@ -10,7 +10,12 @@ Si descrivono in seguito i dataset e le configurazioni degli algoritmi di Cluste
 \label{dataset}
 La sperimentazione è stata effettuata sfruttando i dati provenienti da siti Web appartenenti ad importanti dipartimenti di Computer Science: \textbf{Illinois} (\texttt{cs.illinois.edu}), \textbf{Oxford} (\texttt{cs.ox.ac.uk}), \textbf{Priceton} (\texttt{cs.priceton.edu}) e \textbf{Stanford} (\texttt{cs.stanford.edu}). La motivazione di questa scelta è legata al fatto che le nostre competenze, per assegnare ad ogni pagina del sito una etichetta, appartengono a questo dominio applicativo. Questa decisione è necessaria per creare una ground truth per la valutazione dei risultati del Clustering.
 \\\\
-Per ogni sito è stato lanciato il Crawling per generare sequenze di URL di 100.000, 500.000 e 1.000.000 con profondità di 10, 15, 20. Una volta prodotte sono state successivamente apprese da Skip-Gram ottimizzato che considera solo il contesto sinistro, Skip-Gram non ottimizzato che considera solo il contesto sinistro e Skip-Gram che considera contesto destro e sinistro con dimensione della finestra di apprendimento di 2, 3, 5, 7.
+Per ogni sito Web è stato lanciato il processo di Crawling e sono stati estratti due differenti grafi:
+\begin{itemize}
+	\item \textbf{NoConstraint}, prodotto dal Crawler tradizionale. Il grafo Web $G_{nc} = (V, E)$ estratto rappresenta fedelmente il sito. In particolare $V$ rappresenta l'insieme delle pagine appartenenti al sito ed $E$ è l'insieme di tutte le coppie $(i, j)$, in cui la pagina con URL $i$ contiene un hyperlink alla pagina con URL $j$.
+	\item \textbf{ListConstraint}, prodotto dal Crawler che sfrutta le liste Web. Il grafo Web $G_{lc} = (V, E)$ estratto è filtrato, eliminando tutti gli archi $(i, j) \in E$, in cui l'URL $j$ non è contenuto in nessuna lista Web nella pagina con URL $i$.
+\end{itemize}
+Successivamente, i grafi NoConstraint e ListContraint sono stati utilizzati per generare sequenze di URL di 100.000, 500.000 e 1.000.000 con profondità di 10, 15, 20. Una volta prodotte, sono state apprese da Skip-Gram ottimizzato che considera solo il contesto sinistro (Random Walk con partenza fissa), Skip-Gram non ottimizzato che considera solo il contesto sinistro (Random Walk con partenza fissa) e Skip-Gram che considera contesto destro e sinistro (Random Walk standard) con dimensione della finestra di apprendimento di 2, 3, 5, 7.
 
 \begin{table}[h]
 	\centering
@@ -27,12 +32,6 @@ Per ogni sito è stato lanciato il Crawling per generare sequenze di URL di 100.0
 \end{table}
 
 In Tabella \ref{websitedescr} vengono riportate le dimensioni di ogni sito al termine del Crawling. In particolare, per analizzare correttamente il contributo fornito dall'applicazione delle Liste Web nel processo di Clustering, sono state confrontate le pagine estratte sia dal Crawler che usa le Liste Web, sia da quello tradizionale (prima colonna). Inoltre, è stata riportata la dimensione della collezione degli archi ottenuta dal Crawler tradizionale (seconda colonna) e da quello che usa le Liste Web (terza colonna). Nell'ultima colonna sono stati inseriti il numero dei Cluster identificati manualmente dagli esperti durante la generazione della ground truth.
-\\\\
-Per ogni sito Web, in più, sono stati estratti due differenti grafi:
-\begin{itemize}
-	\item \textbf{NoConstraint} - Il grafo Web $G_{nc} = (V, E)$ rappresenta fedelmente il sito. In particolare $V$ rappresenta l'insieme delle pagine appartenenti al sito ed $E$ è l'insieme di tutte le coppie $(i, j)$, in cui la pagina con URL $i$ contiene un hyperlink alla pagina con URL $j$.
-	\item \textbf{ListConstraint} - Il grafo Web $G_{lc} = (V, E)$ è filtrato, eliminando tutti gli archi $(i, j) \in E$, in cui l'URL $j$ non è contenuto in nessuna lista Web nella pagina con URL $i$.
-\end{itemize}
 
 \section{Metriche}
 Valutare le prestazioni di un algoritmo di Clustering non è semplice. Queste non dovrebbero considerare gli specifici valori delle etichette assegnate dall'algoritmo, piuttosto dovrebbero verificare se il raggruppamento generato dall'algoritmo definisce una separazione dei dati simile a quello fornito nella ground truth, ovvero il vero valore delle etichette. Un'altra modalità di valutazione consiste nel basarsi su funzioni di similarità, come per esempio che elementi dello stesso raggruppamento siano più simili rispetto a quelli di Cluster differenti.
