@@ -5,7 +5,7 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Descrizione dei siti Web\relax }}{52}
+\contentsline {table}{\numberline {4.1}{\ignorespaces Descrizione dei siti Web\relax }}{53}
 \contentsline {table}{\numberline {4.2}{\ignorespaces Risultati di KMeans con leftSkipgram con liste di costrizione nella configurazione Random Walk in Illinois\relax }}{69}
 \contentsline {table}{\numberline {4.3}{\ignorespaces Risultati di HDBScan con leftSkipgram con liste di costrizione nella configurazione Random Walk in Illinois\relax }}{70}
 \contentsline {table}{\numberline {4.4}{\ignorespaces Risultati di KMeans con normalSkipgram con liste di costrizione nella configurazione Random Walk in Illinois\relax }}{71}
