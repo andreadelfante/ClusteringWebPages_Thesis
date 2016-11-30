@@ -21,17 +21,17 @@ Successivamente, i grafi NoConstraint e ListContraint sono stati utilizzati per 
 	\centering
 	\caption{Descrizione dei siti Web}
 	\label{websitedescr}
-	\begin{tabular}{|l|l|l|l|l|}
+	\begin{tabular}{|l|l|l|l|l|l|}
 		\hline
-		\textbf{Sito} & \textbf{\# pagine} & \textbf{\# archi} & \textbf{\# archi con Liste Web} & \textbf{\# Cluster} \\ \hline
-		\textbf{Illinois} & 563 & 9415 & 5330 & 10 \\ \hline
-		\textbf{Oxford} & 3480 & 44526 & 35148 & 19 \\ \hline
-		\textbf{Priceton} & 3132 & 122493 & 104585 & 16 \\ \hline
-		\textbf{Stanford} & 167 & 12372 & 30087 & 10 \\ \hline
+		\textbf{Sito} & \textbf{Pagine} & \textbf{Pagine Liste Web} & \textbf{Archi} & \textbf{Archi Liste Web} & \textbf{Cluster} \\ \hline
+		\textbf{Illinois} & 651 & 775 & 9415 & 5330 & 10 \\ \hline
+		\textbf{Oxford} & 4582 & 3845 & 44526 & 35148 & 19 \\ \hline
+		\textbf{Priceton} & 5548 & 3211 & 122493 & 104585 & 16 \\ \hline
+		\textbf{Stanford} & 436 & 261 & 30087 & 12372 & 10 \\ \hline
 	\end{tabular}
 \end{table}
 
-In Tabella \ref{websitedescr} vengono riportate le dimensioni di ogni sito al termine del Crawling. In particolare, per analizzare correttamente il contributo fornito dall'applicazione delle Liste Web nel processo di Clustering, sono state confrontate le pagine estratte sia dal Crawler che usa le Liste Web, sia da quello tradizionale (prima colonna). Inoltre, è stata riportata la dimensione della collezione degli archi ottenuta dal Crawler tradizionale (seconda colonna) e da quello che usa le Liste Web (terza colonna). Nell'ultima colonna sono stati inseriti il numero dei Cluster identificati manualmente dagli esperti durante la generazione della ground truth.
+In Tabella \ref{websitedescr} vengono riportate le dimensioni di ogni sito al termine del Crawling. In particolare, per analizzare correttamente il contributo fornito dall'applicazione delle Liste Web nel processo di Clustering, sono state confrontate le pagine estratte sia dal Crawler che usa le Liste Web (prima colonna), sia da quello tradizionale (seconda  colonna). Inoltre, è stata riportata la dimensione della collezione degli archi ottenuta dal Crawler tradizionale (terza colonna) e da quello che usa le Liste Web (quarta colonna). Nell'ultima colonna sono stati inseriti il numero dei Cluster identificati manualmente dagli esperti durante la generazione della ground truth.
 
 \section{Metriche}
 Valutare le prestazioni di un algoritmo di Clustering non è semplice. Queste non dovrebbero considerare gli specifici valori delle etichette assegnate dall'algoritmo, piuttosto dovrebbero verificare se il raggruppamento generato dall'algoritmo definisce una separazione dei dati simile a quello fornito nella ground truth, ovvero il vero valore delle etichette. Un'altra modalità di valutazione consiste nel basarsi su funzioni di similarità, come per esempio che elementi dello stesso raggruppamento siano più simili rispetto a quelli di Cluster differenti.
