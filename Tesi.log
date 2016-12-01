@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.11.14)  30 NOV 2016 17:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.11.14)  1 DEC 2016 12:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1206,7 +1206,7 @@ less on input line 14.
 [51
 
 ]
-Overfull \hbox (53.87193pt too wide) in paragraph at lines 24--32
+Overfull \hbox (14.30008pt too wide) in paragraph at lines 24--32
  [][] 
  []
 
@@ -1342,7 +1342,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 582--587
  []
 
 [61]
-Overfull \hbox (2.41795pt too wide) in paragraph at lines 594--606
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (48.93906pt too wide) in paragraph at lines 612--634
  [][] 
  []
 
@@ -1350,15 +1354,7 @@ Overfull \hbox (2.41795pt too wide) in paragraph at lines 594--606
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (48.93906pt too wide) in paragraph at lines 616--638
- [][] 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (30.4849pt too wide) in paragraph at lines 650--690
+Overfull \hbox (30.4849pt too wide) in paragraph at lines 646--686
  [][] 
  []
 
@@ -1367,7 +1363,7 @@ Overfull \hbox (30.4849pt too wide) in paragraph at lines 650--690
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (30.4849pt too wide) in paragraph at lines 696--736
+Overfull \hbox (30.4849pt too wide) in paragraph at lines 692--732
  [][] 
  []
 
@@ -1375,7 +1371,7 @@ Overfull \hbox (30.4849pt too wide) in paragraph at lines 696--736
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (30.4849pt too wide) in paragraph at lines 742--782
+Overfull \hbox (30.4849pt too wide) in paragraph at lines 738--778
  [][] 
  []
 
@@ -1383,7 +1379,7 @@ Overfull \hbox (30.4849pt too wide) in paragraph at lines 742--782
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (30.4849pt too wide) in paragraph at lines 788--828
+Overfull \hbox (30.4849pt too wide) in paragraph at lines 784--824
  [][] 
  []
 
@@ -1391,7 +1387,7 @@ Overfull \hbox (30.4849pt too wide) in paragraph at lines 788--828
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (30.4849pt too wide) in paragraph at lines 834--874
+Overfull \hbox (30.4849pt too wide) in paragraph at lines 830--870
  [][] 
  []
 
@@ -1399,7 +1395,7 @@ Overfull \hbox (30.4849pt too wide) in paragraph at lines 834--874
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (30.4849pt too wide) in paragraph at lines 880--920
+Overfull \hbox (30.4849pt too wide) in paragraph at lines 876--916
  [][] 
  []
 
@@ -1407,7 +1403,7 @@ Overfull \hbox (30.4849pt too wide) in paragraph at lines 880--920
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (30.4849pt too wide) in paragraph at lines 926--966
+Overfull \hbox (30.4849pt too wide) in paragraph at lines 922--962
  [][] 
  []
 
@@ -1415,7 +1411,7 @@ Overfull \hbox (30.4849pt too wide) in paragraph at lines 926--966
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (30.4849pt too wide) in paragraph at lines 972--1012
+Overfull \hbox (30.4849pt too wide) in paragraph at lines 968--1008
  [][] 
  []
 
@@ -1423,23 +1419,18 @@ Overfull \hbox (30.4849pt too wide) in paragraph at lines 972--1012
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (51.93907pt too wide) in paragraph at lines 1018--1050
+Overfull \hbox (51.93907pt too wide) in paragraph at lines 1014--1046
  [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (6.11266pt too wide) in paragraph at lines 1064--1076
- [][] 
- []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [63]
-Overfull \hbox (48.93906pt too wide) in paragraph at lines 1088--1110
+Overfull \hbox (48.93906pt too wide) in paragraph at lines 1078--1100
  [][] 
  []
 
@@ -1447,7 +1438,7 @@ Overfull \hbox (48.93906pt too wide) in paragraph at lines 1088--1110
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (30.4849pt too wide) in paragraph at lines 1122--1162
+Overfull \hbox (30.4849pt too wide) in paragraph at lines 1112--1152
  [][] 
  []
 
@@ -1455,7 +1446,7 @@ Overfull \hbox (30.4849pt too wide) in paragraph at lines 1122--1162
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (30.4849pt too wide) in paragraph at lines 1168--1208
+Overfull \hbox (30.4849pt too wide) in paragraph at lines 1158--1198
  [][] 
  []
 
@@ -1463,7 +1454,7 @@ Overfull \hbox (30.4849pt too wide) in paragraph at lines 1168--1208
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (30.4849pt too wide) in paragraph at lines 1214--1254
+Overfull \hbox (30.4849pt too wide) in paragraph at lines 1204--1244
  [][] 
  []
 
@@ -1471,7 +1462,7 @@ Overfull \hbox (30.4849pt too wide) in paragraph at lines 1214--1254
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (30.4849pt too wide) in paragraph at lines 1260--1300
+Overfull \hbox (30.4849pt too wide) in paragraph at lines 1250--1290
  [][] 
  []
 
@@ -1479,7 +1470,7 @@ Overfull \hbox (30.4849pt too wide) in paragraph at lines 1260--1300
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (30.4849pt too wide) in paragraph at lines 1306--1346
+Overfull \hbox (30.4849pt too wide) in paragraph at lines 1296--1336
  [][] 
  []
 
@@ -1487,7 +1478,7 @@ Overfull \hbox (30.4849pt too wide) in paragraph at lines 1306--1346
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (30.4849pt too wide) in paragraph at lines 1352--1392
+Overfull \hbox (30.4849pt too wide) in paragraph at lines 1342--1382
  [][] 
  []
 
@@ -1495,7 +1486,7 @@ Overfull \hbox (30.4849pt too wide) in paragraph at lines 1352--1392
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (30.4849pt too wide) in paragraph at lines 1398--1438
+Overfull \hbox (30.4849pt too wide) in paragraph at lines 1388--1428
  [][] 
  []
 
@@ -1503,7 +1494,7 @@ Overfull \hbox (30.4849pt too wide) in paragraph at lines 1398--1438
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (30.4849pt too wide) in paragraph at lines 1444--1484
+Overfull \hbox (30.4849pt too wide) in paragraph at lines 1434--1474
  [][] 
  []
 
@@ -1511,7 +1502,7 @@ Overfull \hbox (30.4849pt too wide) in paragraph at lines 1444--1484
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (48.24437pt too wide) in paragraph at lines 1490--1522
+Overfull \hbox (48.24437pt too wide) in paragraph at lines 1480--1512
  [][] 
  []
 
@@ -1519,7 +1510,11 @@ Overfull \hbox (48.24437pt too wide) in paragraph at lines 1490--1522
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [64]
-Overfull \hbox (2.41795pt too wide) in paragraph at lines 1536--1548
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (48.93906pt too wide) in paragraph at lines 1544--1566
  [][] 
  []
 
@@ -1527,15 +1522,7 @@ Overfull \hbox (2.41795pt too wide) in paragraph at lines 1536--1548
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (48.93906pt too wide) in paragraph at lines 1558--1580
- [][] 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[65]
-Overfull \hbox (30.4849pt too wide) in paragraph at lines 1592--1632
+Overfull \hbox (30.4849pt too wide) in paragraph at lines 1578--1618
  [][] 
  []
 
@@ -1543,7 +1530,7 @@ Overfull \hbox (30.4849pt too wide) in paragraph at lines 1592--1632
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (26.79019pt too wide) in paragraph at lines 1638--1678
+Overfull \hbox (26.79019pt too wide) in paragraph at lines 1624--1664
  [][] 
  []
 
@@ -1551,7 +1538,7 @@ Overfull \hbox (26.79019pt too wide) in paragraph at lines 1638--1678
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (30.4849pt too wide) in paragraph at lines 1684--1724
+Overfull \hbox (30.4849pt too wide) in paragraph at lines 1670--1710
  [][] 
  []
 
@@ -1559,7 +1546,7 @@ Overfull \hbox (30.4849pt too wide) in paragraph at lines 1684--1724
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (30.4849pt too wide) in paragraph at lines 1730--1770
+Overfull \hbox (30.4849pt too wide) in paragraph at lines 1716--1756
  [][] 
  []
 
@@ -1567,7 +1554,7 @@ Overfull \hbox (30.4849pt too wide) in paragraph at lines 1730--1770
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (30.4849pt too wide) in paragraph at lines 1776--1816
+Overfull \hbox (30.4849pt too wide) in paragraph at lines 1762--1802
  [][] 
  []
 
@@ -1575,7 +1562,7 @@ Overfull \hbox (30.4849pt too wide) in paragraph at lines 1776--1816
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (26.79019pt too wide) in paragraph at lines 1822--1862
+Overfull \hbox (26.79019pt too wide) in paragraph at lines 1808--1848
  [][] 
  []
 
@@ -1583,7 +1570,7 @@ Overfull \hbox (26.79019pt too wide) in paragraph at lines 1822--1862
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (30.4849pt too wide) in paragraph at lines 1868--1908
+Overfull \hbox (30.4849pt too wide) in paragraph at lines 1854--1894
  [][] 
  []
 
@@ -1591,7 +1578,7 @@ Overfull \hbox (30.4849pt too wide) in paragraph at lines 1868--1908
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (30.4849pt too wide) in paragraph at lines 1914--1954
+Overfull \hbox (30.4849pt too wide) in paragraph at lines 1900--1940
  [][] 
  []
 
@@ -1599,31 +1586,19 @@ Overfull \hbox (30.4849pt too wide) in paragraph at lines 1914--1954
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (48.24437pt too wide) in paragraph at lines 1960--1992
+Overfull \hbox (48.24437pt too wide) in paragraph at lines 1946--1978
  [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[66]
-Overfull \hbox (6.11266pt too wide) in paragraph at lines 2006--2018
- [][] 
- []
-
+[65] [66]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (48.93906pt too wide) in paragraph at lines 2028--2050
- [][] 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[67]
-Overfull \hbox (39.6821pt too wide) in paragraph at lines 2063--2076
+Overfull \hbox (48.93906pt too wide) in paragraph at lines 2010--2032
  [][] 
  []
 
@@ -1631,7 +1606,7 @@ Overfull \hbox (39.6821pt too wide) in paragraph at lines 2063--2076
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (39.6821pt too wide) in paragraph at lines 2082--2095
+Overfull \hbox (39.6821pt too wide) in paragraph at lines 2045--2058
  [][] 
  []
 
@@ -1639,7 +1614,7 @@ Overfull \hbox (39.6821pt too wide) in paragraph at lines 2082--2095
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (58.02908pt too wide) in paragraph at lines 2101--2114
+Overfull \hbox (39.6821pt too wide) in paragraph at lines 2064--2077
  [][] 
  []
 
@@ -1647,7 +1622,15 @@ Overfull \hbox (58.02908pt too wide) in paragraph at lines 2101--2114
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (63.18906pt too wide) in paragraph at lines 2120--2133
+Overfull \hbox (58.02908pt too wide) in paragraph at lines 2083--2096
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (63.18906pt too wide) in paragraph at lines 2102--2115
  [][] 
  []
 
@@ -1655,18 +1638,18 @@ Overfull \hbox (63.18906pt too wide) in paragraph at lines 2120--2133
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 2135--121
+Underfull \hbox (badness 10000) in paragraph at lines 2117--121
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2135--121
+Underfull \hbox (badness 10000) in paragraph at lines 2117--121
 
  []
 
-[68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81] [82]
-[83] [84] [85] [86] [87] [88] [89] [90] [91] [92] [93] [94] [95] [96] [97]
-[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109]
+[67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81]
+[82] [83] [84] [85] [86] [87] [88] [89] [90] [91] [92] [93] [94] [95] [96]
+[97] [98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109]
 Capitolo 5.
 (./Capitoli/Conclusione.tex) (./Tesi.bbl
 
@@ -1686,7 +1669,7 @@ less on input line 47.
 Here is how much of TeX's memory you used:
  15691 strings out of 493014
  305841 string characters out of 6133350
- 1037354 words of memory out of 5000000
+ 1033094 words of memory out of 5000000
  18987 multiletter control sequences out of 15000+600000
  12829 words of font info for 48 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
@@ -1709,7 +1692,7 @@ ic/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmti12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmtt12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/a
 msfonts/symbols/msbm10.pfb>
-Output written on Tesi.pdf (125 pages, 6267383 bytes).
+Output written on Tesi.pdf (125 pages, 6241846 bytes).
 PDF statistics:
  523 PDF objects out of 1000 (max. 8388607)
  342 compressed objects within 4 object streams
