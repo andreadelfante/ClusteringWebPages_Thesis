@@ -68,4 +68,5 @@
 \contentsline {subsubsection}{Testo}{67}
 \contentsline {subsubsection}{Combinato}{67}
 \contentsline {section}{\numberline {4.6}Considerazioni finali sui risultati}{67}
-\contentsline {chapter}{\numberline {5}Conclusioni e sviluppi futuri}{110}
+\contentsline {subsection}{\numberline {4.6.1}Test statistici}{68}
+\contentsline {chapter}{\numberline {5}Conclusioni e sviluppi futuri}{112}

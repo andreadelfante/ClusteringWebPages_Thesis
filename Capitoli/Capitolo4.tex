@@ -2119,3 +2119,60 @@ In generale, si nota immediatamente che, utilizzando questi siti Web, il miglior
 L'uso delle liste non aumenta in maniera significativa le performance degli algoritmi di Clustering. Questo può essere l'effetto di due cause: o il Crawler che sfrutta le Liste Web non funziona, oppure che i siti Web in analisi sono altamente strutturati. Effettivamente, i siti sono altamente strutturati poiché, se così non fosse, l'esperto che ha creato la ground truth non avrebbe potuto assegnare manualmente le pagine ai vari Cluster.
 \\\\
 In conclusione, la sperimentazione mostra come i migliori risultati sono stati ottenuti combinando l'informazione testuale con quella estratta dalla struttura del sito. Questo è più evidente per Illinois (Tabella \ref{finalresultillinois}) ed Oxford (Tabella \ref{finalresultoxford}), dove la struttura del sito e il testo delle pagine codificano informazioni complementari utili per il Clustering. Per Priceton (Tabella \ref{finalresultpriceton}) l'informazione testuale è soddisfacente per realizzare Cluster di buona qualità; mentre per Stanford (Tabella \ref{finalresultstanford}) l'informazione codificata nella struttura del sito è sufficiente: si può supporre che il sito contenga pochi termini significativi oppure poco testo contenente informazioni utili.
+
+\subsection{Test statistici}
+A sostegno delle considerazioni finali fatte in precedenza, sono stati effettuati i test di Wilcoxon e di Nemenyi.
+\\
+Wilcoxon è un test statistico usato per calcolare ed analizzare la differenza tra due modelli e capire se questa è statisticamente significativa. Viene calcolato il \textit{p-value}, un valore che viene usato per quantificare tale differenza. Se il valore p è minore di 0.05, allora la differenza tra i due modelli è statisticamente significativa. In Tabella \ref{wilcoxon} sono state riportate le configurazioni messe a confronto con i relativi p-value ottenuti. Tali configurazioni sono state raggruppate per metrica. I valori p che presentano una differenza statisticamente significativa sono stati evidenziati in grassetto. Inoltre, per ogni configurazione, sono stati riportati i modelli vincitori, in cui i loro valori hanno permesso di ottenere una mediana più alta.
+\\
+Nemenyi è un test statistico simile al Wilcoxon, ma che permette di analizzare la differenza tra più di due modelli. Le configurazioni migliori vengono disposte sulla destra lungo un asse. Viene calcolato il p-value per ogni coppia di configurazioni, e se la differenza non è statisticamente significativa, i modelli vengono collegati da una linea.
+
+\begin{table}[h]
+\centering
+\caption{Risultati del test di Wilcoxon}
+\label{wilcoxon}
+\begin{tabular}{lllll} \toprule
+\textbf{Metrica} & \textbf{Configurazione} & \textbf{p-value} & \textbf{Vincitore} \\ \midrule
+\textbf{AMI} & Combinato vs Struttura & \textbf{0.0031} & Combinato \\
+& Combinato vs Testo & \textbf{0.0004} & Combinato \\
+& Struttura vs Testo & 0.1443 & Testo \\
+& LC vs NC & \textbf{0.0344} & LC \\
+& KMeans vs HDBScan & \textbf{0.0000} & KMeans \\
+& TF-IDF vs Doc2Vec & 0.2875 & TF-IDF \\ \midrule
+
+\textbf{ARI} & Combinato vs Struttura & 0.4105 & Combinato \\
+& Combinato vs Testo & \textbf{0.0050} & Combinato \\
+& Struttura vs Testo & \textbf{0.0389} & Struttura \\
+& LC vs NC & 0.0511 & LC \\
+& KMeans vs HDBScan & \textbf{0.0000} & KMeans \\
+& TF-IDF vs Doc2Vec & 0.2643 & TF-IDF \\ \midrule
+
+\textbf{Com} & Combinato vs Struttura & \textbf{0.0117} & Combinato \\
+& Combinato vs Testo & \textbf{0.0000} & Combinato \\
+& Struttura vs Testo & \textbf{0.0065} & Struttura \\
+& LC vs NC & \textbf{0.0034} & NC \\
+& KMeans vs HDBScan & 0.2322 & KMeans \\
+& TF-IDF vs Doc2Vec & 0.2641 & TF-IDF \\ \midrule
+
+\textbf{Hom} & Combinato vs Struttura & \textbf{0.0153} & Combinato \\
+& Combinato vs Testo & \textbf{0.0000} & Combinato \\
+& Struttura vs Testo & \textbf{0.0019} & Struttura \\
+& LC vs NC & 0.4154 & LC \\
+& KMeans vs HDBScan & \textbf{0.0000} & KMeans \\
+& TF-IDF vs Doc2Vec & 0.0707 & TF-IDF \\ \midrule
+
+\textbf{Silh} & Combinato vs Struttura & 0.4759 & Struttura \\
+& Combinato vs Testo & \textbf{0.0000} & Combinato \\
+& Struttura vs Testo & \textbf{0.0000} & Struttura \\
+& LC vs NC & 0.1467 & NC \\
+& KMeans vs HDBScan & \textbf{0.0000} & KMeans \\
+& TF-IDF vs Doc2Vec & \textbf{0.0150} & TF-IDF \\ \midrule
+
+\textbf{V-M} & Combinato vs Struttura & \textbf{0.0115} & Combinato \\
+& Combinato vs Testo & \textbf{0.0000} & Combinato \\
+& Struttura vs Testo & \textbf{0.0067} & Struttura \\
+& LC vs NC & 0.0586 & NC \\
+& KMeans vs HDBScan & \textbf{0.0000} & KMeans \\
+& TF-IDF vs Doc2Vec & 0.1811 & TF-IDF \\ \bottomrule
+\end{tabular}
+\end{table}
