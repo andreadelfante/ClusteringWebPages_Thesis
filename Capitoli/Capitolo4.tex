@@ -2121,11 +2121,18 @@ L'uso delle liste non aumenta in maniera significativa le performance degli algo
 In conclusione, la sperimentazione mostra come i migliori risultati sono stati ottenuti combinando l'informazione testuale con quella estratta dalla struttura del sito. Questo è più evidente per Illinois (Tabella \ref{finalresultillinois}) ed Oxford (Tabella \ref{finalresultoxford}), dove la struttura del sito e il testo delle pagine codificano informazioni complementari utili per il Clustering. Per Priceton (Tabella \ref{finalresultpriceton}) l'informazione testuale è soddisfacente per realizzare Cluster di buona qualità; mentre per Stanford (Tabella \ref{finalresultstanford}) l'informazione codificata nella struttura del sito è sufficiente: si può supporre che il sito contenga pochi termini significativi oppure poco testo contenente informazioni utili.
 
 \subsection{Test statistici}
-A sostegno delle considerazioni finali fatte in precedenza, sono stati effettuati i test di Wilcoxon e di Nemenyi.
+A sostegno delle considerazioni finali fatte in precedenza, sono stati eseguiti i test di Wilcoxon e di Nemenyi.
 \\
-Wilcoxon è un test statistico usato per calcolare ed analizzare la differenza tra due modelli e capire se questa è statisticamente significativa. Viene calcolato il \textit{p-value}, un valore che viene usato per quantificare tale differenza. Se il valore p è minore di 0.05, allora la differenza tra i due modelli è statisticamente significativa. In Tabella \ref{wilcoxon} sono state riportate le configurazioni messe a confronto con i relativi p-value ottenuti. Tali configurazioni sono state raggruppate per metrica. I valori p che presentano una differenza statisticamente significativa sono stati evidenziati in grassetto. Inoltre, per ogni configurazione, sono stati riportati i modelli vincitori, in cui i loro valori hanno permesso di ottenere una mediana più alta.
+Wilcoxon è un test statistico usato per calcolare ed analizzare la differenza tra due modelli e capire se questa è statisticamente significativa. Viene calcolato il \textit{p-value}, un valore che viene usato per quantificare tale differenza. Se il valore p è minore di 0.05, allora la differenza tra i due modelli è statisticamente significativa. In Tabella \ref{wilcoxon} sono state riportate le configurazioni messe a confronto con i relativi p-value ottenuti. Tali configurazioni sono state raggruppate per metrica. I valori p che presentano una differenza statisticamente significativa sono stati evidenziati in grassetto. Inoltre, per ogni configurazione, sono stati riportati i modelli vincitori, i cui valori hanno permesso di ottenere una mediana più alta.
 \\
-Nemenyi è un test statistico simile al Wilcoxon, ma che permette di analizzare la differenza tra più di due modelli. Le configurazioni migliori vengono disposte sulla destra lungo un asse. Viene calcolato il p-value per ogni coppia di configurazioni, e se la differenza non è statisticamente significativa, i modelli vengono collegati da una linea.
+Nemenyi è un test statistico simile al Wilcoxon, ma che permette di analizzare la differenza tra più di due modelli. Nella Figura \ref{nemenyi} si riportano i confronti effettuati tra normalSkipgram, leftSkipgram e LINE con secondo ordine di prossimità. Le configurazioni migliori vengono disposte sulla destra lungo un asse. Vengono considerate tutte le configurazioni a coppie. Se la coppia supera la critical distance prodotta dal test, allora significa che vi è una differenza statisticamente significativa. Tutte le configurazioni che non differiscono in maniera significativa sono collegate da una linea orizzontale.
+
+\begin{figure}
+	\centering
+	\includegraphics[width = 160mm]{nemenyi}
+	\caption{Test di Nemenyi}
+	\label{nemenyi}
+\end{figure}
 
 \begin{table}[h]
 \centering
