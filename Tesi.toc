@@ -40,7 +40,7 @@
 \contentsline {paragraph}{edges.txt}{48}
 \contentsline {paragraph}{sequenceIDs.txt}{48}
 \contentsline {paragraph}{sequenceIDsFromHomepage.txt}{48}
-\contentsline {paragraph}{embeddings\_with\_b.txt, embeddings\_no\_b.txt, embeddings\_normal.txt, embeddings\_line\_first.txt, embeddings\_line\_second.txt, embeddings\_doc2vec.txt}{49}
+\contentsline {paragraph}{embeddings\_with\_b.txt, embeddings\_no\_b.txt, embeddings\_normal.txt, embeddings\_line\_first.txt,\\ embeddings\_line\_second.txt, embeddings\_doc2vec.txt}{49}
 \contentsline {paragraph}{groundTruth.csv}{50}
 \contentsline {chapter}{\numberline {4}Sperimentazione}{51}
 \contentsline {section}{\numberline {4.1}Dataset}{52}

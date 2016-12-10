@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.11.14)  7 DEC 2016 12:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.11.14)  7 DEC 2016 12:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1182,12 +1182,6 @@ ngs[]normal.txt,
  []
 
 
-Overfull \hbox (72.13611pt too wide) in paragraph at lines 312--326
-\OT1/cmr/bx/n/12 em-bed-dings[]line[]first.txt, em-bed-dings[]line[]second.txt,
- em-bed-dings[]doc2vec.txt[]
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 312--326
 
  []
@@ -1673,9 +1667,9 @@ File: ./Immagini/nemenyi.jpg Graphic file (type jpg)
 
 <use ./Immagini/nemenyi.jpg>
 Package pdftex.def Info: ./Immagini/nemenyi.jpg used on input line 2132.
-(pdftex.def)             Requested size: 455.24408pt x 197.57603pt.
+(pdftex.def)             Requested size: 398.33858pt x 172.87903pt.
 
-Overfull \hbox (65.24408pt too wide) in paragraph at lines 2132--2133
+Overfull \hbox (8.33858pt too wide) in paragraph at lines 2132--2133
  [][] 
  []
 
@@ -1731,7 +1725,7 @@ ic/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmti12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmtt12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/a
 msfonts/symbols/msbm10.pfb>
-Output written on Tesi.pdf (127 pages, 7944378 bytes).
+Output written on Tesi.pdf (127 pages, 7932502 bytes).
 PDF statistics:
  531 PDF objects out of 1000 (max. 8388607)
  347 compressed objects within 4 object streams
